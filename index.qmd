@@ -1,0 +1,7 @@
+# Introduction {.unnumbered}
+
+This is a example of experiment whith results of metaDag data <https://http://bioinfo.uib.es/metadag/>.
+
+```{r echo=FALSE}
+knitr::include_graphics("figures/screen_1.png")
+```

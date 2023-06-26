@@ -1,0 +1,131 @@
+# Load data MetaDag experiment
+
+
+```{r setup_load_data, include=FALSE,eval=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      cache=FALSE,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+
+```
+
+```{r}
+experiment=
+  "results_ff15c187-62e7-37c2-96a7-c824f7eab671"
+path_exp=paste0("data/",experiment,"/data/")
+dir(path_exp)
+```
+
+```{r}
+MBB=read_csv(paste0(path_exp,"Different_MBB.csv"),show_col_types = FALSE)
+mDAG=read_csv(paste0(path_exp,"Different_mDAG.csv"),show_col_types = FALSE)
+Results=read_csv(paste0(path_exp,"Results.csv"),show_col_types = FALSE)
+```
+
+
+## MBB
+
+In this experiment `MBB` is a table with `r nrow(MBB)` rows and `r ncol(MBB)` columns.
+
+
+```{r}
+library(knitr)
+library(kableExtra)
+#add_header_above(c("a" = 5, "b" = 18,"last"=2752-23)) %>%
+# kable_paper() %>%
+kable(MBB[1:20,1:30]) %>%   scroll_box(width = "100%", height = "200px")
+```
+
+
+Manual columnas MBB
+
+
+```{r}
+#definition_cols=data.frame(col_number,col_name,col,definition)
+```
+
+
+## mDAG
+
+Abstract/unique mDAG's in this experiment
+
+
+```{r}
+dim(mDAG)
+```
+
+```{r}
+kable(mDAG[1:20,1:30]) %>%   scroll_box(width = "100%", height = "200px")
+```
+
+```{r}
+dim(mDAG)
+names(mDAG)[1:6]
+names(mDAG)[7:(dim(mDAG)[2]-1150)]# 28 to 1213  code MBB: 1 if MBB in mDAG 0 
+```
+
+
+## Results
+
+Tabular data `Results` for this experiment
+
+
+```{r}
+kable(Results[1:20,1:10])%>%
+  row_spec(0, angle = -90) %>%   
+  scroll_box(width = "300%", height = "1000px")
+```
+
+```{r}
+dim(Results)
+names(Results)[1]# organisms  kegg id  class representant of mDAG
+names(Results)[2]# taxonomy separate b y |
+names(Results)[3]# mDAG_Id 
+names(Results)[4]# Full name representant
+names(Results)[6:36]# 6 to 2726  Variable Reactions name id: This reaction belongs to this ball for this MDAG. If not present the value is NA
+```
+
+```{r}
+library(stringr)
+reactions=names(Results)[-c(1:5)]
+reverse_reactions=stringr::str_detect(reactions,"rev")
+table(reverse_reactions)
+```
+
+
+# Read graph
+
+
+```{r}
+library(igraph)
+gg1_mDAG=read.graph(paste0(path_exp,"Individuals/hsa/hsa_mDAG.graphml"),format = "graphml")
+summary(gg1_mDAG)
+barplot(table(degree(gg1_mDAG)))
+
+gg1_core_mDAG=read.graph(
+  paste0(path_exp,"Global/core/core_mDAG.graphml"), format = "graphml")
+
+gg1_core_RC=read.graph(
+  paste0(path_exp,                    "Global/core/core_RC.graphml"), format = "graphml")
+```
+
+```{r}
+compo=components(gg1_mDAG,mode = "weak")
+str(compo)
+compo$csize
+k=which.max(compo$csize==max(compo$csize))
+k
+table(compo$membership)
+vertex=which(compo$membership==k)
+length(vertex)
+vertex
+V(gg1_mDAG)
+CC1=induced_subgraph(gg1_mDAG, vids=vertex)
+plot(CC1)
+summary(CC1)
+```
+

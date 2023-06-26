@@ -1,0 +1,53 @@
+<<<<<<< HEAD
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Metagad experiment example"
+  author: "MetaDag Team"
+  date: "2023-6-6"
+  chapters:
+    - index.qmd
+    - data_load.qmd
+    - data_medag_20230321_long_report.qmd
+    - kernel_1.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: Journal
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
+=======
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Metagad experiment example"
+  author: "MetaDag Team"
+  date: "2023-6-6"
+  chapters:
+    - index.qmd
+    - data_load.qmd
+    - mDag_four_distance_comparison.qmd
+    - kernel.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: Journal
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
+>>>>>>> 67440c1f760214cc7671eb39b3e6e8b809275dc2

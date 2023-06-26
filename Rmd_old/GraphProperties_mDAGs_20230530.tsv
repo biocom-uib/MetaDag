@@ -1,0 +1,6 @@
+"Graph"	"NumberNodes"	"Average_path_length"	"Average_number_conections"	"diameter"	"radius"	"connected"	"Transitivity Average"	"Main_Clusters_1"	"Main_Clusters_2"
+"1"	"data/result_9ed945b7-6fd7-30de-80a3-01b4e8528ebf/data/Individuals/cang/cang_mDAG"	"594"	"12.8722045348657"	"2.64983164983165"	"43"	"20"	"TRUE"	"0.191358081939594"	"594"	"60"
+"2"	"data/result_9ed945b7-6fd7-30de-80a3-01b4e8528ebf/data/Individuals/caty/caty_mDAG"	"605"	"12.7649078869979"	"2.62148760330579"	"43"	"20"	"TRUE"	"0.191457214144247"	"605"	"62"
+"3"	"data/result_9ed945b7-6fd7-30de-80a3-01b4e8528ebf/data/Individuals/cimi/cimi_mDAG"	"595"	"12.8445269303638"	"2.62857142857143"	"43"	"20"	"TRUE"	"0.193109972015622"	"595"	"60"
+"4"	"data/result_9ed945b7-6fd7-30de-80a3-01b4e8528ebf/data/Individuals/cjc/cjc_mDAG"	"592"	"12.8835502495352"	"2.63175675675676"	"43"	"20"	"TRUE"	"0.193110115723318"	"592"	"44"
+"5"	"data/result_9ed945b7-6fd7-30de-80a3-01b4e8528ebf/data/Individuals/csab/csab_mDAG"	"598"	"12.9032739219092"	"2.63210702341137"	"43"	"20"	"TRUE"	"0.189027562489729"	"598"	"56"

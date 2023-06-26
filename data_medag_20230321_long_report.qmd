@@ -1,0 +1,416 @@
+# Load  several similarities and metadata for an experiment
+
+```{r}
+library(tidyverse)
+library(ComplexHeatmap)
+library(viridis)
+library(circlize)
+library(plotly)
+library(randomcoloR)
+#library(knitr)
+#library(kableExtra)
+library(factoextra)
+library(RColorBrewer)
+library(kableExtra)
+path_exp="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/"
+```
+
+
+
+##  Data analysis whit 4 methods distance Direct, Munkrest, Direct_Munkrest and Munkrest_Direct
+
+
+## Load several similarities  for mDag
+
+# Load meta data from experimet all eukariotes
+
+Meta data mDa_Id and taxonomy sort by Kingdom,Filum,Class,mDAG_Id
+
+```{r}
+path_exp
+Results=read_csv(paste0(path_exp,"Results.csv"))
+names(Results)[c(1,3,4)]=c("Organism","mDAG_Id","Full_Name")
+#code=Results %>% select(Organism:mDAG_Id)
+taxo=Results %>% select(Organism:Full_Name)
+index=is.na(taxo$Categories)
+taxo=taxo %>% separate(Categories,into=c("Kingdom","Phylum","Class"))
+taxo$Class[index]=paste(taxo$Kingdom[index],taxo$Phylum[index])
+meta_taxo=taxo %>% arrange(Kingdom,Phylum,Class)
+#order_class=order(table(taxo$Class),decreasing = TRUE)
+#table(is.na(taxo$Class))
+#meta_taxo= taxo %>%
+# right_join(code,by="Organism") %>%
+#arrange(Kingdom,Phylum,Class,mDAG_Id)
+index=which(is.na(meta_taxo$Class))
+meta_taxo$Class[index]=meta_taxo$Phylum[index]
+```
+
+
+```{r}
+table(meta_taxo$Kingdom) %>% kable %>%
+  kable_styling("striped", full_width = F,position="left")%>% 
+ scroll_box(width = "400px", height = "200px")
+table(meta_taxo$Phylum,meta_taxo$Kingdom) %>% kable %>%
+  kable_styling("striped", full_width = F,position="left")%>% 
+ scroll_box(width = "500px", height = "500px")
+```
+
+# Similariries for method Direct 
+
+In this section we will show the similarities between mDAG's using different methods.
+
+The experiment data set consists of `r nrow(meta_taxo)` eurkaryotes from the animal, plant, fungus, and protist kingdoms.
+
+```{r, echo=FALSE}
+knitr::kable(table(meta_taxo$Kingdom),col.names = c("Kingdom","Abs. Freq."))
+```
+
+
+
+
+```{r}
+list_Sim=dir(path_exp,pattern="^Similarities")
+list_Sim
+list_Sim_mDAG=dir(path_exp,pattern="^Similarities_mDAG")
+list_Sim_mDAG
+```
+```{r}
+Sim_MSA_mDAG=read_csv(paste0(path_exp,list_Sim_mDAG[1]))
+Sim_MSA_mDAG=as.matrix(Sim_MSA_mDAG[,-1])
+rownames(Sim_MSA_mDAG)=colnames(Sim_MSA_mDAG)
+Sim_MSA_mDAG=Sim_MSA_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
+```
+
+```{r}
+Sim_MSA_Mun_mDAG=read_csv(paste0(path_exp,list_Sim_mDAG[2]))
+Sim_MSA_Mun_mDAG=as.matrix(Sim_MSA_Mun_mDAG[,-1])
+rownames(Sim_MSA_Mun_mDAG)=colnames(Sim_MSA_Mun_mDAG)
+Sim_MSA_Mun_mDAG=Sim_MSA_Mun_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
+```
+
+```{r}
+Sim_Mun_mDAG=read_csv(paste0(path_exp,list_Sim_mDAG[3]))
+Sim_Mun_mDAG=as.matrix(Sim_Mun_mDAG[,-1])
+rownames(Sim_Mun_mDAG)=colnames(Sim_Mun_mDAG)
+Sim_MSA_mDAG=Sim_MSA_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
+```
+
+```{r}
+Sim_Mun_MSA_mDAG=read_csv(paste0(path_exp,list_Sim_mDAG[4]))
+Sim_Mun_MSA_mDAG=as.matrix(Sim_Mun_MSA_mDAG[,-1])
+rownames(Sim_Mun_MSA_mDAG)=colnames(Sim_Mun_MSA_mDAG)
+Sim_Mun_MSA_mDAG=Sim_Mun_MSA_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
+```
+
+## Heatmaps
+
+
+```
+dis_DirectedMethod<-read_csv(paste0(path_exp,
+                                    "Similarities_MBB_MSAMethod.csv"))
+names(dis_DirectedMethod)[1]="mDAG_Id"
+dis_DirectedMethod[,-1]=sqrt(1-dis_DirectedMethod[,-1])
+dis_DirectedMethod_meta =dis_DirectedMethod %>% right_join(select(meta_taxo,mDAG_Id,Kingdom,Filum,Class),by="mDAG_Id") %>%
+  arrange(Kingdom,Filum,Class)
+
+
+ID=dis_DirectedMethod_meta$mDAG_Id
+dis_DirectedMethod=  dis_DirectedMethod_meta %>% 
+  select(-Kingdom) %>% 
+  relocate(mDAG_Id,ID) %>%
+  select(2:570) %>%
+  as.matrix()
+#dis_dir=as.matrix(sqrt(2*(1-sim0[,c(2:570)]^2)))
+dimnames(dis_DirectedMethod) = list(ID,ID)
+```
+
+## Heatmap  Similarity MSA method
+
+```{r, fig.align='center', fig.height=5, cache=TRUE}
+dff<-meta_taxo %>% select(Kingdom)  %>% as.data.frame()
+#str(dff)
+
+colores <- list(Kingdom= c("Animals"="purple","Plants"="green","Fungi"="yellow","Protists"="coral"))
+
+anotacion <- HeatmapAnnotation(df=dff, col = colores)
+
+S=Sim_MSA_mDAG
+a<- Heatmap(matrix = Sim_MSA_mDAG, 
+                          column_title="Similarity mDag MSA Method\n  Eukariotas by Kingdom",
+            name = "Kingdom",
+            heatmap_legend_param = list(
+    at = c(0.4,0.5,0.6,0.7,0.8,0.9,1)),
+        col=rev(viridis(256)),
+        cluster_rows = FALSE,
+        cluster_columns = FALSE,
+        top_annotation = anotacion,
+        show_column_names = FALSE, 
+        show_row_names = FALSE,
+        left_annotation = rowAnnotation(df = dff, col = colores,show_annotation_name=FALSE))
+  
+draw(a, merge_legend = TRUE)
+```
+
+```{r, fig.align='center', fig.height=5, cache=TRUE}
+meta_animals= meta_taxo %>% filter(Kingdom=="Animals")
+nombres=unique(meta_animals$Phylum)
+aux_order=table(meta_animals$Phylum)
+dff<-meta_taxo %>% filter(Kingdom=="Animals") %>% select(Class) %>% as.data.frame()
+#str(dff)
+nombres=unique(dff$Class)
+col=rainbow(length(nombres))
+colores=list(Class=col)
+names(colores$Class)=nombres
+#paste0(paste0('"',nombres,'"="',col,'"'),collapse=",")
+# colores <- list(Class=c(
+# "Amphibians"="#FF0000","Annelids"="#FF4900",
+# "Cartilaginous"="#FF9200","Cephalochordates"="#FFDB00",
+# "Chelicerates"="#DBFF00","Cnidarians"="#92FF00",
+# "Crustaceans"="#49FF00","Echinoderms"="#00FF00",
+# "Fishes"="#00FF49","Flatworms"="#00FF92",
+# "Hemichordates"="#00FFDB","Insects"="#00DBFF",
+# "Mammals"="#0092FF","Mollusks"="#0049FF",
+# "Nematodes"="#0000FF","Placozoans"="#4900FF",
+# "Poriferans"="#9200FF",
+# "Reptiles"="#DB00FF",
+# "Tunicates"="#FF00DB",
+# "Mammals"="#FF0092",
+# "Reptiles"="#FF0049"))
+# aux=names(colores$Class)
+# colores$Class=as.character(palette.colors(n=21,palette="Polychrome 36"))
+# attr(colores$Class,"names")=aux
+
+
+anotacion <- HeatmapAnnotation(df=dff, col = colores)
+
+
+a2<- Heatmap(matrix = S[1:535,1:535], 
+              column_title="Distance mDag Direct Method\n  Animals by Class",
+            name = "Class", 
+            heatmap_legend_param = list(
+    at = seq(0,1.5,by=0.1)),
+        col=rev(viridis(256)),
+        cluster_rows = FALSE,
+        cluster_columns = FALSE,
+        top_annotation = anotacion,
+        show_column_names = FALSE, 
+        show_row_names = FALSE,
+        left_annotation = rowAnnotation(df = dff, col = colores,show_annotation_name=FALSE))
+  
+draw(a2, merge_legend = TRUE)
+
+```
+
+
+
+## MDS (Multidimensional Scaling)
+
+```{r, fig.align='center', fig.height=5, cache=TRUE}
+
+## Metric multidimensional scaling (mMDS)
+mds7 <- cmdscale(sqrt(1-Sim_MSA_mDAG^2),k=7,eig=TRUE)
+#pairs(mds7$points[,1:4])
+mds7$GOF
+mds <- mds7$points %>%  as_tibble()
+colnames(mds) <-paste0("Dim.",1:dim(mds7$points)[2])
+
+library(GGally)
+
+ggpairs(as_tibble(mds7$points),columns=1:4,aes(color=meta_taxo$Kingdom,alpha=0.5),upper=list(continuous="points")) 
+
+mds <- mds %>%
+  mutate(groups =as.factor(meta_taxo$Kingdom))
+
+
+#,text= ~paste("Age:", groups, '<br>Name:')
+length(unique(meta_taxo$Phylum))
+
+#col_mds=c("purple","green","yellow","coral")
+col_mds=rainbow(33)
+#mcol_mds=bremer.pal(7,"Greens")
+
+fig <- 
+plot_ly(
+  mds, x = ~Dim.1, y = ~Dim.2,
+  color = ~groups, 
+  colors= col_mds,
+  type="scatter",
+  mode="markers") %>%
+  layout(
+    xaxis = list(autorange=2,
+      range=c(-0.8,0.8)), yaxis = list(autorange=2,
+      range=c(-0.8,0.8)))
+
+
+#fig
+```
+
+
+# Hierarchical cluster
+
+
+
+```{r}
+library(dendextend)
+D=as.dist(sqrt(1-Sim_MSA_mDAG^2))
+hc=hclust(as.dist(D),method ="ward.D")
+ggplot(as.ggdend(as.dendrogram(hc)))
+```
+
+
+
+```{r}
+clust4=cutree(hc,4)
+table(clust4,meta_taxo$Kingdom)
+```
+
+
+
+
+## Heatmap  Similarity Mun_MSA method
+
+```{r, fig.align='center', fig.height=5, cache=TRUE}
+dff<-meta_taxo %>% select(Kingdom)  %>% as.data.frame()
+#str(dff)
+
+colores <- list(Kingdom= c("Animals"="purple","Plants"="green","Fungi"="yellow","Protists"="coral"))
+
+anotacion <- HeatmapAnnotation(df=dff, col = colores)
+
+S=Sim_Mun_MSA_mDAG
+a<- Heatmap(matrix = Sim_Mun_MSA_mDAG, 
+                          column_title="Similarity mDag Mun-MSA Method\n  Eukariotas by Kingdom",
+            name = "Kingdom",
+            heatmap_legend_param = list(
+    at = c(0.4,0.5,0.6,0.7,0.8,0.9,1)),
+        col=rev(viridis(256)),
+        cluster_rows = FALSE,
+        cluster_columns = FALSE,
+        top_annotation = anotacion,
+        show_column_names = FALSE, 
+        show_row_names = FALSE,
+        left_annotation = rowAnnotation(df = dff, col = colores,show_annotation_name=FALSE))
+  
+draw(a, merge_legend = TRUE)
+```
+
+```{r, fig.align='center', fig.height=5, cache=TRUE}
+meta_animals= meta_taxo %>% filter(Kingdom=="Animals")
+nombres=unique(meta_animals$Phylum)
+aux_order=table(meta_animals$Phylum)
+dff<-meta_taxo %>% filter(Kingdom=="Animals") %>% select(Class) %>% as.data.frame()
+#str(dff)
+nombres=unique(dff$Class)
+col=rainbow(length(nombres))
+colores=list(Class=col)
+names(colores$Class)=nombres
+#paste0(paste0('"',nombres,'"="',col,'"'),collapse=",")
+# colores <- list(Class=c(
+# "Amphibians"="#FF0000","Annelids"="#FF4900",
+# "Cartilaginous"="#FF9200","Cephalochordates"="#FFDB00",
+# "Chelicerates"="#DBFF00","Cnidarians"="#92FF00",
+# "Crustaceans"="#49FF00","Echinoderms"="#00FF00",
+# "Fishes"="#00FF49","Flatworms"="#00FF92",
+# "Hemichordates"="#00FFDB","Insects"="#00DBFF",
+# "Mammals"="#0092FF","Mollusks"="#0049FF",
+# "Nematodes"="#0000FF","Placozoans"="#4900FF",
+# "Poriferans"="#9200FF",
+# "Reptiles"="#DB00FF",
+# "Tunicates"="#FF00DB",
+# "Mammals"="#FF0092",
+# "Reptiles"="#FF0049"))
+# aux=names(colores$Class)
+# colores$Class=as.character(palette.colors(n=21,palette="Polychrome 36"))
+# attr(colores$Class,"names")=aux
+
+
+anotacion <- HeatmapAnnotation(df=dff, col = colores)
+
+
+a2<- Heatmap(matrix = S[1:535,1:535], 
+              column_title="Distance mDag Mun_MSA Method\n  Animals by Class",
+            name = "Class", 
+            heatmap_legend_param = list(
+    at = seq(0,1.5,by=0.1)),
+        col=rev(viridis(256)),
+        cluster_rows = FALSE,
+        cluster_columns = FALSE,
+        top_annotation = anotacion,
+        show_column_names = FALSE, 
+        show_row_names = FALSE,
+        left_annotation = rowAnnotation(df = dff, col = colores,show_annotation_name=FALSE))
+  
+draw(a2, merge_legend = TRUE)
+
+```
+
+
+
+## MDS (Multidimensional Scaling)
+
+```{r, fig.align='center', fig.height=5, cache=TRUE}
+
+## Metric multidimensional scaling (mMDS)
+mds7 <- cmdscale(sqrt(1-Sim_Mun_MSA_mDAG^2),k=7,eig=TRUE)
+#pairs(mds7$points[,1:4])
+mds7$GOF
+mds <- mds7$points %>%  as_tibble()
+colnames(mds) <-paste0("Dim.",1:dim(mds7$points)[2])
+
+library(GGally)
+
+ggpairs(as_tibble(mds7$points),columns=1:4,aes(color=meta_taxo$Kingdom,alpha=0.5),upper=list(continuous="points")) 
+#cmdscale(D,2,eig=TRUE)$GOF
+
+# Plot MDS
+
+#mds <- mds %>%
+ # mutate(groups =as.factor(sim0_meta$Kingdom))
+
+mds <- mds %>%
+  mutate(groups =as.factor(meta_taxo$Kingdom))
+
+
+#,text= ~paste("Age:", groups, '<br>Name:')
+length(unique(meta_taxo$Phylum))
+
+#col_mds=c("purple","green","yellow","coral")
+col_mds=rainbow(33)
+#mcol_mds=bremer.pal(7,"Greens")
+
+fig <- 
+plot_ly(
+  mds, x = ~Dim.1, y = ~Dim.2,
+  color = ~groups, 
+  colors= col_mds
+) %>%
+  layout(
+    xaxis = list(autorange=2,
+      range=c(-0.8,0.8)), yaxis = list(autorange=2,
+      range=c(-0.8,0.8)))
+#fig
+```
+
+
+# Hierarchical cluster
+
+
+
+```{r}
+library(dendextend)
+D=as.dist(sqrt(1-Sim_Mun_MSA_mDAG^2))
+hc=hclust(as.dist(D),method ="ward.D")
+ggplot(as.ggdend(as.dendrogram(hc)))
+```
+
+
+
+```{r}
+clust4=cutree(hc,4)
+table(clust4,meta_taxo$Kingdom)
+```
+
+
+
+
+
