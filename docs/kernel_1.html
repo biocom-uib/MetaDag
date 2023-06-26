@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Metagad experiment example - 3&nbsp; Load data graphs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./data_medag_20230321_long_report.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Load data graphs</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Metagad experiment example</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_load.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Load data MetaDag experiment</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_medag_20230321_long_report.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Load several similarities and metadata for an experiment</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kernel_1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Load data graphs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#read-all-graphs-from-a-level-of-the-experiment" id="toc-read-all-graphs-from-a-level-of-the-experiment" class="nav-link active" data-scroll-target="#read-all-graphs-from-a-level-of-the-experiment"><span class="toc-section-number">3.1</span>  Read all graphs from a level of the experiment</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Load data graphs</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="read-all-graphs-from-a-level-of-the-experiment" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="read-all-graphs-from-a-level-of-the-experiment"><span class="header-section-number">3.1</span> Read all graphs from a level of the experiment</h2>
+<p>Read all graphs from a level from experiment; for example individuals. We read only firts (alphabetic) two graph</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>path_exp<span class="ot">=</span><span class="st">"data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>list_names<span class="ot">=</span><span class="fu">dir</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/"</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>list_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "0000_RefPw" "aaf"        "aag"        "aalb"       "aali"      
+  [6] "aalt"       "aam"        "aamp"       "aang"       "aara"      
+ [11] "abe"        "abp"        "abv"        "acan"       "acar"      
+ [16] "acep"       "acer"       "achc"       "ache"       "achl"      
+ [21] "acoz"       "acs"        "act"        "acun"       "acyg"      
+ [26] "adf"        "adl"        "adu"        "aec"        "afm"       
+ [31] "afor"       "aful"       "afv"        "afz"        "aga"       
+ [36] "agb"        "agen"       "agif"       "ago"        "agrg"      
+ [41] "ags"        "ahf"        "aip"        "ajc"        "aje"       
+ [46] "ajm"        "aju"        "alab"       "alat"       "alim"      
+ [51] "aluc"       "aly"        "ame"        "amer"       "amex"      
+ [56] "amil"       "amj"        "aml"        "ang"        "ani"       
+ [61] "anu"        "aoce"       "aof"        "aor"        "apan"      
+ [66] "api"        "apla"       "aplc"       "apln"       "aprc"      
+ [71] "apro"       "apuu"       "aqu"        "arow"       "arut"      
+ [76] "asn"        "aste"       "atd"        "aten"       "ath"       
+ [81] "atr"        "ats"        "avit"       "bacu"       "bany"      
+ [86] "bbel"       "bbif"       "bbig"       "bbis"       "bbo"       
+ [91] "bbrx"       "bbub"       "bbuf"       "bcom"       "bcoo"      
+ [96] "bdi"        "beq"        "bfo"        "bfu"        "bgar"      
+[101] "bgh"        "bgt"        "bhj"        "bim"        "biu"       
+[106] "bman"       "bmic"       "bmor"       "bmy"        "bna"       
+[111] "bnn"        "bod"        "boe"        "bom"        "bor"       
+[116] "bpec"       "bpg"        "bpyo"       "brhi"       "brp"       
+[121] "bsc"        "bspl"       "bta"        "btab"       "btax"      
+[126] "bter"       "bvan"       "bvg"        "bvk"        "bze"       
+[131] "cabi"       "cal"        "cam"        "cang"       "cann"      
+[136] "caty"       "caua"       "caur"       "cbai"       "cbr"       
+[141] "cbrc"       "ccad"       "ccae"       "ccaj"       "ccal"      
+[146] "ccan"       "ccar"       "ccat"       "ccav"       "cci"       
+[151] "ccin"       "cclu"       "ccp"        "ccrc"       "ccri"      
+[156] "ccw"        "cdk"        "cdu"        "cel"        "cfa"       
+[161] "cfel"       "cfj"        "cfo"        "cfr"        "cge"       
+[166] "cgi"        "cgib"       "cgig"       "cglo"       "cgob"      
+[171] "cgr"        "chig"       "cho"        "chx"        "cic"       
+[176] "cide"       "cill"       "cim"        "cimi"       "cin"       
+[181] "cins"       "cit"        "cjc"        "cjo"        "clec"      
+[186] "clu"        "clud"       "clup"       "clus"       "clv"       
+[191] "cmac"       "cmax"       "cme"        "cmk"        "cmo"       
+[196] "cmos"       "cmt"        "cmy"        "cnb"        "cne"       
+[201] "cng"        "cns"        "cot"        "cpap"       "cpea"      
+[206] "cpep"       "cpic"       "cpii"       "cpla"       "cpoc"      
+[211] "cpoo"       "cput"       "cpv"        "cpw"        "cqi"       
+[216] "cqu"        "crb"        "cre"        "crg"        "csab"      
+[221] "csat"       "cscu"       "csec"       "csem"       "cset"      
+[226] "csin"       "csl"        "csol"       "csti"       "csv"       
+[231] "csyr"       "cten"       "cthr"       "ctig"       "ctp"       
+[236] "ctul"       "cuca"       "cud"        "cvf"        "cvg"       
+[241] "cvr"        "dam"        "dan"        "daz"        "dci"       
+[246] "dcr"        "dct"        "ddi"        "der"        "dfa"       
+[251] "dfr"        "dgr"        "dgt"        "dha"        "dhe"       
+[256] "dle"        "dme"        "dmk"        "dmn"        "dmo"       
+[261] "dne"        "dnm"        "dnv"        "dnx"        "dord"      
+[266] "dosa"       "dpa"        "dpe"        "dpl"        "dpo"       
+[271] "dpol"       "dpp"        "dpte"       "dpub"       "dpx"       
+[276] "dpz"        "dqu"        "dre"        "dro"        "dse"       
+[281] "dsi"        "dsm"        "dsp"        "dsq"        "dsr"       
+[286] "dsv"        "dvi"        "dwi"        "dya"        "dzi"       
+[291] "eaf"        "eai"        "ecad"       "ecb"        "ecra"      
+[296] "ecu"        "edi"        "eee"        "efo"        "egl"       
+[301] "egr"        "egt"        "egu"        "egz"        "ehe"       
+[306] "ehi"        "ehs"        "ehx"        "ein"        "eiv"       
+[311] "eju"        "ela"        "elk"        "els"        "ely"       
+[316] "epa"        "epz"        "erc"        "ero"        "esn"       
+[321] "esp"        "etf"        "etl"        "eus"        "fab"       
+[326] "fas"        "fca"        "fcd"        "fch"        "fcy"       
+[331] "fex"        "ffu"        "fga"        "fgr"        "fme"       
+[336] "foc"        "fox"        "fpg"        "fpu"        "fve"       
+[341] "fvr"        "gab"        "gae"        "gaf"        "gas"       
+[346] "gat"        "gcl"        "gfr"        "gga"        "ggn"       
+[351] "ggo"        "ghi"        "gja"        "gla"        "glz"       
+[356] "gmu"        "gmx"        "gra"        "gsj"        "gsl"       
+[361] "gste"       "gtr"        "gtt"        "gvr"        "hai"       
+[366] "hald"       "hame"       "han"        "haw"        "hazt"      
+[371] "hbr"        "hcg"        "hcq"        "hgl"        "hhal"      
+[376] "hhip"       "hhv"        "hir"        "his"        "hle"       
+[381] "hmg"        "hmh"        "hrf"        "hrj"        "hro"       
+[386] "hsa"        "hsp"        "hst"        "hze"        "ini"       
+[391] "ipu"        "isc"        "itr"        "jcu"        "jre"       
+[396] "kaf"        "kla"        "kmr"        "kmx"        "kng"       
+[401] "lak"        "lang"       "lav"        "lbc"        "lbd"       
+[406] "lbz"        "lcat"       "lcf"        "lcm"        "lco"       
+[411] "lcq"        "ldc"        "ldi"        "ldo"        "lel"       
+[416] "lgi"        "lht"        "lhu"        "lif"        "lja"       
+[421] "llv"        "lma"        "lmi"        "loa"        "loc"       
+[426] "lpan"       "lper"       "lpol"       "lruf"       "lsm"       
+[431] "lsq"        "lsr"        "lsv"        "lth"        "lve"       
+[436] "lww"        "maj"        "malb"       "mamb"       "masi"      
+[441] "maua"       "maw"        "mbe"        "mbr"        "mcaf"      
+[446] "mcal"       "mcc"        "mcep"       "mcf"        "mcha"      
+[451] "mcoc"       "mde"        "mdl"        "mdm"        "mdo"       
+[456] "mesc"       "mfot"       "mgen"       "mgl"        "mgp"       
+[461] "mgr"        "minc"       "ming"       "mis"        "mjv"       
+[466] "mleu"       "mlf"        "mlr"        "mlx"        "mmer"      
+[471] "mmf"        "mmu"        "mmur"       "mmyo"       "mna"       
+[476] "mnb"        "mng"        "mni"        "mnt"        "more"      
+[481] "morg"       "mpah"       "mpha"       "mpp"        "mpr"       
+[486] "mpuf"       "mrr"        "mrt"        "mrv"        "msam"      
+[491] "msex"       "msym"       "mthb"       "mtm"        "mtr"       
+[496] "mui"        "mun"        "mus"        "myb"        "myd"       
+[501] "myi"        "mze"        "nai"        "nasi"       "nau"       
+[506] "ncar"       "ncc"        "nce"        "ncol"       "ncr"       
+[511] "ncs"        "ndi"        "nfi"        "nfu"        "ngd"       
+[516] "ngi"        "ngr"        "nhe"        "niq"        "nle"       
+[521] "nlu"        "nmea"       "nmel"       "nni"        "nnt"       
+[526] "nnu"        "npa"        "npd"        "npr"        "npt"       
+[531] "nsu"        "nsy"        "nta"        "nte"        "nto"       
+[536] "nve"        "nvi"        "nvl"        "nvs"        "nwh"       
+[541] "oaa"        "oas"        "oau"        "obb"        "obi"       
+[546] "obo"        "obr"        "ocu"        "oda"        "oeu"       
+[551] "ofu"        "oga"        "ogl"        "ogo"        "oha"       
+[556] "ola"        "olu"        "oml"        "omy"        "one"       
+[561] "onl"        "oor"        "opa"        "opi"        "oro"       
+[566] "osa"        "osn"        "ota"        "otc"        "otu"       
+[571] "otw"        "ovi"        "padl"       "pale"       "palz"      
+[576] "pan"        "panu"       "pavi"       "pbar"       "pbe"       
+[581] "pbg"        "pbi"        "pbl"        "pbn"        "pbx"       
+[586] "pcad"       "pcan"       "pcao"       "pcb"        "pcf"       
+[591] "pchn"       "pcla"       "pco"        "pcoc"       "pcoo"      
+[596] "pcoq"       "pcri"       "pcs"        "pcub"       "pcw"       
+[601] "pcy"        "pda"        "pdam"       "pdic"       "pdp"       
+[606] "pdul"       "peq"        "peu"        "pfa"        "pfd"       
+[611] "pfh"        "pfj"        "pflv"       "pfor"       "pfp"       
+[616] "pfuc"       "pfy"        "pgab"       "pgc"        "pgig"      
+[621] "pgr"        "pgu"        "pgut"       "pguu"       "phai"      
+[626] "phas"       "phi"        "phu"        "phyp"       "pic"       
+[631] "pif"        "pja"        "pki"        "pkl"        "pkn"       
+[636] "pkz"        "plai"       "plep"       "plet"       "pleu"      
+[641] "plj"        "plop"       "pmac"       "pmaj"       "pmax"      
+[646] "pmei"       "pmoa"       "pmoo"       "pmua"       "pmum"      
+[651] "pmur"       "pnap"       "pno"        "pon"        "pop"       
+[656] "pov"        "ppa"        "ppad"       "ppei"       "pper"      
+[661] "ppl"        "ppoi"       "ppot"       "ppp"        "pprm"      
+[666] "pps"        "ppug"       "ppyr"       "prap"       "prei"      
+[671] "pret"       "prob"       "pruf"       "psat"       "psco"      
+[676] "psex"       "psiu"       "psoj"       "psom"       "pspa"      
+[681] "psq"        "pss"        "pte"        "pteh"       "ptep"      
+[686] "ptg"        "pti"        "ptkz"       "ptm"        "ptr"       
+[691] "ptru"       "puc"        "pvir"       "pvm"        "pvp"       
+[696] "pvt"        "pvu"        "pvv"        "pvx"        "pvy"       
+[701] "pxb"        "pxu"        "pxy"        "pyo"        "pyu"       
+[706] "qlo"        "qsu"        "ray"        "rbb"        "rcn"       
+[711] "rcu"        "rfq"        "rmd"        "rmp"        "rno"       
+[716] "rro"        "rsan"       "rsz"        "rtem"       "rtp"       
+[721] "rze"        "salp"       "sanh"       "sapo"       "sara"      
+[726] "sasa"       "sbi"        "sbq"        "scac"       "scam"      
+[731] "scan"       "sce"        "schu"       "sclv"       "scm"       
+[736] "sdm"        "sdu"        "seub"       "sfm"        "sgh"       
+[741] "sgre"       "shab"       "shon"       "shr"        "shs"       
+[746] "shx"        "sind"       "sita"       "sko"        "sla"       
+[751] "slal"       "slb"        "sliu"       "sluc"       "slud"      
+[756] "sly"        "smeo"       "smin"       "smm"        "smo"       
+[761] "smp"        "snh"        "soc"        "soe"        "sot"       
+[766] "soy"        "spaa"       "spao"       "spar"       "spen"      
+[771] "spis"       "spo"        "spu"        "sre"        "srx"       
+[776] "ssc"        "ssck"       "sscv"       "ssen"       "ssl"       
+[781] "sspl"       "sstn"       "stow"       "stru"       "sund"      
+[786] "svg"        "svs"        "tad"        "taes"       "tala"      
+[791] "tan"        "tasa"       "tbg"        "tbl"        "tbr"       
+[796] "tca"        "tcc"        "tcr"        "tdc"        "tdl"       
+[801] "teo"        "tet"        "tfd"        "tfn"        "tgb"       
+[806] "tge"        "tgo"        "tgt"        "tgu"        "thj"       
+[811] "tmf"        "tml"        "tmn"        "tms"        "tmu"       
+[816] "tng"        "tnl"        "tod"        "tot"        "tpai"      
+[821] "tpal"       "tpf"        "tpra"       "tpre"       "tps"       
+[826] "tpv"        "tre"        "trg"        "trr"        "tru"       
+[831] "tsp"        "tsr"        "tss"        "tst"        "ttt"       
+[836] "tua"        "tup"        "tut"        "tva"        "tve"       
+[841] "tvs"        "twl"        "uah"        "uar"        "uma"       
+[846] "umr"        "ure"        "val"        "var"        "vcn"       
+[851] "vda"        "vde"        "vem"        "vja"        "vko"       
+[856] "vlg"        "vpc"        "vpo"        "vps"        "vra"       
+[861] "vri"        "vun"        "vvi"        "vvp"        "wic"       
+[866] "wse"        "xco"        "xen"        "xgl"        "xhe"       
+[871] "xla"        "xma"        "xtr"        "yli"        "zab"       
+[876] "zca"        "zce"        "zju"        "zma"        "zmk"       
+[881] "zne"        "zof"        "zro"        "ztr"        "zvi"       </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>list_names<span class="ot">=</span> list_names[<span class="sc">-</span><span class="dv">1</span>] <span class="co"># filter 0000_RefPw</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(list_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 884</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="fu">length</span>(list_names)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>list_names<span class="ot">=</span> list_names[<span class="dv">1</span><span class="sc">:</span>k] <span class="co"># select ONLY 5 individuals</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>list_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "aaf"  "aag"  "aalb" "aali" "aalt" "aam"  "aamp" "aang" "aara" "abe" 
+ [11] "abp"  "abv"  "acan" "acar" "acep" "acer" "achc" "ache" "achl" "acoz"
+ [21] "acs"  "act"  "acun" "acyg" "adf"  "adl"  "adu"  "aec"  "afm"  "afor"
+ [31] "aful" "afv"  "afz"  "aga"  "agb"  "agen" "agif" "ago"  "agrg" "ags" 
+ [41] "ahf"  "aip"  "ajc"  "aje"  "ajm"  "aju"  "alab" "alat" "alim" "aluc"
+ [51] "aly"  "ame"  "amer" "amex" "amil" "amj"  "aml"  "ang"  "ani"  "anu" 
+ [61] "aoce" "aof"  "aor"  "apan" "api"  "apla" "aplc" "apln" "aprc" "apro"
+ [71] "apuu" "aqu"  "arow" "arut" "asn"  "aste" "atd"  "aten" "ath"  "atr" 
+ [81] "ats"  "avit" "bacu" "bany" "bbel" "bbif" "bbig" "bbis" "bbo"  "bbrx"
+ [91] "bbub" "bbuf" "bcom" "bcoo" "bdi"  "beq"  "bfo"  "bfu"  "bgar" "bgh" 
+[101] "bgt"  "bhj"  "bim"  "biu"  "bman" "bmic" "bmor" "bmy"  "bna"  "bnn" 
+[111] "bod"  "boe"  "bom"  "bor"  "bpec" "bpg"  "bpyo" "brhi" "brp"  "bsc" 
+[121] "bspl" "bta"  "btab" "btax" "bter" "bvan" "bvg"  "bvk"  "bze"  "cabi"
+[131] "cal"  "cam"  "cang" "cann" "caty" "caua" "caur" "cbai" "cbr"  "cbrc"
+[141] "ccad" "ccae" "ccaj" "ccal" "ccan" "ccar" "ccat" "ccav" "cci"  "ccin"
+[151] "cclu" "ccp"  "ccrc" "ccri" "ccw"  "cdk"  "cdu"  "cel"  "cfa"  "cfel"
+[161] "cfj"  "cfo"  "cfr"  "cge"  "cgi"  "cgib" "cgig" "cglo" "cgob" "cgr" 
+[171] "chig" "cho"  "chx"  "cic"  "cide" "cill" "cim"  "cimi" "cin"  "cins"
+[181] "cit"  "cjc"  "cjo"  "clec" "clu"  "clud" "clup" "clus" "clv"  "cmac"
+[191] "cmax" "cme"  "cmk"  "cmo"  "cmos" "cmt"  "cmy"  "cnb"  "cne"  "cng" 
+[201] "cns"  "cot"  "cpap" "cpea" "cpep" "cpic" "cpii" "cpla" "cpoc" "cpoo"
+[211] "cput" "cpv"  "cpw"  "cqi"  "cqu"  "crb"  "cre"  "crg"  "csab" "csat"
+[221] "cscu" "csec" "csem" "cset" "csin" "csl"  "csol" "csti" "csv"  "csyr"
+[231] "cten" "cthr" "ctig" "ctp"  "ctul" "cuca" "cud"  "cvf"  "cvg"  "cvr" 
+[241] "dam"  "dan"  "daz"  "dci"  "dcr"  "dct"  "ddi"  "der"  "dfa"  "dfr" 
+[251] "dgr"  "dgt"  "dha"  "dhe"  "dle"  "dme"  "dmk"  "dmn"  "dmo"  "dne" 
+[261] "dnm"  "dnv"  "dnx"  "dord" "dosa" "dpa"  "dpe"  "dpl"  "dpo"  "dpol"
+[271] "dpp"  "dpte" "dpub" "dpx"  "dpz"  "dqu"  "dre"  "dro"  "dse"  "dsi" 
+[281] "dsm"  "dsp"  "dsq"  "dsr"  "dsv"  "dvi"  "dwi"  "dya"  "dzi"  "eaf" 
+[291] "eai"  "ecad" "ecb"  "ecra" "ecu"  "edi"  "eee"  "efo"  "egl"  "egr" 
+[301] "egt"  "egu"  "egz"  "ehe"  "ehi"  "ehs"  "ehx"  "ein"  "eiv"  "eju" 
+[311] "ela"  "elk"  "els"  "ely"  "epa"  "epz"  "erc"  "ero"  "esn"  "esp" 
+[321] "etf"  "etl"  "eus"  "fab"  "fas"  "fca"  "fcd"  "fch"  "fcy"  "fex" 
+[331] "ffu"  "fga"  "fgr"  "fme"  "foc"  "fox"  "fpg"  "fpu"  "fve"  "fvr" 
+[341] "gab"  "gae"  "gaf"  "gas"  "gat"  "gcl"  "gfr"  "gga"  "ggn"  "ggo" 
+[351] "ghi"  "gja"  "gla"  "glz"  "gmu"  "gmx"  "gra"  "gsj"  "gsl"  "gste"
+[361] "gtr"  "gtt"  "gvr"  "hai"  "hald" "hame" "han"  "haw"  "hazt" "hbr" 
+[371] "hcg"  "hcq"  "hgl"  "hhal" "hhip" "hhv"  "hir"  "his"  "hle"  "hmg" 
+[381] "hmh"  "hrf"  "hrj"  "hro"  "hsa"  "hsp"  "hst"  "hze"  "ini"  "ipu" 
+[391] "isc"  "itr"  "jcu"  "jre"  "kaf"  "kla"  "kmr"  "kmx"  "kng"  "lak" 
+[401] "lang" "lav"  "lbc"  "lbd"  "lbz"  "lcat" "lcf"  "lcm"  "lco"  "lcq" 
+[411] "ldc"  "ldi"  "ldo"  "lel"  "lgi"  "lht"  "lhu"  "lif"  "lja"  "llv" 
+[421] "lma"  "lmi"  "loa"  "loc"  "lpan" "lper" "lpol" "lruf" "lsm"  "lsq" 
+[431] "lsr"  "lsv"  "lth"  "lve"  "lww"  "maj"  "malb" "mamb" "masi" "maua"
+[441] "maw"  "mbe"  "mbr"  "mcaf" "mcal" "mcc"  "mcep" "mcf"  "mcha" "mcoc"
+[451] "mde"  "mdl"  "mdm"  "mdo"  "mesc" "mfot" "mgen" "mgl"  "mgp"  "mgr" 
+[461] "minc" "ming" "mis"  "mjv"  "mleu" "mlf"  "mlr"  "mlx"  "mmer" "mmf" 
+[471] "mmu"  "mmur" "mmyo" "mna"  "mnb"  "mng"  "mni"  "mnt"  "more" "morg"
+[481] "mpah" "mpha" "mpp"  "mpr"  "mpuf" "mrr"  "mrt"  "mrv"  "msam" "msex"
+[491] "msym" "mthb" "mtm"  "mtr"  "mui"  "mun"  "mus"  "myb"  "myd"  "myi" 
+[501] "mze"  "nai"  "nasi" "nau"  "ncar" "ncc"  "nce"  "ncol" "ncr"  "ncs" 
+[511] "ndi"  "nfi"  "nfu"  "ngd"  "ngi"  "ngr"  "nhe"  "niq"  "nle"  "nlu" 
+[521] "nmea" "nmel" "nni"  "nnt"  "nnu"  "npa"  "npd"  "npr"  "npt"  "nsu" 
+[531] "nsy"  "nta"  "nte"  "nto"  "nve"  "nvi"  "nvl"  "nvs"  "nwh"  "oaa" 
+[541] "oas"  "oau"  "obb"  "obi"  "obo"  "obr"  "ocu"  "oda"  "oeu"  "ofu" 
+[551] "oga"  "ogl"  "ogo"  "oha"  "ola"  "olu"  "oml"  "omy"  "one"  "onl" 
+[561] "oor"  "opa"  "opi"  "oro"  "osa"  "osn"  "ota"  "otc"  "otu"  "otw" 
+[571] "ovi"  "padl" "pale" "palz" "pan"  "panu" "pavi" "pbar" "pbe"  "pbg" 
+[581] "pbi"  "pbl"  "pbn"  "pbx"  "pcad" "pcan" "pcao" "pcb"  "pcf"  "pchn"
+[591] "pcla" "pco"  "pcoc" "pcoo" "pcoq" "pcri" "pcs"  "pcub" "pcw"  "pcy" 
+[601] "pda"  "pdam" "pdic" "pdp"  "pdul" "peq"  "peu"  "pfa"  "pfd"  "pfh" 
+[611] "pfj"  "pflv" "pfor" "pfp"  "pfuc" "pfy"  "pgab" "pgc"  "pgig" "pgr" 
+[621] "pgu"  "pgut" "pguu" "phai" "phas" "phi"  "phu"  "phyp" "pic"  "pif" 
+[631] "pja"  "pki"  "pkl"  "pkn"  "pkz"  "plai" "plep" "plet" "pleu" "plj" 
+[641] "plop" "pmac" "pmaj" "pmax" "pmei" "pmoa" "pmoo" "pmua" "pmum" "pmur"
+[651] "pnap" "pno"  "pon"  "pop"  "pov"  "ppa"  "ppad" "ppei" "pper" "ppl" 
+[661] "ppoi" "ppot" "ppp"  "pprm" "pps"  "ppug" "ppyr" "prap" "prei" "pret"
+[671] "prob" "pruf" "psat" "psco" "psex" "psiu" "psoj" "psom" "pspa" "psq" 
+[681] "pss"  "pte"  "pteh" "ptep" "ptg"  "pti"  "ptkz" "ptm"  "ptr"  "ptru"
+[691] "puc"  "pvir" "pvm"  "pvp"  "pvt"  "pvu"  "pvv"  "pvx"  "pvy"  "pxb" 
+[701] "pxu"  "pxy"  "pyo"  "pyu"  "qlo"  "qsu"  "ray"  "rbb"  "rcn"  "rcu" 
+[711] "rfq"  "rmd"  "rmp"  "rno"  "rro"  "rsan" "rsz"  "rtem" "rtp"  "rze" 
+[721] "salp" "sanh" "sapo" "sara" "sasa" "sbi"  "sbq"  "scac" "scam" "scan"
+[731] "sce"  "schu" "sclv" "scm"  "sdm"  "sdu"  "seub" "sfm"  "sgh"  "sgre"
+[741] "shab" "shon" "shr"  "shs"  "shx"  "sind" "sita" "sko"  "sla"  "slal"
+[751] "slb"  "sliu" "sluc" "slud" "sly"  "smeo" "smin" "smm"  "smo"  "smp" 
+[761] "snh"  "soc"  "soe"  "sot"  "soy"  "spaa" "spao" "spar" "spen" "spis"
+[771] "spo"  "spu"  "sre"  "srx"  "ssc"  "ssck" "sscv" "ssen" "ssl"  "sspl"
+[781] "sstn" "stow" "stru" "sund" "svg"  "svs"  "tad"  "taes" "tala" "tan" 
+[791] "tasa" "tbg"  "tbl"  "tbr"  "tca"  "tcc"  "tcr"  "tdc"  "tdl"  "teo" 
+[801] "tet"  "tfd"  "tfn"  "tgb"  "tge"  "tgo"  "tgt"  "tgu"  "thj"  "tmf" 
+[811] "tml"  "tmn"  "tms"  "tmu"  "tng"  "tnl"  "tod"  "tot"  "tpai" "tpal"
+[821] "tpf"  "tpra" "tpre" "tps"  "tpv"  "tre"  "trg"  "trr"  "tru"  "tsp" 
+[831] "tsr"  "tss"  "tst"  "ttt"  "tua"  "tup"  "tut"  "tva"  "tve"  "tvs" 
+[841] "twl"  "uah"  "uar"  "uma"  "umr"  "ure"  "val"  "var"  "vcn"  "vda" 
+[851] "vde"  "vem"  "vja"  "vko"  "vlg"  "vpc"  "vpo"  "vps"  "vra"  "vri" 
+[861] "vun"  "vvi"  "vvp"  "wic"  "wse"  "xco"  "xen"  "xgl"  "xhe"  "xla" 
+[871] "xma"  "xtr"  "yli"  "zab"  "zca"  "zce"  "zju"  "zma"  "zmk"  "zne" 
+[881] "zof"  "zro"  "ztr"  "zvi" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="fu">paste0</span>(<span class="st">"Individuals/"</span>,list_names[<span class="dv">1</span>],<span class="st">"/"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>character(0)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'igraph'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    decompose, spectrum</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:base':
+
+    union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>graphs_list<span class="ot">=</span><span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/"</span>,list_names,<span class="st">"/"</span>,list_names,<span class="st">"_MDAG.graphml"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>g_MDAG_list<span class="ot">=</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(graphs_list,<span class="at">FUN=</span><span class="cf">function</span>(x) <span class="fu">read.graph</span>(<span class="at">file=</span>x,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">format=</span><span class="st">"graphml"</span>))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(g_MDAG_list)<span class="ot">=</span>list_names</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(g_MDAG_list[[<span class="dv">1</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>IGRAPH 0f860e9 D--- 534 477 -- 
++ attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">as_long_data_frame</span>(g_MDAG_list[[<span class="dv">1</span>]]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  from to              id from_color                   from_label from_id
+1    2  1       2431x1532     yellow    2431\\nR07762\\n2.3.1.179    2431
+2    3  2    0.0.237x2431       gray                MBB\\n0.0.237 0.0.237
+3    4  3 0.0.752x0.0.237     yellow 0.0.752\\nR04968\\n2.3.1.179 0.0.752
+4    5  4 0.0.238x0.0.752       gray                MBB\\n0.0.238 0.0.238
+5    6  5 0.0.753x0.0.238     yellow 0.0.753\\nR04726\\n2.3.1.179 0.0.753
+6    7  6 0.0.239x0.0.753       gray                MBB\\n0.0.239 0.0.239
+  to_color                     to_label   to_id
+1     gray                   MBB\\n1532    1532
+2   yellow    2431\\nR07762\\n2.3.1.179    2431
+3     gray                MBB\\n0.0.237 0.0.237
+4   yellow 0.0.752\\nR04968\\n2.3.1.179 0.0.752
+5     gray                MBB\\n0.0.238 0.0.238
+6   yellow 0.0.753\\nR04726\\n2.3.1.179 0.0.753</code></pre>
+</div>
+</div>
+<p><strong>Graph Kernels package</strong></p>
+<p><a href="https://academic.oup.com/bioinformatics/article/34/3/530/4209994?login=true">graphkernels: R and Python packages for graph comparison</a> statGraph’ <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0049949">Discriminating Different Classes of Biological Networks by Analyzing the Graphs Spectra Distribution</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.igraph</span>(g_MDAG_list[[<span class="dv">1</span>]],<span class="at">layout=</span>layout_as_tree,</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">label=</span><span class="cn">NA</span>,<span class="at">label.cex=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="kernel_1_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_mDAG.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/Individuals/cang/cang_mDAG.svg" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_mDAG_essential.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/Individuals/cang/cang_mDAG_essential.svg" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_RC.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/Individuals/cang/cang_RC.svg" class="img-fluid"></p>
+</div>
+</div>
+<pre><code>library(DOT)
+dot(paste0(path_exp,"Individuals/aag/aag_mDAG2.dot"),
+    return="svg")</code></pre>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./data_medag_20230321_long_report.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Load several similarities and metadata for an experiment</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

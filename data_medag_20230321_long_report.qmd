@@ -1,4 +1,4 @@
-# Load  several similarities and metadata for an experiment
+# Load several similarities and metadata for an experiment
 
 ```{r}
 library(tidyverse)
@@ -15,12 +15,9 @@ library(kableExtra)
 path_exp="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/"
 ```
 
+## Data analysis whit 4 methods distance Direct, Munkrest, Direct_Munkrest and Munkrest_Direct
 
-
-##  Data analysis whit 4 methods distance Direct, Munkrest, Direct_Munkrest and Munkrest_Direct
-
-
-## Load several similarities  for mDag
+## Load several similarities for mDag
 
 # Load meta data from experimet all eukariotes
 
@@ -45,7 +42,6 @@ index=which(is.na(meta_taxo$Class))
 meta_taxo$Class[index]=meta_taxo$Phylum[index]
 ```
 
-
 ```{r}
 table(meta_taxo$Kingdom) %>% kable %>%
   kable_styling("striped", full_width = F,position="left")%>% 
@@ -55,7 +51,7 @@ table(meta_taxo$Phylum,meta_taxo$Kingdom) %>% kable %>%
  scroll_box(width = "500px", height = "500px")
 ```
 
-# Similariries for method Direct 
+# Similariries for method Direct
 
 In this section we will show the similarities between mDAG's using different methods.
 
@@ -65,15 +61,13 @@ The experiment data set consists of `r nrow(meta_taxo)` eurkaryotes from the ani
 knitr::kable(table(meta_taxo$Kingdom),col.names = c("Kingdom","Abs. Freq."))
 ```
 
-
-
-
 ```{r}
 list_Sim=dir(path_exp,pattern="^Similarities")
 list_Sim
 list_Sim_mDAG=dir(path_exp,pattern="^Similarities_mDAG")
 list_Sim_mDAG
 ```
+
 ```{r}
 Sim_MSA_mDAG=read_csv(paste0(path_exp,list_Sim_mDAG[1]))
 Sim_MSA_mDAG=as.matrix(Sim_MSA_mDAG[,-1])
@@ -104,8 +98,7 @@ Sim_Mun_MSA_mDAG=Sim_Mun_MSA_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
 
 ## Heatmaps
 
-
-```
+```         
 dis_DirectedMethod<-read_csv(paste0(path_exp,
                                     "Similarities_MBB_MSAMethod.csv"))
 names(dis_DirectedMethod)[1]="mDAG_Id"
@@ -124,7 +117,7 @@ dis_DirectedMethod=  dis_DirectedMethod_meta %>%
 dimnames(dis_DirectedMethod) = list(ID,ID)
 ```
 
-## Heatmap  Similarity MSA method
+## Heatmap Similarity MSA method
 
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
 dff<-meta_taxo %>% select(Kingdom)  %>% as.data.frame()
@@ -201,8 +194,6 @@ draw(a2, merge_legend = TRUE)
 
 ```
 
-
-
 ## MDS (Multidimensional Scaling)
 
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
@@ -245,10 +236,7 @@ plot_ly(
 #fig
 ```
 
-
 # Hierarchical cluster
-
-
 
 ```{r}
 library(dendextend)
@@ -257,17 +245,12 @@ hc=hclust(as.dist(D),method ="ward.D")
 ggplot(as.ggdend(as.dendrogram(hc)))
 ```
 
-
-
 ```{r}
 clust4=cutree(hc,4)
 table(clust4,meta_taxo$Kingdom)
 ```
 
-
-
-
-## Heatmap  Similarity Mun_MSA method
+## Heatmap Similarity Mun_MSA method
 
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
 dff<-meta_taxo %>% select(Kingdom)  %>% as.data.frame()
@@ -344,8 +327,6 @@ draw(a2, merge_legend = TRUE)
 
 ```
 
-
-
 ## MDS (Multidimensional Scaling)
 
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
@@ -391,10 +372,7 @@ plot_ly(
 #fig
 ```
 
-
 # Hierarchical cluster
-
-
 
 ```{r}
 library(dendextend)
@@ -403,14 +381,7 @@ hc=hclust(as.dist(D),method ="ward.D")
 ggplot(as.ggdend(as.dendrogram(hc)))
 ```
 
-
-
 ```{r}
 clust4=cutree(hc,4)
 table(clust4,meta_taxo$Kingdom)
 ```
-
-
-
-
-
