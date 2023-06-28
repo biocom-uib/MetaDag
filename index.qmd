@@ -2,6 +2,10 @@
 
 This is a example of experiment whith results of metaDag data <https://http://bioinfo.uib.es/metadag/>.
 
+Hash: ff15c187-62e7-37c2-96a7-c824f7eab671
+
+URL: http://bioinfo.uib.es/metadag/results?uuid=ff15c187-62e7-37c2-96a7-c824f7eab671
+
 ```{r echo=FALSE}
 knitr::include_graphics("figures/screen_1.png")
 ```
