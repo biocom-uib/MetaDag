@@ -117,5 +117,3 @@ CC1=induced_subgraph(gg1_mDAG, vids=vertex)
 plot(CC1)
 summary(CC1)
 ```
-
-

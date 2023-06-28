@@ -234,7 +234,14 @@ plot_ly(
 
 
 #fig
+
 ```
+
+```{r echo=FALSE,fig.align='center',out.width="80%"}
+knitr::include_graphics("figures/fig1.jpeg")
+
+```
+
 
 # Hierarchical cluster
 
@@ -370,6 +377,11 @@ plot_ly(
       range=c(-0.8,0.8)), yaxis = list(autorange=2,
       range=c(-0.8,0.8)))
 #fig
+```
+
+```{r echo=FALSE,fig.align='center',out.width="80%"}
+knitr::include_graphics("figures/fig2.jpeg")
+
 ```
 
 # Hierarchical cluster

@@ -9,3 +9,21 @@ URL: http://bioinfo.uib.es/metadag/results?uuid=ff15c187-62e7-37c2-96a7-c824f7ea
 ```{r echo=FALSE}
 knitr::include_graphics("figures/screen_1.png")
 ```
+
+```{r echo=FALSE}
+knitr::include_graphics("figures/screen_2.png")
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("figures/screen_3.png")
+```
+```{r echo=FALSE}
+knitr::include_graphics("figures/screen_4.png")
+```
+```{r echo=FALSE}
+knitr::include_graphics("figures/screen_5.png")
+```
+
+```{r echo=FALSE}
+knitr::include_graphics("figures/screen_6.png")
+```
