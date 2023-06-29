@@ -32,7 +32,7 @@ taxo=Results %>% select(Organism:Full_Name)
 index=is.na(taxo$Categories)
 taxo=taxo %>% separate(Categories,into=c("Kingdom","Phylum","Class"))
 taxo$Class[index]=paste(taxo$Kingdom[index],taxo$Phylum[index])
-meta_taxo=taxo %>% arrange(Kingdom,Phylum,Class)
+meta_taxo=taxo %>% arrange(Kingdom,Phylum)
 #order_class=order(table(taxo$Class),decreasing = TRUE)
 #table(is.na(taxo$Class))
 #meta_taxo= taxo %>%
@@ -40,6 +40,12 @@ meta_taxo=taxo %>% arrange(Kingdom,Phylum,Class)
 #arrange(Kingdom,Phylum,Class,mDAG_Id)
 index=which(is.na(meta_taxo$Class))
 meta_taxo$Class[index]=meta_taxo$Phylum[index]
+aux=table(meta_taxo$Class)
+freq=tibble(Class=names(aux),Freq_Class=aux)
+names(freq)=c("Class","Freq_Class")
+meta_taxo =meta_taxo %>% left_join(freq)%>%
+  arrange(Kingdom,Phylum,Class,desc(Freq_Class))
+head(meta_taxo)
 ```
 
 ```{r}
@@ -69,6 +75,7 @@ list_Sim_mDAG
 ```
 
 ```{r}
+list_Sim_mDAG[1]
 Sim_MSA_mDAG=read_csv(paste0(path_exp,list_Sim_mDAG[1]))
 Sim_MSA_mDAG=as.matrix(Sim_MSA_mDAG[,-1])
 rownames(Sim_MSA_mDAG)=colnames(Sim_MSA_mDAG)
@@ -76,6 +83,7 @@ Sim_MSA_mDAG=Sim_MSA_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
 ```
 
 ```{r}
+list_Sim_mDAG[2]
 Sim_MSA_Mun_mDAG=read_csv(paste0(path_exp,list_Sim_mDAG[2]))
 Sim_MSA_Mun_mDAG=as.matrix(Sim_MSA_Mun_mDAG[,-1])
 rownames(Sim_MSA_Mun_mDAG)=colnames(Sim_MSA_Mun_mDAG)
@@ -83,13 +91,15 @@ Sim_MSA_Mun_mDAG=Sim_MSA_Mun_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
 ```
 
 ```{r}
+list_Sim_mDAG[3]
 Sim_Mun_mDAG=read_csv(paste0(path_exp,list_Sim_mDAG[3]))
 Sim_Mun_mDAG=as.matrix(Sim_Mun_mDAG[,-1])
 rownames(Sim_Mun_mDAG)=colnames(Sim_Mun_mDAG)
-Sim_MSA_mDAG=Sim_MSA_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
+Sim_Mun_mDAG=Sim_Mun_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
 ```
 
 ```{r}
+list_Sim_mDAG[4]
 Sim_Mun_MSA_mDAG=read_csv(paste0(path_exp,list_Sim_mDAG[4]))
 Sim_Mun_MSA_mDAG=as.matrix(Sim_Mun_MSA_mDAG[,-1])
 rownames(Sim_Mun_MSA_mDAG)=colnames(Sim_Mun_MSA_mDAG)
@@ -399,7 +409,7 @@ table(clust4,meta_taxo$Kingdom)
 
 ```{r}
 save(Sim_MSA_mDAG,Sim_Mun_mDAG,
-     Sim_Mun_MSA_mDAG,Sim_MSA_Mun_mDAG,
+     Sim_Mun_MSA_mDAG,Sim_MSA_Mun_mDAG,meta_taxo,
      file="Similarities.Rdata")
 ```
 

@@ -1,10 +1,11 @@
 # Load data MetaDag experiment
 
-```{r setup_load_data, include=FALSE,eval=FALSE}
+```{r setup_load_data, include=FALSE,eval=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
                       cache=FALSE,
                       warning = FALSE,
-                      message = FALSE)
+                      message = FALSE,
+                      warn.conflicts = FALSE)
 ```
 
 ```{r}
