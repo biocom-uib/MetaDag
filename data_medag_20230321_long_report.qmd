@@ -244,12 +244,10 @@ plot_ly(
 #fig
 ```
 
-
 ```{r echo=FALSE,fig.align='center',out.width="80%"}
 knitr::include_graphics("figures/fig1.jpeg")
 
 ```
-
 
 # Hierarchical cluster
 
@@ -406,10 +404,8 @@ clust4=cutree(hc,4)
 table(clust4,meta_taxo$Kingdom)
 ```
 
-
 ```{r}
 save(Sim_MSA_mDAG,Sim_Mun_mDAG,
      Sim_Mun_MSA_mDAG,Sim_MSA_Mun_mDAG,meta_taxo,
      file="Similarities.Rdata")
 ```
-
