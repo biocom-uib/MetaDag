@@ -15,17 +15,12 @@ aux1=base::rep(x=1:n,each=c(n:1))
 
 aux=as_tibble(Sim_MSA_mDAG)
 aux$mDag=names(aux)
-<<<<<<< HEAD
 aux=aux %>% pivot_longer(cols=`0576`:`0036`,
-                         names_to="mDag_2",values_to="sim_MSA")
+                         names_to="mDag_2",values_to="Sim_MSA")
 aux_2= aux %>%  mutate(i=pmax(as.integer(mDag),as.integer(mDag_2)),
                        j=pmin(as.integer(mDag),as.integer(mDag_2)))%>%
   unite("ij",i:j) %>% filter(duplicated(ij))
-=======
-aux=aux %>% pivot_longer(cols=`0576`:`0036`,names_to="mDag_2",values_to="dis_MSA")
 
-aux_2= aux %>%  mutate(i=pmax(as.integer(mDag),as.integer(mDag_2)),j=pmin(as.integer(mDag),as.integer(mDag_2))) %>% unite("ij",i:j) %>% filter(duplicated(ij))
->>>>>>> cfce73af3d68b86a906aefe6aaab2f0b812ade2d
 
 aux=as_tibble(Sim_Mun_mDAG)
 aux$mDag=names(aux)
@@ -35,12 +30,12 @@ aux_2 = aux_2 %>% left_join(aux)
 
 aux=as_tibble(Sim_MSA_Mun_mDAG)
 aux$mDag=names(aux)
-aux=aux %>% pivot_longer(cols=`0576`:`0036`,names_to="mDag_2",values_to="sim_MSA_Mun")
+aux=aux %>% pivot_longer(cols=`0576`:`0036`,names_to="mDag_2",values_to="Sim_MSA_Mun")
 aux_2 = aux_2 %>% left_join(aux)
 
 aux=as_tibble(Sim_Mun_MSA_mDAG)
 aux$mDag=names(aux)
-aux=aux %>% pivot_longer(cols=`0576`:`0036`,names_to="mDag_2",values_to="sim_Mun_MSA")
+aux=aux %>% pivot_longer(cols=`0576`:`0036`,names_to="mDag_2",values_to="Sim_Mun_MSA")
 aux_2 = aux_2 %>% left_join(aux)
 Sim_comp=aux_2[,c(1,2,4,3,5:7)]
 rm(aux,aux_2)

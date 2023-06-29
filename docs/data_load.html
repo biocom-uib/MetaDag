@@ -4079,7 +4079,7 @@ Attaching package: 'igraph'</code></pre>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>gg1_mDAG<span class="ot">=</span><span class="fu">read.graph</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/hsa/hsa_mDAG.graphml"</span>),<span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gg1_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 475c81a D--- 1026 1086 -- 
+<pre><code>IGRAPH 68a690e D--- 1026 1086 -- 
 + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(<span class="fu">degree</span>(gg1_mDAG)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4191,7 +4191,7 @@ Attaching package: 'igraph'</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(gg1_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>+ 1026/1026 vertices, from 475c81a:
+<pre><code>+ 1026/1026 vertices, from 68a690e:
    [1]    1    2    3    4    5    6    7    8    9   10   11   12   13   14
   [15]   15   16   17   18   19   20   21   22   23   24   25   26   27   28
   [29]   29   30   31   32   33   34   35   36   37   38   39   40   41   42
@@ -4211,7 +4211,7 @@ Attaching package: 'igraph'</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(CC1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 4771ddc D--- 589 774 -- 
+<pre><code>IGRAPH 68c352b D--- 589 774 -- 
 + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 </div>
