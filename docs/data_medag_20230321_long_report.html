@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Metagad experiment example - 2&nbsp; Load several similarities and metadata for an experiment</title>
+<title>MetaDAG experiment example - 2&nbsp; Load several similarities and metadata for an experiment</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Metagad experiment example</a> 
+      <a href="./">MetaDAG experiment example</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -906,7 +906,7 @@ dimnames(dis_DirectedMethod) = list(ID,ID)</code></pre>
 </section>
 <section id="mds-multidimensional-scaling" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="mds-multidimensional-scaling"><span class="header-section-number">4.3</span> MDS (Multidimensional Scaling)</h2>
-<div class="cell" data-layout-align="center" data-hash="data_medag_20230321_long_report_cache/html/unnamed-chunk-12_cf7cca841ac9b3d3f7334bdb3a5eb854">
+<div class="cell" data-layout-align="center" data-hash="data_medag_20230321_long_report_cache/html/unnamed-chunk-12_bb33cd01f09c5804044c85697902dda6">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Metric multidimensional scaling (mMDS)</span></span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>mds7 <span class="ot">&lt;-</span> <span class="fu">cmdscale</span>(<span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>Sim_MSA_mDAG<span class="sc">^</span><span class="dv">2</span>),<span class="at">k=</span><span class="dv">7</span>,<span class="at">eig=</span><span class="cn">TRUE</span>)</span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="co">#pairs(mds7$points[,1:4])</span></span>
@@ -956,9 +956,7 @@ dimnames(dis_DirectedMethod) = list(ID,ID)</code></pre>
 <span id="cb61-13"><a href="#cb61-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">autorange=</span><span class="dv">2</span>,</span>
 <span id="cb61-14"><a href="#cb61-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">range=</span><span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.8</span>,<span class="fl">0.8</span>)), <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">autorange=</span><span class="dv">2</span>,</span>
 <span id="cb61-15"><a href="#cb61-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">range=</span><span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.8</span>,<span class="fl">0.8</span>)))</span>
-<span id="cb61-16"><a href="#cb61-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-17"><a href="#cb61-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-18"><a href="#cb61-18" aria-hidden="true" tabindex="-1"></a><span class="co">#fig</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb61-16"><a href="#cb61-16" aria-hidden="true" tabindex="-1"></a><span class="co">#fig</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1199,6 +1197,11 @@ clust4 Animals Fungi Plants Protists
      3     331     0      0        0
      4       0     0    125        0</code></pre>
 </div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(Sim_MSA_mDAG,Sim_Mun_mDAG,</span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>     Sim_Mun_MSA_mDAG,Sim_MSA_Mun_mDAG,</span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">file=</span><span class="st">"Similarities.Rdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

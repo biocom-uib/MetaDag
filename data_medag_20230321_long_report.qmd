@@ -231,11 +231,9 @@ plot_ly(
     xaxis = list(autorange=2,
       range=c(-0.8,0.8)), yaxis = list(autorange=2,
       range=c(-0.8,0.8)))
-
-
 #fig
-
 ```
+
 
 ```{r echo=FALSE,fig.align='center',out.width="80%"}
 knitr::include_graphics("figures/fig1.jpeg")
@@ -397,3 +395,11 @@ ggplot(as.ggdend(as.dendrogram(hc)))
 clust4=cutree(hc,4)
 table(clust4,meta_taxo$Kingdom)
 ```
+
+
+```{r}
+save(Sim_MSA_mDAG,Sim_Mun_mDAG,
+     Sim_Mun_MSA_mDAG,Sim_MSA_Mun_mDAG,
+     file="Similarities.Rdata")
+```
+

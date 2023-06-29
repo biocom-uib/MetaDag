@@ -1,28 +1,28 @@
 # Similarity comparisons
 
-
 ## Comparison four distance mDag eukaryote
 
-Load the similarities for  pairs and comparison
+Load the similarities for pairs and comparison
 
 ```{r}
 library(gtools)
+load("Similarities.Rdata")
 
 n=length(meta_taxo$mDAG_Id)
-dim(dis_DirectedMethod)
+dim(Sim_MSA_mDAG)
 aux1=base::rep(x=1:n,each=c(n:1))
 
-aux=as_tibble(dis_DirectedMethod)
+aux=as_tibble(Sim_MSA_mDAG)
 aux$mDag=names(aux)
-aux=aux %>% pivot_longer(cols=`0089`:`0038`,names_to="mDag_2",values_to="dis_Direct")
+aux=aux %>% pivot_longer(cols=`0576`:`0036`,names_to="mDag_2",values_to="dis_MSA")
 aux_2= aux %>%  mutate(i=pmax(as.integer(mDag),as.integer(mDag_2)),j=pmin(as.integer(mDag),as.integer(mDag_2))) %>% unite("ij",i:j) %>% filter(duplicated(ij))
 
-aux=as_tibble(dis_MunkrestMethod)
+aux=as_tibble(Sim_Mun_mDAG)
 aux$mDag=names(aux)
-aux=aux %>% pivot_longer(cols=`0089`:`0038`,names_to="mDag_2",values_to="dis_Munkrest")
+aux=aux %>% pivot_longer(cols=`0089`:`0038`,names_to="mDag_2",values_to="Sim_Mun")
 aux_2 = aux_2 %>% left_join(aux)
 
-aux=as_tibble(dis_DirectMethod_MunkrestMethod)
+aux=as_tibble(Sim_MSA_Mun_mDAG)
 aux$mDag=names(aux)
 aux=aux %>% pivot_longer(cols=`0089`:`0038`,names_to="mDag_2",values_to="dis_Direct_Munkrest")
 aux_2 = aux_2 %>% left_join(aux)
@@ -35,7 +35,7 @@ dis=aux_2[,c(1,2,4,3,5:7)]
 rm(aux,aux_2)
 ```
 
-**Tablas de las correlaciones de Speramen y Pearson entre las 4 distancias.**
+**Tablas de las correlaciones de Spearman y Pearson entre las 4 distancias.**
 
 ```{r}
 cor(dis[,4:7],method="spearman")
@@ -68,8 +68,8 @@ boxplot(dis[,4:7])
 
 
 ```
-=======
-# Distances comparisons 
+
+======= \# Distances comparisons
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,warning = FALSE,echo=FALSE,message=FALSE)
