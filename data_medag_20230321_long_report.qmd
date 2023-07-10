@@ -15,7 +15,7 @@ library(kableExtra)
 path_exp="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/"
 ```
 
-## Data analysis whit 4 methods distance Direct, Munkrest, Direct_Munkrest and Munkrest_Direct
+## Data analysis whit 4 methods similarities Direct, Munkrest, Direct_Munkrest and Munkrest_Direct
 
 ## Load several similarities for mDag
 
