@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -134,11 +105,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Load several similarities and metadata for an experiment</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data_metadag_20230321_long_report.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Load several similarities and metadata for an experiment</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -146,73 +122,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">MetaDAG experiment example</a> 
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_load.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Load data MetaDag experiment</span></a>
+  <a href="./data_load.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Load data MetaDag experiment</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_medag_20230321_long_report.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Load several similarities and metadata for an experiment</span></a>
+  <a href="./data_metadag_20230321_long_report.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Load several similarities and metadata for an experiment</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mDag_four_distance_comparison.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Similarity comparisons</span></a>
+  <a href="./mDag_four_distance_comparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Similarity comparisons</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./kernel_1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Load data graphs</span></a>
+  <a href="./graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Load data graphs</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#data-analysis-whit-4-methods-distance-direct-munkrest-direct_munkrest-and-munkrest_direct" id="toc-data-analysis-whit-4-methods-distance-direct-munkrest-direct_munkrest-and-munkrest_direct" class="nav-link active" data-scroll-target="#data-analysis-whit-4-methods-distance-direct-munkrest-direct_munkrest-and-munkrest_direct"><span class="toc-section-number">2.1</span>  Data analysis whit 4 methods distance Direct, Munkrest, Direct_Munkrest and Munkrest_Direct</a></li>
-  <li><a href="#load-several-similarities-for-mdag" id="toc-load-several-similarities-for-mdag" class="nav-link" data-scroll-target="#load-several-similarities-for-mdag"><span class="toc-section-number">2.2</span>  Load several similarities for mDag</a></li>
-  <li><a href="#load-meta-data-from-experimet-all-eukariotes" id="toc-load-meta-data-from-experimet-all-eukariotes" class="nav-link" data-scroll-target="#load-meta-data-from-experimet-all-eukariotes"><span class="toc-section-number">3</span>  Load meta data from experimet all eukariotes</a></li>
-  <li><a href="#similariries-for-method-direct" id="toc-similariries-for-method-direct" class="nav-link" data-scroll-target="#similariries-for-method-direct"><span class="toc-section-number">4</span>  Similariries for method Direct</a>
+  <li><a href="#data-analysis-whit-4-methods-similarities-direct-munkrest-direct_munkrest-and-munkrest_direct" id="toc-data-analysis-whit-4-methods-similarities-direct-munkrest-direct_munkrest-and-munkrest_direct" class="nav-link active" data-scroll-target="#data-analysis-whit-4-methods-similarities-direct-munkrest-direct_munkrest-and-munkrest_direct"><span class="header-section-number">2.1</span> Data analysis whit 4 methods similarities Direct, Munkrest, Direct_Munkrest and Munkrest_Direct</a></li>
+  <li><a href="#load-several-similarities-for-mdag" id="toc-load-several-similarities-for-mdag" class="nav-link" data-scroll-target="#load-several-similarities-for-mdag"><span class="header-section-number">2.2</span> Load several similarities for mDag</a></li>
+  <li><a href="#load-meta-data-from-eukariotes-experimet" id="toc-load-meta-data-from-eukariotes-experimet" class="nav-link" data-scroll-target="#load-meta-data-from-eukariotes-experimet"><span class="header-section-number">3</span> Load meta data from eukariotes experimet</a></li>
+  <li><a href="#similariries-for-method-direct" id="toc-similariries-for-method-direct" class="nav-link" data-scroll-target="#similariries-for-method-direct"><span class="header-section-number">4</span> Similariries for method Direct</a>
   <ul class="collapse">
-  <li><a href="#heatmaps" id="toc-heatmaps" class="nav-link" data-scroll-target="#heatmaps"><span class="toc-section-number">4.1</span>  Heatmaps</a></li>
-  <li><a href="#heatmap-similarity-msa-method" id="toc-heatmap-similarity-msa-method" class="nav-link" data-scroll-target="#heatmap-similarity-msa-method"><span class="toc-section-number">4.2</span>  Heatmap Similarity MSA method</a></li>
-  <li><a href="#mds-multidimensional-scaling" id="toc-mds-multidimensional-scaling" class="nav-link" data-scroll-target="#mds-multidimensional-scaling"><span class="toc-section-number">4.3</span>  MDS (Multidimensional Scaling)</a></li>
+  <li><a href="#heatmaps" id="toc-heatmaps" class="nav-link" data-scroll-target="#heatmaps"><span class="header-section-number">4.1</span> Heatmaps</a></li>
+  <li><a href="#heatmap-similarity-msa-method" id="toc-heatmap-similarity-msa-method" class="nav-link" data-scroll-target="#heatmap-similarity-msa-method"><span class="header-section-number">4.2</span> Heatmap Similarity MSA method</a></li>
+  <li><a href="#mds-multidimensional-scaling" id="toc-mds-multidimensional-scaling" class="nav-link" data-scroll-target="#mds-multidimensional-scaling"><span class="header-section-number">4.3</span> MDS (Multidimensional Scaling)</a></li>
   </ul></li>
-  <li><a href="#hierarchical-cluster" id="toc-hierarchical-cluster" class="nav-link" data-scroll-target="#hierarchical-cluster"><span class="toc-section-number">5</span>  Hierarchical cluster</a>
+  <li><a href="#hierarchical-cluster" id="toc-hierarchical-cluster" class="nav-link" data-scroll-target="#hierarchical-cluster"><span class="header-section-number">5</span> Hierarchical cluster</a>
   <ul class="collapse">
-  <li><a href="#heatmap-similarity-mun_msa-method" id="toc-heatmap-similarity-mun_msa-method" class="nav-link" data-scroll-target="#heatmap-similarity-mun_msa-method"><span class="toc-section-number">5.1</span>  Heatmap Similarity Mun_MSA method</a></li>
-  <li><a href="#mds-multidimensional-scaling-1" id="toc-mds-multidimensional-scaling-1" class="nav-link" data-scroll-target="#mds-multidimensional-scaling-1"><span class="toc-section-number">5.2</span>  MDS (Multidimensional Scaling)</a></li>
+  <li><a href="#heatmap-similarity-mun_msa-method" id="toc-heatmap-similarity-mun_msa-method" class="nav-link" data-scroll-target="#heatmap-similarity-mun_msa-method"><span class="header-section-number">5.1</span> Heatmap Similarity Mun_MSA method</a></li>
+  <li><a href="#mds-multidimensional-scaling-1" id="toc-mds-multidimensional-scaling-1" class="nav-link" data-scroll-target="#mds-multidimensional-scaling-1"><span class="header-section-number">5.2</span> MDS (Multidimensional Scaling)</a></li>
   </ul></li>
-  <li><a href="#hierarchical-cluster-1" id="toc-hierarchical-cluster-1" class="nav-link" data-scroll-target="#hierarchical-cluster-1"><span class="toc-section-number">6</span>  Hierarchical cluster</a></li>
+  <li><a href="#hierarchical-cluster-1" id="toc-hierarchical-cluster-1" class="nav-link" data-scroll-target="#hierarchical-cluster-1"><span class="header-section-number">6</span> Hierarchical cluster</a></li>
   </ul>
 </nav>
     </div>
@@ -221,7 +204,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Load several similarities and metadata for an experiment</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Load several similarities and metadata for an experiment</span></h1>
 </div>
 
 
@@ -332,14 +315,14 @@ The following object is masked from 'package:dplyr':
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>path_exp<span class="ot">=</span><span class="st">"data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="data-analysis-whit-4-methods-distance-direct-munkrest-direct_munkrest-and-munkrest_direct" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="data-analysis-whit-4-methods-distance-direct-munkrest-direct_munkrest-and-munkrest_direct"><span class="header-section-number">2.1</span> Data analysis whit 4 methods distance Direct, Munkrest, Direct_Munkrest and Munkrest_Direct</h2>
+<section id="data-analysis-whit-4-methods-similarities-direct-munkrest-direct_munkrest-and-munkrest_direct" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="data-analysis-whit-4-methods-similarities-direct-munkrest-direct_munkrest-and-munkrest_direct"><span class="header-section-number">2.1</span> Data analysis whit 4 methods similarities Direct, Munkrest, Direct_Munkrest and Munkrest_Direct</h2>
 </section>
 <section id="load-several-similarities-for-mdag" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="load-several-similarities-for-mdag"><span class="header-section-number">2.2</span> Load several similarities for mDag</h2>
 </section>
-<section id="load-meta-data-from-experimet-all-eukariotes" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Load meta data from experimet all eukariotes</h1>
+<section id="load-meta-data-from-eukariotes-experimet" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Load meta data from eukariotes experimet</h1>
 <p>Meta data mDa_Id and taxonomy sort by Kingdom,Filum,Class,mDAG_Id</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>path_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -405,284 +388,286 @@ dbl (2073): R01982(3.2.1.15), R02439(2.7.1.16), R02439_rev(2.7.1.16), R02429...
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="st">"striped"</span>, <span class="at">full_width =</span> F,<span class="at">position=</span><span class="st">"left"</span>)<span class="sc">%&gt;%</span> </span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">"400px"</span>, <span class="at">height =</span> <span class="st">"200px"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
-<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:400px; "><table class="table table-striped" style="width: auto !important; ">
- <thead>
-  <tr>
-   <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"> Var1 </th>
-   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> Freq </th>
-  </tr>
- </thead>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:400px; ">
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Var1</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Freq</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> Animals </td>
-   <td style="text-align:right;"> 535 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fungi </td>
-   <td style="text-align:right;"> 154 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Plants </td>
-   <td style="text-align:right;"> 139 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Protists </td>
-   <td style="text-align:right;"> 56 </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">Animals</td>
+<td style="text-align: right;">535</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fungi</td>
+<td style="text-align: right;">154</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Plants</td>
+<td style="text-align: right;">139</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Protists</td>
+<td style="text-align: right;">56</td>
+</tr>
 </tbody>
-</table></div>
+</table>
+</div>
 
 </div>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(meta_taxo<span class="sc">$</span>Phylum,meta_taxo<span class="sc">$</span>Kingdom) <span class="sc">%&gt;%</span> kable <span class="sc">%&gt;%</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="st">"striped"</span>, <span class="at">full_width =</span> F,<span class="at">position=</span><span class="st">"left"</span>)<span class="sc">%&gt;%</span> </span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">"500px"</span>, <span class="at">height =</span> <span class="st">"500px"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
-<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:500px; "><table class="table table-striped" style="width: auto !important; ">
- <thead>
-  <tr>
-   <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">   </th>
-   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> Animals </th>
-   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> Fungi </th>
-   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> Plants </th>
-   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> Protists </th>
-  </tr>
- </thead>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:500px; ">
+<table class="table table-striped table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Animals</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Fungi</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Plants</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Protists</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> Alveolates </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 25 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Amoebozoa </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Annelids </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Arthropods </td>
-   <td style="text-align:right;"> 158 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Ascomycetes </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 113 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Basal </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Basidiomycetes </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 36 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Brachiopodas </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Cephalochordates </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Choanoflagellates </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Cnidarians </td>
-   <td style="text-align:right;"> 10 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Cryptomonads </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Echinoderms </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Eudicots </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 98 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Euglenozoa </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Ferns </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Flatworms </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Green </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 11 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Haptophyta </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Hemichordates </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Heterolobosea </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Metamonada </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Microsporidians </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Mollusks </td>
-   <td style="text-align:right;"> 14 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Monocots </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 23 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Mosses </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Nematodes </td>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Placozoans </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Poriferans </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Red </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Stramenopiles </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Tunicates </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Vertebrates </td>
-   <td style="text-align:right;"> 331 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">Alveolates</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Amoebozoa</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Annelids</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Arthropods</td>
+<td style="text-align: right;">158</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ascomycetes</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">113</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Basal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Basidiomycetes</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brachiopodas</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cephalochordates</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Choanoflagellates</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cnidarians</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cryptomonads</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Echinoderms</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Eudicots</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Euglenozoa</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ferns</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Flatworms</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Green</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Haptophyta</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hemichordates</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Heterolobosea</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Metamonada</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Microsporidians</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mollusks</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Monocots</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mosses</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nematodes</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Placozoans</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Poriferans</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Red</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Stramenopiles</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tunicates</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vertebrates</td>
+<td style="text-align: right;">331</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
 </tbody>
-</table></div>
+</table>
+</div>
 
 </div>
 </div>
@@ -693,33 +678,33 @@ dbl (2073): R01982(3.2.1.15), R02439(2.7.1.16), R02439_rev(2.7.1.16), R02429...
 <p>The experiment data set consists of 884 eurkaryotes from the animal, plant, fungus, and protist kingdoms.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Kingdom </th>
-   <th style="text-align:right;"> Abs. Freq. </th>
-  </tr>
- </thead>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Kingdom</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Abs. Freq.</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> Animals </td>
-   <td style="text-align:right;"> 535 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fungi </td>
-   <td style="text-align:right;"> 154 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Plants </td>
-   <td style="text-align:right;"> 139 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Protists </td>
-   <td style="text-align:right;"> 56 </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">Animals</td>
+<td style="text-align: right;">535</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fungi</td>
+<td style="text-align: right;">154</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Plants</td>
+<td style="text-align: right;">139</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Protists</td>
+<td style="text-align: right;">56</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
@@ -850,7 +835,7 @@ dimnames(dis_DirectedMethod) = list(ID,ID)</code></pre>
 </section>
 <section id="heatmap-similarity-msa-method" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="heatmap-similarity-msa-method"><span class="header-section-number">4.2</span> Heatmap Similarity MSA method</h2>
-<div class="cell" data-layout-align="center" data-hash="data_medag_20230321_long_report_cache/html/unnamed-chunk-10_9666302b9c897230123f4da3909c5507">
+<div class="cell" data-layout-align="center" data-hash="data_metadag_20230321_long_report_cache/html/unnamed-chunk-10_466350951cfd24bd65737c51ef85b5bf">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>dff<span class="ot">&lt;-</span>meta_taxo <span class="sc">%&gt;%</span> <span class="fu">select</span>(Kingdom)  <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co">#str(dff)</span></span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -876,12 +861,12 @@ dimnames(dis_DirectedMethod) = list(ID,ID)</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="data_medag_20230321_long_report_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="data_metadag_20230321_long_report_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="data_medag_20230321_long_report_cache/html/unnamed-chunk-11_a5a40defc67b7f25025c6a3b91ca14ec">
+<div class="cell" data-layout-align="center" data-hash="data_metadag_20230321_long_report_cache/html/unnamed-chunk-11_a56e81ee0e35f04bbc87ed59be1f13ca">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>meta_animals<span class="ot">=</span> meta_taxo <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Kingdom<span class="sc">==</span><span class="st">"Animals"</span>)</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>nombres<span class="ot">=</span><span class="fu">unique</span>(meta_animals<span class="sc">$</span>Phylum)</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>aux_order<span class="ot">=</span><span class="fu">table</span>(meta_animals<span class="sc">$</span>Phylum)</span>
@@ -925,13 +910,13 @@ dimnames(dis_DirectedMethod) = list(ID,ID)</code></pre>
 <span id="cb55-41"><a href="#cb55-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">top_annotation =</span> anotacion,</span>
 <span id="cb55-42"><a href="#cb55-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">show_column_names =</span> <span class="cn">FALSE</span>, </span>
 <span id="cb55-43"><a href="#cb55-43" aria-hidden="true" tabindex="-1"></a>        <span class="at">show_row_names =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb55-44"><a href="#cb55-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">left_annotation =</span> <span class="fu">rowAnnotation</span>(<span class="at">df =</span> dff, <span class="at">col =</span> colores,<span class="at">show_annotation_name=</span><span class="cn">FALSE</span>))</span>
+<span id="cb55-44"><a href="#cb55-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">left_annotation =</span> <span class="fu">rowAnnotation</span>(<span class="at">df =</span> dff, <span class="at">col =</span> colores,<span class="at">show_annotation_name=</span><span class="cn">TRUE</span>))</span>
 <span id="cb55-45"><a href="#cb55-45" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb55-46"><a href="#cb55-46" aria-hidden="true" tabindex="-1"></a><span class="fu">draw</span>(a2, <span class="at">merge_legend =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="data_medag_20230321_long_report_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="data_metadag_20230321_long_report_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -939,7 +924,7 @@ dimnames(dis_DirectedMethod) = list(ID,ID)</code></pre>
 </section>
 <section id="mds-multidimensional-scaling" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="mds-multidimensional-scaling"><span class="header-section-number">4.3</span> MDS (Multidimensional Scaling)</h2>
-<div class="cell" data-layout-align="center" data-hash="data_medag_20230321_long_report_cache/html/unnamed-chunk-12_bb33cd01f09c5804044c85697902dda6">
+<div class="cell" data-layout-align="center" data-hash="data_metadag_20230321_long_report_cache/html/unnamed-chunk-12_3492c7bcf9e258f0d5e7e3f1ee22939c">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Metric multidimensional scaling (mMDS)</span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>mds7 <span class="ot">&lt;-</span> <span class="fu">cmdscale</span>(<span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>Sim_MSA_mDAG<span class="sc">^</span><span class="dv">2</span>),<span class="at">k=</span><span class="dv">7</span>,<span class="at">eig=</span><span class="cn">TRUE</span>)</span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="co">#pairs(mds7$points[,1:4])</span></span>
@@ -965,7 +950,7 @@ dimnames(dis_DirectedMethod) = list(ID,ID)</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="data_medag_20230321_long_report_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="data_metadag_20230321_long_report_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1039,7 +1024,7 @@ Attaching package: 'dendextend'</code></pre>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>hc<span class="ot">=</span><span class="fu">hclust</span>(<span class="fu">as.dist</span>(D),<span class="at">method =</span><span class="st">"ward.D"</span>)</span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.ggdend</span>(<span class="fu">as.dendrogram</span>(hc)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="data_medag_20230321_long_report_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<p><img src="data_metadag_20230321_long_report_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -1056,7 +1041,7 @@ clust4 Animals Fungi Plants Protists
 </div>
 <section id="heatmap-similarity-mun_msa-method" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="heatmap-similarity-mun_msa-method"><span class="header-section-number">5.1</span> Heatmap Similarity Mun_MSA method</h2>
-<div class="cell" data-layout-align="center" data-hash="data_medag_20230321_long_report_cache/html/unnamed-chunk-16_81d225dbbce8e363d5e381e6a10720aa">
+<div class="cell" data-layout-align="center" data-hash="data_metadag_20230321_long_report_cache/html/unnamed-chunk-16_d6684714ffe59619efeb2c455746c1f0">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>dff<span class="ot">&lt;-</span>meta_taxo <span class="sc">%&gt;%</span> <span class="fu">select</span>(Kingdom)  <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="co">#str(dff)</span></span>
 <span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1082,12 +1067,12 @@ clust4 Animals Fungi Plants Protists
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="data_medag_20230321_long_report_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="data_metadag_20230321_long_report_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="data_medag_20230321_long_report_cache/html/unnamed-chunk-17_3b12c9215d50464e60eb92a918c99e2f">
+<div class="cell" data-layout-align="center" data-hash="data_metadag_20230321_long_report_cache/html/unnamed-chunk-17_28aa8d47c4bec9b244e79c2d57913f60">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>meta_animals<span class="ot">=</span> meta_taxo <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Kingdom<span class="sc">==</span><span class="st">"Animals"</span>)</span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>nombres<span class="ot">=</span><span class="fu">unique</span>(meta_animals<span class="sc">$</span>Phylum)</span>
 <span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>aux_order<span class="ot">=</span><span class="fu">table</span>(meta_animals<span class="sc">$</span>Phylum)</span>
@@ -1137,7 +1122,7 @@ clust4 Animals Fungi Plants Protists
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="data_medag_20230321_long_report_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="data_metadag_20230321_long_report_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1145,7 +1130,7 @@ clust4 Animals Fungi Plants Protists
 </section>
 <section id="mds-multidimensional-scaling-1" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="mds-multidimensional-scaling-1"><span class="header-section-number">5.2</span> MDS (Multidimensional Scaling)</h2>
-<div class="cell" data-layout-align="center" data-hash="data_medag_20230321_long_report_cache/html/unnamed-chunk-18_d5254236e936ea0c0c7d9509b3fe6e41">
+<div class="cell" data-layout-align="center" data-hash="data_metadag_20230321_long_report_cache/html/unnamed-chunk-18_93b55d1e27f299ce90458fb729c61ac2">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Metric multidimensional scaling (mMDS)</span></span>
 <span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>mds7 <span class="ot">&lt;-</span> <span class="fu">cmdscale</span>(<span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>Sim_Mun_MSA_mDAG<span class="sc">^</span><span class="dv">2</span>),<span class="at">k=</span><span class="dv">7</span>,<span class="at">eig=</span><span class="cn">TRUE</span>)</span>
 <span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="co">#pairs(mds7$points[,1:4])</span></span>
@@ -1162,7 +1147,7 @@ clust4 Animals Fungi Plants Protists
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="data_medag_20230321_long_report_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="data_metadag_20230321_long_report_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1217,7 +1202,7 @@ clust4 Animals Fungi Plants Protists
 <span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>hc<span class="ot">=</span><span class="fu">hclust</span>(<span class="fu">as.dist</span>(D),<span class="at">method =</span><span class="st">"ward.D"</span>)</span>
 <span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.ggdend</span>(<span class="fu">as.dendrogram</span>(hc)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="data_medag_20230321_long_report_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+<p><img src="data_metadag_20230321_long_report_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -1269,9 +1254,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1336,6 +1335,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

@@ -56,10 +56,12 @@ dim(mDAG)
 kable(mDAG[1:20,1:30]) %>%   scroll_box(width = "100%", height = "200px")
 ```
 
+
+
 ```{r}
 dim(mDAG)
 names(mDAG)[1:6]
-names(mDAG)[7:(dim(mDAG)[2]-1150)]# 28 to 1213  code MBB: 1 if MBB in mDAG 0 
+names(mDAG)[7:(dim(mDAG)[2]-1150)]# 28 to 1213  code MBB: 1 if MBB in mDAG 0
 ```
 
 ## Results
@@ -75,10 +77,10 @@ kable(Results[1:20,1:10])%>%
 ```{r}
 dim(Results)
 names(Results)[1]# organisms  kegg id  class representant of mDAG
-names(Results)[2]# taxonomy separate b y |
+names(Results)[2]# taxonomy separate by |
 names(Results)[3]# mDAG_Id 
 names(Results)[4]# Full name representant
-names(Results)[6:36]# 6 to 2726  Variable Reactions name id: This reaction belongs to this ball for this MDAG. If not present the value is NA
+names(Results)[6:36]# columns 6 to 2726  Variable Reactions name id: This reaction belongs to this ball for this MDAG. If not present the value is NA
 ```
 
 ```{r}

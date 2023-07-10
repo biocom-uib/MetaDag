@@ -9,9 +9,9 @@ book:
   chapters:
     - index.qmd
     - data_load.qmd
-    - data_medag_20230321_long_report.qmd
+    - data_metadag_20230321_long_report.qmd
     - mDag_four_distance_comparison.qmd
-    - kernel_1.qmd
+    - graphs.qmd
     - references.qmd
 
 bibliography: references.bib

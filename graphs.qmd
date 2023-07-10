@@ -7,7 +7,7 @@ Read all graphs from a level from experiment; for example individuals. We read o
 ```{r}
 path_exp="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/"
 list_names=dir(paste0(path_exp,"Individuals/"))
-list_names
+#list_names
 list_names= list_names[-1] # filter 0000_RefPw
 length(list_names)
 k=length(list_names)
@@ -21,9 +21,25 @@ g_MDAG_list=
                     format="graphml"))
 names(g_MDAG_list)=list_names
 summary(g_MDAG_list[[1]])
-head(as_long_data_frame(g_MDAG_list[[1]]))
+#head(as_long_data_frame(g_MDAG_list[[1]]))
 
 ```
+
+
+## Graph statistics
+
+
+
+```{r}
+
+```
+
+
+
+
+
+
+# GRapha kernels
 
 **Graph Kernels package**
 

@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 # Data statistics
 
-```{r setup, include=FALSE}
+```{r setup_data_statistics, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE,warning =FALSE,cache=FALSE,echo=FALSE,messages=FALSE)
 library(tidyverse)
 library(dplyr)
@@ -1738,4 +1737,3 @@ four_dis=save(meta_taxo,dis_DirectedMethod,
               dis_DirectMethod_MunkrestMethod,
               dis_MunkrestMethod_DirectMethod,file="four_dist_meta_taxo.Robj")
 ```
->>>>>>> 67440c1f760214cc7671eb39b3e6e8b809275dc2

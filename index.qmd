@@ -1,7 +1,6 @@
 # Introduction {.unnumbered}
 
-This is an example of an  experiment of metaDag data with results
-<https://http://bioinfo.uib.es/metadag/>.
+This is an example of an experiment of [metaDag](https://http://bioinfo.uib.es/metadag/) data with results.
 
 Hash: ff15c187-62e7-37c2-96a7-c824f7eab671
 
@@ -19,7 +18,7 @@ knitr::include_graphics("figures/screen_2.png")
 ```{r echo=FALSE}
 knitr::include_graphics("figures/screen_3.png")
 ```
+
 ```{r echo=FALSE}
 knitr::include_graphics("figures/screen_4.png")
 ```
-

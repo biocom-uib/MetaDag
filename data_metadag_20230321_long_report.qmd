@@ -19,7 +19,7 @@ path_exp="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/"
 
 ## Load several similarities for mDag
 
-# Load meta data from experimet all eukariotes
+# Load meta data from eukariotes experimet
 
 Meta data mDa_Id and taxonomy sort by Kingdom,Filum,Class,mDAG_Id
 
@@ -198,7 +198,7 @@ a2<- Heatmap(matrix = S[1:535,1:535],
         top_annotation = anotacion,
         show_column_names = FALSE, 
         show_row_names = FALSE,
-        left_annotation = rowAnnotation(df = dff, col = colores,show_annotation_name=FALSE))
+        left_annotation = rowAnnotation(df = dff, col = colores,show_annotation_name=TRUE))
   
 draw(a2, merge_legend = TRUE)
 
