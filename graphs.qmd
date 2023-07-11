@@ -19,8 +19,8 @@ graphs_list=paste0(path_exp,"Individuals/",list_names,"/",list_names,"_MDAG.grap
 g_MDAG_list=
   lapply(graphs_list,FUN=function(x) read.graph(file=x,
                     format="graphml"))
-names(g_MDAG_list)=list_names
-summary(g_MDAG_list[[1]])
+names(g_mDAG_list)=list_names
+summary(g_mDAG_list[[1]])
 #head(as_long_data_frame(g_MDAG_list[[1]]))
 
 ```
