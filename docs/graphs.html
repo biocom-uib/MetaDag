@@ -179,6 +179,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#read-all-graphs-from-a-level-of-the-experiment" id="toc-read-all-graphs-from-a-level-of-the-experiment" class="nav-link active" data-scroll-target="#read-all-graphs-from-a-level-of-the-experiment"><span class="header-section-number">4.1</span> Read all graphs from a level of the experiment</a></li>
+  <li><a href="#graph-statistics" id="toc-graph-statistics" class="nav-link" data-scroll-target="#graph-statistics"><span class="header-section-number">4.2</span> Graph statistics</a></li>
+  <li><a href="#graph-kernels" id="toc-graph-kernels" class="nav-link" data-scroll-target="#graph-kernels"><span class="header-section-number">5</span> Graph kernels</a></li>
   </ul>
 </nav>
     </div>
@@ -206,366 +208,168 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="4.1" class="anchored" data-anchor-id="read-all-graphs-from-a-level-of-the-experiment"><span class="header-section-number">4.1</span> Read all graphs from a level of the experiment</h2>
 <p>Read all graphs from a level from experiment; for example individuals. We read only firts (alphabetic) two graph</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>path_exp<span class="ot">=</span><span class="st">"data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/"</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>list_names<span class="ot">=</span><span class="fu">dir</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/"</span>))</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>list_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  [1] "0000_RefPw" "aaf"        "aag"        "aalb"       "aali"      
-  [6] "aalt"       "aam"        "aamp"       "aang"       "aara"      
- [11] "abe"        "abp"        "abv"        "acan"       "acar"      
- [16] "acep"       "acer"       "achc"       "ache"       "achl"      
- [21] "acoz"       "acs"        "act"        "acun"       "acyg"      
- [26] "adf"        "adl"        "adu"        "aec"        "afm"       
- [31] "afor"       "aful"       "afv"        "afz"        "aga"       
- [36] "agb"        "agen"       "agif"       "ago"        "agrg"      
- [41] "ags"        "ahf"        "aip"        "ajc"        "aje"       
- [46] "ajm"        "aju"        "alab"       "alat"       "alim"      
- [51] "aluc"       "aly"        "ame"        "amer"       "amex"      
- [56] "amil"       "amj"        "aml"        "ang"        "ani"       
- [61] "anu"        "aoce"       "aof"        "aor"        "apan"      
- [66] "api"        "apla"       "aplc"       "apln"       "aprc"      
- [71] "apro"       "apuu"       "aqu"        "arow"       "arut"      
- [76] "asn"        "aste"       "atd"        "aten"       "ath"       
- [81] "atr"        "ats"        "avit"       "bacu"       "bany"      
- [86] "bbel"       "bbif"       "bbig"       "bbis"       "bbo"       
- [91] "bbrx"       "bbub"       "bbuf"       "bcom"       "bcoo"      
- [96] "bdi"        "beq"        "bfo"        "bfu"        "bgar"      
-[101] "bgh"        "bgt"        "bhj"        "bim"        "biu"       
-[106] "bman"       "bmic"       "bmor"       "bmy"        "bna"       
-[111] "bnn"        "bod"        "boe"        "bom"        "bor"       
-[116] "bpec"       "bpg"        "bpyo"       "brhi"       "brp"       
-[121] "bsc"        "bspl"       "bta"        "btab"       "btax"      
-[126] "bter"       "bvan"       "bvg"        "bvk"        "bze"       
-[131] "cabi"       "cal"        "cam"        "cang"       "cann"      
-[136] "caty"       "caua"       "caur"       "cbai"       "cbr"       
-[141] "cbrc"       "ccad"       "ccae"       "ccaj"       "ccal"      
-[146] "ccan"       "ccar"       "ccat"       "ccav"       "cci"       
-[151] "ccin"       "cclu"       "ccp"        "ccrc"       "ccri"      
-[156] "ccw"        "cdk"        "cdu"        "cel"        "cfa"       
-[161] "cfel"       "cfj"        "cfo"        "cfr"        "cge"       
-[166] "cgi"        "cgib"       "cgig"       "cglo"       "cgob"      
-[171] "cgr"        "chig"       "cho"        "chx"        "cic"       
-[176] "cide"       "cill"       "cim"        "cimi"       "cin"       
-[181] "cins"       "cit"        "cjc"        "cjo"        "clec"      
-[186] "clu"        "clud"       "clup"       "clus"       "clv"       
-[191] "cmac"       "cmax"       "cme"        "cmk"        "cmo"       
-[196] "cmos"       "cmt"        "cmy"        "cnb"        "cne"       
-[201] "cng"        "cns"        "cot"        "cpap"       "cpea"      
-[206] "cpep"       "cpic"       "cpii"       "cpla"       "cpoc"      
-[211] "cpoo"       "cput"       "cpv"        "cpw"        "cqi"       
-[216] "cqu"        "crb"        "cre"        "crg"        "csab"      
-[221] "csat"       "cscu"       "csec"       "csem"       "cset"      
-[226] "csin"       "csl"        "csol"       "csti"       "csv"       
-[231] "csyr"       "cten"       "cthr"       "ctig"       "ctp"       
-[236] "ctul"       "cuca"       "cud"        "cvf"        "cvg"       
-[241] "cvr"        "dam"        "dan"        "daz"        "dci"       
-[246] "dcr"        "dct"        "ddi"        "der"        "dfa"       
-[251] "dfr"        "dgr"        "dgt"        "dha"        "dhe"       
-[256] "dle"        "dme"        "dmk"        "dmn"        "dmo"       
-[261] "dne"        "dnm"        "dnv"        "dnx"        "dord"      
-[266] "dosa"       "dpa"        "dpe"        "dpl"        "dpo"       
-[271] "dpol"       "dpp"        "dpte"       "dpub"       "dpx"       
-[276] "dpz"        "dqu"        "dre"        "dro"        "dse"       
-[281] "dsi"        "dsm"        "dsp"        "dsq"        "dsr"       
-[286] "dsv"        "dvi"        "dwi"        "dya"        "dzi"       
-[291] "eaf"        "eai"        "ecad"       "ecb"        "ecra"      
-[296] "ecu"        "edi"        "eee"        "efo"        "egl"       
-[301] "egr"        "egt"        "egu"        "egz"        "ehe"       
-[306] "ehi"        "ehs"        "ehx"        "ein"        "eiv"       
-[311] "eju"        "ela"        "elk"        "els"        "ely"       
-[316] "epa"        "epz"        "erc"        "ero"        "esn"       
-[321] "esp"        "etf"        "etl"        "eus"        "fab"       
-[326] "fas"        "fca"        "fcd"        "fch"        "fcy"       
-[331] "fex"        "ffu"        "fga"        "fgr"        "fme"       
-[336] "foc"        "fox"        "fpg"        "fpu"        "fve"       
-[341] "fvr"        "gab"        "gae"        "gaf"        "gas"       
-[346] "gat"        "gcl"        "gfr"        "gga"        "ggn"       
-[351] "ggo"        "ghi"        "gja"        "gla"        "glz"       
-[356] "gmu"        "gmx"        "gra"        "gsj"        "gsl"       
-[361] "gste"       "gtr"        "gtt"        "gvr"        "hai"       
-[366] "hald"       "hame"       "han"        "haw"        "hazt"      
-[371] "hbr"        "hcg"        "hcq"        "hgl"        "hhal"      
-[376] "hhip"       "hhv"        "hir"        "his"        "hle"       
-[381] "hmg"        "hmh"        "hrf"        "hrj"        "hro"       
-[386] "hsa"        "hsp"        "hst"        "hze"        "ini"       
-[391] "ipu"        "isc"        "itr"        "jcu"        "jre"       
-[396] "kaf"        "kla"        "kmr"        "kmx"        "kng"       
-[401] "lak"        "lang"       "lav"        "lbc"        "lbd"       
-[406] "lbz"        "lcat"       "lcf"        "lcm"        "lco"       
-[411] "lcq"        "ldc"        "ldi"        "ldo"        "lel"       
-[416] "lgi"        "lht"        "lhu"        "lif"        "lja"       
-[421] "llv"        "lma"        "lmi"        "loa"        "loc"       
-[426] "lpan"       "lper"       "lpol"       "lruf"       "lsm"       
-[431] "lsq"        "lsr"        "lsv"        "lth"        "lve"       
-[436] "lww"        "maj"        "malb"       "mamb"       "masi"      
-[441] "maua"       "maw"        "mbe"        "mbr"        "mcaf"      
-[446] "mcal"       "mcc"        "mcep"       "mcf"        "mcha"      
-[451] "mcoc"       "mde"        "mdl"        "mdm"        "mdo"       
-[456] "mesc"       "mfot"       "mgen"       "mgl"        "mgp"       
-[461] "mgr"        "minc"       "ming"       "mis"        "mjv"       
-[466] "mleu"       "mlf"        "mlr"        "mlx"        "mmer"      
-[471] "mmf"        "mmu"        "mmur"       "mmyo"       "mna"       
-[476] "mnb"        "mng"        "mni"        "mnt"        "more"      
-[481] "morg"       "mpah"       "mpha"       "mpp"        "mpr"       
-[486] "mpuf"       "mrr"        "mrt"        "mrv"        "msam"      
-[491] "msex"       "msym"       "mthb"       "mtm"        "mtr"       
-[496] "mui"        "mun"        "mus"        "myb"        "myd"       
-[501] "myi"        "mze"        "nai"        "nasi"       "nau"       
-[506] "ncar"       "ncc"        "nce"        "ncol"       "ncr"       
-[511] "ncs"        "ndi"        "nfi"        "nfu"        "ngd"       
-[516] "ngi"        "ngr"        "nhe"        "niq"        "nle"       
-[521] "nlu"        "nmea"       "nmel"       "nni"        "nnt"       
-[526] "nnu"        "npa"        "npd"        "npr"        "npt"       
-[531] "nsu"        "nsy"        "nta"        "nte"        "nto"       
-[536] "nve"        "nvi"        "nvl"        "nvs"        "nwh"       
-[541] "oaa"        "oas"        "oau"        "obb"        "obi"       
-[546] "obo"        "obr"        "ocu"        "oda"        "oeu"       
-[551] "ofu"        "oga"        "ogl"        "ogo"        "oha"       
-[556] "ola"        "olu"        "oml"        "omy"        "one"       
-[561] "onl"        "oor"        "opa"        "opi"        "oro"       
-[566] "osa"        "osn"        "ota"        "otc"        "otu"       
-[571] "otw"        "ovi"        "padl"       "pale"       "palz"      
-[576] "pan"        "panu"       "pavi"       "pbar"       "pbe"       
-[581] "pbg"        "pbi"        "pbl"        "pbn"        "pbx"       
-[586] "pcad"       "pcan"       "pcao"       "pcb"        "pcf"       
-[591] "pchn"       "pcla"       "pco"        "pcoc"       "pcoo"      
-[596] "pcoq"       "pcri"       "pcs"        "pcub"       "pcw"       
-[601] "pcy"        "pda"        "pdam"       "pdic"       "pdp"       
-[606] "pdul"       "peq"        "peu"        "pfa"        "pfd"       
-[611] "pfh"        "pfj"        "pflv"       "pfor"       "pfp"       
-[616] "pfuc"       "pfy"        "pgab"       "pgc"        "pgig"      
-[621] "pgr"        "pgu"        "pgut"       "pguu"       "phai"      
-[626] "phas"       "phi"        "phu"        "phyp"       "pic"       
-[631] "pif"        "pja"        "pki"        "pkl"        "pkn"       
-[636] "pkz"        "plai"       "plep"       "plet"       "pleu"      
-[641] "plj"        "plop"       "pmac"       "pmaj"       "pmax"      
-[646] "pmei"       "pmoa"       "pmoo"       "pmua"       "pmum"      
-[651] "pmur"       "pnap"       "pno"        "pon"        "pop"       
-[656] "pov"        "ppa"        "ppad"       "ppei"       "pper"      
-[661] "ppl"        "ppoi"       "ppot"       "ppp"        "pprm"      
-[666] "pps"        "ppug"       "ppyr"       "prap"       "prei"      
-[671] "pret"       "prob"       "pruf"       "psat"       "psco"      
-[676] "psex"       "psiu"       "psoj"       "psom"       "pspa"      
-[681] "psq"        "pss"        "pte"        "pteh"       "ptep"      
-[686] "ptg"        "pti"        "ptkz"       "ptm"        "ptr"       
-[691] "ptru"       "puc"        "pvir"       "pvm"        "pvp"       
-[696] "pvt"        "pvu"        "pvv"        "pvx"        "pvy"       
-[701] "pxb"        "pxu"        "pxy"        "pyo"        "pyu"       
-[706] "qlo"        "qsu"        "ray"        "rbb"        "rcn"       
-[711] "rcu"        "rfq"        "rmd"        "rmp"        "rno"       
-[716] "rro"        "rsan"       "rsz"        "rtem"       "rtp"       
-[721] "rze"        "salp"       "sanh"       "sapo"       "sara"      
-[726] "sasa"       "sbi"        "sbq"        "scac"       "scam"      
-[731] "scan"       "sce"        "schu"       "sclv"       "scm"       
-[736] "sdm"        "sdu"        "seub"       "sfm"        "sgh"       
-[741] "sgre"       "shab"       "shon"       "shr"        "shs"       
-[746] "shx"        "sind"       "sita"       "sko"        "sla"       
-[751] "slal"       "slb"        "sliu"       "sluc"       "slud"      
-[756] "sly"        "smeo"       "smin"       "smm"        "smo"       
-[761] "smp"        "snh"        "soc"        "soe"        "sot"       
-[766] "soy"        "spaa"       "spao"       "spar"       "spen"      
-[771] "spis"       "spo"        "spu"        "sre"        "srx"       
-[776] "ssc"        "ssck"       "sscv"       "ssen"       "ssl"       
-[781] "sspl"       "sstn"       "stow"       "stru"       "sund"      
-[786] "svg"        "svs"        "tad"        "taes"       "tala"      
-[791] "tan"        "tasa"       "tbg"        "tbl"        "tbr"       
-[796] "tca"        "tcc"        "tcr"        "tdc"        "tdl"       
-[801] "teo"        "tet"        "tfd"        "tfn"        "tgb"       
-[806] "tge"        "tgo"        "tgt"        "tgu"        "thj"       
-[811] "tmf"        "tml"        "tmn"        "tms"        "tmu"       
-[816] "tng"        "tnl"        "tod"        "tot"        "tpai"      
-[821] "tpal"       "tpf"        "tpra"       "tpre"       "tps"       
-[826] "tpv"        "tre"        "trg"        "trr"        "tru"       
-[831] "tsp"        "tsr"        "tss"        "tst"        "ttt"       
-[836] "tua"        "tup"        "tut"        "tva"        "tve"       
-[841] "tvs"        "twl"        "uah"        "uar"        "uma"       
-[846] "umr"        "ure"        "val"        "var"        "vcn"       
-[851] "vda"        "vde"        "vem"        "vja"        "vko"       
-[856] "vlg"        "vpc"        "vpo"        "vps"        "vra"       
-[861] "vri"        "vun"        "vvi"        "vvp"        "wic"       
-[866] "wse"        "xco"        "xen"        "xgl"        "xhe"       
-[871] "xla"        "xma"        "xtr"        "yli"        "zab"       
-[876] "zca"        "zce"        "zju"        "zma"        "zmk"       
-[881] "zne"        "zof"        "zro"        "ztr"        "zvi"       </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>list_names<span class="ot">=</span> list_names[<span class="sc">-</span><span class="dv">1</span>] <span class="co"># filter 0000_RefPw</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(list_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"Similarities.Rdata"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>path_exp<span class="ot">=</span><span class="st">"data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>list_names<span class="ot">=</span><span class="fu">dir</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/"</span>))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#list_names</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>list_names<span class="ot">=</span> list_names[<span class="sc">-</span><span class="dv">1</span>] <span class="co"># filter 0000_RefPw</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(list_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 884</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="fu">length</span>(list_names)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>list_names<span class="ot">=</span> list_names[<span class="dv">1</span><span class="sc">:</span>k] <span class="co"># select ONLY 5 individuals</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>list_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#list_names</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#dir(paste0("Individuals/",list_names[1],"/"))</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>graphs_list<span class="ot">=</span><span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/"</span>,list_names,<span class="st">"/"</span>,list_names,<span class="st">"_MDAG.graphml"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#head(as_long_data_frame(g_MDAG_list[[1]]))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="graph-statistics" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="graph-statistics"><span class="header-section-number">4.2</span> Graph statistics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#x=graphs_list[[1]]</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>read_mDAG<span class="ot">=</span><span class="cf">function</span>(x) {DAG<span class="ot">=</span><span class="fu">read.graph</span>(<span class="at">file=</span>x,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">format=</span><span class="st">"graphml"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(DAG)}</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>mDAG_componets<span class="ot">=</span><span class="cf">function</span>(x) {<span class="fu">sort</span>(<span class="fu">components</span>(x,<span class="at">mode =</span> <span class="st">"weak"</span>)<span class="sc">$</span>csize,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">decreasing=</span><span class="cn">TRUE</span>)}</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>compo_list<span class="ot">=</span><span class="fu">lapply</span>(graphs_list,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">FUN=</span><span class="cf">function</span>(x) {</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                    gg<span class="ot">=</span><span class="fu">read_mDAG</span>(x)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                  aux<span class="ot">=</span><span class="fu">list</span>(</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mDAG_componets=</span><span class="fu">mDAG_componets</span>(gg),</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                    <span class="at">degree_count=</span>igraph<span class="sc">::</span><span class="fu">degree</span>(gg,<span class="at">mode=</span><span class="st">"total"</span>))</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">return</span>(aux)}</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                  )</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(compo_list)<span class="ot">=</span>list_names</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">max</span>(<span class="fu">sapply</span>(compo_list,<span class="at">FUN=</span><span class="cf">function</span>(x) {<span class="fu">length</span>(x[[<span class="dv">1</span>]])}))</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] "aaf"  "aag"  "aalb" "aali" "aalt" "aam"  "aamp" "aang" "aara" "abe" 
- [11] "abp"  "abv"  "acan" "acar" "acep" "acer" "achc" "ache" "achl" "acoz"
- [21] "acs"  "act"  "acun" "acyg" "adf"  "adl"  "adu"  "aec"  "afm"  "afor"
- [31] "aful" "afv"  "afz"  "aga"  "agb"  "agen" "agif" "ago"  "agrg" "ags" 
- [41] "ahf"  "aip"  "ajc"  "aje"  "ajm"  "aju"  "alab" "alat" "alim" "aluc"
- [51] "aly"  "ame"  "amer" "amex" "amil" "amj"  "aml"  "ang"  "ani"  "anu" 
- [61] "aoce" "aof"  "aor"  "apan" "api"  "apla" "aplc" "apln" "aprc" "apro"
- [71] "apuu" "aqu"  "arow" "arut" "asn"  "aste" "atd"  "aten" "ath"  "atr" 
- [81] "ats"  "avit" "bacu" "bany" "bbel" "bbif" "bbig" "bbis" "bbo"  "bbrx"
- [91] "bbub" "bbuf" "bcom" "bcoo" "bdi"  "beq"  "bfo"  "bfu"  "bgar" "bgh" 
-[101] "bgt"  "bhj"  "bim"  "biu"  "bman" "bmic" "bmor" "bmy"  "bna"  "bnn" 
-[111] "bod"  "boe"  "bom"  "bor"  "bpec" "bpg"  "bpyo" "brhi" "brp"  "bsc" 
-[121] "bspl" "bta"  "btab" "btax" "bter" "bvan" "bvg"  "bvk"  "bze"  "cabi"
-[131] "cal"  "cam"  "cang" "cann" "caty" "caua" "caur" "cbai" "cbr"  "cbrc"
-[141] "ccad" "ccae" "ccaj" "ccal" "ccan" "ccar" "ccat" "ccav" "cci"  "ccin"
-[151] "cclu" "ccp"  "ccrc" "ccri" "ccw"  "cdk"  "cdu"  "cel"  "cfa"  "cfel"
-[161] "cfj"  "cfo"  "cfr"  "cge"  "cgi"  "cgib" "cgig" "cglo" "cgob" "cgr" 
-[171] "chig" "cho"  "chx"  "cic"  "cide" "cill" "cim"  "cimi" "cin"  "cins"
-[181] "cit"  "cjc"  "cjo"  "clec" "clu"  "clud" "clup" "clus" "clv"  "cmac"
-[191] "cmax" "cme"  "cmk"  "cmo"  "cmos" "cmt"  "cmy"  "cnb"  "cne"  "cng" 
-[201] "cns"  "cot"  "cpap" "cpea" "cpep" "cpic" "cpii" "cpla" "cpoc" "cpoo"
-[211] "cput" "cpv"  "cpw"  "cqi"  "cqu"  "crb"  "cre"  "crg"  "csab" "csat"
-[221] "cscu" "csec" "csem" "cset" "csin" "csl"  "csol" "csti" "csv"  "csyr"
-[231] "cten" "cthr" "ctig" "ctp"  "ctul" "cuca" "cud"  "cvf"  "cvg"  "cvr" 
-[241] "dam"  "dan"  "daz"  "dci"  "dcr"  "dct"  "ddi"  "der"  "dfa"  "dfr" 
-[251] "dgr"  "dgt"  "dha"  "dhe"  "dle"  "dme"  "dmk"  "dmn"  "dmo"  "dne" 
-[261] "dnm"  "dnv"  "dnx"  "dord" "dosa" "dpa"  "dpe"  "dpl"  "dpo"  "dpol"
-[271] "dpp"  "dpte" "dpub" "dpx"  "dpz"  "dqu"  "dre"  "dro"  "dse"  "dsi" 
-[281] "dsm"  "dsp"  "dsq"  "dsr"  "dsv"  "dvi"  "dwi"  "dya"  "dzi"  "eaf" 
-[291] "eai"  "ecad" "ecb"  "ecra" "ecu"  "edi"  "eee"  "efo"  "egl"  "egr" 
-[301] "egt"  "egu"  "egz"  "ehe"  "ehi"  "ehs"  "ehx"  "ein"  "eiv"  "eju" 
-[311] "ela"  "elk"  "els"  "ely"  "epa"  "epz"  "erc"  "ero"  "esn"  "esp" 
-[321] "etf"  "etl"  "eus"  "fab"  "fas"  "fca"  "fcd"  "fch"  "fcy"  "fex" 
-[331] "ffu"  "fga"  "fgr"  "fme"  "foc"  "fox"  "fpg"  "fpu"  "fve"  "fvr" 
-[341] "gab"  "gae"  "gaf"  "gas"  "gat"  "gcl"  "gfr"  "gga"  "ggn"  "ggo" 
-[351] "ghi"  "gja"  "gla"  "glz"  "gmu"  "gmx"  "gra"  "gsj"  "gsl"  "gste"
-[361] "gtr"  "gtt"  "gvr"  "hai"  "hald" "hame" "han"  "haw"  "hazt" "hbr" 
-[371] "hcg"  "hcq"  "hgl"  "hhal" "hhip" "hhv"  "hir"  "his"  "hle"  "hmg" 
-[381] "hmh"  "hrf"  "hrj"  "hro"  "hsa"  "hsp"  "hst"  "hze"  "ini"  "ipu" 
-[391] "isc"  "itr"  "jcu"  "jre"  "kaf"  "kla"  "kmr"  "kmx"  "kng"  "lak" 
-[401] "lang" "lav"  "lbc"  "lbd"  "lbz"  "lcat" "lcf"  "lcm"  "lco"  "lcq" 
-[411] "ldc"  "ldi"  "ldo"  "lel"  "lgi"  "lht"  "lhu"  "lif"  "lja"  "llv" 
-[421] "lma"  "lmi"  "loa"  "loc"  "lpan" "lper" "lpol" "lruf" "lsm"  "lsq" 
-[431] "lsr"  "lsv"  "lth"  "lve"  "lww"  "maj"  "malb" "mamb" "masi" "maua"
-[441] "maw"  "mbe"  "mbr"  "mcaf" "mcal" "mcc"  "mcep" "mcf"  "mcha" "mcoc"
-[451] "mde"  "mdl"  "mdm"  "mdo"  "mesc" "mfot" "mgen" "mgl"  "mgp"  "mgr" 
-[461] "minc" "ming" "mis"  "mjv"  "mleu" "mlf"  "mlr"  "mlx"  "mmer" "mmf" 
-[471] "mmu"  "mmur" "mmyo" "mna"  "mnb"  "mng"  "mni"  "mnt"  "more" "morg"
-[481] "mpah" "mpha" "mpp"  "mpr"  "mpuf" "mrr"  "mrt"  "mrv"  "msam" "msex"
-[491] "msym" "mthb" "mtm"  "mtr"  "mui"  "mun"  "mus"  "myb"  "myd"  "myi" 
-[501] "mze"  "nai"  "nasi" "nau"  "ncar" "ncc"  "nce"  "ncol" "ncr"  "ncs" 
-[511] "ndi"  "nfi"  "nfu"  "ngd"  "ngi"  "ngr"  "nhe"  "niq"  "nle"  "nlu" 
-[521] "nmea" "nmel" "nni"  "nnt"  "nnu"  "npa"  "npd"  "npr"  "npt"  "nsu" 
-[531] "nsy"  "nta"  "nte"  "nto"  "nve"  "nvi"  "nvl"  "nvs"  "nwh"  "oaa" 
-[541] "oas"  "oau"  "obb"  "obi"  "obo"  "obr"  "ocu"  "oda"  "oeu"  "ofu" 
-[551] "oga"  "ogl"  "ogo"  "oha"  "ola"  "olu"  "oml"  "omy"  "one"  "onl" 
-[561] "oor"  "opa"  "opi"  "oro"  "osa"  "osn"  "ota"  "otc"  "otu"  "otw" 
-[571] "ovi"  "padl" "pale" "palz" "pan"  "panu" "pavi" "pbar" "pbe"  "pbg" 
-[581] "pbi"  "pbl"  "pbn"  "pbx"  "pcad" "pcan" "pcao" "pcb"  "pcf"  "pchn"
-[591] "pcla" "pco"  "pcoc" "pcoo" "pcoq" "pcri" "pcs"  "pcub" "pcw"  "pcy" 
-[601] "pda"  "pdam" "pdic" "pdp"  "pdul" "peq"  "peu"  "pfa"  "pfd"  "pfh" 
-[611] "pfj"  "pflv" "pfor" "pfp"  "pfuc" "pfy"  "pgab" "pgc"  "pgig" "pgr" 
-[621] "pgu"  "pgut" "pguu" "phai" "phas" "phi"  "phu"  "phyp" "pic"  "pif" 
-[631] "pja"  "pki"  "pkl"  "pkn"  "pkz"  "plai" "plep" "plet" "pleu" "plj" 
-[641] "plop" "pmac" "pmaj" "pmax" "pmei" "pmoa" "pmoo" "pmua" "pmum" "pmur"
-[651] "pnap" "pno"  "pon"  "pop"  "pov"  "ppa"  "ppad" "ppei" "pper" "ppl" 
-[661] "ppoi" "ppot" "ppp"  "pprm" "pps"  "ppug" "ppyr" "prap" "prei" "pret"
-[671] "prob" "pruf" "psat" "psco" "psex" "psiu" "psoj" "psom" "pspa" "psq" 
-[681] "pss"  "pte"  "pteh" "ptep" "ptg"  "pti"  "ptkz" "ptm"  "ptr"  "ptru"
-[691] "puc"  "pvir" "pvm"  "pvp"  "pvt"  "pvu"  "pvv"  "pvx"  "pvy"  "pxb" 
-[701] "pxu"  "pxy"  "pyo"  "pyu"  "qlo"  "qsu"  "ray"  "rbb"  "rcn"  "rcu" 
-[711] "rfq"  "rmd"  "rmp"  "rno"  "rro"  "rsan" "rsz"  "rtem" "rtp"  "rze" 
-[721] "salp" "sanh" "sapo" "sara" "sasa" "sbi"  "sbq"  "scac" "scam" "scan"
-[731] "sce"  "schu" "sclv" "scm"  "sdm"  "sdu"  "seub" "sfm"  "sgh"  "sgre"
-[741] "shab" "shon" "shr"  "shs"  "shx"  "sind" "sita" "sko"  "sla"  "slal"
-[751] "slb"  "sliu" "sluc" "slud" "sly"  "smeo" "smin" "smm"  "smo"  "smp" 
-[761] "snh"  "soc"  "soe"  "sot"  "soy"  "spaa" "spao" "spar" "spen" "spis"
-[771] "spo"  "spu"  "sre"  "srx"  "ssc"  "ssck" "sscv" "ssen" "ssl"  "sspl"
-[781] "sstn" "stow" "stru" "sund" "svg"  "svs"  "tad"  "taes" "tala" "tan" 
-[791] "tasa" "tbg"  "tbl"  "tbr"  "tca"  "tcc"  "tcr"  "tdc"  "tdl"  "teo" 
-[801] "tet"  "tfd"  "tfn"  "tgb"  "tge"  "tgo"  "tgt"  "tgu"  "thj"  "tmf" 
-[811] "tml"  "tmn"  "tms"  "tmu"  "tng"  "tnl"  "tod"  "tot"  "tpai" "tpal"
-[821] "tpf"  "tpra" "tpre" "tps"  "tpv"  "tre"  "trg"  "trr"  "tru"  "tsp" 
-[831] "tsr"  "tss"  "tst"  "ttt"  "tua"  "tup"  "tut"  "tva"  "tve"  "tvs" 
-[841] "twl"  "uah"  "uar"  "uma"  "umr"  "ure"  "val"  "var"  "vcn"  "vda" 
-[851] "vde"  "vem"  "vja"  "vko"  "vlg"  "vpc"  "vpo"  "vps"  "vra"  "vri" 
-[861] "vun"  "vvi"  "vvp"  "wic"  "wse"  "xco"  "xen"  "xgl"  "xhe"  "xla" 
-[871] "xma"  "xtr"  "yli"  "zab"  "zca"  "zce"  "zju"  "zma"  "zmk"  "zne" 
-[881] "zof"  "zro"  "ztr"  "zvi" </code></pre>
+<pre><code>[1] 234</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="fu">paste0</span>(<span class="st">"Individuals/"</span>,list_names[<span class="dv">1</span>],<span class="st">"/"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>size_compo_list<span class="ot">=</span><span class="fu">lapply</span>(compo_list,<span class="at">FUN=</span><span class="cf">function</span>(x) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(x[[<span class="dv">1</span>]],<span class="fu">rep</span>(<span class="cn">NA</span>,n<span class="sc">-</span><span class="fu">length</span>(x[[<span class="dv">1</span>]]))))})</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">do.call</span>(bind_cols,size_compo_list)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>aux2<span class="ot">=</span><span class="fu">pivot_longer</span>(aux,aaf<span class="sc">:</span>zvi,<span class="at">names_to=</span><span class="st">"Organism"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">values_to=</span><span class="st">"csize"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Organism,<span class="sc">-</span>csize)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>aux2<span class="sc">$</span>index<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n,<span class="at">times=</span><span class="fu">dim</span>(aux)[<span class="dv">2</span>])</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>aux2<span class="ot">=</span>aux2 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(meta_taxo,<span class="at">by=</span><span class="st">"Organism"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot(aux2,aes(index,csize),color=Organism)+ geom_line()</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>aux2)<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>csize,<span class="at">group =</span> Organism),<span class="at">se =</span> <span class="cn">FALSE</span>,<span class="at">na.rm=</span><span class="cn">TRUE</span>,<span class="at">fullrange=</span><span class="cn">TRUE</span>)<span class="sc">+</span><span class="fu">ylim</span>(<span class="dv">0</span>,<span class="fu">max</span>(aux2<span class="sc">$</span>csize))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="graphs_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## buenos</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>COLOR_KINGDOM<span class="ot">=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"black"</span>,<span class="st">"green"</span>,<span class="st">"yellow"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>colors_kingdom<span class="ot">=</span>aux2 <span class="sc">%&gt;%</span> <span class="fu">select</span>(Organism,Kingdom) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(COLOR_KINGDOM)<span class="ot">=</span><span class="fu">sort</span>(<span class="fu">unique</span>(colors_kingdom<span class="sc">$</span>Kingdom))</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>aux2,<span class="at">col=</span><span class="fu">rep</span>(<span class="st">"blue"</span>,<span class="fu">dim</span>(aux)[<span class="dv">2</span>])) <span class="sc">+</span> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>csize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom)) <span class="sc">+</span> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="fu">max</span>(aux2<span class="sc">$</span>csize)) <span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="graphs_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>aux2,<span class="at">col=</span><span class="fu">rep</span>(<span class="st">"blue"</span>,<span class="fu">dim</span>(aux)[<span class="dv">2</span>])) <span class="sc">+</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>csize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),) <span class="sc">+</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="fu">max</span>(aux2<span class="sc">$</span>csize)) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="graphs_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>aux2,<span class="at">col=</span><span class="fu">rep</span>(<span class="st">"blue"</span>,<span class="fu">dim</span>(aux)[<span class="dv">2</span>])) <span class="sc">+</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>csize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom)) <span class="sc">+</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="fu">max</span>(aux2<span class="sc">$</span>csize)) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="graphs_files/figure-html/unnamed-chunk-4-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## fin buenos</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> aux2,<span class="at">color=</span>Phylum) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> index, <span class="at">y =</span> csize, <span class="at">group =</span> Organism),<span class="at">size=</span><span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span> </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fu">max</span>(aux2<span class="sc">$</span>csize))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="graphs_files/figure-html/unnamed-chunk-4-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>aux2)<span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>csize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">na.rm=</span><span class="cn">TRUE</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">fullrange=</span><span class="cn">TRUE</span>)<span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()<span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>()<span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="fu">log</span>(<span class="fu">max</span>(aux2<span class="sc">$</span>csize))<span class="sc">+</span><span class="dv">10</span>)<span class="sc">+</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="graphs_files/figure-html/unnamed-chunk-4-6.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## fin buenos</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>aa<span class="ot">=</span><span class="fu">as.tibble</span>(<span class="fu">t</span>(aux))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(aa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
+<pre><code>[1] 884 234</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'igraph'</code></pre>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(aa)[<span class="dv">1</span><span class="sc">:</span>(<span class="fu">dim</span>(aa)[<span class="dv">2</span>])]<span class="ot">=</span><span class="fu">paste0</span>(<span class="st">"C"</span>,<span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(aa)[<span class="dv">2</span>])</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>aux3<span class="ot">=</span><span class="fu">bind_cols</span>(<span class="at">Organism=</span><span class="fu">colnames</span>(aux),aa) <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(meta_taxo,<span class="at">by=</span><span class="st">"Organism"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># #View(aux3)</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># #ggparcoord(data =aux3,</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">#            columns  = 2:200,</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">#            groupColumn="Kingdom",missing ="exclude")</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ggparcoord(data =as.tibble(iris),</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co">#            columns = 1:4,</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co">#            groupColumn = "Species")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    decompose, spectrum</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:base':
-
-    union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>graphs_list<span class="ot">=</span><span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/"</span>,list_names,<span class="st">"/"</span>,list_names,<span class="st">"_MDAG.graphml"</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>g_MDAG_list<span class="ot">=</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(graphs_list,<span class="at">FUN=</span><span class="cf">function</span>(x) <span class="fu">read.graph</span>(<span class="at">file=</span>x,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">format=</span><span class="st">"graphml"</span>))</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(g_MDAG_list)<span class="ot">=</span>list_names</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(g_MDAG_list[[<span class="dv">1</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 261b24c D--- 534 477 -- 
-+ attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">as_long_data_frame</span>(g_MDAG_list[[<span class="dv">1</span>]]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  from to              id from_color                   from_label from_id
-1    2  1       2431x1532     yellow    2431\\nR07762\\n2.3.1.179    2431
-2    3  2    0.0.237x2431       gray                MBB\\n0.0.237 0.0.237
-3    4  3 0.0.752x0.0.237     yellow 0.0.752\\nR04968\\n2.3.1.179 0.0.752
-4    5  4 0.0.238x0.0.752       gray                MBB\\n0.0.238 0.0.238
-5    6  5 0.0.753x0.0.238     yellow 0.0.753\\nR04726\\n2.3.1.179 0.0.753
-6    7  6 0.0.239x0.0.753       gray                MBB\\n0.0.239 0.0.239
-  to_color                     to_label   to_id
-1     gray                   MBB\\n1532    1532
-2   yellow    2431\\nR07762\\n2.3.1.179    2431
-3     gray                MBB\\n0.0.237 0.0.237
-4   yellow 0.0.752\\nR04968\\n2.3.1.179 0.0.752
-5     gray                MBB\\n0.0.238 0.0.238
-6   yellow 0.0.753\\nR04726\\n2.3.1.179 0.0.753</code></pre>
-</div>
-</div>
+</section>
+<section id="graph-kernels" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Graph kernels</h1>
 <p><strong>Graph Kernels package</strong></p>
 <p><a href="https://academic.oup.com/bioinformatics/article/34/3/530/4209994?login=true">graphkernels: R and Python packages for graph comparison</a> statGraph’ <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0049949">Discriminating Different Classes of Biological Networks by Analyzing the Graphs Spectra Distribution</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.igraph</span>(g_MDAG_list[[<span class="dv">1</span>]],<span class="at">layout=</span>layout_as_tree,</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">label=</span><span class="cn">NA</span>,<span class="at">label.cex=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="graphs_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_mDAG.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_mDAG.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/Individuals/cang/cang_mDAG.svg" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_mDAG_essential.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_mDAG_essential.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/Individuals/cang/cang_mDAG_essential.svg" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_RC.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_RC.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/Individuals/cang/cang_RC.svg" class="img-fluid"></p>
 </div>
 </div>
-<pre><code>library(DOT)
-dot(paste0(path_exp,"Individuals/aag/aag_mDAG2.dot"),
-    return="svg")</code></pre>
 
 
 </section>

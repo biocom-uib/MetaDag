@@ -1,6 +1,6 @@
 # Similarity comparisons
 
-## Comparison four similarity  mDag eukaryote
+## Comparison four similarity mDag eukaryote
 
 Load the similarities for pairs and comparison
 
@@ -51,7 +51,6 @@ cor(Sim_comp[,4:7],method="spearman")
 cor(Sim_comp[,4:7],method="pearson")
 ```
 
-
 ```{r cache=TRUE}
 library(GGally)
 ggpairs(Sim_comp[,4:7])
@@ -60,4 +59,3 @@ ggpairs(Sim_comp[,4:7])
 ```{r}
 boxplot(Sim_comp[,4:7])
 ```
-

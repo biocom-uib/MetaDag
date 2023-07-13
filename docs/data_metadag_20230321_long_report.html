@@ -355,18 +355,13 @@ dbl (2073): R01982(3.2.1.15), R02439(2.7.1.16), R02439_rev(2.7.1.16), R02429...
 </div>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>taxo<span class="sc">$</span>Class[index]<span class="ot">=</span><span class="fu">paste</span>(taxo<span class="sc">$</span>Kingdom[index],taxo<span class="sc">$</span>Phylum[index])</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>meta_taxo<span class="ot">=</span>taxo <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Kingdom,Phylum)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#order_class=order(table(taxo$Class),decreasing = TRUE)</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">#table(is.na(taxo$Class))</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#meta_taxo= taxo %&gt;%</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># right_join(code,by="Organism") %&gt;%</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">#arrange(Kingdom,Phylum,Class,mDAG_Id)</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>index<span class="ot">=</span><span class="fu">which</span>(<span class="fu">is.na</span>(meta_taxo<span class="sc">$</span>Class))</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>meta_taxo<span class="sc">$</span>Class[index]<span class="ot">=</span>meta_taxo<span class="sc">$</span>Phylum[index]</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">table</span>(meta_taxo<span class="sc">$</span>Class)</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>freq<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">Class=</span><span class="fu">names</span>(aux),<span class="at">Freq_Class=</span>aux)</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(freq)<span class="ot">=</span><span class="fu">c</span>(<span class="st">"Class"</span>,<span class="st">"Freq_Class"</span>)</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>meta_taxo <span class="ot">=</span>meta_taxo <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(freq)<span class="sc">%&gt;%</span></span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Kingdom,Phylum,Class,<span class="fu">desc</span>(Freq_Class))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>index<span class="ot">=</span><span class="fu">which</span>(<span class="fu">is.na</span>(meta_taxo<span class="sc">$</span>Class))</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>meta_taxo<span class="sc">$</span>Class[index]<span class="ot">=</span>meta_taxo<span class="sc">$</span>Phylum[index]</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">table</span>(meta_taxo<span class="sc">$</span>Class)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>freq<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">Class=</span><span class="fu">names</span>(aux),<span class="at">Freq_Class=</span>aux)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(freq)<span class="ot">=</span><span class="fu">c</span>(<span class="st">"Class"</span>,<span class="st">"Freq_Class"</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>meta_taxo <span class="ot">=</span>meta_taxo <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(freq)<span class="sc">%&gt;%</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Kingdom,Phylum,Class,<span class="fu">desc</span>(Freq_Class))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(Class)`</code></pre>
 </div>

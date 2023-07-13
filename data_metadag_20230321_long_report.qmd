@@ -33,11 +33,6 @@ index=is.na(taxo$Categories)
 taxo=taxo %>% separate(Categories,into=c("Kingdom","Phylum","Class"))
 taxo$Class[index]=paste(taxo$Kingdom[index],taxo$Phylum[index])
 meta_taxo=taxo %>% arrange(Kingdom,Phylum)
-#order_class=order(table(taxo$Class),decreasing = TRUE)
-#table(is.na(taxo$Class))
-#meta_taxo= taxo %>%
-# right_join(code,by="Organism") %>%
-#arrange(Kingdom,Phylum,Class,mDAG_Id)
 index=which(is.na(meta_taxo$Class))
 meta_taxo$Class[index]=meta_taxo$Phylum[index]
 aux=table(meta_taxo$Class)
@@ -46,6 +41,7 @@ names(freq)=c("Class","Freq_Class")
 meta_taxo =meta_taxo %>% left_join(freq)%>%
   arrange(Kingdom,Phylum,Class,desc(Freq_Class))
 head(meta_taxo)
+
 ```
 
 ```{r}

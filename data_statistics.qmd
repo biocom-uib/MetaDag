@@ -867,8 +867,8 @@ four_dis=save(meta_taxo,dis_DirectedMethod,
               dis_DirectMethod_MunkrestMethod,
               dis_MunkrestMethod_DirectMethod,file="four_dist_meta_taxo.Robj")
 ```
-=======
-# Data statistics
+
+======= \# Data statistics
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE,warning =FALSE,cache=FALSE,echo=FALSE,messages=FALSE)
