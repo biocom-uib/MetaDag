@@ -1,5 +1,13 @@
 # Similarity comparisons
 
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(message = FALSE,
+                      warning = FALSE,
+                      comment = FALSE)
+library(tidyverse)
+```
+
 ## Comparison four similarity mDag eukaryote
 
 Load the similarities for pairs and comparison

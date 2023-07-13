@@ -1,14 +1,23 @@
 # Some statistics...
 
-```{r, include=FALSE,}
+```{r, include=FALSE}
 knitr::opts_chunk$set(message = FALSE,
-                      warning = FALSE)
+                      warning = FALSE,
+                      comment = FALSE)
 library(tidyverse)
 ```
 
 ## Read all graphs from a level of the experiment
 
 Read all graphs from a level from experiment; for example individuals. We read only firts (alphabetic) two graph
+
+
+# Graph kernels
+
+**Graph Kernels package**
+
+[graphkernels: R and Python packages for graph comparison](https://academic.oup.com/bioinformatics/article/34/3/530/4209994?login=true) statGraph' [Discriminating Different Classes of Biological Networks by Analyzing the Graphs Spectra Distribution](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0049949)
+
 
 ```{r}
 load("Similarities.Rdata")
@@ -24,7 +33,30 @@ graphs_list=paste0(path_exp,"Individuals/",list_names,"/",list_names,"_MDAG.grap
 #head(as_long_data_frame(g_MDAG_list[[1]]))
 ```
 
+
+```{r}
+knitr::include_graphics(
+  paste0(path_exp,"Individuals/cang/cang_mDAG.svg"))
+```
+
+```{r}
+knitr::include_graphics(paste0(path_exp,"Individuals/cang/cang_mDAG_essential.svg"))
+```
+
+```{r}
+knitr::include_graphics(
+  paste0(path_exp,"Individuals/cang/cang_RC.svg"))
+```
+
+
+
+
 ## Graph statistics
+
+
+
+
+
 
 ```{r}
 #x=graphs_list[[1]]
@@ -128,22 +160,3 @@ library(naniar)
 
 ```
 
-# Graph kernels
-
-**Graph Kernels package**
-
-[graphkernels: R and Python packages for graph comparison](https://academic.oup.com/bioinformatics/article/34/3/530/4209994?login=true) statGraph' [Discriminating Different Classes of Biological Networks by Analyzing the Graphs Spectra Distribution](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0049949)
-
-```{r}
-knitr::include_graphics(
-  paste0(path_exp,"Individuals/cang/cang_mDAG.svg"))
-```
-
-```{r}
-knitr::include_graphics(paste0(path_exp,"Individuals/cang/cang_mDAG_essential.svg"))
-```
-
-```{r}
-knitr::include_graphics(
-  paste0(path_exp,"Individuals/cang/cang_RC.svg"))
-```

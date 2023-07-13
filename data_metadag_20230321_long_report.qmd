@@ -1,5 +1,12 @@
 # Load several similarities and metadata for an experiment
 
+```{r, include=FALSE}
+knitr::opts_chunk$set(message = FALSE,
+                      warning = FALSE,
+                      comment = FALSE)
+library(tidyverse)
+```
+
 ```{r}
 library(tidyverse)
 library(ComplexHeatmap)

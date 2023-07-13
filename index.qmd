@@ -8,7 +8,13 @@ URL: http://bioinfo.uib.es/metadag/results?uuid=ff15c187-62e7-37c2-96a7-c824f7ea
 
 ```{r setup, echo=FALSE,include=FALSE}
 knitr::include_graphics("figures/screen_1.png")
-knitr::opts_chunk$set(echo = TRUE,warning=FALSE,message=FALSE)
+```
+```{r, include=FALSE,}
+knitr::opts_chunk$set(message = FALSE,
+                      warning = FALSE,
+                      comment = FALSE)
+library(tidyverse)
+```
 ```
 
 ```{r echo=FALSE}
