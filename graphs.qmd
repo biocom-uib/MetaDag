@@ -1,4 +1,4 @@
-# Load data graphs
+# Some statistics...
 
 ```{r, include=FALSE,}
 knitr::opts_chunk$set(message = FALSE,
