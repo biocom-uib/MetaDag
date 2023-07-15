@@ -58,7 +58,7 @@ kable(mDAG[1:20,1:30]) %>%   scroll_box(width = "100%", height = "200px")
 ```{r}
 dim(mDAG)
 names(mDAG)[1:6]
-names(mDAG)[7:(dim(mDAG)[2]-1150)]# 28 to 1213  code MBB: 1 if MBB in mDAG 0
+head(names(mDAG)[7:(dim(mDAG)[2]-1150)])# 28 to 1213  code MBB: 1 if MBB in mDAG 0
 ```
 
 ## Results
@@ -114,6 +114,5 @@ length(vertex)
 vertex
 V(gg1_mDAG)
 CC1=induced_subgraph(gg1_mDAG, vids=vertex)
-plot(CC1)
 summary(CC1)
 ```

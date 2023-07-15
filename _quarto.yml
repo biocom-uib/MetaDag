@@ -4,13 +4,13 @@ project:
 
 book:
   title: "MetaDAG experiment example"
-  author: ""
-  date: "2023-6-6"
+  author: "Version beta 0.1"
+  date: "`r format(Sys.time(), '%d %B, %Y')`"
   chapters:
     - index.qmd
     - data_load.qmd
     - data_metadag_20230321_long_report.qmd
-    - mDag_four_distance_comparison.qmd
+    - mDag_two_similarity_comparison.qmd
     - graphs.qmd
     - references.qmd
 

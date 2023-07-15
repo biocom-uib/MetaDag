@@ -60,7 +60,7 @@ table(meta_taxo$Phylum,meta_taxo$Kingdom) %>% kable %>%
  scroll_box(width = "500px", height = "500px")
 ```
 
-# Similariries for method Direct
+# Similarities for Direct (MSA)  method
 
 In this section we will show the similarities between mDAG's using different methods.
 
@@ -86,14 +86,6 @@ Sim_MSA_mDAG=Sim_MSA_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
 ```
 
 ```{r}
-list_Sim_mDAG[2]
-Sim_MSA_Mun_mDAG=read_csv(paste0(path_exp,list_Sim_mDAG[2]))
-Sim_MSA_Mun_mDAG=as.matrix(Sim_MSA_Mun_mDAG[,-1])
-rownames(Sim_MSA_Mun_mDAG)=colnames(Sim_MSA_Mun_mDAG)
-Sim_MSA_Mun_mDAG=Sim_MSA_Mun_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
-```
-
-```{r}
 list_Sim_mDAG[3]
 Sim_Mun_mDAG=read_csv(paste0(path_exp,list_Sim_mDAG[3]))
 Sim_Mun_mDAG=as.matrix(Sim_Mun_mDAG[,-1])
@@ -101,34 +93,8 @@ rownames(Sim_Mun_mDAG)=colnames(Sim_Mun_mDAG)
 Sim_Mun_mDAG=Sim_Mun_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
 ```
 
-```{r}
-list_Sim_mDAG[4]
-Sim_Mun_MSA_mDAG=read_csv(paste0(path_exp,list_Sim_mDAG[4]))
-Sim_Mun_MSA_mDAG=as.matrix(Sim_Mun_MSA_mDAG[,-1])
-rownames(Sim_Mun_MSA_mDAG)=colnames(Sim_Mun_MSA_mDAG)
-Sim_Mun_MSA_mDAG=Sim_Mun_MSA_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
-```
-
 ## Heatmaps
 
-```         
-dis_DirectedMethod<-read_csv(paste0(path_exp,
-                                    "Similarities_MBB_MSAMethod.csv"))
-names(dis_DirectedMethod)[1]="mDAG_Id"
-dis_DirectedMethod[,-1]=sqrt(1-dis_DirectedMethod[,-1])
-dis_DirectedMethod_meta =dis_DirectedMethod %>% right_join(select(meta_taxo,mDAG_Id,Kingdom,Filum,Class),by="mDAG_Id") %>%
-  arrange(Kingdom,Filum,Class)
-
-
-ID=dis_DirectedMethod_meta$mDAG_Id
-dis_DirectedMethod=  dis_DirectedMethod_meta %>% 
-  select(-Kingdom) %>% 
-  relocate(mDAG_Id,ID) %>%
-  select(2:570) %>%
-  as.matrix()
-#dis_dir=as.matrix(sqrt(2*(1-sim0[,c(2:570)]^2)))
-dimnames(dis_DirectedMethod) = list(ID,ID)
-```
 
 ## Heatmap Similarity MSA method
 
@@ -191,7 +157,7 @@ anotacion <- HeatmapAnnotation(df=dff, col = colores)
 
 
 a2<- Heatmap(matrix = S[1:535,1:535], 
-              column_title="Distance mDag Direct Method\n  Animals by Class",
+              column_title="Dimilarity mDag Direct Method\n  Animals by Class",
             name = "Class", 
             heatmap_legend_param = list(
     at = seq(0,1.5,by=0.1)),
@@ -266,6 +232,8 @@ clust4=cutree(hc,4)
 table(clust4,meta_taxo$Kingdom)
 ```
 
+# Similarities Munkres method 
+
 ## Heatmap Similarity Mun_MSA method
 
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
@@ -276,9 +244,9 @@ colores <- list(Kingdom= c("Animals"="purple","Plants"="green","Fungi"="yellow",
 
 anotacion <- HeatmapAnnotation(df=dff, col = colores)
 
-S=Sim_Mun_MSA_mDAG
-a<- Heatmap(matrix = Sim_Mun_MSA_mDAG, 
-                          column_title="Similarity mDag Mun-MSA Method\n  Eukariotas by Kingdom",
+S=Sim_Mun_mDAG
+a<- Heatmap(matrix = Sim_Mun_mDAG, 
+                          column_title="Similarity mDag Munkres Method\n  Eukariotas by Kingdom",
             name = "Kingdom",
             heatmap_legend_param = list(
     at = c(0.4,0.5,0.6,0.7,0.8,0.9,1)),
@@ -348,7 +316,7 @@ draw(a2, merge_legend = TRUE)
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
 
 ## Metric multidimensional scaling (mMDS)
-mds7 <- cmdscale(sqrt(1-Sim_Mun_MSA_mDAG^2),k=7,eig=TRUE)
+mds7 <- cmdscale(sqrt(1-Sim_Mun_mDAG^2),k=7,eig=TRUE)
 #pairs(mds7$points[,1:4])
 mds7$GOF
 mds <- mds7$points %>%  as_tibble()
@@ -397,7 +365,7 @@ knitr::include_graphics("figures/fig2.jpeg")
 
 ```{r}
 library(dendextend)
-D=as.dist(sqrt(1-Sim_Mun_MSA_mDAG^2))
+D=as.dist(sqrt(1-Sim_Mun_mDAG^2))
 hc=hclust(as.dist(D),method ="ward.D")
 ggplot(as.ggdend(as.dendrogram(hc)))
 ```
@@ -408,7 +376,6 @@ table(clust4,meta_taxo$Kingdom)
 ```
 
 ```{r}
-save(Sim_MSA_mDAG,Sim_Mun_mDAG,
-     Sim_Mun_MSA_mDAG,Sim_MSA_Mun_mDAG,meta_taxo,
+save(Sim_MSA_mDAG,Sim_Mun_mDAG,meta_taxo,
      file="Similarities.Rdata")
 ```
