@@ -21,6 +21,7 @@ Read all graphs from a level from experiment; for example individuals. We read o
 
 ```{r}
 load("Similarities.Rdata")
+load("MBB_mDag_Results.Rdata")
 path_exp="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/"
 list_names=dir(paste0(path_exp,"Individuals/"))
 #list_names
@@ -55,11 +56,7 @@ knitr::include_graphics(
 
 
 
-
-
-
 ```{r}
-#x=graphs_list[[1]]
 read_mDAG=function(x) {DAG=read.graph(file=x,
                                   format="graphml")
   return(DAG)}
@@ -91,72 +88,112 @@ aux2$index=rep(1:n,times=dim(aux)[2])
 aux2=aux2 %>% left_join(meta_taxo,by="Organism")
 ```
 
+
+
 ```{r}
-#ggplot(aux2,aes(index,csize),color=Organism)+ geom_line()
+Organism=names(compo_list)
+big_MBB=function(org){
+  x=Results %>% filter(Organism==org)
+  x=as.character(x[1,5:dim(Results)[2]])
+  x=x[x!="NA"]
+  tt=sort(table(x),decreasing=TRUE)
+  return(tt)
+  }
+big_MBB_list= lapply(Organism,FUN=function(x) big_MBB(x))
+nMBB=max(sapply(big_MBB_list,FUN=function(x) length(x)))
+nMBB
+big_MBB_list=lapply(big_MBB_list,
+                    FUN=function(x){
+                      x=c(x,rep(NA,nMBB-length(x)))
+                      return(x)}
+)
+names(big_MBB_list)=Organism
+big_MBB_list=do.call(bind_cols,big_MBB_list)
+
+kMBB=nrow(big_MBB_list)
+index=rep(1:kMBB,times=length(Organism))
+
+big_MBB_list2=pivot_longer(big_MBB_list,cols=names(big_MBB_list),values_to = "MBBsize",names_to = "Organism") %>% arrange(Organism,-MBBsize)%>%  mutate(index=index) %>%  left_join(meta_taxo,by="Organism")
+
+```
 
 
-ggplot(data=aux2)+geom_smooth(mapping=aes(x=index,y=csize,group = Organism),se = FALSE,na.rm=TRUE,fullrange=TRUE)+ylim(0,max(aux2$csize))
-## buenos
+### Sizes of MBB for each mDAG
+
+```{r}
 COLOR_KINGDOM=c("red","black","green","yellow")
-colors_kingdom=aux2 %>% select(Organism,Kingdom) %>% distinct()
+colors_kingdom=big_MBB_list2%>% select(Organism,Kingdom) %>% distinct()
 names(COLOR_KINGDOM)=sort(unique(colors_kingdom$Kingdom))
 
-ggplot(data=aux2,col=rep("blue",dim(aux)[2])) + 
-  geom_line(mapping=aes(x=index,y=csize,group = Organism,color=Kingdom)) + 
+p0<-ggplot(data=big_MBB_list2) + 
+  geom_line(mapping=aes(x=index,y=MBBsize,group = Organism,color=Kingdom)) + 
+  scale_x_continuous(trans='log10') + 
+  scale_y_continuous(trans='identity') +
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])+
+   ggtitle("Plot log-log of MBB \n  decreasing index.") +
+  ylab("Log10 MBB size") + xlab("Index")
+
+
+p1<- ggplot(data=big_MBB_list2) + 
+  geom_line(mapping=aes(x=index,y=MBBsize,group = Organism,color=Kingdom)) + 
   scale_x_continuous(trans='log10') + 
   scale_y_continuous(trans='log10') +
-  ylim(0,max(aux2$csize)) +
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])+
+   ggtitle("Plot log-identity of MBB \n  decreasing index.") +
+  ylab("Log10 MBB size") + xlab("Index")
+
+p2<- ggplot(data=big_MBB_list2) + 
+  geom_smooth(mapping=aes(x=index,y=MBBsize,group = Organism,color=Kingdom),na.rm=TRUE,se = FALSE)+
+   scale_x_continuous(trans="identity") + 
+  scale_y_continuous(trans="identity") +
+  ylim(0,1039)+
+   ggtitle("Plot  of MBB sized  \n  decreasing index.") +
+  ylab("MBB size") + xlab("Index")+
   scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
 
-ggplot(data=aux2,col=rep("blue",dim(aux)[2])) + 
-  geom_smooth(mapping=aes(x=index,y=csize,group = Organism,color=Kingdom),) + 
-  scale_x_continuous(trans='log10') + 
-  scale_y_continuous(trans='log10') +
-  ylim(0,max(aux2$csize)) +
-  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
+library(patchwork)
 
-ggplot(data=aux2,col=rep("blue",dim(aux)[2])) + 
-  geom_line(mapping=aes(x=index,y=csize,group = Organism,color=Kingdom)) + 
-  ylim(0,max(aux2$csize)) +
-  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
-## fin buenos
-
-ggplot(data = aux2,color=Phylum) +
-  geom_line(mapping = aes(x = index, y = csize, group = Organism),size=0.1) +
-  scale_x_log10() +
-  scale_y_log10() + 
-  ylim(0, max(aux2$csize))
-
-ggplot(data=aux2)+
-  geom_smooth(
-    mapping=aes(x=index,y=csize,group = Organism,color=Kingdom),
-              se = FALSE,
-    na.rm=TRUE,
-    fullrange=TRUE)+
-  scale_x_log10()+
-  scale_y_log10()+
-  ylim(0,log(max(aux2$csize))+10)+
-  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
-## fin buenos
+p0
+p1
+p2
 ```
+
+### Sizes of weak components for each mDAG
+
 
 ```{r}
-library(GGally)
-aa=as.tibble(t(aux))
-dim(aa)
-names(aa)[1:(dim(aa)[2])]=paste0("C",1:dim(aa)[2])
-aux3=bind_cols(Organism=colnames(aux),aa) %>% left_join(meta_taxo,by="Organism")
-library(naniar)
-# 
-# #View(aux3)
-# 
-# #ggparcoord(data =aux3,
-#            columns  = 2:200,
-#            groupColumn="Kingdom",missing ="exclude")
-# 
-# ggparcoord(data =as.tibble(iris),
-#            columns = 1:4,
-#            groupColumn = "Species")
+COLOR_KINGDOM=c("red","black","green","yellow")
+colors_kingdom=aux2%>% select(Organism,Kingdom) %>% distinct()
+names(COLOR_KINGDOM)=sort(unique(colors_kingdom$Kingdom))
 
+p0<-ggplot(data=aux2) + 
+  geom_line(mapping=aes(x=index,y=csize,group = Organism,color=Kingdom)) + 
+  scale_x_continuous(trans='log10') + 
+  scale_y_continuous(trans='identity') +
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])+
+   ggtitle("Plot log-log of size  weak components \n  decreasing index.") +
+  ylab("LOg10 Weak componente size") + xlab("Index")
+
+
+p1<- ggplot(data=aux2) + 
+  geom_line(mapping=aes(x=index,y=csize,group = Organism,color=Kingdom)) + 
+  scale_x_continuous(trans='log10') + 
+  scale_y_continuous(trans='log10') +
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])+
+   ggtitle("Plot log-identity of size  weak components \n  decreasing index.") +
+  ylab("Log10 weak component size") + xlab("Index")
+
+p2<- ggplot(data=big_MBB_list2) + 
+  geom_smooth(mapping=aes(x=index,y=MBBsize,group = Organism,color=Kingdom),na.rm=TRUE,se = FALSE)+
+   scale_x_continuous(trans="identity") + 
+  scale_y_continuous(trans="identity") +
+  ylim(0,1039)+
+   ggtitle("Plot  of size  weak components \n  decreasing index.")+  ylab("Weak components size") + xlab("Index")+
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
+
+library(patchwork)
+
+p0
+p1
+p2
 ```
-

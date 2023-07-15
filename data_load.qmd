@@ -22,6 +22,7 @@ dir(path_exp)
 MBB=read_csv(paste0(path_exp,"Different_MBB.csv"),show_col_types = FALSE)
 mDAG=read_csv(paste0(path_exp,"Different_mDAG.csv"),show_col_types = FALSE)
 Results=read_csv(paste0(path_exp,"Results.csv"),show_col_types = FALSE)
+save(MBB,mDAG,Results,file="MBB_mDag_Results.Rdata")
 ```
 
 ## MBB
