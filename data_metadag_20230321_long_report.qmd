@@ -60,7 +60,7 @@ table(meta_taxo$Phylum,meta_taxo$Kingdom) %>% kable %>%
  scroll_box(width = "500px", height = "500px")
 ```
 
-# Similarities for Direct (MSA)  method
+# Similarities for Direct (MSA) method
 
 In this section we will show the similarities between mDAG's using different methods.
 
@@ -95,18 +95,18 @@ Sim_Mun_mDAG=Sim_Mun_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
 
 ## Heatmaps
 
-
 ## Heatmap Similarity MSA method
 
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
 dff<-meta_taxo %>% select(Kingdom)  %>% as.data.frame()
 #str(dff)
 
-colores <- list(Kingdom= c("Animals"="purple","Plants"="green","Fungi"="yellow","Protists"="coral"))
+colorsK <- list(Kingdom= c("Animals"="red","Plants"="green","Fungi"="black","Protists"="yellow"))
 
-anotacion <- HeatmapAnnotation(df=dff, col = colores)
+anot <- HeatmapAnnotation(df=dff, col = colorsK)
 
 S=Sim_MSA_mDAG
+
 a<- Heatmap(matrix = Sim_MSA_mDAG, 
                           column_title="Similarity mDag MSA Method\n  Eukariotas by Kingdom",
             name = "Kingdom",
@@ -115,10 +115,10 @@ a<- Heatmap(matrix = Sim_MSA_mDAG,
         col=rev(viridis(256)),
         cluster_rows = FALSE,
         cluster_columns = FALSE,
-        top_annotation = anotacion,
+        top_annotation = anot,
         show_column_names = FALSE, 
         show_row_names = FALSE,
-        left_annotation = rowAnnotation(df = dff, col = colores,show_annotation_name=FALSE))
+        left_annotation = rowAnnotation(df = dff,                                    col=colorsK,show_annotation_name=FALSE))
   
 draw(a, merge_legend = TRUE)
 ```
@@ -131,8 +131,8 @@ dff<-meta_taxo %>% filter(Kingdom=="Animals") %>% select(Class) %>% as.data.fram
 #str(dff)
 nombres=unique(dff$Class)
 col=rainbow(length(nombres))
-colores=list(Class=col)
-names(colores$Class)=nombres
+colorsP=list(Class=col)
+names(colorsP$Class)=nombres
 #paste0(paste0('"',nombres,'"="',col,'"'),collapse=",")
 # colores <- list(Class=c(
 # "Amphibians"="#FF0000","Annelids"="#FF4900",
@@ -153,11 +153,11 @@ names(colores$Class)=nombres
 # attr(colores$Class,"names")=aux
 
 
-anotacion <- HeatmapAnnotation(df=dff, col = colores)
+anotacion <- HeatmapAnnotation(df=dff, col = colorsP)
 
 
 a2<- Heatmap(matrix = S[1:535,1:535], 
-              column_title="Dimilarity mDag Direct Method\n  Animals by Class",
+              column_title="Similarity mDag MSA Method\n  Animals by Class",
             name = "Class", 
             heatmap_legend_param = list(
     at = seq(0,1.5,by=0.1)),
@@ -185,8 +185,9 @@ mds <- mds7$points %>%  as_tibble()
 colnames(mds) <-paste0("Dim.",1:dim(mds7$points)[2])
 
 library(GGally)
-
-ggpairs(as_tibble(mds7$points),columns=1:4,aes(color=meta_taxo$Kingdom,alpha=0.5),upper=list(continuous="points")) 
+cooordinates=as_tibble(mds7$points)
+colnames(cooordinates)=paste("Component",1:7)
+ggpairs(cooordinates,columns=1:4,aes(color=meta_taxo$Kingdom,alpha=0.5,title="MDS 4 dimensions projection",legend=1),upper=list(continuous="points")) +scale_fill_manual(values = colorsK$Kingdom)+ theme(legend.position = "left")
 
 mds <- mds %>%
   mutate(groups =as.factor(meta_taxo$Kingdom))
@@ -199,18 +200,21 @@ length(unique(meta_taxo$Phylum))
 col_mds=rainbow(33)
 #mcol_mds=bremer.pal(7,"Greens")
 
-fig <- 
-plot_ly(
-  mds, x = ~Dim.1, y = ~Dim.2,
-  color = ~groups, 
-  colors= col_mds,
-  type="scatter",
-  mode="markers") %>%
-  layout(
-    xaxis = list(autorange=2,
-      range=c(-0.8,0.8)), yaxis = list(autorange=2,
-      range=c(-0.8,0.8)))
-#fig
+# fig <- 
+# plot_ly(
+#   mds, x = ~Dim.1, y = ~Dim.2,
+#   color = ~groups, 
+#   colors= colors,
+#   type="scatter",
+#   mode="markers") %>%
+#   layout(
+#     xaxis = list(autorange=2,
+#       range=c(-0.8,0.8)), yaxis = list(autorange=2,
+#       range=c(-0.8,0.8)))
+# #
+# jpeg(filename="figures/fig1.jpeg")
+# fig
+# dev.off
 ```
 
 ```{r echo=FALSE,fig.align='center',out.width="80%"}
@@ -224,7 +228,8 @@ knitr::include_graphics("figures/fig1.jpeg")
 library(dendextend)
 D=as.dist(sqrt(1-Sim_MSA_mDAG^2))
 hc=hclust(as.dist(D),method ="ward.D")
-ggplot(as.ggdend(as.dendrogram(hc)))
+library(circlize)
+circlize_dendrogram(as.dendrogram(hc))
 ```
 
 ```{r}
@@ -232,7 +237,7 @@ clust4=cutree(hc,4)
 table(clust4,meta_taxo$Kingdom)
 ```
 
-# Similarities Munkres method 
+# Similarities Munkres method
 
 ## Heatmap Similarity Mun_MSA method
 
@@ -240,7 +245,7 @@ table(clust4,meta_taxo$Kingdom)
 dff<-meta_taxo %>% select(Kingdom)  %>% as.data.frame()
 #str(dff)
 
-colores <- list(Kingdom= c("Animals"="purple","Plants"="green","Fungi"="yellow","Protists"="coral"))
+colores <- list(Kingdom= c("Animals"="red","Plants"="green","Fungi"="black","Protists"="yellow"))
 
 anotacion <- HeatmapAnnotation(df=dff, col = colores)
 
@@ -295,7 +300,7 @@ anotacion <- HeatmapAnnotation(df=dff, col = colores)
 
 
 a2<- Heatmap(matrix = S[1:535,1:535], 
-              column_title="Distance mDag Mun_MSA Method\n  Animals by Class",
+              column_title="Similarity mDag Munkres  Method\n  Animals by Class",
             name = "Class", 
             heatmap_legend_param = list(
     at = seq(0,1.5,by=0.1)),
@@ -323,8 +328,9 @@ mds <- mds7$points %>%  as_tibble()
 colnames(mds) <-paste0("Dim.",1:dim(mds7$points)[2])
 
 library(GGally)
-
-ggpairs(as_tibble(mds7$points),columns=1:4,aes(color=meta_taxo$Kingdom,alpha=0.5),upper=list(continuous="points")) 
+cooordinates=as_tibble(mds7$points)
+colnames(cooordinates)=paste("Component",1:7)
+ggpairs(cooordinates,columns=1:4,aes(color=meta_taxo$Kingdom,alpha=0.5,title="MDS 4 dimensions projection",legend=1),upper=list(continuous="points")) +scale_fill_manual(values = colores$Kingdom)+ theme(legend.position = "left")
 #cmdscale(D,2,eig=TRUE)$GOF
 
 # Plot MDS
