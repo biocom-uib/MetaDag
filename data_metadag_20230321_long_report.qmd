@@ -133,25 +133,6 @@ nombres=unique(dff$Class)
 col=rainbow(length(nombres))
 colorsP=list(Class=col)
 names(colorsP$Class)=nombres
-#paste0(paste0('"',nombres,'"="',col,'"'),collapse=",")
-# colores <- list(Class=c(
-# "Amphibians"="#FF0000","Annelids"="#FF4900",
-# "Cartilaginous"="#FF9200","Cephalochordates"="#FFDB00",
-# "Chelicerates"="#DBFF00","Cnidarians"="#92FF00",
-# "Crustaceans"="#49FF00","Echinoderms"="#00FF00",
-# "Fishes"="#00FF49","Flatworms"="#00FF92",
-# "Hemichordates"="#00FFDB","Insects"="#00DBFF",
-# "Mammals"="#0092FF","Mollusks"="#0049FF",
-# "Nematodes"="#0000FF","Placozoans"="#4900FF",
-# "Poriferans"="#9200FF",
-# "Reptiles"="#DB00FF",
-# "Tunicates"="#FF00DB",
-# "Mammals"="#FF0092",
-# "Reptiles"="#FF0049"))
-# aux=names(colores$Class)
-# colores$Class=as.character(palette.colors(n=21,palette="Polychrome 36"))
-# attr(colores$Class,"names")=aux
-
 
 anotacion <- HeatmapAnnotation(df=dff, col = colorsP)
 
@@ -167,7 +148,7 @@ a2<- Heatmap(matrix = S[1:535,1:535],
         top_annotation = anotacion,
         show_column_names = FALSE, 
         show_row_names = FALSE,
-        left_annotation = rowAnnotation(df = dff, col = colores,show_annotation_name=TRUE))
+        left_annotation = rowAnnotation(df = dff, col = colorsP,show_annotation_name=TRUE))
   
 draw(a2, merge_legend = TRUE)
 
@@ -330,42 +311,15 @@ colnames(mds) <-paste0("Dim.",1:dim(mds7$points)[2])
 library(GGally)
 cooordinates=as_tibble(mds7$points)
 colnames(cooordinates)=paste("Component",1:7)
-ggpairs(cooordinates,columns=1:4,aes(color=meta_taxo$Kingdom,alpha=0.5,title="MDS 4 dimensions projection",legend=1),upper=list(continuous="points")) +scale_fill_manual(values = colores$Kingdom)+ theme(legend.position = "left")
-#cmdscale(D,2,eig=TRUE)$GOF
-
-# Plot MDS
-
-#mds <- mds %>%
- # mutate(groups =as.factor(sim0_meta$Kingdom))
-
-mds <- mds %>%
-  mutate(groups =as.factor(meta_taxo$Kingdom))
-
-
-#,text= ~paste("Age:", groups, '<br>Name:')
-length(unique(meta_taxo$Phylum))
-
-#col_mds=c("purple","green","yellow","coral")
-col_mds=rainbow(33)
-#mcol_mds=bremer.pal(7,"Greens")
-
-fig <- 
-plot_ly(
-  mds, x = ~Dim.1, y = ~Dim.2,
-  color = ~groups, 
-  colors= col_mds
-) %>%
-  layout(
-    xaxis = list(autorange=2,
-      range=c(-0.8,0.8)), yaxis = list(autorange=2,
-      range=c(-0.8,0.8)))
-#fig
-```
-
-```{r echo=FALSE,fig.align='center',out.width="80%"}
-knitr::include_graphics("figures/fig2.jpeg")
+ggpairs(cooordinates,columns=1:4,
+        aes(color=meta_taxo$Kingdom,
+            title="MDS 4 dimensions projection",legend=1),
+        lower=list(continuous="points")) + 
+  scale_fill_manual(values = colorsK$Kingdom) + 
+  theme(legend.position = "left")
 
 ```
+
 
 # Hierarchical cluster
 
