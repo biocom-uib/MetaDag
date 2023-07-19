@@ -7,15 +7,8 @@ book:
   author: "Version beta 0.1"
   date: "`r format(Sys.time(), '%d %B, %Y')`"
   chapters:
-    - index.qmd
-    - data_load.qmd
-    - data_metadag_20230321_long_report.qmd
-    - mDag_two_similarity_comparison.qmd
-    - graphs.qmd
-    - references.qmd
-
-bibliography: references.bib
-
+    - index.qmd  
+    
 format:
   html:
     theme: Journal

@@ -1,0 +1,27 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "MetaDAG experiment example"
+  author: "Version beta 0.1"
+  date: "`r format(Sys.time(), '%d %B, %Y')`"
+  chapters:
+    - index.qmd
+    - data_load.qmd
+    - data_metadag_20230321_long_report.qmd
+    - mDag_two_similarity_comparison.qmd
+    - graphs.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: Journal
+  pdf:
+    toc: true
+    number-sections: true
+    colorlinks: true
+    
+editor: visual
