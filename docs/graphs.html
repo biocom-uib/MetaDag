@@ -179,7 +179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#read-all-graphs-from-a-level-of-the-experiment" id="toc-read-all-graphs-from-a-level-of-the-experiment" class="nav-link active" data-scroll-target="#read-all-graphs-from-a-level-of-the-experiment"><span class="header-section-number">4.1</span> Read all graphs from a level of the experiment</a></li>
-  <li><a href="#graph-kernels" id="toc-graph-kernels" class="nav-link" data-scroll-target="#graph-kernels"><span class="header-section-number">5</span> Graph kernels</a>
+  <li><a href="#graph" id="toc-graph" class="nav-link" data-scroll-target="#graph"><span class="header-section-number">5</span> Graph</a>
   <ul class="collapse">
   <li><a href="#graph-statistics" id="toc-graph-statistics" class="nav-link" data-scroll-target="#graph-statistics"><span class="header-section-number">5.1</span> Graph statistics</a>
   <ul class="collapse">
@@ -214,11 +214,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="4.1" class="anchored" data-anchor-id="read-all-graphs-from-a-level-of-the-experiment"><span class="header-section-number">4.1</span> Read all graphs from a level of the experiment</h2>
 <p>Read all graphs from a level from experiment; for example individuals. We read only firts (alphabetic) two graph</p>
 </section>
-<section id="graph-kernels" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Graph kernels</h1>
-<p><strong>Graph Kernels package</strong></p>
-<p><a href="https://academic.oup.com/bioinformatics/article/34/3/530/4209994?login=true">graphkernels: R and Python packages for graph comparison</a> statGraph’ <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0049949">Discriminating Different Classes of Biological Networks by Analyzing the Graphs Spectra Distribution</a></p>
-<div class="cell">
+<section id="graph" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Graph</h1>
+<div class="cell" data-hash="graphs_cache/html/unnamed-chunk-2_d29b8370e1455f78c723aef8ffe7bf1c">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"Similarities.Rdata"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"MBB_mDag_Results.Rdata"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>path_exp<span class="ot">=</span><span class="st">"data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/"</span></span>
@@ -235,20 +233,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>graphs_list<span class="ot">=</span><span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/"</span>,list_names,<span class="st">"/"</span>,list_names,<span class="st">"_MDAG.graphml"</span>)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#head(as_long_data_frame(g_MDAG_list[[1]]))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-hash="graphs_cache/html/unnamed-chunk-3_f9f501c8ac137a6c4fe2b2ad20321aaf">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_mDAG.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/Individuals/cang/cang_mDAG.svg" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell">
+<div class="cell" data-hash="graphs_cache/html/unnamed-chunk-4_f64ec18515160ef3736af8d908c9bc2c">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_mDAG_essential.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/Individuals/cang/cang_mDAG_essential.svg" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell">
+<div class="cell" data-hash="graphs_cache/html/unnamed-chunk-5_359d1345c6c0b52ec8d865814bb5a269">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_RC.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -257,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="graph-statistics" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="graph-statistics"><span class="header-section-number">5.1</span> Graph statistics</h2>
-<div class="cell">
+<div class="cell" data-hash="graphs_cache/html/unnamed-chunk-6_d32da504f18abc918d998ebf4457824c">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>read_mDAG<span class="ot">=</span><span class="cf">function</span>(x) {DAG<span class="ot">=</span><span class="fu">read.graph</span>(<span class="at">file=</span>x,</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">format=</span><span class="st">"graphml"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(DAG)}</span>
@@ -291,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>aux2<span class="sc">$</span>index<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n,<span class="at">times=</span><span class="fu">dim</span>(aux)[<span class="dv">2</span>])</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>aux2<span class="ot">=</span>aux2 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(meta_taxo,<span class="at">by=</span><span class="st">"Organism"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-hash="graphs_cache/html/unnamed-chunk-7_a767f3bc140633fbc481749720055b57">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Organism<span class="ot">=</span><span class="fu">names</span>(compo_list)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>big_MBB<span class="ot">=</span><span class="cf">function</span>(org){</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  x<span class="ot">=</span>Results <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Organism<span class="sc">==</span>org)</span>
@@ -321,17 +319,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="sizes-of-mbb-for-each-mdag" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="sizes-of-mbb-for-each-mdag"><span class="header-section-number">5.1.1</span> Sizes of MBB for each mDAG</h3>
-<div class="cell">
+<div class="cell" data-hash="graphs_cache/html/unnamed-chunk-8_9e53e5336f136339d0ef211ef968efed">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>COLOR_KINGDOM<span class="ot">=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"black"</span>,<span class="st">"green"</span>,<span class="st">"yellow"</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>colors_kingdom<span class="ot">=</span>big_MBB_list2<span class="sc">%&gt;%</span> <span class="fu">select</span>(Organism,Kingdom) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(COLOR_KINGDOM)<span class="ot">=</span><span class="fu">sort</span>(<span class="fu">unique</span>(colors_kingdom<span class="sc">$</span>Kingdom))</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>p0<span class="ot">&lt;-</span><span class="fu">ggplot</span>(<span class="at">data=</span>big_MBB_list2) <span class="sc">+</span> </span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>MBBsize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom)) <span class="sc">+</span> </span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> </span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'identity'</span>) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'identity'</span>) <span class="sc">+</span></span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])<span class="sc">+</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot log-log of MBB </span><span class="sc">\n</span><span class="st">  decreasing index."</span>) <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot log-identity of MBB </span><span class="sc">\n</span><span class="st">  decreasing index."</span>) <span class="sc">+</span></span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log10 MBB size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Index"</span>)</span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
@@ -340,11 +338,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> </span>
 <span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span></span>
 <span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])<span class="sc">+</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot log-identity of MBB </span><span class="sc">\n</span><span class="st">  decreasing index."</span>) <span class="sc">+</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log10 MBB size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Index"</span>)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot log10-log10identity of MBB </span><span class="sc">\n</span><span class="st">  decreasing index."</span>) <span class="sc">+</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log10 MBB size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Log10 Index"</span>)</span>
 <span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>big_MBB_list2) <span class="sc">+</span> </span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>MBBsize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),<span class="at">na.rm=</span><span class="cn">TRUE</span>,<span class="at">se =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>MBBsize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),<span class="at">na.rm=</span><span class="cn">TRUE</span>,<span class="at">se =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
 <span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">"identity"</span>) <span class="sc">+</span> </span>
 <span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
 <span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1039</span>)<span class="sc">+</span></span>
@@ -370,7 +368,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="sizes-of-weak-components-for-each-mdag" class="level3" data-number="5.1.2">
 <h3 data-number="5.1.2" class="anchored" data-anchor-id="sizes-of-weak-components-for-each-mdag"><span class="header-section-number">5.1.2</span> Sizes of weak components for each mDAG</h3>
-<div class="cell">
+<div class="cell" data-hash="graphs_cache/html/unnamed-chunk-9_e5c3552a39c5bf7cffd326640fdc7f20">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>COLOR_KINGDOM<span class="ot">=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"black"</span>,<span class="st">"green"</span>,<span class="st">"yellow"</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>colors_kingdom<span class="ot">=</span>aux2<span class="sc">%&gt;%</span> <span class="fu">select</span>(Organism,Kingdom) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(COLOR_KINGDOM)<span class="ot">=</span><span class="fu">sort</span>(<span class="fu">unique</span>(colors_kingdom<span class="sc">$</span>Kingdom))</span>
@@ -380,8 +378,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> </span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'identity'</span>) <span class="sc">+</span></span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])<span class="sc">+</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot log-log of size  weak components </span><span class="sc">\n</span><span class="st">  decreasing index."</span>) <span class="sc">+</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"LOg10 Weak componente size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Index"</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot log-identity of size  weak components </span><span class="sc">\n</span><span class="st">  decreasing index."</span>) <span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log10 Weak componente size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Index"</span>)</span>
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>aux2) <span class="sc">+</span> </span>
@@ -389,8 +387,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> </span>
 <span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span></span>
 <span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])<span class="sc">+</span></span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot log-identity of size  weak components </span><span class="sc">\n</span><span class="st">  decreasing index."</span>) <span class="sc">+</span></span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log10 weak component size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Index"</span>)</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot log-log of size  weak components </span><span class="sc">\n</span><span class="st">  decreasing index."</span>) <span class="sc">+</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log10 weak component size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Log10 Index"</span>)</span>
 <span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>big_MBB_list2) <span class="sc">+</span> </span>
 <span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>MBBsize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),<span class="at">na.rm=</span><span class="cn">TRUE</span>,<span class="at">se =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>

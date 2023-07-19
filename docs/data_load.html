@@ -1971,7 +1971,7 @@ FALSE  3398   594</code></pre>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>gg1_mDAG<span class="ot">=</span><span class="fu">read.graph</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/hsa/hsa_mDAG.graphml"</span>),<span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gg1_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>FALSE IGRAPH eeb344c D--- 1026 1086 -- 
+<pre><code>FALSE IGRAPH ced5905 D--- 1026 1086 -- 
 FALSE + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(<span class="fu">degree</span>(gg1_mDAG)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2083,7 +2083,7 @@ FALSE [586] 1010 1014 1018 1026</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(gg1_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>FALSE + 1026/1026 vertices, from eeb344c:
+<pre><code>FALSE + 1026/1026 vertices, from ced5905:
 FALSE    [1]    1    2    3    4    5    6    7    8    9   10   11   12   13   14
 FALSE   [15]   15   16   17   18   19   20   21   22   23   24   25   26   27   28
 FALSE   [29]   29   30   31   32   33   34   35   36   37   38   39   40   41   42
@@ -2099,7 +2099,7 @@ FALSE + ... omitted several vertices</code></pre>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>CC1<span class="ot">=</span><span class="fu">induced_subgraph</span>(gg1_mDAG, <span class="at">vids=</span>vertex)</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(CC1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>FALSE IGRAPH eec3eb2 D--- 589 774 -- 
+<pre><code>FALSE IGRAPH cee31b2 D--- 589 774 -- 
 FALSE + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 </div>

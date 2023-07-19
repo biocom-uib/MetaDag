@@ -184,7 +184,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#data-analysis-whit-4-methods-similarities-direct-munkrest-direct_munkrest-and-munkrest_direct" id="toc-data-analysis-whit-4-methods-similarities-direct-munkrest-direct_munkrest-and-munkrest_direct" class="nav-link active" data-scroll-target="#data-analysis-whit-4-methods-similarities-direct-munkrest-direct_munkrest-and-munkrest_direct"><span class="header-section-number">2.1</span> Data analysis whit 4 methods similarities Direct, Munkrest, Direct_Munkrest and Munkrest_Direct</a></li>
   <li><a href="#load-several-similarities-for-mdag" id="toc-load-several-similarities-for-mdag" class="nav-link" data-scroll-target="#load-several-similarities-for-mdag"><span class="header-section-number">2.2</span> Load several similarities for mDag</a></li>
   <li><a href="#load-meta-data-from-eukariotes-experimet" id="toc-load-meta-data-from-eukariotes-experimet" class="nav-link" data-scroll-target="#load-meta-data-from-eukariotes-experimet"><span class="header-section-number">3</span> Load meta data from eukariotes experimet</a></li>
-  <li><a href="#similarities-for-direct-msa-method" id="toc-similarities-for-direct-msa-method" class="nav-link" data-scroll-target="#similarities-for-direct-msa-method"><span class="header-section-number">4</span> Similarities for Direct (MSA) method</a>
+  <li><a href="#similarities-for-msa-similarity-method" id="toc-similarities-for-msa-similarity-method" class="nav-link" data-scroll-target="#similarities-for-msa-similarity-method"><span class="header-section-number">4</span> Similarities for MSA-similarity method</a>
   <ul class="collapse">
   <li><a href="#heatmaps" id="toc-heatmaps" class="nav-link" data-scroll-target="#heatmaps"><span class="header-section-number">4.1</span> Heatmaps</a></li>
   <li><a href="#heatmap-similarity-msa-method" id="toc-heatmap-similarity-msa-method" class="nav-link" data-scroll-target="#heatmap-similarity-msa-method"><span class="header-section-number">4.2</span> Heatmap Similarity MSA method</a></li>
@@ -565,8 +565,8 @@ FALSE 6 isc      Animals Arthropods Chelicerates 0075    Ixodes scapularis… 13
 </div>
 </div>
 </section>
-<section id="similarities-for-direct-msa-method" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Similarities for Direct (MSA) method</h1>
+<section id="similarities-for-msa-similarity-method" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Similarities for MSA-similarity method</h1>
 <p>In this section we will show the similarities between mDAG’s using different methods.</p>
 <p>The experiment data set consists of 884 eurkaryotes from the animal, plant, fungus, and protist kingdoms.</p>
 <div class="cell">
@@ -648,18 +648,18 @@ FALSE [5] "Similarities_mDAGOnReaction.csv"</code></pre>
 </section>
 <section id="heatmap-similarity-msa-method" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="heatmap-similarity-msa-method"><span class="header-section-number">4.2</span> Heatmap Similarity MSA method</h2>
-<div class="cell" data-layout-align="center" data-hash="data_metadag_20230321_long_report_cache/html/unnamed-chunk-9_b15e6832becbcaa3e36a7ab2421f500e">
+<div class="cell" data-layout-align="center" data-hash="data_metadag_20230321_long_report_cache/html/unnamed-chunk-9_354c426d2af5a7fc8050a8d9aad5b176">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>dff<span class="ot">&lt;-</span>meta_taxo <span class="sc">%&gt;%</span> <span class="fu">select</span>(Kingdom)  <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#str(dff)</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>colorsK <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Kingdom=</span> <span class="fu">c</span>(<span class="st">"Animals"</span><span class="ot">=</span><span class="st">"red"</span>,<span class="st">"Plants"</span><span class="ot">=</span><span class="st">"green"</span>,<span class="st">"Fungi"</span><span class="ot">=</span><span class="st">"black"</span>,<span class="st">"Protists"</span><span class="ot">=</span><span class="st">"yellow"</span>))</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>colorsK <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Kingdom=</span> <span class="fu">c</span>(<span class="st">"Animals"</span><span class="ot">=</span><span class="st">"red"</span>,<span class="st">"Plants"</span><span class="ot">=</span><span class="st">"green"</span>,<span class="st">"Fungi"</span><span class="ot">=</span><span class="st">"yellow"</span>,<span class="st">"Protists"</span><span class="ot">=</span><span class="st">"black"</span>))</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>anot <span class="ot">&lt;-</span> <span class="fu">HeatmapAnnotation</span>(<span class="at">df=</span>dff, <span class="at">col =</span> colorsK)</span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span>Sim_MSA_mDAG</span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span> <span class="fu">Heatmap</span>(<span class="at">matrix =</span> Sim_MSA_mDAG, </span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>                          <span class="at">column_title=</span><span class="st">"Similarity mDag MSA Method</span><span class="sc">\n</span><span class="st">  Eukariotas by Kingdom"</span>,</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>                          <span class="at">column_title=</span><span class="st">"m-DAGs MSA-similarity </span><span class="sc">\n</span><span class="st">  Eukaryotes by Kingdom"</span>,</span>
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">name =</span> <span class="st">"Kingdom"</span>,</span>
 <span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">heatmap_legend_param =</span> <span class="fu">list</span>(</span>
 <span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">at =</span> <span class="fu">c</span>(<span class="fl">0.4</span>,<span class="fl">0.5</span>,<span class="fl">0.6</span>,<span class="fl">0.7</span>,<span class="fl">0.8</span>,<span class="fl">0.9</span>,<span class="dv">1</span>)),</span>
@@ -680,23 +680,23 @@ FALSE [5] "Similarities_mDAGOnReaction.csv"</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="data_metadag_20230321_long_report_cache/html/unnamed-chunk-10_ce3995a4b06219eaf19507f794f150de">
+<div class="cell" data-layout-align="center" data-hash="data_metadag_20230321_long_report_cache/html/unnamed-chunk-10_14be1b9fcd85a2cadeb9dc525a302bb1">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>meta_animals<span class="ot">=</span> meta_taxo <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Kingdom<span class="sc">==</span><span class="st">"Animals"</span>)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>nombres<span class="ot">=</span><span class="fu">unique</span>(meta_animals<span class="sc">$</span>Phylum)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>aux_order<span class="ot">=</span><span class="fu">table</span>(meta_animals<span class="sc">$</span>Phylum)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>dff<span class="ot">&lt;-</span>meta_taxo <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Kingdom<span class="sc">==</span><span class="st">"Animals"</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Class) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>dff<span class="ot">&lt;-</span>meta_taxo <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Kingdom<span class="sc">==</span><span class="st">"Animals"</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Phylum) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">#str(dff)</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>nombres<span class="ot">=</span><span class="fu">unique</span>(dff<span class="sc">$</span>Class)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>nombres<span class="ot">=</span><span class="fu">unique</span>(dff<span class="sc">$</span>Phylum)</span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>col<span class="ot">=</span><span class="fu">rainbow</span>(<span class="fu">length</span>(nombres))</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>colorsP<span class="ot">=</span><span class="fu">list</span>(<span class="at">Class=</span>col)</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(colorsP<span class="sc">$</span>Class)<span class="ot">=</span>nombres</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>colorsP<span class="ot">=</span><span class="fu">list</span>(<span class="at">Phylum=</span>col)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(colorsP<span class="sc">$</span>Phylum)<span class="ot">=</span>nombres</span>
 <span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>anotacion <span class="ot">&lt;-</span> <span class="fu">HeatmapAnnotation</span>(<span class="at">df=</span>dff, <span class="at">col =</span> colorsP)</span>
 <span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>a2<span class="ot">&lt;-</span> <span class="fu">Heatmap</span>(<span class="at">matrix =</span> S[<span class="dv">1</span><span class="sc">:</span><span class="dv">535</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">535</span>], </span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>              <span class="at">column_title=</span><span class="st">"Similarity mDag MSA Method</span><span class="sc">\n</span><span class="st">  Animals by Class"</span>,</span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">name =</span> <span class="st">"Class"</span>, </span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>              <span class="at">column_title=</span><span class="st">"m-DAGs MSA-similarity </span><span class="sc">\n</span><span class="st">  Animals Phylum"</span>,</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">name =</span> <span class="st">" "</span>, </span>
 <span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">heatmap_legend_param =</span> <span class="fu">list</span>(</span>
 <span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="fl">1.5</span>,<span class="at">by=</span><span class="fl">0.1</span>)),</span>
 <span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="fu">rev</span>(<span class="fu">viridis</span>(<span class="dv">256</span>)),</span>
@@ -810,7 +810,7 @@ FALSE      4       0     0    125        0</code></pre>
 <h1 data-number="6"><span class="header-section-number">6</span> Similarities Munkres method</h1>
 <section id="heatmap-similarity-mun_msa-method" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="heatmap-similarity-mun_msa-method"><span class="header-section-number">6.1</span> Heatmap Similarity Mun_MSA method</h2>
-<div class="cell" data-layout-align="center" data-hash="data_metadag_20230321_long_report_cache/html/unnamed-chunk-15_58b3adf8a0d983768734c9b8c02437ed">
+<div class="cell" data-layout-align="center" data-hash="data_metadag_20230321_long_report_cache/html/unnamed-chunk-15_2c1752bd70662b72ccf56dd5dd72201c">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>dff<span class="ot">&lt;-</span>meta_taxo <span class="sc">%&gt;%</span> <span class="fu">select</span>(Kingdom)  <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">#str(dff)</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -820,7 +820,7 @@ FALSE      4       0     0    125        0</code></pre>
 <span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span>Sim_Mun_mDAG</span>
 <span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span> <span class="fu">Heatmap</span>(<span class="at">matrix =</span> Sim_Mun_mDAG, </span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>                          <span class="at">column_title=</span><span class="st">"Similarity mDag Munkres Method</span><span class="sc">\n</span><span class="st">  Eukariotas by Kingdom"</span>,</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>                          <span class="at">column_title=</span><span class="st">"Similarity mDag Munkres Method</span><span class="sc">\n</span><span class="st">  Eukaryotes by Kingdom"</span>,</span>
 <span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">name =</span> <span class="st">"Kingdom"</span>,</span>
 <span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">heatmap_legend_param =</span> <span class="fu">list</span>(</span>
 <span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">at =</span> <span class="fu">c</span>(<span class="fl">0.4</span>,<span class="fl">0.5</span>,<span class="fl">0.6</span>,<span class="fl">0.7</span>,<span class="fl">0.8</span>,<span class="fl">0.9</span>,<span class="dv">1</span>)),</span>

@@ -48,7 +48,6 @@ names(freq)=c("Class","Freq_Class")
 meta_taxo =meta_taxo %>% left_join(freq)%>%
   arrange(Kingdom,Phylum,Class,desc(Freq_Class))
 head(meta_taxo)
-
 ```
 
 ```{r}
@@ -60,7 +59,7 @@ table(meta_taxo$Phylum,meta_taxo$Kingdom) %>% kable %>%
  scroll_box(width = "500px", height = "500px")
 ```
 
-# Similarities for Direct (MSA) method
+# Similarities for MSA-similarity method
 
 In this section we will show the similarities between mDAG's using different methods.
 
@@ -101,14 +100,14 @@ Sim_Mun_mDAG=Sim_Mun_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
 dff<-meta_taxo %>% select(Kingdom)  %>% as.data.frame()
 #str(dff)
 
-colorsK <- list(Kingdom= c("Animals"="red","Plants"="green","Fungi"="black","Protists"="yellow"))
+colorsK <- list(Kingdom= c("Animals"="red","Plants"="green","Fungi"="yellow","Protists"="black"))
 
 anot <- HeatmapAnnotation(df=dff, col = colorsK)
 
 S=Sim_MSA_mDAG
 
 a<- Heatmap(matrix = Sim_MSA_mDAG, 
-                          column_title="Similarity mDag MSA Method\n  Eukariotas by Kingdom",
+                          column_title="m-DAGs MSA-similarity \n  Eukaryotes by Kingdom",
             name = "Kingdom",
             heatmap_legend_param = list(
     at = c(0.4,0.5,0.6,0.7,0.8,0.9,1)),
@@ -127,19 +126,21 @@ draw(a, merge_legend = TRUE)
 meta_animals= meta_taxo %>% filter(Kingdom=="Animals")
 nombres=unique(meta_animals$Phylum)
 aux_order=table(meta_animals$Phylum)
-dff<-meta_taxo %>% filter(Kingdom=="Animals") %>% select(Class) %>% as.data.frame()
+dff<-meta_taxo %>% filter(Kingdom=="Animals") %>% select(Phylum) %>% as.data.frame()
 #str(dff)
-nombres=unique(dff$Class)
+nombres=unique(dff$Phylum)
 col=rainbow(length(nombres))
-colorsP=list(Class=col)
-names(colorsP$Class)=nombres
+colorsP=list(Phylum=col)
+names(colorsP$Phylum)=nombres
 
 anotacion <- HeatmapAnnotation(df=dff, col = colorsP)
 
+orderP_freq=sort(table(dff$Phylum),decreasing = TRUE)
+orderP_freq=tibble(Phylum=names(orderP_freq),Freq=orderP_freq)
 
 a2<- Heatmap(matrix = S[1:535,1:535], 
-              column_title="Similarity mDag MSA Method\n  Animals by Class",
-            name = "Class", 
+              column_title="m-DAGs MSA-similarity \n  Animal  Phyla",
+            name = " ", 
             heatmap_legend_param = list(
     at = seq(0,1.5,by=0.1)),
         col=rev(viridis(256)),
@@ -226,13 +227,16 @@ table(clust4,meta_taxo$Kingdom)
 dff<-meta_taxo %>% select(Kingdom)  %>% as.data.frame()
 #str(dff)
 
-colores <- list(Kingdom= c("Animals"="red","Plants"="green","Fungi"="black","Protists"="yellow"))
+colores <- list(Kingdom= c("Animals"="red",
+                           "Plants"="green",
+                           "Fungi"="black",
+                           "Protists"="yellow"))
 
 anotacion <- HeatmapAnnotation(df=dff, col = colores)
 
 S=Sim_Mun_mDAG
 a<- Heatmap(matrix = Sim_Mun_mDAG, 
-                          column_title="Similarity mDag Munkres Method\n  Eukariotas by Kingdom",
+                          column_title="Similarity mDag Munkres Method\n  Eukaryote Kingdoms",
             name = "Kingdom",
             heatmap_legend_param = list(
     at = c(0.4,0.5,0.6,0.7,0.8,0.9,1)),
@@ -319,7 +323,6 @@ ggpairs(cooordinates,columns=1:4,
   theme(legend.position = "left")
 
 ```
-
 
 # Hierarchical cluster
 

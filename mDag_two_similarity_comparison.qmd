@@ -7,7 +7,7 @@ knitr::opts_chunk$set(message = FALSE,
 library(tidyverse)
 ```
 
-## Comparison four similarity mDag eukaryote
+## Eukaryotes
 
 Load the similarities for pairs and comparison
 
@@ -38,13 +38,10 @@ Sim_comp=aux_2[,c(1,2,4,3,5)]
 rm(aux,aux_2)
 ```
 
-**Tablas de las correlaciones de Spearman y Pearson entre las 4 similitudes.**
+**Spearman and Pearson correlations**
 
 ```{r}
 cor(Sim_comp[,4:5],method="spearman")
-
-
-
 cor(Sim_comp[,4:5],method="pearson")
 ```
 
