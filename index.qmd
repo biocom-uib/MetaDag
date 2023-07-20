@@ -10,9 +10,7 @@ URL: http://bioinfo.uib.es/metadag/results?uuid=ff15c187-62e7-37c2-96a7-c824f7ea
 knitr::opts_chunk$set(echo = TRUE,
                       cache=FALSE,
                       warning = FALSE,
-                      message = FALSE,
-                      comment = FALSE,
-                      warn.conflicts = FALSE)
+                      message = FALSE)
 ```
 
 ```{r  tidy,message=FALSE}
@@ -25,8 +23,7 @@ knitr::include_graphics("figures/screen_1.png")
 
 ```{r, include=FALSE,}
 knitr::opts_chunk$set(message = FALSE,
-                      warning = FALSE,
-                      comment = FALSE)
+                      warning = FALSE)
 library(tidyverse)
 ```
 
@@ -152,12 +149,7 @@ summary(CC1)
 
 # Load several similarities and metadata for an experiment
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(message = FALSE,
-                      warning = FALSE,
-                      comment = FALSE)
-library(tidyverse)
-```
+
 
 ```{r}
 library(tidyverse)
@@ -497,12 +489,7 @@ save(Sim_MSA_mDAG,Sim_Mun_mDAG,meta_taxo,
 
 # Similarity comparisons
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(message = FALSE,
-                      warning = FALSE,
-                      comment = FALSE)
-library(tidyverse)
-```
+Comparison of two similarities
 
 ## Eukaryotes
 
@@ -553,13 +540,7 @@ boxplot(Sim_comp[,4:5])
 
 # Some statistics...
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(message = FALSE,
-                      warning = FALSE,
-                      comment = FALSE,
-                      cache=TRUE)
-library(tidyverse)
-```
+
 
 ## Read all graphs from a level of the experiment
 
