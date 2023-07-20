@@ -1,10 +1,10 @@
-# Introduction {.unnumbered}
+# Introduction
 
 This is an example of an experiment of [metaDag](https://http://bioinfo.uib.es/metadag/) data with results.
 
 Hash: ff15c187-62e7-37c2-96a7-c824f7eab671
 
-URL: http://bioinfo.uib.es/metadag/results?uuid=ff15c187-62e7-37c2-96a7-c824f7eab671
+URL: [http://bioinfo.uib.es/metadag/results?uuid=ff15c187-62e7-37c2-96a7-c824f7eab671](http://bioinfo.uib.es/metadag/results?uuid=ff15c187-62e7-37c2-96a7-c824f7eab671)
 
 ```{r setup_load_data, include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
@@ -45,7 +45,11 @@ knitr::include_graphics("figures/screen_4.png")
 experiment=
   "results_ff15c187-62e7-37c2-96a7-c824f7eab671"
 path_exp=paste0("data/",experiment,"/data/")
-dir(path_exp)
+knitr::kable(data.frame("List of dir and files",
+                        type=paste(dir(path_exp),c(rep("Data file",2),
+                       rep("Directory",2),
+                       rep("Data file",6),
+                       "Directory"),sep="; ")))
 ```
 
 ```{r}
@@ -62,16 +66,9 @@ In this experiment `MBB` is a table with `r nrow(MBB)` rows and `r ncol(MBB)` co
 ```{r}
 library(knitr)
 library(kableExtra)
-#add_header_above(c("a" = 5, "b" = 18,"last"=2752-23)) %>%
-# kable_paper() %>%
 kable(MBB[1:20,1:30]) %>%   scroll_box(width = "100%", height = "200px")
 ```
 
-Manual columnas MBB
-
-```{r}
-#definition_cols=data.frame(col_number,col_name,col,definition)
-```
 
 ## mDAG
 
@@ -97,7 +94,7 @@ Tabular data `Results` for this experiment
 
 ```{r}
 kable(Results[1:20,1:10])%>%
-  row_spec(0, angle = -90) %>%   
+  row_spec(0, angle = 0) %>%   
   scroll_box(width = "300%", height = "1000px")
 ```
 
@@ -114,26 +111,43 @@ names(Results)[6:36]# columns 6 to 2726  Variable Reactions name id: This reacti
 library(stringr)
 reactions=names(Results)[-c(1:5)]
 reverse_reactions=stringr::str_detect(reactions,"rev")
-table(reverse_reactions)
+reverse_reactions=table(reverse_reactions)
+dimnames(reverse_reactions)$reverse_reactions=c("One direction","Reverse reaction")
+reverse_reactions
 ```
 
 # Read graph
 
 ```{r}
 library(igraph)
-gg1_mDAG=read.graph(paste0(path_exp,"Individuals/hsa/hsa_mDAG.graphml"),format = "graphml")
-summary(gg1_mDAG)
-barplot(table(degree(gg1_mDAG)))
+gg_mDAG=read.graph(paste0(path_exp,"Individuals/hsa/hsa_mDAG.graphml"),format = "graphml")
+summary(gg_mDAG)
+barplot(table(igraph::degree(gg_mDAG,mode="all")),
+              ylim=c(0,350),col="blue",
+              main="Frequency of nodes degree",
+              ylab="Frequency",xlab="degree")
 
-gg1_core_mDAG=read.graph(
+gg_core_mDAG=read.graph(
   paste0(path_exp,"Global/core/core_mDAG.graphml"), format = "graphml")
 
-gg1_core_RC=read.graph(
-  paste0(path_exp,                    "Global/core/core_RC.graphml"), format = "graphml")
+gg_core_RC=read.graph(
+  paste0(path_exp,"Global/core/core_RC.graphml"), format = "graphml")
+
+gg_core_mDAG=read.graph(
+  paste0(path_exp,"Global/core/core_mDAG.graphml"), format = "graphml")
+
+
+gg_pan_mDAG=read.graph(
+  paste0(path_exp,"TaxonomyLevels/Kingdom/Animals/pan/Animals_pan_mDAG.graphml"), format = "graphml")
+
+
+gg_pan_RC=read.graph(
+  paste0(path_exp,"TaxonomyLevels/Kingdom/Animals/pan/Animals_pan_RC.graphml"), format = "graphml")
+
 ```
 
 ```{r}
-compo=components(gg1_mDAG,mode = "weak")
+compo=components(gg_mDAG,mode = "weak")
 str(compo)
 compo$csize
 k=which.max(compo$csize==max(compo$csize))
@@ -142,8 +156,8 @@ table(compo$membership)
 vertex=which(compo$membership==k)
 length(vertex)
 vertex
-V(gg1_mDAG)
-CC1=induced_subgraph(gg1_mDAG, vids=vertex)
+V(gg_mDAG)
+CC1=induced_subgraph(gg_mDAG, vids=vertex)
 summary(CC1)
 ```
 
