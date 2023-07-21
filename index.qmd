@@ -1,4 +1,4 @@
-# MetaDag Eukaryotes experiment {.unnumered}
+# MetaDag Eukaryotes experiment {.unnumbered}
 
 This is an example of an experiment of [metaDag](https://http://bioinfo.uib.es/metadag/) data with results.
 
