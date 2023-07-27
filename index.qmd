@@ -215,7 +215,7 @@ graph_pan_RC=read.graph(
 summary(graph_pan_RC)
 ```
 
-The graph pan reaction graph have `r igraph::vcount(graph_pan_RC)` vertex and `r`igraph::ecount(graph_pan_RC)\`.
+The graph pan reaction graph have `r igraph::vcount(graph_pan_RC)` vertex and `r igraph::ecount(graph_pan_RC)`.
 
 ```{r}
 compo=components(graph_mDAG,mode = "weak")
@@ -256,21 +256,26 @@ Meta data mDa_Id and taxonomy sort by Kingdom,Filum,Class,mDAG_Id
 path_exp
 Results=read_csv(paste0(path_exp,"Results.csv"))
 names(Results)[c(1,3,4)]=c("Organism","mDAG_Id","Full_Name")
-#code=Results %>% select(Organism:mDAG_Id)
 taxo=Results %>% select(Organism:Full_Name)
-index=is.na(taxo$Categories)
+index=which(is.na(taxo$Class))
+taxo$Class[index]=paste(taxo$Phylum[index])
 taxo=taxo %>% separate(Categories,into=c("Kingdom","Phylum","Class"))
-taxo$Class[index]=paste(taxo$Kingdom[index],taxo$Phylum[index])
-meta_taxo=taxo %>% arrange(Kingdom,Phylum)
-index=which(is.na(meta_taxo$Class))
-meta_taxo$Class[index]=meta_taxo$Phylum[index]
+meta_taxo=taxo
+aux=table(meta_taxo$Phylum)
+Freq_Phylum=tibble(Phylum=names(aux),Freq_Phylum=aux)
+names(Freq_Phylum)=c("Phylum","Freq_Phylum")
 aux=table(meta_taxo$Class)
-freq=tibble(Class=names(aux),Freq_Class=aux)
-names(freq)=c("Class","Freq_Class")
-meta_taxo =meta_taxo %>% left_join(freq)%>%
-  arrange(Kingdom,Phylum,desc(Freq_Class))
+Freq_Class=tibble(Class=names(aux),Freq_Class=aux)
+names(Freq_Class)=c("Class","Freq_Class")
+
+
+meta_taxo = meta_taxo %>% left_join(Freq_Phylum) %>% left_join(Freq_Class)
+meta_taxo = meta_taxo %>%  arrange(Kingdom,desc(Freq_Phylum),Phylum,desc(Freq_Class),Class)
 head(meta_taxo)
 ```
+
+
+
 
 ```{r}
 table(meta_taxo$Kingdom) %>% kable %>%
@@ -685,7 +690,7 @@ big_MBB_list2=pivot_longer(big_MBB_list,cols=names(big_MBB_list),values_to = "MB
 ### Sizes of MBB for each mDAG
 
 ```{r}
-COLOR_KINGDOM=c("red","black","green","yellow")
+COLOR_KINGDOM=c("red","green","yellow","black")
 colors_kingdom=big_MBB_list2%>% select(Organism,Kingdom) %>% distinct()
 names(COLOR_KINGDOM)=sort(unique(colors_kingdom$Kingdom))
 
@@ -725,7 +730,7 @@ p2
 ### Sizes of weak components for each mDAG
 
 ```{r}
-COLOR_KINGDOM=c("red","black","green","yellow")
+COLOR_KINGDOM=c("red",,"yellow","green","yellow","black")
 colors_kingdom=aux2%>% select(Organism,Kingdom) %>% distinct()
 names(COLOR_KINGDOM)=sort(unique(colors_kingdom$Kingdom))
 
@@ -762,13 +767,13 @@ p2
 ```
 
 ```{r}
-data2=big_MBB_list2 %>% filter(index!=1)
+data2=big_MBB_list2 %>% filter(index %in% 2:20)
 p3<- ggplot(data=data2) + 
   geom_line(mapping=aes(x=index,y=MBBsize,group = Organism,color=Kingdom),na.rm=TRUE)+
    scale_x_continuous(trans="identity") + 
   scale_y_continuous(trans="identity") +
   ylim(0,25)+
-   ggtitle("Plot  of size  weak components decreasing index.")+  ylab("Weak components size") + xlab("Index")+
+   ggtitle("Plot  of size  weak components  decreasing index 2 to 20.")+  ylab("Weak components size") + xlab("Index")+
   scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
 
 p3
