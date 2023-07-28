@@ -8,7 +8,7 @@ URL: <http://bioinfo.uib.es/metadag/results?uuid=ff15c187-62e7-37c2-96a7-c824f7e
 
 ```{r setup_load_data, include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
-                      cache=FALSE,
+                      cache=TRUE,
                       warning = FALSE,
                       message = FALSE, out.width = "100%")
 ```
@@ -31,7 +31,6 @@ library(GGally)
 ```{r setup, echo=FALSE,include=FALSE}
 knitr::include_graphics("figures/screen_1.png")
 ```
-
 
 ```{r echo=FALSE}
 knitr::include_graphics("figures/screen_2.png")
@@ -175,7 +174,7 @@ summary(graph_core_mDAG)
 
 ```{r fig.cap="Core mDAG is empty"}
 knitr::include_graphics(
-  paste0(path_exp,"Global/core/core_mDAG.pdf"))
+  paste0(path_exp,"Global/core/core_mDAG.svg"))
 ```
 
 The graph core mDAG have `r igraph::vcount(graph_core_mDAG)` vertex and `r igraph::ecount(graph_core_mDAG)`, is an empty graph.
@@ -190,7 +189,7 @@ summary(graph_core_mDAG)
 
 ```{r fig.cap="Core mDAG is empty"}
 knitr::include_graphics(
-  paste0(path_exp,"Global/core/core_RC.pdf"))
+  paste0(path_exp,"Global/core/core_RC.svg"))
 ```
 
 The graph core reaction graph have `r igraph::vcount(graph_core_RC)` vertex and `r igraph::ecount(graph_core_RC)`, is an empty graph.
@@ -235,7 +234,7 @@ The curated plot of the bigger component of hsa mDAG
 
 ```{r fig.align='center',title="Bigger componet of hsa mDAG"}
 knitr::include_graphics(paste0(path_exp,
-                               "Individuals/hsa/hsa_mDAG_biggerDAG.pdf"))
+                               "Individuals/hsa/hsa_mDAG_biggerDAG.svg"))
 ```
 
 # Similarities and metadata for an experiment
@@ -273,9 +272,6 @@ meta_taxo = meta_taxo %>% left_join(Freq_Phylum) %>% left_join(Freq_Class)
 meta_taxo = meta_taxo %>%  arrange(Kingdom,desc(Freq_Phylum),Phylum,desc(Freq_Class),Class)
 head(meta_taxo)
 ```
-
-
-
 
 ```{r}
 table(meta_taxo$Kingdom) %>% kable %>%
@@ -332,56 +328,60 @@ colorsK <- list(Kingdom= c("Animals"="red",
                            "Fungi"="yellow",
                            "Protists"="black"))
 
-anot <- HeatmapAnnotation(df=dff, col = colorsK)
+anot <- HeatmapAnnotation(df=dff, col = colorsK,show_legend = TRUE)
 
 #S=Sim_MSA_mDAG
 
 MSA_heat_1 <- Heatmap(matrix = Sim_MSA_mDAG, 
-                          column_title="m-DAGs MSA-similarity \n  Eukaryotes by Kingdom",
-            name = "Kingdom",
-            heatmap_legend_param = list(
-    at = c(0.4,0.5,0.6,0.7,0.8,0.9,1)),
+                          column_title=
+                          "m-DAGs MSA-similarity \n Eukaryotes by Kingdom",
+            name = "MSA Similarity",
+             heatmap_legend_param = list(title="Similality",at = seq(0,1,by=0.1)),
         col=rev(viridis(256)),
         cluster_rows = FALSE,
         cluster_columns = FALSE,
         top_annotation = anot,
         show_column_names = FALSE, 
         show_row_names = FALSE,
-        left_annotation = rowAnnotation(df = dff,                                    col=colorsK,show_annotation_name=FALSE))
+        left_annotation = rowAnnotation(df = dff,
+                                        col=colorsK,
+                                        show_annotation_name=FALSE))
   
 draw(MSA_heat_1, merge_legend = TRUE)
 ```
+
+
+
+
+
+
 
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
 meta_animals= meta_taxo %>% filter(Kingdom=="Animals")
 nombres=unique(meta_animals$Phylum)
 aux_order=table(meta_animals$Phylum)
 dff<-meta_taxo %>% filter(Kingdom=="Animals") %>% select(Phylum) %>% as.data.frame()
-#str(dff)
-nombres=unique(dff$Phylum)
+namesP=unique(dff$Phylum)
 col=rainbow(length(nombres))
 colorsP=list(Phylum=col)
-names(colorsP$Phylum)=nombres
-
-anotation_MSA_H2 <- HeatmapAnnotation(df=dff, col = colorsP,show_legend = TRUE)
-
-#orderP_freq=sort(table(dff$Phylum),decreasing = TRUE)
-#orderP_freq=tibble(Phylum=names(orderP_freq),Freq=orderP_freq)
-
-MSA_heat_2 <- Heatmap(matrix = Sim_MSA_mDAG[1:535,1:535], 
-              column_title="m-DAGs MSA-similarity \n  Animal  Phyla",
-            name = " ", 
-            heatmap_legend_param = list(at = seq(0,1,by=0.1)),
-        col=rev(viridis(256)),
-        cluster_rows = FALSE,
-        cluster_columns = FALSE,
-        top_annotation = anotation_MSA_H2,
-        show_column_names = FALSE, 
-        show_row_names = FALSE,
-        left_annotation = rowAnnotation(df = dff,                                    col=colorsP,show_annotation_name=FALSE))
-  
+names(colorsP$Phylum)=namesP
+anotation_MSA_H2 <- HeatmapAnnotation(df=dff, col = colorsP,show_legend = FALSE)
+MSA_heat_2 <- Heatmap(matrix =
+                        Sim_MSA_mDAG[1:nrow(dff),1:nrow(dff)],
+                       heatmap_legend_param=NULL ,
+                      column_title=
+                        "m-DAGs MSA-similarity \n  Animal  Phyla",
+                      col=rev(viridis(256)),
+                      cluster_rows = FALSE,
+                      cluster_columns = FALSE,
+                      top_annotation =anotation_MSA_H2,
+                      show_column_names = FALSE,
+                      show_row_names = FALSE,
+                      left_annotation =rowAnnotation(
+                        df =dff,col=colorsP,
+                        show_annotation_name=FALSE))
+        
 draw(MSA_heat_2, merge_legend = TRUE)
-
 ```
 
 ## MDS (Multidimensional Scaling)
@@ -469,16 +469,16 @@ dim(dff)
 
 Mun_heat_1<- Heatmap(matrix = Sim_Mun_mDAG, 
                           column_title="Similarity mDag Munkres Method\n  Eukaryote Kingdoms",
-            name = "Kingdom",
+            name = "Munkres \n Similarity",
             heatmap_legend_param = list(
-    at = c(0.4,0.5,0.6,0.7,0.8,0.9,1)),
+    at = seq(0,1,by=0.1)),
         col=rev(viridis(256)),
         cluster_rows = FALSE,
         cluster_columns = FALSE,
         top_annotation = anotation_heat,
         show_column_names = FALSE, 
         show_row_names = FALSE,
-        left_annotation = rowAnnotation(df = dff, col = colorsK,show_annotation_name=FALSE))
+        left_annotation = rowAnnotation(df = dff, col = colorsK))
   
 draw(Mun_heat_1, merge_legend = TRUE)
 ```
@@ -493,18 +493,17 @@ names_phylum
 col=rainbow(length(nombres))
 colorsP=list(Phylum=col)
 names(colorsP$Phylum)=names_phylum
-anotacion <- HeatmapAnnotation(df=dff, col = colorsP)
+anotation <- HeatmapAnnotation(df=dff, col = colorsP)
 
 
-Mun_heat_2 <- Heatmap(matrix = Sim_Mun_mDAG[1:535,1:535], 
+Mun_heat_2 <- Heatmap(matrix = Sim_Mun_mDAG[1:nrow(dff),1:nrow(dff)], 
               column_title="Similarity mDag Munkres  Method\n  Animals by Class",
-            name = "Class", 
             heatmap_legend_param = list(
     at = seq(0,1,by=0.1)),
         col=rev(viridis(256)),
         cluster_rows = FALSE,
         cluster_columns = FALSE,
-        top_annotation = anotacion,
+        top_annotation = anotation,
         show_column_names = FALSE, 
         show_row_names = FALSE,
         left_annotation = rowAnnotation(df = dff,
@@ -614,16 +613,16 @@ graphs_list=paste0(path_exp,"Individuals/",list_names,"/",list_names,"_MDAG.grap
 
 ```{r}
 knitr::include_graphics(
-  paste0(path_exp,"Individuals/cang/cang_mDAG.pdf"))
+  paste0(path_exp,"Individuals/cang/cang_mDAG.svg"))
 ```
 
 ```{r}
-knitr::include_graphics(paste0(path_exp,"Individuals/cang/cang_mDAG_essential.pdf"))
+knitr::include_graphics(paste0(path_exp,"Individuals/cang/cang_mDAG_essential.svg"))
 ```
 
 ```{r}
 knitr::include_graphics(
-  paste0(path_exp,"Individuals/cang/cang_RC.pdf"))
+  paste0(path_exp,"Individuals/cang/cang_RC.svg"))
 ```
 
 ## Graph statistics
