@@ -432,7 +432,23 @@ Mun_heat_2
 ```
 
 
-## MDS (Multidimensional Scaling)
+```{r echo=FALSE, include=FALSE}
+pdf("MSA_kingdoms.pdf")
+MSA_heat_1
+dev.off()
+pdf("MSA_phyla.pdf")
+MSA_heat_2
+dev.off()
+pdf("Mun_kingdoms.pdf")
+Mun_heat_1
+dev.off()
+pdf("Mun_phyla.pdf")
+Mun_heat_2
+dev.off()
+```
+
+
+## MDS (Multidimensional Scaling) MSA
 
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
 
@@ -481,87 +497,39 @@ col_mds=rainbow(33)
 
 ```{r echo=FALSE,fig.align='center',out.width="80%"}
 knitr::include_graphics("figures/fig1.jpeg")
-
 ```
 
-# Hierarchical cluster
+# Hierarchical cluster MSA
+
+
+
+
 
 ```{r}
 library(dendextend)
+library(ggraph)
+library(ape)
+
 D=as.dist(sqrt(1-Sim_MSA_mDAG^2))
 hc=hclust(as.dist(D),method ="ward.D")
 library(circlize)
 circlize_dendrogram(as.dendrogram(hc))
 ```
 
+
+
+
+
+
+
+
 ```{r}
 clust4=cutree(hc,4)
 table(clust4,meta_taxo$Kingdom)
 ```
 
-# Similarities Munkres method
 
-## Heatmap Similarity Mun method
-
-```{r, fig.align='center', fig.height=5, cache=TRUE}
-dff<-meta_taxo %>% select(Kingdom)  %>% as.data.frame()
-#str(dff)
-
-colorsK <- list(Kingdom= c("Animals"="red",
-                           "Plants"="green",
-                           "Fungi"="black",
-                           "Protists"="yellow"))
-
-anotation_heat <- HeatmapAnnotation(df=dff, col = colorsK)
-dim(dff)
-
-Mun_heat_1<- Heatmap(matrix = Sim_Mun_mDAG, 
-                          column_title="Similarity mDag Munkres Method\n  Eukaryote Kingdoms",
-            name = "Munkres \n Similarity",
-            heatmap_legend_param = list(
-    at = seq(0,1,by=0.1)),
-        col=rev(viridis(256)),
-        cluster_rows = FALSE,
-        cluster_columns = FALSE,
-        top_annotation = anotation_heat,
-        show_column_names = FALSE, 
-        show_row_names = FALSE,
-        left_annotation = rowAnnotation(df = dff, col = colorsK))
-  
-draw(Mun_heat_1, merge_legend = TRUE)
-```
-
-```{r, fig.align='center', fig.height=5, cache=TRUE}
-meta_animals= meta_taxo %>% filter(Kingdom=="Animals")
-nombres=unique(meta_animals$Phylum)
-aux_order=table(meta_animals$Phylum)
-dff<-meta_taxo %>% filter(Kingdom=="Animals") %>% select(Phylum) %>% as.data.frame()
-names_phylum=unique(dff$Phylum)
-names_phylum
-col=rainbow(length(nombres))
-colorsP=list(Phylum=col)
-names(colorsP$Phylum)=names_phylum
-anotation <- HeatmapAnnotation(df=dff, col = colorsP)
-
-
-Mun_heat_2 <- Heatmap(matrix = Sim_Mun_mDAG[1:nrow(dff),1:nrow(dff)], 
-              column_title="Similarity mDag Munkres  Method\n  Animals by Phylum",
-            heatmap_legend_param = list(
-    at = seq(0,1,by=0.1)),
-        col=rev(viridis(256)),
-        cluster_rows = FALSE,
-        cluster_columns = FALSE,
-        top_annotation = anotation,
-        show_column_names = FALSE, 
-        show_row_names = FALSE,
-        left_annotation = rowAnnotation(df = dff,
-                                        col = colorsP,                                        show_annotation_name=FALSE))
-  
-draw(Mun_heat_2, merge_legend = TRUE)
-
-```
-
-## MDS (Multidimensional Scaling)
+## MDS (Multidimensional Scaling)  Munkres
 
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
 
@@ -582,7 +550,7 @@ ggpairs(cooordinates,columns=1:4,
 
 ```
 
-# Hierarchical cluster
+## Hierarchical cluster Munkres
 
 ```{r}
 D=as.dist(sqrt(1-Sim_Mun_mDAG^2))
@@ -805,7 +773,6 @@ p2<- ggplot(data=aux2) +
    ggtitle("Plot  of size  weak components decreasing index.")+  ylab("Weak components size") + xlab("Index")+
   scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
 
-library(patchwork)
 
 p0
 p1

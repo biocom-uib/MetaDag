@@ -184,15 +184,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#heatmap-similarity-msa-and-munkres-method" id="toc-heatmap-similarity-msa-and-munkres-method" class="nav-link" data-scroll-target="#heatmap-similarity-msa-and-munkres-method">Heatmap Similarity MSA and Munkres method</a></li>
   </ul></li>
-  <li><a href="#mds-multidimensional-scaling" id="toc-mds-multidimensional-scaling" class="nav-link" data-scroll-target="#mds-multidimensional-scaling">MDS (Multidimensional Scaling)</a></li>
+  <li><a href="#mds-multidimensional-scaling-msa" id="toc-mds-multidimensional-scaling-msa" class="nav-link" data-scroll-target="#mds-multidimensional-scaling-msa">MDS (Multidimensional Scaling) MSA</a></li>
   </ul></li>
-  <li><a href="#hierarchical-cluster" id="toc-hierarchical-cluster" class="nav-link" data-scroll-target="#hierarchical-cluster">Hierarchical cluster</a></li>
-  <li><a href="#similarities-munkres-method" id="toc-similarities-munkres-method" class="nav-link" data-scroll-target="#similarities-munkres-method">Similarities Munkres method</a>
+  <li><a href="#hierarchical-cluster-msa" id="toc-hierarchical-cluster-msa" class="nav-link" data-scroll-target="#hierarchical-cluster-msa">Hierarchical cluster MSA</a>
   <ul class="collapse">
-  <li><a href="#heatmap-similarity-mun-method" id="toc-heatmap-similarity-mun-method" class="nav-link" data-scroll-target="#heatmap-similarity-mun-method">Heatmap Similarity Mun method</a></li>
-  <li><a href="#mds-multidimensional-scaling-1" id="toc-mds-multidimensional-scaling-1" class="nav-link" data-scroll-target="#mds-multidimensional-scaling-1">MDS (Multidimensional Scaling)</a></li>
+  <li><a href="#mds-multidimensional-scaling-munkres" id="toc-mds-multidimensional-scaling-munkres" class="nav-link" data-scroll-target="#mds-multidimensional-scaling-munkres">MDS (Multidimensional Scaling) Munkres</a></li>
+  <li><a href="#hierarchical-cluster-munkres" id="toc-hierarchical-cluster-munkres" class="nav-link" data-scroll-target="#hierarchical-cluster-munkres">Hierarchical cluster Munkres</a></li>
   </ul></li>
-  <li><a href="#hierarchical-cluster-1" id="toc-hierarchical-cluster-1" class="nav-link" data-scroll-target="#hierarchical-cluster-1">Hierarchical cluster</a></li>
   <li><a href="#similarity-comparisons-eukaryotes" id="toc-similarity-comparisons-eukaryotes" class="nav-link" data-scroll-target="#similarity-comparisons-eukaryotes">Similarity comparisons Eukaryotes</a></li>
   <li><a href="#graph" id="toc-graph" class="nav-link" data-scroll-target="#graph">Graph</a>
   <ul class="collapse">
@@ -2859,9 +2857,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="mds-multidimensional-scaling" class="level2">
-<h2 class="anchored" data-anchor-id="mds-multidimensional-scaling">MDS (Multidimensional Scaling)</h2>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-33_bbcb00c9b39d7e488532191450e4af51">
+<section id="mds-multidimensional-scaling-msa" class="level2">
+<h2 class="anchored" data-anchor-id="mds-multidimensional-scaling-msa">MDS (Multidimensional Scaling) MSA</h2>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-34_ea79e4c892b1d025732d5bc7d0df7ee9">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Metric multidimensional scaling (mMDS)</span></span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>mds7 <span class="ot">&lt;-</span> <span class="fu">cmdscale</span>(<span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>Sim_MSA_mDAG<span class="sc">^</span><span class="dv">2</span>),<span class="at">k=</span><span class="dv">7</span>,<span class="at">eig=</span><span class="cn">TRUE</span>)</span>
 <span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="co">#pairs(mds7$points[,1:4])</span></span>
@@ -2879,7 +2877,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -2914,7 +2912,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb82-20"><a href="#cb82-20" aria-hidden="true" tabindex="-1"></a><span class="co"># fig</span></span>
 <span id="cb82-21"><a href="#cb82-21" aria-hidden="true" tabindex="-1"></a><span class="co"># dev.off</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-34_99d7172afa332cc2dd4130df50d23006">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-35_6864e9e24d2966b8ca844312b5051f53">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2925,19 +2923,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="hierarchical-cluster" class="level1">
-<h1>Hierarchical cluster</h1>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-35_75927d93c59605810173acf8d438d37e">
+<section id="hierarchical-cluster-msa" class="level1">
+<h1>Hierarchical cluster MSA</h1>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-36_76ba6ba015748c7fc2194bd741954941">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dendextend)</span>
-<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>D<span class="ot">=</span><span class="fu">as.dist</span>(<span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>Sim_MSA_mDAG<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>hc<span class="ot">=</span><span class="fu">hclust</span>(<span class="fu">as.dist</span>(D),<span class="at">method =</span><span class="st">"ward.D"</span>)</span>
-<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(circlize)</span>
-<span id="cb83-5"><a href="#cb83-5" aria-hidden="true" tabindex="-1"></a><span class="fu">circlize_dendrogram</span>(<span class="fu">as.dendrogram</span>(hc))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ape)</span>
+<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-5"><a href="#cb83-5" aria-hidden="true" tabindex="-1"></a>D<span class="ot">=</span><span class="fu">as.dist</span>(<span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>Sim_MSA_mDAG<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb83-6"><a href="#cb83-6" aria-hidden="true" tabindex="-1"></a>hc<span class="ot">=</span><span class="fu">hclust</span>(<span class="fu">as.dist</span>(D),<span class="at">method =</span><span class="st">"ward.D"</span>)</span>
+<span id="cb83-7"><a href="#cb83-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(circlize)</span>
+<span id="cb83-8"><a href="#cb83-8" aria-hidden="true" tabindex="-1"></a><span class="fu">circlize_dendrogram</span>(<span class="fu">as.dendrogram</span>(hc))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-36_d1de177471c460d690e02dd8feab9115">
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-37_4ab99407ea0d2b837e16e2587b3f7778">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>clust4<span class="ot">=</span><span class="fu">cutree</span>(hc,<span class="dv">4</span>)</span>
 <span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(clust4,meta_taxo<span class="sc">$</span>Kingdom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2949,80 +2950,26 @@ clust4 Animals Fungi Plants Protists
      4       0     0    125        0</code></pre>
 </div>
 </div>
-</section>
-<section id="similarities-munkres-method" class="level1">
-<h1>Similarities Munkres method</h1>
-<section id="heatmap-similarity-mun-method" class="level2">
-<h2 class="anchored" data-anchor-id="heatmap-similarity-mun-method">Heatmap Similarity Mun method</h2>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-37_cbf435f97868c4961a0358adebefdfc6">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>dff<span class="ot">&lt;-</span>meta_taxo <span class="sc">%&gt;%</span> <span class="fu">select</span>(Kingdom)  <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
-<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="co">#str(dff)</span></span>
-<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>colorsK <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Kingdom=</span> <span class="fu">c</span>(<span class="st">"Animals"</span><span class="ot">=</span><span class="st">"red"</span>,</span>
-<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Plants"</span><span class="ot">=</span><span class="st">"green"</span>,</span>
-<span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Fungi"</span><span class="ot">=</span><span class="st">"black"</span>,</span>
-<span id="cb86-7"><a href="#cb86-7" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Protists"</span><span class="ot">=</span><span class="st">"yellow"</span>))</span>
-<span id="cb86-8"><a href="#cb86-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a>anotation_heat <span class="ot">&lt;-</span> <span class="fu">HeatmapAnnotation</span>(<span class="at">df=</span>dff, <span class="at">col =</span> colorsK)</span>
-<span id="cb86-10"><a href="#cb86-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(dff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="mds-multidimensional-scaling-munkres" class="level2">
+<h2 class="anchored" data-anchor-id="mds-multidimensional-scaling-munkres">MDS (Multidimensional Scaling) Munkres</h2>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-38_f0886eb4382fe89a4dee2701f5656ded">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Metric multidimensional scaling</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>mds7 <span class="ot">&lt;-</span> <span class="fu">cmdscale</span>(<span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>Sim_Mun_mDAG<span class="sc">^</span><span class="dv">2</span>),<span class="at">k=</span><span class="dv">7</span>,<span class="at">eig=</span><span class="cn">TRUE</span>)</span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>mds7<span class="sc">$</span>GOF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 884   1</code></pre>
+<pre><code>[1] 0.5599891 0.5796237</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>Mun_heat_1<span class="ot">&lt;-</span> <span class="fu">Heatmap</span>(<span class="at">matrix =</span> Sim_Mun_mDAG, </span>
-<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">column_title=</span><span class="st">"Similarity mDag Munkres Method</span><span class="sc">\n</span><span class="st">  Eukaryote Kingdoms"</span>,</span>
-<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">name =</span> <span class="st">"Munkres </span><span class="sc">\n</span><span class="st"> Similarity"</span>,</span>
-<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">heatmap_legend_param =</span> <span class="fu">list</span>(</span>
-<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">by=</span><span class="fl">0.1</span>)),</span>
-<span id="cb88-6"><a href="#cb88-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="fu">rev</span>(<span class="fu">viridis</span>(<span class="dv">256</span>)),</span>
-<span id="cb88-7"><a href="#cb88-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">cluster_rows =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb88-8"><a href="#cb88-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">cluster_columns =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb88-9"><a href="#cb88-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">top_annotation =</span> anotation_heat,</span>
-<span id="cb88-10"><a href="#cb88-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">show_column_names =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb88-11"><a href="#cb88-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">show_row_names =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb88-12"><a href="#cb88-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">left_annotation =</span> <span class="fu">rowAnnotation</span>(<span class="at">df =</span> dff, <span class="at">col =</span> colorsK))</span>
-<span id="cb88-13"><a href="#cb88-13" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb88-14"><a href="#cb88-14" aria-hidden="true" tabindex="-1"></a><span class="fu">draw</span>(Mun_heat_1, <span class="at">merge_legend =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-38_4bcc22380588b952d59b3f80d74c1f1f">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>meta_animals<span class="ot">=</span> meta_taxo <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Kingdom<span class="sc">==</span><span class="st">"Animals"</span>)</span>
-<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>nombres<span class="ot">=</span><span class="fu">unique</span>(meta_animals<span class="sc">$</span>Phylum)</span>
-<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>aux_order<span class="ot">=</span><span class="fu">table</span>(meta_animals<span class="sc">$</span>Phylum)</span>
-<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>dff<span class="ot">&lt;-</span>meta_taxo <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Kingdom<span class="sc">==</span><span class="st">"Animals"</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Phylum) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
-<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a>names_phylum<span class="ot">=</span><span class="fu">unique</span>(dff<span class="sc">$</span>Phylum)</span>
-<span id="cb89-6"><a href="#cb89-6" aria-hidden="true" tabindex="-1"></a>names_phylum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "Vertebrates"      "Arthropods"       "Mollusks"         "Cnidarians"      
- [5] "Nematodes"        "Flatworms"        "Echinoderms"      "Cephalochordates"
- [9] "Tunicates"        "Annelids"         "Brachiopodas"     "Hemichordates"   
-[13] "Placozoans"       "Poriferans"      </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>col<span class="ot">=</span><span class="fu">rainbow</span>(<span class="fu">length</span>(nombres))</span>
-<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>colorsP<span class="ot">=</span><span class="fu">list</span>(<span class="at">Phylum=</span>col)</span>
-<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(colorsP<span class="sc">$</span>Phylum)<span class="ot">=</span>names_phylum</span>
-<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>anotation <span class="ot">&lt;-</span> <span class="fu">HeatmapAnnotation</span>(<span class="at">df=</span>dff, <span class="at">col =</span> colorsP)</span>
-<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-7"><a href="#cb91-7" aria-hidden="true" tabindex="-1"></a>Mun_heat_2 <span class="ot">&lt;-</span> <span class="fu">Heatmap</span>(<span class="at">matrix =</span> Sim_Mun_mDAG[<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(dff),<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(dff)], </span>
-<span id="cb91-8"><a href="#cb91-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">column_title=</span><span class="st">"Similarity mDag Munkres  Method</span><span class="sc">\n</span><span class="st">  Animals by Phylum"</span>,</span>
-<span id="cb91-9"><a href="#cb91-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">heatmap_legend_param =</span> <span class="fu">list</span>(</span>
-<span id="cb91-10"><a href="#cb91-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">by=</span><span class="fl">0.1</span>)),</span>
-<span id="cb91-11"><a href="#cb91-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="fu">rev</span>(<span class="fu">viridis</span>(<span class="dv">256</span>)),</span>
-<span id="cb91-12"><a href="#cb91-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">cluster_rows =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb91-13"><a href="#cb91-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">cluster_columns =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb91-14"><a href="#cb91-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">top_annotation =</span> anotation,</span>
-<span id="cb91-15"><a href="#cb91-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">show_column_names =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb91-16"><a href="#cb91-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">show_row_names =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb91-17"><a href="#cb91-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">left_annotation =</span> <span class="fu">rowAnnotation</span>(<span class="at">df =</span> dff,</span>
-<span id="cb91-18"><a href="#cb91-18" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">col =</span> colorsP,                                        <span class="at">show_annotation_name=</span><span class="cn">FALSE</span>))</span>
-<span id="cb91-19"><a href="#cb91-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb91-20"><a href="#cb91-20" aria-hidden="true" tabindex="-1"></a><span class="fu">draw</span>(Mun_heat_2, <span class="at">merge_legend =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>mds <span class="ot">&lt;-</span> mds7<span class="sc">$</span>points <span class="sc">%&gt;%</span>  <span class="fu">as_tibble</span>()</span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mds) <span class="ot">&lt;-</span><span class="fu">paste0</span>(<span class="st">"Dim."</span>,<span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(mds7<span class="sc">$</span>points)[<span class="dv">2</span>])</span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a>cooordinates<span class="ot">=</span><span class="fu">as_tibble</span>(mds7<span class="sc">$</span>points)</span>
+<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(cooordinates)<span class="ot">=</span><span class="fu">paste</span>(<span class="st">"Component"</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)</span>
+<span id="cb88-6"><a href="#cb88-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(cooordinates,<span class="at">columns=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,</span>
+<span id="cb88-7"><a href="#cb88-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">aes</span>(<span class="at">color=</span>meta_taxo<span class="sc">$</span>Kingdom,</span>
+<span id="cb88-8"><a href="#cb88-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">title=</span><span class="st">"MDS 4 dimensions projection"</span>,<span class="at">legend=</span><span class="dv">1</span>),</span>
+<span id="cb88-9"><a href="#cb88-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">lower=</span><span class="fu">list</span>(<span class="at">continuous=</span><span class="st">"points"</span>)) <span class="sc">+</span> </span>
+<span id="cb88-10"><a href="#cb88-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> colorsK<span class="sc">$</span>Kingdom) <span class="sc">+</span> </span>
+<span id="cb88-11"><a href="#cb88-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"left"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -3032,49 +2979,19 @@ clust4 Animals Fungi Plants Protists
 </div>
 </div>
 </section>
-<section id="mds-multidimensional-scaling-1" class="level2">
-<h2 class="anchored" data-anchor-id="mds-multidimensional-scaling-1">MDS (Multidimensional Scaling)</h2>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-39_89f18821064dce48aec2725b916a63d0">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Metric multidimensional scaling</span></span>
-<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>mds7 <span class="ot">&lt;-</span> <span class="fu">cmdscale</span>(<span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>Sim_Mun_mDAG<span class="sc">^</span><span class="dv">2</span>),<span class="at">k=</span><span class="dv">7</span>,<span class="at">eig=</span><span class="cn">TRUE</span>)</span>
-<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>mds7<span class="sc">$</span>GOF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.5599891 0.5796237</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>mds <span class="ot">&lt;-</span> mds7<span class="sc">$</span>points <span class="sc">%&gt;%</span>  <span class="fu">as_tibble</span>()</span>
-<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mds) <span class="ot">&lt;-</span><span class="fu">paste0</span>(<span class="st">"Dim."</span>,<span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(mds7<span class="sc">$</span>points)[<span class="dv">2</span>])</span>
-<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>cooordinates<span class="ot">=</span><span class="fu">as_tibble</span>(mds7<span class="sc">$</span>points)</span>
-<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(cooordinates)<span class="ot">=</span><span class="fu">paste</span>(<span class="st">"Component"</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)</span>
-<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(cooordinates,<span class="at">columns=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,</span>
-<span id="cb94-7"><a href="#cb94-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">aes</span>(<span class="at">color=</span>meta_taxo<span class="sc">$</span>Kingdom,</span>
-<span id="cb94-8"><a href="#cb94-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">title=</span><span class="st">"MDS 4 dimensions projection"</span>,<span class="at">legend=</span><span class="dv">1</span>),</span>
-<span id="cb94-9"><a href="#cb94-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">lower=</span><span class="fu">list</span>(<span class="at">continuous=</span><span class="st">"points"</span>)) <span class="sc">+</span> </span>
-<span id="cb94-10"><a href="#cb94-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> colorsK<span class="sc">$</span>Kingdom) <span class="sc">+</span> </span>
-<span id="cb94-11"><a href="#cb94-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"left"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="hierarchical-cluster-munkres" class="level2">
+<h2 class="anchored" data-anchor-id="hierarchical-cluster-munkres">Hierarchical cluster Munkres</h2>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-39_980f1500d7d80c8a93e95b061b64792b">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>D<span class="ot">=</span><span class="fu">as.dist</span>(<span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>Sim_Mun_mDAG<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>hc<span class="ot">=</span><span class="fu">hclust</span>(<span class="fu">as.dist</span>(D),<span class="at">method =</span><span class="st">"ward.D"</span>)</span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.ggdend</span>(<span class="fu">as.dendrogram</span>(hc)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
+<p><img src="index_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-</div>
-</section>
-</section>
-<section id="hierarchical-cluster-1" class="level1">
-<h1>Hierarchical cluster</h1>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-40_8370da12bf06047049876cd895933b50">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>D<span class="ot">=</span><span class="fu">as.dist</span>(<span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>Sim_Mun_mDAG<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>hc<span class="ot">=</span><span class="fu">hclust</span>(<span class="fu">as.dist</span>(D),<span class="at">method =</span><span class="st">"ward.D"</span>)</span>
-<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.ggdend</span>(<span class="fu">as.dendrogram</span>(hc)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" style="width:100.0%"></p>
-</div>
-</div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-41_8c833654ee1641d06f51d92a9814430b">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>clust4<span class="ot">=</span><span class="fu">cutree</span>(hc,<span class="dv">4</span>)</span>
-<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(clust4,meta_taxo<span class="sc">$</span>Kingdom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-40_69f50e0530dd5f24b57f2ad213b625e3">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>clust4<span class="ot">=</span><span class="fu">cutree</span>(hc,<span class="dv">4</span>)</span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(clust4,meta_taxo<span class="sc">$</span>Kingdom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      
 clust4 Animals Fungi Plants Protists
@@ -3085,64 +3002,65 @@ clust4 Animals Fungi Plants Protists
 </div>
 </div>
 </section>
+</section>
 <section id="similarity-comparisons-eukaryotes" class="level1">
 <h1>Similarity comparisons Eukaryotes</h1>
 <p>Comparison of two similarities</p>
 <p>Load the similarities for pairs and comparison</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-42_be52ce9ea6e8d68a83da556b0213a4aa">
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">length</span>(meta_taxo<span class="sc">$</span>mDAG_Id)</span>
-<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-41_fb36955d21c2b2e0f190a266539d2efd">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">length</span>(meta_taxo<span class="sc">$</span>mDAG_Id)</span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 884</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Sim_MSA_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Sim_MSA_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 884 884</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>aux1<span class="ot">=</span>base<span class="sc">::</span><span class="fu">rep</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span>n,<span class="at">each=</span><span class="fu">c</span>(n<span class="sc">:</span><span class="dv">1</span>))</span>
-<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">as_tibble</span>(Sim_MSA_mDAG)</span>
-<span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a>aux<span class="sc">$</span>mDag<span class="ot">=</span><span class="fu">names</span>(aux)</span>
-<span id="cb102-5"><a href="#cb102-5" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span>aux <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="st">`</span><span class="at">0576</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">0286</span><span class="st">`</span>,</span>
-<span id="cb102-6"><a href="#cb102-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">names_to=</span><span class="st">"mDag_2"</span>,<span class="at">values_to=</span><span class="st">"Sim_MSA"</span>)</span>
-<span id="cb102-7"><a href="#cb102-7" aria-hidden="true" tabindex="-1"></a>aux_2<span class="ot">=</span> aux <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">i=</span><span class="fu">pmax</span>(<span class="fu">as.integer</span>(mDag),<span class="fu">as.integer</span>(mDag_2)),</span>
-<span id="cb102-8"><a href="#cb102-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">j=</span><span class="fu">pmin</span>(<span class="fu">as.integer</span>(mDag),<span class="fu">as.integer</span>(mDag_2)))<span class="sc">%&gt;%</span></span>
-<span id="cb102-9"><a href="#cb102-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">"ij"</span>,i<span class="sc">:</span>j) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">duplicated</span>(ij))</span>
-<span id="cb102-10"><a href="#cb102-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-11"><a href="#cb102-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-12"><a href="#cb102-12" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">as_tibble</span>(Sim_Mun_mDAG)</span>
-<span id="cb102-13"><a href="#cb102-13" aria-hidden="true" tabindex="-1"></a>aux<span class="sc">$</span>mDag<span class="ot">=</span><span class="fu">names</span>(aux)</span>
-<span id="cb102-14"><a href="#cb102-14" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span>aux <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="st">`</span><span class="at">0576</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">0286</span><span class="st">`</span>,<span class="at">names_to=</span><span class="st">"mDag_2"</span>,<span class="at">values_to=</span><span class="st">"Sim_Mun"</span>)</span>
-<span id="cb102-15"><a href="#cb102-15" aria-hidden="true" tabindex="-1"></a>aux_2 <span class="ot">=</span> aux_2 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(aux)</span>
-<span id="cb102-16"><a href="#cb102-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-17"><a href="#cb102-17" aria-hidden="true" tabindex="-1"></a>Sim_comp<span class="ot">=</span>aux_2</span>
-<span id="cb102-18"><a href="#cb102-18" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(aux,aux_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>aux1<span class="ot">=</span>base<span class="sc">::</span><span class="fu">rep</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span>n,<span class="at">each=</span><span class="fu">c</span>(n<span class="sc">:</span><span class="dv">1</span>))</span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">as_tibble</span>(Sim_MSA_mDAG)</span>
+<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a>aux<span class="sc">$</span>mDag<span class="ot">=</span><span class="fu">names</span>(aux)</span>
+<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span>aux <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="st">`</span><span class="at">0576</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">0286</span><span class="st">`</span>,</span>
+<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">names_to=</span><span class="st">"mDag_2"</span>,<span class="at">values_to=</span><span class="st">"Sim_MSA"</span>)</span>
+<span id="cb96-7"><a href="#cb96-7" aria-hidden="true" tabindex="-1"></a>aux_2<span class="ot">=</span> aux <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">i=</span><span class="fu">pmax</span>(<span class="fu">as.integer</span>(mDag),<span class="fu">as.integer</span>(mDag_2)),</span>
+<span id="cb96-8"><a href="#cb96-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">j=</span><span class="fu">pmin</span>(<span class="fu">as.integer</span>(mDag),<span class="fu">as.integer</span>(mDag_2)))<span class="sc">%&gt;%</span></span>
+<span id="cb96-9"><a href="#cb96-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">"ij"</span>,i<span class="sc">:</span>j) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">duplicated</span>(ij))</span>
+<span id="cb96-10"><a href="#cb96-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-11"><a href="#cb96-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-12"><a href="#cb96-12" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">as_tibble</span>(Sim_Mun_mDAG)</span>
+<span id="cb96-13"><a href="#cb96-13" aria-hidden="true" tabindex="-1"></a>aux<span class="sc">$</span>mDag<span class="ot">=</span><span class="fu">names</span>(aux)</span>
+<span id="cb96-14"><a href="#cb96-14" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span>aux <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="st">`</span><span class="at">0576</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">0286</span><span class="st">`</span>,<span class="at">names_to=</span><span class="st">"mDag_2"</span>,<span class="at">values_to=</span><span class="st">"Sim_Mun"</span>)</span>
+<span id="cb96-15"><a href="#cb96-15" aria-hidden="true" tabindex="-1"></a>aux_2 <span class="ot">=</span> aux_2 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(aux)</span>
+<span id="cb96-16"><a href="#cb96-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-17"><a href="#cb96-17" aria-hidden="true" tabindex="-1"></a>Sim_comp<span class="ot">=</span>aux_2</span>
+<span id="cb96-18"><a href="#cb96-18" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(aux,aux_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Spearman and Pearson correlations</strong></p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-43_c55b84e123e894e88580522c3726ff58">
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Sim_comp[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)],<span class="at">method=</span><span class="st">"spearman"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-42_f79b0325be1a3bbe43fb6b3840c2af96">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Sim_comp[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)],<span class="at">method=</span><span class="st">"spearman"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          0221      0279
 0221 1.0000000 0.9590629
 0279 0.9590629 1.0000000</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Sim_comp[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)],<span class="at">method=</span><span class="st">"pearson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Sim_comp[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)],<span class="at">method=</span><span class="st">"pearson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          0221      0279
 0221 1.0000000 0.9535522
 0279 0.9535522 1.0000000</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-44_f5ab7a4706acaf7cd7d6cd52f67cc7f3">
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(Sim_comp[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-43_fdbb0c4b6342fc49bdb8dc4c0f9c4319">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(Sim_comp[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-44_f274ac31b4e1df6d04147f227b59bbb3">
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Sim_comp[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid" style="width:100.0%"></p>
-</div>
-</div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-45_08e709d03b5078167301e82188bf95e6">
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Sim_comp[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </section>
@@ -3152,33 +3070,33 @@ clust4 Animals Fungi Plants Protists
 <section id="read-all-graphs-from-a-level-of-the-experiment" class="level2">
 <h2 class="anchored" data-anchor-id="read-all-graphs-from-a-level-of-the-experiment">Read all graphs from a level of the experiment</h2>
 <p>Read all graphs from a level from experiment; for example individuals. We read only firts (alphabetic) two graph</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-46_4370c03e33b8ba3f6284e2e14504fd8d">
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>path_exp<span class="ot">=</span><span class="st">"data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/"</span></span>
-<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a>list_names<span class="ot">=</span><span class="fu">dir</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/"</span>))</span>
-<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb109-4"><a href="#cb109-4" aria-hidden="true" tabindex="-1"></a>list_names<span class="ot">=</span> list_names[<span class="sc">-</span><span class="dv">1</span>] <span class="co"># filter 0000_RefPw</span></span>
-<span id="cb109-5"><a href="#cb109-5" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(list_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-45_e601224233655e40a4b4ba78bdb91d74">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>path_exp<span class="ot">=</span><span class="st">"data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/"</span></span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>list_names<span class="ot">=</span><span class="fu">dir</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/"</span>))</span>
+<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a>list_names<span class="ot">=</span> list_names[<span class="sc">-</span><span class="dv">1</span>] <span class="co"># filter 0000_RefPw</span></span>
+<span id="cb103-5"><a href="#cb103-5" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(list_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 884</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>graphs_list<span class="ot">=</span><span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/"</span>,list_names,<span class="st">"/"</span>,list_names,<span class="st">"_MDAG.graphml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>graphs_list<span class="ot">=</span><span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/"</span>,list_names,<span class="st">"/"</span>,list_names,<span class="st">"_MDAG.graphml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-47_a52216c9704187dc8bae20ed60ed740e">
-<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
-<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_mDAG.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-46_c0c915b971d292b7012a3db837ed47b3">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_mDAG.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/Individuals/cang/cang_mDAG.svg" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-48_6c69a4a93480eb7583b7eca99ae6399e">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_mDAG_essential.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-47_f142f827b9f5be5bcaef67327e3d6e73">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_mDAG_essential.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/Individuals/cang/cang_mDAG_essential.svg" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-49_bdf722b924540e7c526525e1196cd3e0">
-<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
-<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_RC.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-48_4279e3cdefa59fd46c6017ef907f6d72">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_RC.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/Individuals/cang/cang_RC.svg" class="img-fluid" style="width:100.0%"></p>
 </div>
@@ -3186,176 +3104,175 @@ clust4 Animals Fungi Plants Protists
 </section>
 <section id="graph-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="graph-statistics">Graph statistics</h2>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-50_8e4fb228d585b06f2692f3f549559d7d">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>read_mDAG<span class="ot">=</span><span class="cf">function</span>(x) {DAG<span class="ot">=</span><span class="fu">read.graph</span>(<span class="at">file=</span>x,</span>
-<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">format=</span><span class="st">"graphml"</span>)</span>
-<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(DAG)}</span>
-<span id="cb115-4"><a href="#cb115-4" aria-hidden="true" tabindex="-1"></a>mDAG_componets<span class="ot">=</span><span class="cf">function</span>(x) {<span class="fu">sort</span>(<span class="fu">components</span>(x,<span class="at">mode =</span> <span class="st">"weak"</span>)<span class="sc">$</span>csize,</span>
-<span id="cb115-5"><a href="#cb115-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">decreasing=</span><span class="cn">TRUE</span>)}</span>
-<span id="cb115-6"><a href="#cb115-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-7"><a href="#cb115-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-8"><a href="#cb115-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-9"><a href="#cb115-9" aria-hidden="true" tabindex="-1"></a>compo_list<span class="ot">=</span><span class="fu">lapply</span>(graphs_list,</span>
-<span id="cb115-10"><a href="#cb115-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">FUN=</span><span class="cf">function</span>(x) {</span>
-<span id="cb115-11"><a href="#cb115-11" aria-hidden="true" tabindex="-1"></a>                    gg<span class="ot">=</span><span class="fu">read_mDAG</span>(x)</span>
-<span id="cb115-12"><a href="#cb115-12" aria-hidden="true" tabindex="-1"></a>                  aux<span class="ot">=</span><span class="fu">list</span>(</span>
-<span id="cb115-13"><a href="#cb115-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mDAG_componets=</span><span class="fu">mDAG_componets</span>(gg),</span>
-<span id="cb115-14"><a href="#cb115-14" aria-hidden="true" tabindex="-1"></a>                    <span class="at">degree_count=</span>igraph<span class="sc">::</span><span class="fu">degree</span>(gg,<span class="at">mode=</span><span class="st">"total"</span>))</span>
-<span id="cb115-15"><a href="#cb115-15" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">return</span>(aux)}</span>
-<span id="cb115-16"><a href="#cb115-16" aria-hidden="true" tabindex="-1"></a>                  )</span>
-<span id="cb115-17"><a href="#cb115-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-18"><a href="#cb115-18" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(compo_list)<span class="ot">=</span>list_names</span>
-<span id="cb115-19"><a href="#cb115-19" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">max</span>(<span class="fu">sapply</span>(compo_list,<span class="at">FUN=</span><span class="cf">function</span>(x) {<span class="fu">length</span>(x[[<span class="dv">1</span>]])}))</span>
-<span id="cb115-20"><a href="#cb115-20" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-49_fb4045ad7f149378f505c1f6a7e73aeb">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>read_mDAG<span class="ot">=</span><span class="cf">function</span>(x) {DAG<span class="ot">=</span><span class="fu">read.graph</span>(<span class="at">file=</span>x,</span>
+<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">format=</span><span class="st">"graphml"</span>)</span>
+<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(DAG)}</span>
+<span id="cb109-4"><a href="#cb109-4" aria-hidden="true" tabindex="-1"></a>mDAG_componets<span class="ot">=</span><span class="cf">function</span>(x) {<span class="fu">sort</span>(<span class="fu">components</span>(x,<span class="at">mode =</span> <span class="st">"weak"</span>)<span class="sc">$</span>csize,</span>
+<span id="cb109-5"><a href="#cb109-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">decreasing=</span><span class="cn">TRUE</span>)}</span>
+<span id="cb109-6"><a href="#cb109-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-7"><a href="#cb109-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-8"><a href="#cb109-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-9"><a href="#cb109-9" aria-hidden="true" tabindex="-1"></a>compo_list<span class="ot">=</span><span class="fu">lapply</span>(graphs_list,</span>
+<span id="cb109-10"><a href="#cb109-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">FUN=</span><span class="cf">function</span>(x) {</span>
+<span id="cb109-11"><a href="#cb109-11" aria-hidden="true" tabindex="-1"></a>                    gg<span class="ot">=</span><span class="fu">read_mDAG</span>(x)</span>
+<span id="cb109-12"><a href="#cb109-12" aria-hidden="true" tabindex="-1"></a>                  aux<span class="ot">=</span><span class="fu">list</span>(</span>
+<span id="cb109-13"><a href="#cb109-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mDAG_componets=</span><span class="fu">mDAG_componets</span>(gg),</span>
+<span id="cb109-14"><a href="#cb109-14" aria-hidden="true" tabindex="-1"></a>                    <span class="at">degree_count=</span>igraph<span class="sc">::</span><span class="fu">degree</span>(gg,<span class="at">mode=</span><span class="st">"total"</span>))</span>
+<span id="cb109-15"><a href="#cb109-15" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">return</span>(aux)}</span>
+<span id="cb109-16"><a href="#cb109-16" aria-hidden="true" tabindex="-1"></a>                  )</span>
+<span id="cb109-17"><a href="#cb109-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-18"><a href="#cb109-18" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(compo_list)<span class="ot">=</span>list_names</span>
+<span id="cb109-19"><a href="#cb109-19" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">max</span>(<span class="fu">sapply</span>(compo_list,<span class="at">FUN=</span><span class="cf">function</span>(x) {<span class="fu">length</span>(x[[<span class="dv">1</span>]])}))</span>
+<span id="cb109-20"><a href="#cb109-20" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 234</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>size_compo_list<span class="ot">=</span><span class="fu">lapply</span>(compo_list,<span class="at">FUN=</span><span class="cf">function</span>(x) {</span>
-<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(x[[<span class="dv">1</span>]],<span class="fu">rep</span>(<span class="cn">NA</span>,n<span class="sc">-</span><span class="fu">length</span>(x[[<span class="dv">1</span>]]))))})</span>
-<span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-4"><a href="#cb117-4" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">do.call</span>(bind_cols,size_compo_list)</span>
-<span id="cb117-5"><a href="#cb117-5" aria-hidden="true" tabindex="-1"></a>aux2<span class="ot">=</span><span class="fu">pivot_longer</span>(aux,aaf<span class="sc">:</span>zvi,<span class="at">names_to=</span><span class="st">"Organism"</span>,</span>
-<span id="cb117-6"><a href="#cb117-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">values_to=</span><span class="st">"csize"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb117-7"><a href="#cb117-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Organism,<span class="sc">-</span>csize)</span>
-<span id="cb117-8"><a href="#cb117-8" aria-hidden="true" tabindex="-1"></a>aux2<span class="sc">$</span>index<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n,<span class="at">times=</span><span class="fu">dim</span>(aux)[<span class="dv">2</span>])</span>
-<span id="cb117-9"><a href="#cb117-9" aria-hidden="true" tabindex="-1"></a>aux2<span class="ot">=</span>aux2 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(meta_taxo,<span class="at">by=</span><span class="st">"Organism"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>size_compo_list<span class="ot">=</span><span class="fu">lapply</span>(compo_list,<span class="at">FUN=</span><span class="cf">function</span>(x) {</span>
+<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(x[[<span class="dv">1</span>]],<span class="fu">rep</span>(<span class="cn">NA</span>,n<span class="sc">-</span><span class="fu">length</span>(x[[<span class="dv">1</span>]]))))})</span>
+<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-4"><a href="#cb111-4" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">do.call</span>(bind_cols,size_compo_list)</span>
+<span id="cb111-5"><a href="#cb111-5" aria-hidden="true" tabindex="-1"></a>aux2<span class="ot">=</span><span class="fu">pivot_longer</span>(aux,aaf<span class="sc">:</span>zvi,<span class="at">names_to=</span><span class="st">"Organism"</span>,</span>
+<span id="cb111-6"><a href="#cb111-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">values_to=</span><span class="st">"csize"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb111-7"><a href="#cb111-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Organism,<span class="sc">-</span>csize)</span>
+<span id="cb111-8"><a href="#cb111-8" aria-hidden="true" tabindex="-1"></a>aux2<span class="sc">$</span>index<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n,<span class="at">times=</span><span class="fu">dim</span>(aux)[<span class="dv">2</span>])</span>
+<span id="cb111-9"><a href="#cb111-9" aria-hidden="true" tabindex="-1"></a>aux2<span class="ot">=</span>aux2 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(meta_taxo,<span class="at">by=</span><span class="st">"Organism"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-51_0e9e4bc07db142dad5e2dd5b88e001ef">
-<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>Organism<span class="ot">=</span><span class="fu">names</span>(compo_list)</span>
-<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a>big_MBB<span class="ot">=</span><span class="cf">function</span>(org){</span>
-<span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a>  x<span class="ot">=</span>Results <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Organism<span class="sc">==</span>org)</span>
-<span id="cb118-4"><a href="#cb118-4" aria-hidden="true" tabindex="-1"></a>  x<span class="ot">=</span><span class="fu">as.character</span>(x[<span class="dv">1</span>,<span class="dv">5</span><span class="sc">:</span><span class="fu">dim</span>(Results)[<span class="dv">2</span>]])</span>
-<span id="cb118-5"><a href="#cb118-5" aria-hidden="true" tabindex="-1"></a>  x<span class="ot">=</span>x[x<span class="sc">!=</span><span class="st">"NA"</span>]</span>
-<span id="cb118-6"><a href="#cb118-6" aria-hidden="true" tabindex="-1"></a>  tt<span class="ot">=</span><span class="fu">sort</span>(<span class="fu">table</span>(x),<span class="at">decreasing=</span><span class="cn">TRUE</span>)</span>
-<span id="cb118-7"><a href="#cb118-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(tt)</span>
-<span id="cb118-8"><a href="#cb118-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb118-9"><a href="#cb118-9" aria-hidden="true" tabindex="-1"></a>big_MBB_list<span class="ot">=</span> <span class="fu">lapply</span>(Organism,<span class="at">FUN=</span><span class="cf">function</span>(x) <span class="fu">big_MBB</span>(x))</span>
-<span id="cb118-10"><a href="#cb118-10" aria-hidden="true" tabindex="-1"></a>nMBB<span class="ot">=</span><span class="fu">max</span>(<span class="fu">sapply</span>(big_MBB_list,<span class="at">FUN=</span><span class="cf">function</span>(x) <span class="fu">length</span>(x)))</span>
-<span id="cb118-11"><a href="#cb118-11" aria-hidden="true" tabindex="-1"></a>nMBB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-50_93d7f3ed21f0b018293c4836fef39fd5">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>Organism<span class="ot">=</span><span class="fu">names</span>(compo_list)</span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>big_MBB<span class="ot">=</span><span class="cf">function</span>(org){</span>
+<span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a>  x<span class="ot">=</span>Results <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Organism<span class="sc">==</span>org)</span>
+<span id="cb112-4"><a href="#cb112-4" aria-hidden="true" tabindex="-1"></a>  x<span class="ot">=</span><span class="fu">as.character</span>(x[<span class="dv">1</span>,<span class="dv">5</span><span class="sc">:</span><span class="fu">dim</span>(Results)[<span class="dv">2</span>]])</span>
+<span id="cb112-5"><a href="#cb112-5" aria-hidden="true" tabindex="-1"></a>  x<span class="ot">=</span>x[x<span class="sc">!=</span><span class="st">"NA"</span>]</span>
+<span id="cb112-6"><a href="#cb112-6" aria-hidden="true" tabindex="-1"></a>  tt<span class="ot">=</span><span class="fu">sort</span>(<span class="fu">table</span>(x),<span class="at">decreasing=</span><span class="cn">TRUE</span>)</span>
+<span id="cb112-7"><a href="#cb112-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(tt)</span>
+<span id="cb112-8"><a href="#cb112-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb112-9"><a href="#cb112-9" aria-hidden="true" tabindex="-1"></a>big_MBB_list<span class="ot">=</span> <span class="fu">lapply</span>(Organism,<span class="at">FUN=</span><span class="cf">function</span>(x) <span class="fu">big_MBB</span>(x))</span>
+<span id="cb112-10"><a href="#cb112-10" aria-hidden="true" tabindex="-1"></a>nMBB<span class="ot">=</span><span class="fu">max</span>(<span class="fu">sapply</span>(big_MBB_list,<span class="at">FUN=</span><span class="cf">function</span>(x) <span class="fu">length</span>(x)))</span>
+<span id="cb112-11"><a href="#cb112-11" aria-hidden="true" tabindex="-1"></a>nMBB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1041</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a>big_MBB_list<span class="ot">=</span><span class="fu">lapply</span>(big_MBB_list,</span>
-<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">FUN=</span><span class="cf">function</span>(x){</span>
-<span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a>                      x<span class="ot">=</span><span class="fu">c</span>(x,<span class="fu">rep</span>(<span class="cn">NA</span>,nMBB<span class="sc">-</span><span class="fu">length</span>(x)))</span>
-<span id="cb120-4"><a href="#cb120-4" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">return</span>(x)}</span>
-<span id="cb120-5"><a href="#cb120-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb120-6"><a href="#cb120-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(big_MBB_list)<span class="ot">=</span>Organism</span>
-<span id="cb120-7"><a href="#cb120-7" aria-hidden="true" tabindex="-1"></a>big_MBB_list<span class="ot">=</span><span class="fu">do.call</span>(bind_cols,big_MBB_list)</span>
-<span id="cb120-8"><a href="#cb120-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-9"><a href="#cb120-9" aria-hidden="true" tabindex="-1"></a>kMBB<span class="ot">=</span><span class="fu">nrow</span>(big_MBB_list)</span>
-<span id="cb120-10"><a href="#cb120-10" aria-hidden="true" tabindex="-1"></a>index<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>kMBB,<span class="at">times=</span><span class="fu">length</span>(Organism))</span>
-<span id="cb120-11"><a href="#cb120-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-12"><a href="#cb120-12" aria-hidden="true" tabindex="-1"></a>big_MBB_list2<span class="ot">=</span><span class="fu">pivot_longer</span>(big_MBB_list,<span class="at">cols=</span><span class="fu">names</span>(big_MBB_list),<span class="at">values_to =</span> <span class="st">"MBBsize"</span>,<span class="at">names_to =</span> <span class="st">"Organism"</span>) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Organism,<span class="sc">-</span>MBBsize)<span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">index=</span>index) <span class="sc">%&gt;%</span>  <span class="fu">left_join</span>(meta_taxo,<span class="at">by=</span><span class="st">"Organism"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>big_MBB_list<span class="ot">=</span><span class="fu">lapply</span>(big_MBB_list,</span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">FUN=</span><span class="cf">function</span>(x){</span>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a>                      x<span class="ot">=</span><span class="fu">c</span>(x,<span class="fu">rep</span>(<span class="cn">NA</span>,nMBB<span class="sc">-</span><span class="fu">length</span>(x)))</span>
+<span id="cb114-4"><a href="#cb114-4" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">return</span>(x)}</span>
+<span id="cb114-5"><a href="#cb114-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb114-6"><a href="#cb114-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(big_MBB_list)<span class="ot">=</span>Organism</span>
+<span id="cb114-7"><a href="#cb114-7" aria-hidden="true" tabindex="-1"></a>big_MBB_list<span class="ot">=</span><span class="fu">do.call</span>(bind_cols,big_MBB_list)</span>
+<span id="cb114-8"><a href="#cb114-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-9"><a href="#cb114-9" aria-hidden="true" tabindex="-1"></a>kMBB<span class="ot">=</span><span class="fu">nrow</span>(big_MBB_list)</span>
+<span id="cb114-10"><a href="#cb114-10" aria-hidden="true" tabindex="-1"></a>index<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>kMBB,<span class="at">times=</span><span class="fu">length</span>(Organism))</span>
+<span id="cb114-11"><a href="#cb114-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-12"><a href="#cb114-12" aria-hidden="true" tabindex="-1"></a>big_MBB_list2<span class="ot">=</span><span class="fu">pivot_longer</span>(big_MBB_list,<span class="at">cols=</span><span class="fu">names</span>(big_MBB_list),<span class="at">values_to =</span> <span class="st">"MBBsize"</span>,<span class="at">names_to =</span> <span class="st">"Organism"</span>) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Organism,<span class="sc">-</span>MBBsize)<span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">index=</span>index) <span class="sc">%&gt;%</span>  <span class="fu">left_join</span>(meta_taxo,<span class="at">by=</span><span class="st">"Organism"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="sizes-of-mbb-for-each-mdag" class="level3">
 <h3 class="anchored" data-anchor-id="sizes-of-mbb-for-each-mdag">Sizes of MBB for each mDAG</h3>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-52_6bf57a29fa27e9c581685e8600fdb506">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>COLOR_KINGDOM<span class="ot">=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"green"</span>,<span class="st">"yellow"</span>,<span class="st">"black"</span>)</span>
-<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a>colors_kingdom<span class="ot">=</span>big_MBB_list2<span class="sc">%&gt;%</span> <span class="fu">select</span>(Organism,Kingdom) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
-<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(COLOR_KINGDOM)<span class="ot">=</span><span class="fu">sort</span>(<span class="fu">unique</span>(colors_kingdom<span class="sc">$</span>Kingdom))</span>
-<span id="cb121-4"><a href="#cb121-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-5"><a href="#cb121-5" aria-hidden="true" tabindex="-1"></a>p0<span class="ot">&lt;-</span><span class="fu">ggplot</span>(<span class="at">data=</span>big_MBB_list2) <span class="sc">+</span> </span>
-<span id="cb121-6"><a href="#cb121-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>MBBsize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom)) <span class="sc">+</span> </span>
-<span id="cb121-7"><a href="#cb121-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> </span>
-<span id="cb121-8"><a href="#cb121-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'identity'</span>) <span class="sc">+</span></span>
-<span id="cb121-9"><a href="#cb121-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])<span class="sc">+</span></span>
-<span id="cb121-10"><a href="#cb121-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot log-identity of MBB </span><span class="sc">\n</span><span class="st">  decreasing index."</span>) <span class="sc">+</span></span>
-<span id="cb121-11"><a href="#cb121-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log10 MBB size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Index"</span>)</span>
-<span id="cb121-12"><a href="#cb121-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-13"><a href="#cb121-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-14"><a href="#cb121-14" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>big_MBB_list2) <span class="sc">+</span> </span>
-<span id="cb121-15"><a href="#cb121-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>MBBsize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),<span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">+</span> </span>
-<span id="cb121-16"><a href="#cb121-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> </span>
-<span id="cb121-17"><a href="#cb121-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span></span>
-<span id="cb121-18"><a href="#cb121-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])<span class="sc">+</span></span>
-<span id="cb121-19"><a href="#cb121-19" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot log10-log10identity of MBB </span><span class="sc">\n</span><span class="st">  decreasing index."</span>) <span class="sc">+</span></span>
-<span id="cb121-20"><a href="#cb121-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log10 MBB size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Log10 Index"</span>)</span>
-<span id="cb121-21"><a href="#cb121-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-22"><a href="#cb121-22" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>big_MBB_list2) <span class="sc">+</span> </span>
-<span id="cb121-23"><a href="#cb121-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>MBBsize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),<span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">+</span></span>
-<span id="cb121-24"><a href="#cb121-24" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">"identity"</span>) <span class="sc">+</span> </span>
-<span id="cb121-25"><a href="#cb121-25" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb121-26"><a href="#cb121-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1039</span>)<span class="sc">+</span></span>
-<span id="cb121-27"><a href="#cb121-27" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot  of MBB sized  decreasing index."</span>) <span class="sc">+</span></span>
-<span id="cb121-28"><a href="#cb121-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"MBB size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Index"</span>)<span class="sc">+</span></span>
-<span id="cb121-29"><a href="#cb121-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])</span>
-<span id="cb121-30"><a href="#cb121-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-31"><a href="#cb121-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-32"><a href="#cb121-32" aria-hidden="true" tabindex="-1"></a>p0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-51_0953e39bc6f93b5e5ddda9ca7bde5722">
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>COLOR_KINGDOM<span class="ot">=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"green"</span>,<span class="st">"yellow"</span>,<span class="st">"black"</span>)</span>
+<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>colors_kingdom<span class="ot">=</span>big_MBB_list2<span class="sc">%&gt;%</span> <span class="fu">select</span>(Organism,Kingdom) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
+<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(COLOR_KINGDOM)<span class="ot">=</span><span class="fu">sort</span>(<span class="fu">unique</span>(colors_kingdom<span class="sc">$</span>Kingdom))</span>
+<span id="cb115-4"><a href="#cb115-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-5"><a href="#cb115-5" aria-hidden="true" tabindex="-1"></a>p0<span class="ot">&lt;-</span><span class="fu">ggplot</span>(<span class="at">data=</span>big_MBB_list2) <span class="sc">+</span> </span>
+<span id="cb115-6"><a href="#cb115-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>MBBsize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom)) <span class="sc">+</span> </span>
+<span id="cb115-7"><a href="#cb115-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> </span>
+<span id="cb115-8"><a href="#cb115-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'identity'</span>) <span class="sc">+</span></span>
+<span id="cb115-9"><a href="#cb115-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])<span class="sc">+</span></span>
+<span id="cb115-10"><a href="#cb115-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot log-identity of MBB </span><span class="sc">\n</span><span class="st">  decreasing index."</span>) <span class="sc">+</span></span>
+<span id="cb115-11"><a href="#cb115-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log10 MBB size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Index"</span>)</span>
+<span id="cb115-12"><a href="#cb115-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-13"><a href="#cb115-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-14"><a href="#cb115-14" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>big_MBB_list2) <span class="sc">+</span> </span>
+<span id="cb115-15"><a href="#cb115-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>MBBsize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),<span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb115-16"><a href="#cb115-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> </span>
+<span id="cb115-17"><a href="#cb115-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span></span>
+<span id="cb115-18"><a href="#cb115-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])<span class="sc">+</span></span>
+<span id="cb115-19"><a href="#cb115-19" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot log10-log10identity of MBB </span><span class="sc">\n</span><span class="st">  decreasing index."</span>) <span class="sc">+</span></span>
+<span id="cb115-20"><a href="#cb115-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log10 MBB size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Log10 Index"</span>)</span>
+<span id="cb115-21"><a href="#cb115-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-22"><a href="#cb115-22" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>big_MBB_list2) <span class="sc">+</span> </span>
+<span id="cb115-23"><a href="#cb115-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>MBBsize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),<span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">+</span></span>
+<span id="cb115-24"><a href="#cb115-24" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">"identity"</span>) <span class="sc">+</span> </span>
+<span id="cb115-25"><a href="#cb115-25" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb115-26"><a href="#cb115-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1039</span>)<span class="sc">+</span></span>
+<span id="cb115-27"><a href="#cb115-27" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot  of MBB sized  decreasing index."</span>) <span class="sc">+</span></span>
+<span id="cb115-28"><a href="#cb115-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"MBB size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Index"</span>)<span class="sc">+</span></span>
+<span id="cb115-29"><a href="#cb115-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])</span>
+<span id="cb115-30"><a href="#cb115-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-31"><a href="#cb115-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-32"><a href="#cb115-32" aria-hidden="true" tabindex="-1"></a>p0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
-<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-52-2.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-51-2.png" class="img-fluid" style="width:100.0%"></p>
 </div>
-<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a>p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-52-3.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-51-3.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </section>
 <section id="sizes-of-weak-components-for-each-mdag" class="level3">
 <h3 class="anchored" data-anchor-id="sizes-of-weak-components-for-each-mdag">Sizes of weak components for each mDAG</h3>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-53_edcb105ef35209d1d160e3bd25b2f944">
-<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>COLOR_KINGDOM<span class="ot">=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"yellow"</span>,<span class="st">"green"</span>,<span class="st">"yellow"</span>,<span class="st">"black"</span>)</span>
-<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a>colors_kingdom<span class="ot">=</span>aux2<span class="sc">%&gt;%</span> <span class="fu">select</span>(Organism,Kingdom) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
-<span id="cb124-3"><a href="#cb124-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(COLOR_KINGDOM)<span class="ot">=</span><span class="fu">sort</span>(<span class="fu">unique</span>(colors_kingdom<span class="sc">$</span>Kingdom))</span>
-<span id="cb124-4"><a href="#cb124-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-5"><a href="#cb124-5" aria-hidden="true" tabindex="-1"></a>p0<span class="ot">&lt;-</span><span class="fu">ggplot</span>(<span class="at">data=</span>aux2) <span class="sc">+</span> </span>
-<span id="cb124-6"><a href="#cb124-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>csize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),<span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">+</span> </span>
-<span id="cb124-7"><a href="#cb124-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> </span>
-<span id="cb124-8"><a href="#cb124-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'identity'</span>) <span class="sc">+</span></span>
-<span id="cb124-9"><a href="#cb124-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])<span class="sc">+</span></span>
-<span id="cb124-10"><a href="#cb124-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot log-identity of size  weak components decreasing index."</span>) <span class="sc">+</span></span>
-<span id="cb124-11"><a href="#cb124-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log10 Weak componente size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Index"</span>)</span>
-<span id="cb124-12"><a href="#cb124-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-13"><a href="#cb124-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-14"><a href="#cb124-14" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>aux2) <span class="sc">+</span> </span>
-<span id="cb124-15"><a href="#cb124-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>csize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),<span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">+</span> </span>
-<span id="cb124-16"><a href="#cb124-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> </span>
-<span id="cb124-17"><a href="#cb124-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span></span>
-<span id="cb124-18"><a href="#cb124-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])<span class="sc">+</span></span>
-<span id="cb124-19"><a href="#cb124-19" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot log-log of size  weak components decreasing index."</span>) <span class="sc">+</span></span>
-<span id="cb124-20"><a href="#cb124-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log10 weak component size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Log10 Index"</span>)</span>
-<span id="cb124-21"><a href="#cb124-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-22"><a href="#cb124-22" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>aux2) <span class="sc">+</span> </span>
-<span id="cb124-23"><a href="#cb124-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>csize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),<span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">+</span> </span>
-<span id="cb124-24"><a href="#cb124-24" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">"identity"</span>) <span class="sc">+</span> </span>
-<span id="cb124-25"><a href="#cb124-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb124-26"><a href="#cb124-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1039</span>)<span class="sc">+</span></span>
-<span id="cb124-27"><a href="#cb124-27" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot  of size  weak components decreasing index."</span>)<span class="sc">+</span>  <span class="fu">ylab</span>(<span class="st">"Weak components size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Index"</span>)<span class="sc">+</span></span>
-<span id="cb124-28"><a href="#cb124-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])</span>
-<span id="cb124-29"><a href="#cb124-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-30"><a href="#cb124-30" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb124-31"><a href="#cb124-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-32"><a href="#cb124-32" aria-hidden="true" tabindex="-1"></a>p0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-52_f57c7837864fb8cae2be37ed1fd74d24">
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>COLOR_KINGDOM<span class="ot">=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"yellow"</span>,<span class="st">"green"</span>,<span class="st">"yellow"</span>,<span class="st">"black"</span>)</span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a>colors_kingdom<span class="ot">=</span>aux2<span class="sc">%&gt;%</span> <span class="fu">select</span>(Organism,Kingdom) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
+<span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(COLOR_KINGDOM)<span class="ot">=</span><span class="fu">sort</span>(<span class="fu">unique</span>(colors_kingdom<span class="sc">$</span>Kingdom))</span>
+<span id="cb118-4"><a href="#cb118-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-5"><a href="#cb118-5" aria-hidden="true" tabindex="-1"></a>p0<span class="ot">&lt;-</span><span class="fu">ggplot</span>(<span class="at">data=</span>aux2) <span class="sc">+</span> </span>
+<span id="cb118-6"><a href="#cb118-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>csize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),<span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb118-7"><a href="#cb118-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> </span>
+<span id="cb118-8"><a href="#cb118-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'identity'</span>) <span class="sc">+</span></span>
+<span id="cb118-9"><a href="#cb118-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])<span class="sc">+</span></span>
+<span id="cb118-10"><a href="#cb118-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot log-identity of size  weak components decreasing index."</span>) <span class="sc">+</span></span>
+<span id="cb118-11"><a href="#cb118-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log10 Weak componente size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Index"</span>)</span>
+<span id="cb118-12"><a href="#cb118-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-13"><a href="#cb118-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-14"><a href="#cb118-14" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>aux2) <span class="sc">+</span> </span>
+<span id="cb118-15"><a href="#cb118-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>csize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),<span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb118-16"><a href="#cb118-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span> </span>
+<span id="cb118-17"><a href="#cb118-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">'log10'</span>) <span class="sc">+</span></span>
+<span id="cb118-18"><a href="#cb118-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])<span class="sc">+</span></span>
+<span id="cb118-19"><a href="#cb118-19" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot log-log of size  weak components decreasing index."</span>) <span class="sc">+</span></span>
+<span id="cb118-20"><a href="#cb118-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log10 weak component size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Log10 Index"</span>)</span>
+<span id="cb118-21"><a href="#cb118-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-22"><a href="#cb118-22" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>aux2) <span class="sc">+</span> </span>
+<span id="cb118-23"><a href="#cb118-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>csize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),<span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb118-24"><a href="#cb118-24" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">"identity"</span>) <span class="sc">+</span> </span>
+<span id="cb118-25"><a href="#cb118-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb118-26"><a href="#cb118-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1039</span>)<span class="sc">+</span></span>
+<span id="cb118-27"><a href="#cb118-27" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot  of size  weak components decreasing index."</span>)<span class="sc">+</span>  <span class="fu">ylab</span>(<span class="st">"Weak components size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Index"</span>)<span class="sc">+</span></span>
+<span id="cb118-28"><a href="#cb118-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])</span>
+<span id="cb118-29"><a href="#cb118-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-30"><a href="#cb118-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-31"><a href="#cb118-31" aria-hidden="true" tabindex="-1"></a>p0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-52-2.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a>p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-52-3.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-53_290b5f4a84d80caff0d930a701fa97f4">
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>data2<span class="ot">=</span>big_MBB_list2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(index <span class="sc">%in%</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">20</span>)</span>
+<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a>p3<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>data2) <span class="sc">+</span> </span>
+<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>MBBsize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),<span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">+</span></span>
+<span id="cb121-4"><a href="#cb121-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">"identity"</span>) <span class="sc">+</span> </span>
+<span id="cb121-5"><a href="#cb121-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb121-6"><a href="#cb121-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">25</span>)<span class="sc">+</span></span>
+<span id="cb121-7"><a href="#cb121-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot  of size  weak components  decreasing index 2 to 20."</span>)<span class="sc">+</span>  <span class="fu">ylab</span>(<span class="st">"Weak components size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Index"</span>)<span class="sc">+</span></span>
+<span id="cb121-8"><a href="#cb121-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])</span>
+<span id="cb121-9"><a href="#cb121-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-10"><a href="#cb121-10" aria-hidden="true" tabindex="-1"></a>p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-53-1.png" class="img-fluid" style="width:100.0%"></p>
-</div>
-<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-53-2.png" class="img-fluid" style="width:100.0%"></p>
-</div>
-<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a>p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-53-3.png" class="img-fluid" style="width:100.0%"></p>
-</div>
-</div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-54_515d768419a1ab56288c512b26275f2f">
-<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a>data2<span class="ot">=</span>big_MBB_list2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(index <span class="sc">%in%</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">20</span>)</span>
-<span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a>p3<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>data2) <span class="sc">+</span> </span>
-<span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>MBBsize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),<span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">+</span></span>
-<span id="cb127-4"><a href="#cb127-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_x_continuous</span>(<span class="at">trans=</span><span class="st">"identity"</span>) <span class="sc">+</span> </span>
-<span id="cb127-5"><a href="#cb127-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb127-6"><a href="#cb127-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">25</span>)<span class="sc">+</span></span>
-<span id="cb127-7"><a href="#cb127-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Plot  of size  weak components  decreasing index 2 to 20."</span>)<span class="sc">+</span>  <span class="fu">ylab</span>(<span class="st">"Weak components size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Index"</span>)<span class="sc">+</span></span>
-<span id="cb127-8"><a href="#cb127-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])</span>
-<span id="cb127-9"><a href="#cb127-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb127-10"><a href="#cb127-10" aria-hidden="true" tabindex="-1"></a>p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 
