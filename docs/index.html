@@ -190,8 +190,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#mds-multidimensional-scaling-munkres" id="toc-mds-multidimensional-scaling-munkres" class="nav-link" data-scroll-target="#mds-multidimensional-scaling-munkres">MDS (Multidimensional Scaling) Munkres</a></li>
   <li><a href="#hierarchical-cluster-munkres" id="toc-hierarchical-cluster-munkres" class="nav-link" data-scroll-target="#hierarchical-cluster-munkres">Hierarchical cluster Munkres</a></li>
+  <li><a href="#similarity-comparison-eukaryotes" id="toc-similarity-comparison-eukaryotes" class="nav-link" data-scroll-target="#similarity-comparison-eukaryotes">Similarity comparison Eukaryotes</a></li>
   </ul></li>
-  <li><a href="#similarity-comparisons-eukaryotes" id="toc-similarity-comparisons-eukaryotes" class="nav-link" data-scroll-target="#similarity-comparisons-eukaryotes">Similarity comparisons Eukaryotes</a></li>
   <li><a href="#graph" id="toc-graph" class="nav-link" data-scroll-target="#graph">Graph</a>
   <ul class="collapse">
   <li><a href="#read-all-graphs-from-a-level-of-the-experiment" id="toc-read-all-graphs-from-a-level-of-the-experiment" class="nav-link" data-scroll-target="#read-all-graphs-from-a-level-of-the-experiment">Read all graphs from a level of the experiment</a></li>
@@ -3002,12 +3002,11 @@ clust4 Animals Fungi Plants Protists
 </div>
 </div>
 </section>
-</section>
-<section id="similarity-comparisons-eukaryotes" class="level1">
-<h1>Similarity comparisons Eukaryotes</h1>
+<section id="similarity-comparison-eukaryotes" class="level2">
+<h2 class="anchored" data-anchor-id="similarity-comparison-eukaryotes">Similarity comparison Eukaryotes</h2>
 <p>Comparison of two similarities</p>
 <p>Load the similarities for pairs and comparison</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-41_fb36955d21c2b2e0f190a266539d2efd">
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-41_002cc159268febc204af2825d448d0a5">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">length</span>(meta_taxo<span class="sc">$</span>mDAG_Id)</span>
 <span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -3017,24 +3016,30 @@ clust4 Animals Fungi Plants Protists
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 884 884</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>aux1<span class="ot">=</span>base<span class="sc">::</span><span class="fu">rep</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span>n,<span class="at">each=</span><span class="fu">c</span>(n<span class="sc">:</span><span class="dv">1</span>))</span>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co">#aux1=base::rep(x=1:n,each=c(n:1))</span></span>
 <span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">as_tibble</span>(Sim_MSA_mDAG)</span>
 <span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a>aux<span class="sc">$</span>mDag<span class="ot">=</span><span class="fu">names</span>(aux)</span>
-<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span>aux <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="st">`</span><span class="at">0576</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">0286</span><span class="st">`</span>,</span>
-<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">names_to=</span><span class="st">"mDag_2"</span>,<span class="at">values_to=</span><span class="st">"Sim_MSA"</span>)</span>
-<span id="cb96-7"><a href="#cb96-7" aria-hidden="true" tabindex="-1"></a>aux_2<span class="ot">=</span> aux <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">i=</span><span class="fu">pmax</span>(<span class="fu">as.integer</span>(mDag),<span class="fu">as.integer</span>(mDag_2)),</span>
-<span id="cb96-8"><a href="#cb96-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">j=</span><span class="fu">pmin</span>(<span class="fu">as.integer</span>(mDag),<span class="fu">as.integer</span>(mDag_2)))<span class="sc">%&gt;%</span></span>
-<span id="cb96-9"><a href="#cb96-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">"ij"</span>,i<span class="sc">:</span>j) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">duplicated</span>(ij))</span>
-<span id="cb96-10"><a href="#cb96-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-11"><a href="#cb96-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-12"><a href="#cb96-12" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">as_tibble</span>(Sim_Mun_mDAG)</span>
-<span id="cb96-13"><a href="#cb96-13" aria-hidden="true" tabindex="-1"></a>aux<span class="sc">$</span>mDag<span class="ot">=</span><span class="fu">names</span>(aux)</span>
-<span id="cb96-14"><a href="#cb96-14" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span>aux <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="st">`</span><span class="at">0576</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">0286</span><span class="st">`</span>,<span class="at">names_to=</span><span class="st">"mDag_2"</span>,<span class="at">values_to=</span><span class="st">"Sim_Mun"</span>)</span>
-<span id="cb96-15"><a href="#cb96-15" aria-hidden="true" tabindex="-1"></a>aux_2 <span class="ot">=</span> aux_2 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(aux)</span>
-<span id="cb96-16"><a href="#cb96-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-17"><a href="#cb96-17" aria-hidden="true" tabindex="-1"></a>Sim_comp<span class="ot">=</span>aux_2</span>
-<span id="cb96-18"><a href="#cb96-18" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(aux,aux_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span>aux <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="st">`</span><span class="at">0313</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">0300</span><span class="st">`</span>,</span>
+<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">names_to=</span><span class="st">"mDag_2"</span>,</span>
+<span id="cb96-7"><a href="#cb96-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">values_to=</span><span class="st">"Sim_MSA"</span>)</span>
+<span id="cb96-8"><a href="#cb96-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-9"><a href="#cb96-9" aria-hidden="true" tabindex="-1"></a>aux_2<span class="ot">=</span> aux <span class="sc">%&gt;%</span>  <span class="fu">mutate</span>(<span class="at">i=</span><span class="fu">pmax</span>(<span class="fu">as.integer</span>(mDag),</span>
+<span id="cb96-10"><a href="#cb96-10" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">as.integer</span>(mDag_2)),</span>
+<span id="cb96-11"><a href="#cb96-11" aria-hidden="true" tabindex="-1"></a>                       <span class="at">j=</span><span class="fu">pmin</span>(<span class="fu">as.integer</span>(mDag),</span>
+<span id="cb96-12"><a href="#cb96-12" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">as.integer</span>(mDag_2))) <span class="sc">%&gt;%</span> <span class="fu">unite</span>(<span class="st">"ij"</span>,i<span class="sc">:</span>j) <span class="sc">%&gt;%</span></span>
+<span id="cb96-13"><a href="#cb96-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">duplicated</span>(ij))</span>
+<span id="cb96-14"><a href="#cb96-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-15"><a href="#cb96-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-16"><a href="#cb96-16" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">as_tibble</span>(Sim_Mun_mDAG)</span>
+<span id="cb96-17"><a href="#cb96-17" aria-hidden="true" tabindex="-1"></a>aux<span class="sc">$</span>mDag<span class="ot">=</span><span class="fu">names</span>(aux)</span>
+<span id="cb96-18"><a href="#cb96-18" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span>aux <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="st">`</span><span class="at">0313</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">0300</span><span class="st">`</span>,</span>
+<span id="cb96-19"><a href="#cb96-19" aria-hidden="true" tabindex="-1"></a>                         <span class="at">names_to=</span><span class="st">"mDag_2"</span>,</span>
+<span id="cb96-20"><a href="#cb96-20" aria-hidden="true" tabindex="-1"></a>                         <span class="at">values_to=</span><span class="st">"Sim_Mun"</span>)</span>
+<span id="cb96-21"><a href="#cb96-21" aria-hidden="true" tabindex="-1"></a>aux_2 <span class="ot">=</span> aux_2 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(aux)</span>
+<span id="cb96-22"><a href="#cb96-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-23"><a href="#cb96-23" aria-hidden="true" tabindex="-1"></a>Sim_comp<span class="ot">=</span>aux_2</span>
+<span id="cb96-24"><a href="#cb96-24" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(aux,aux_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Spearman and Pearson correlations</strong></p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-42_f79b0325be1a3bbe43fb6b3840c2af96">
@@ -3057,12 +3062,20 @@ clust4 Animals Fungi Plants Protists
 <p><img src="index_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-44_f274ac31b4e1df6d04147f227b59bbb3">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Sim_comp[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-44_aef233a4e32f791ec60c3fe783f5acbb">
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span> Sim_comp<span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(</span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">cols=</span><span class="fu">c</span>(Sim_MSA,Sim_Mun),            <span class="at">names_to=</span><span class="st">"Method"</span>,</span>
+<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">values_to=</span><span class="st">"Similarity"</span>)</span>
+<span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-5"><a href="#cb102-5" aria-hidden="true" tabindex="-1"></a>ggstatsplot<span class="sc">::</span><span class="fu">ggbetweenstats</span>(</span>
+<span id="cb102-6"><a href="#cb102-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> aux,</span>
+<span id="cb102-7"><a href="#cb102-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> Method,</span>
+<span id="cb102-8"><a href="#cb102-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> Similarity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
+</section>
 </section>
 <section id="graph" class="level1">
 <h1>Graph</h1>

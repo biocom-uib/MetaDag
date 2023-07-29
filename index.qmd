@@ -563,7 +563,7 @@ clust4=cutree(hc,4)
 table(clust4,meta_taxo$Kingdom)
 ```
 
-# Similarity comparisons Eukaryotes
+## Similarity comparison Eukaryotes
 
 Comparison of two similarities
 
@@ -573,20 +573,26 @@ Load the similarities for pairs and comparison
 n=length(meta_taxo$mDAG_Id)
 n
 dim(Sim_MSA_mDAG)
-aux1=base::rep(x=1:n,each=c(n:1))
+#aux1=base::rep(x=1:n,each=c(n:1))
 
 aux=as_tibble(Sim_MSA_mDAG)
 aux$mDag=names(aux)
-aux=aux %>% pivot_longer(cols=`0576`:`0286`,
-                         names_to="mDag_2",values_to="Sim_MSA")
-aux_2= aux %>%  mutate(i=pmax(as.integer(mDag),as.integer(mDag_2)),
-                       j=pmin(as.integer(mDag),as.integer(mDag_2)))%>%
-  unite("ij",i:j) %>% filter(duplicated(ij))
+aux=aux %>% pivot_longer(cols=`0313`:`0300`,
+                         names_to="mDag_2",
+                         values_to="Sim_MSA")
+
+aux_2= aux %>%  mutate(i=pmax(as.integer(mDag),
+                              as.integer(mDag_2)),
+                       j=pmin(as.integer(mDag),
+                       as.integer(mDag_2))) %>% unite("ij",i:j) %>%
+  filter(duplicated(ij))
 
 
 aux=as_tibble(Sim_Mun_mDAG)
 aux$mDag=names(aux)
-aux=aux %>% pivot_longer(cols=`0576`:`0286`,names_to="mDag_2",values_to="Sim_Mun")
+aux=aux %>% pivot_longer(cols=`0313`:`0300`,
+                         names_to="mDag_2",
+                         values_to="Sim_Mun")
 aux_2 = aux_2 %>% left_join(aux)
 
 Sim_comp=aux_2
@@ -605,7 +611,15 @@ ggpairs(Sim_comp[,c(3,5)])
 ```
 
 ```{r}
-boxplot(Sim_comp[,c(3,5)])
+
+aux= Sim_comp%>% pivot_longer(
+  cols=c(Sim_MSA,Sim_Mun),            names_to="Method",
+  values_to="Similarity")
+
+ggstatsplot::ggbetweenstats(
+  data = aux,
+  x = Method,
+  y = Similarity)
 ```
 
 # Graph
