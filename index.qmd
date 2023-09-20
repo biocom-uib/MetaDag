@@ -8,10 +8,14 @@ URL: <http://bioinfo.uib.es/metadag/results?uuid=ff15c187-62e7-37c2-96a7-c824f7e
 
 ```{r setup_load_data, include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
-                      cache=TRUE,
+                      cache=FALSE,
                       warning = FALSE,
                       message = FALSE, out.width = "100%")
 ```
+
+
+
+
 
 ```{r  tidy,message=FALSE}
 library(tidyverse)
@@ -400,7 +404,7 @@ MSA_heat_2 <- Heatmap(matrix =
                       show_row_names = FALSE,
                       left_annotation = 
                         rowAnnotation(df = dff,
-                                      col = colorsP,                                      show_annotation_name=c(FALSE),
+                                      col = colorsP,                                      show_annotation_name=FALSE,
                                       show_legend =FALSE
                                       ))
 
@@ -417,7 +421,7 @@ Mun_heat_2 <- Heatmap(matrix = Sim_Mun_mDAG[1:nrow(dff),1:nrow(dff)],
         show_row_names = FALSE,
         left_annotation = rowAnnotation(df = dff,
                                         col = colorsP,
-                                    show_annotation_name=c(FALSE),
+                                    show_annotation_name=FALSE,
                                         show_legend =FALSE
                                         ))
 
@@ -531,7 +535,7 @@ table(clust4,meta_taxo$Kingdom)
 
 ## MDS (Multidimensional Scaling)  Munkres
 
-```{r, fig.align='center', fig.height=5, cache=TRUE}
+```{r, fig.align='center', fig.height=5}
 
 ## Metric multidimensional scaling
 mds7 <- cmdscale(sqrt(1-Sim_Mun_mDAG^2),k=7,eig=TRUE)
@@ -606,8 +610,8 @@ cor(Sim_comp[,c(3,5)],method="spearman")
 cor(Sim_comp[,c(3,5)],method="pearson")
 ```
 
-```{r cache=TRUE}
-ggpairs(Sim_comp[,c(3,5)])
+```{r}
+GGally::ggpairs(Sim_comp[,c(3,5)])
 ```
 
 ```{r}

@@ -242,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This is an example of an experiment of <a href="https://http://bioinfo.uib.es/metadag/">metaDag</a> data with results.</p>
 <p>Hash: ff15c187-62e7-37c2-96a7-c824f7eab671</p>
 <p>URL: <a href="http://bioinfo.uib.es/metadag/results?uuid=ff15c187-62e7-37c2-96a7-c824f7eab671" class="uri">http://bioinfo.uib.es/metadag/results?uuid=ff15c187-62e7-37c2-96a7-c824f7eab671</a></p>
-<div class="cell" data-hash="index_cache/html/tidy_c2a7b80a6edd4dc1ee7fe3ccc1eb1512">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ComplexHeatmap)</span>
@@ -256,17 +256,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-1_98d941a498f171e2b70e64ccc34f5efe">
+<div class="cell">
 <div class="cell-output-display">
 <p><img src="figures/screen_2.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-2_c337d5d984260d702d4b3cfac66b87f8">
+<div class="cell">
 <div class="cell-output-display">
 <p><img src="figures/screen_3.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-3_a5f7cf6a62d341f56ada93d4de580bfc">
+<div class="cell">
 <div class="cell-output-display">
 <p><img src="figures/screen_4.png" class="img-fluid" style="width:100.0%"></p>
 </div>
@@ -274,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="load-data-metadag-experiment" class="level1">
 <h1>Load data MetaDag experiment</h1>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-4_029b5cca7f80acc4e89886030ba2b652">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>experiment<span class="ot">=</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"results_ff15c187-62e7-37c2-96a7-c824f7eab671"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>path_exp<span class="ot">=</span><span class="fu">paste0</span>(<span class="st">"data/"</span>,experiment,<span class="st">"/data/"</span>)</span>
@@ -342,7 +342,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-5_66e268f47d3b4756052f2c50c6fba4ff">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>MBB<span class="ot">=</span><span class="fu">read_csv</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Different_MBB.csv"</span>),<span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mDAG<span class="ot">=</span><span class="fu">read_csv</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Different_mDAG.csv"</span>),<span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Results<span class="ot">=</span><span class="fu">read_csv</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Results.csv"</span>),<span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
@@ -351,7 +351,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="mbb" class="level2">
 <h2 class="anchored" data-anchor-id="mbb">MBB</h2>
 <p>In this experiment <code>MBB</code> is a table with 5112 rows and 4106 columns.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-6_73a6e5f230a1b99296074226e5a4593c">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(MBB[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>]) <span class="sc">%&gt;%</span>   <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">"100%"</span>, <span class="at">height =</span> <span class="st">"200px"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
@@ -1041,13 +1041,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="mdag" class="level2">
 <h2 class="anchored" data-anchor-id="mdag">mDAG</h2>
 <p>Abstract/unique mDAG’s in this experiment</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-7_5daa14ade9878ab2b1137cf692dba55e">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  884 5224</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-8_ca472726480ed3749f5212b8e97d912d">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(mDAG[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>]) <span class="sc">%&gt;%</span>   <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">"100%"</span>, <span class="at">height =</span> <span class="st">"200px"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
@@ -1733,7 +1733,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-9_3bc4caa8593a4782cc8ee77e4dfc14ce">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  884 5224</code></pre>
@@ -1753,7 +1753,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
 <p>Tabular data <code>Results</code> for this experiment</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-10_b44cbb1c1f12034477d4cce44a0fedca">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(Results[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>])<span class="sc">%&gt;%</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">0</span>, <span class="at">angle =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span>   </span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">"300%"</span>, <span class="at">height =</span> <span class="st">"1000px"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2021,7 +2021,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-11_736e1e5e1538e65c3e1d4913fe6cfccb">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(Results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  884 3997</code></pre>
@@ -2057,7 +2057,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [31] "R00959(5.4.2.2)"     </code></pre>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-12_d9fe77d7cf1e2dfc3ecd010ef9549ff2">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span><span class="fu">names</span>(Results)[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)]</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>reverse_reactions<span class="ot">=</span>stringr<span class="sc">::</span><span class="fu">str_detect</span>(reactions,<span class="st">"rev"</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>reverse_reactions<span class="ot">=</span><span class="fu">table</span>(reverse_reactions)</span>
@@ -2077,7 +2077,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="individuals-graph-for-each-organism" class="level2">
 <h2 class="anchored" data-anchor-id="individuals-graph-for-each-organism">Individuals graph for each organism</h2>
 <p>Read individual graph for Homo sapiens (Keg id: hsa) at directory(Individuals/hsa)</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-13_abd0c59c17d50e693c2429590de4ead3">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>files_hsa<span class="ot">=</span><span class="fu">dir</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/hsa"</span>))</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>files_hsa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2088,7 +2088,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [13] "hsa_RC.graphml"         "hsa_RC.pdf"             "hsa_RC.svg"            </code></pre>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-14_d9a1a1287f177e576ad2a85fd65a184a">
+<div class="cell">
 <div class="cell-output-display">
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
@@ -2164,11 +2164,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-15_ccd48c5c69922b1c904023d627d5dd6b">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>graph_mDAG<span class="ot">=</span><span class="fu">read.graph</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/hsa/hsa_mDAG.graphml"</span>),<span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH e6bca09 D--- 1026 1086 -- 
+<pre><code>IGRAPH 199a7e5 D--- 1026 1086 -- 
 + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(igraph<span class="sc">::</span><span class="fu">degree</span>(graph_mDAG,<span class="at">mode=</span><span class="st">"all"</span>)),</span>
@@ -2185,16 +2185,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Note that the mDAG core is empty as it does not contain any reactions.</p>
 <section id="core-mdag" class="level3">
 <h3 class="anchored" data-anchor-id="core-mdag">Core mDAG</h3>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-16_1236669f5708ad01353500c39c0652b8">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>graph_core_mDAG<span class="ot">=</span><span class="fu">read.graph</span>(</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Global/core/core_mDAG.graphml"</span>), <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_core_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH e6d7469 D--- 0 0 -- 
+<pre><code>IGRAPH 19aa00b D--- 0 0 -- 
 + attr: color (v/c), label (v/c), id (v/c)</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-17_272761d3c67599190b4a984fcd4567f5">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Global/core/core_mDAG.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -2210,16 +2210,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="core-reaction-graph-rc" class="level3">
 <h3 class="anchored" data-anchor-id="core-reaction-graph-rc">Core reaction graph (RC)</h3>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-18_a53904ffe16d20fd9d8b294dd3ead556">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>graph_core_RC<span class="ot">=</span><span class="fu">read.graph</span>(</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Global/core/core_RC.graphml"</span>), <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_core_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH e6d7469 D--- 0 0 -- 
+<pre><code>IGRAPH 19aa00b D--- 0 0 -- 
 + attr: color (v/c), label (v/c), id (v/c)</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-19_192c6c34b973448dd7e36dc8506cf57f">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Global/core/core_RC.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -2238,12 +2238,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="mdag-global-pan-for-eukaryotes">mDag Global pan for eukaryotes</h2>
 <section id="pan-mdag" class="level3">
 <h3 class="anchored" data-anchor-id="pan-mdag">Pan mDAG</h3>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-20_e2da1ee03ea5cb5135f2dc4f9e96c033">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>graph_pan_mDAG<span class="ot">=</span><span class="fu">read.graph</span>(</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"TaxonomyLevels/Kingdom/Animals/pan/Animals_pan_mDAG.graphml"</span>), <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_pan_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH e70bb27 D--- 1184 1261 -- 
+<pre><code>IGRAPH 19be8d6 D--- 1184 1261 -- 
 + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 </div>
@@ -2251,17 +2251,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="pan-reaction-graph-rc" class="level3">
 <h3 class="anchored" data-anchor-id="pan-reaction-graph-rc">Pan Reaction graph (RC)</h3>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-21_dcb99ca1df9b84ff34380e0239db683a">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>graph_pan_RC<span class="ot">=</span><span class="fu">read.graph</span>(</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"TaxonomyLevels/Kingdom/Animals/pan/Animals_pan_RC.graphml"</span>), <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_pan_RC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH e71e4da D--- 4556 5798 -- 
+<pre><code>IGRAPH 19ca798 D--- 4556 5798 -- 
 + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 </div>
 <p>The graph pan reaction graph have 4556 vertex and 5798.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-22_b2f0e2af5ad71f74f7f8fd2d87fa71dd">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>compo<span class="ot">=</span><span class="fu">components</span>(graph_mDAG,<span class="at">mode =</span> <span class="st">"weak"</span>)</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(compo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2326,7 +2326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The curated plot of the bigger component of hsa mDAG</p>
-<div class="cell" data-layout-align="center" title="Bigger componet of hsa mDAG" data-hash="index_cache/html/unnamed-chunk-23_bf5feb4d75396b8385851e9ced1404f9">
+<div class="cell" data-layout-align="center" title="Bigger componet of hsa mDAG">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">paste0</span>(path_exp,</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Individuals/hsa/hsa_mDAG_biggerDAG.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -2344,7 +2344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Similarities and metadata for an experiment</h1>
 <p>We will first load the metadata and adapt them to the structure of the similarities to facilitate the creation of the graphs and statistics.</p>
 <p>Remenber de path of the experiment:</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-24_69fddcc4edd0458cf3681bc7eefb96f8">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>path_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/"</code></pre>
@@ -2353,7 +2353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="load-meta-data-from-eukariotes-experimet" class="level2">
 <h2 class="anchored" data-anchor-id="load-meta-data-from-eukariotes-experimet">Load meta data from eukariotes experimet</h2>
 <p>Meta data mDa_Id and taxonomy sort by Kingdom,Filum,Class,mDAG_Id</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-25_0adbeb5d0cd044e4039394a77104ae43">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>path_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/"</code></pre>
@@ -2388,7 +2388,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6 anu      Animals Vertebrates Mammals 0310    Arvicanth… 331         139       </code></pre>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-26_3fe410f20612f3897290789861b4963e">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(meta_taxo<span class="sc">$</span>Kingdom) <span class="sc">%&gt;%</span> kable <span class="sc">%&gt;%</span></span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="st">"striped"</span>, <span class="at">full_width =</span> F,<span class="at">position=</span><span class="st">"left"</span>)<span class="sc">%&gt;%</span> </span>
 <span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">"400px"</span>, <span class="at">height =</span> <span class="st">"200px"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2681,7 +2681,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="similarities-msamunkres-methods">Similarities MSA,Munkres methods</h2>
 <p>In this section we will show the similarities between mDAG’s using different methods.</p>
 <p>The experiment data set consists of 884 eurkaryotes from the animal, plant, fungus, and protist kingdoms.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-27_1626efbb1630d6a3f5ddef0d33f02dd9">
+<div class="cell">
 <div class="cell-output-display">
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
@@ -2713,7 +2713,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-28_8946d063f93047d6119cf7abdb7aa6c6">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>list_Sim<span class="ot">=</span><span class="fu">dir</span>(path_exp,<span class="at">pattern=</span><span class="st">"^Similarities"</span>)</span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>list_Sim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2723,14 +2723,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Load MDAG similarities</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-29_dad9992dc9205f33b0e47d5d4b5bc74e">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>Sim_MSA_mDAG<span class="ot">=</span><span class="fu">read_csv</span>(<span class="fu">paste0</span>(path_exp,</span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"Similarities_mDAG_MSAMethod.csv"</span>))</span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>Sim_MSA_mDAG<span class="ot">=</span><span class="fu">as.matrix</span>(Sim_MSA_mDAG[,<span class="sc">-</span><span class="dv">1</span>])</span>
 <span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(Sim_MSA_mDAG)<span class="ot">=</span><span class="fu">colnames</span>(Sim_MSA_mDAG)</span>
 <span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>Sim_MSA_mDAG<span class="ot">=</span>Sim_MSA_mDAG[meta_taxo<span class="sc">$</span>mDAG_Id,meta_taxo<span class="sc">$</span>mDAG_Id]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-30_b174dca7f8126db5c43fb32ae4e3d441">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>Sim_Mun_mDAG<span class="ot">=</span><span class="fu">read_csv</span>(<span class="fu">paste0</span>(path_exp,</span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="st">"Similarities_mDAG_MunkresMethod.csv"</span>))</span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>Sim_Mun_mDAG<span class="ot">=</span><span class="fu">as.matrix</span>(Sim_Mun_mDAG[,<span class="sc">-</span><span class="dv">1</span>])</span>
@@ -2794,7 +2794,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb71-49"><a href="#cb71-49" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">show_legend=</span><span class="cn">FALSE</span></span>
 <span id="cb71-50"><a href="#cb71-50" aria-hidden="true" tabindex="-1"></a>                                      ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-32_aaec22a36a0e7f05eacecb9d86b0aa8d">
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-32_e217e446bd8929eb46c2d09ae4ac0b2b">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>meta_animals<span class="ot">=</span> meta_taxo <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Kingdom<span class="sc">==</span><span class="st">"Animals"</span>)</span>
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>dff<span class="ot">&lt;-</span>meta_taxo <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Kingdom<span class="sc">==</span><span class="st">"Animals"</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Phylum,Freq_Phylum) <span class="sc">%&gt;%</span>   <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> <span class="fu">select</span>(Phylum)</span>
 <span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>namesP<span class="ot">=</span>dff <span class="sc">%&gt;%</span> <span class="fu">distinct</span>( Phylum, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) </span>
@@ -2816,7 +2816,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb72-19"><a href="#cb72-19" aria-hidden="true" tabindex="-1"></a>                      <span class="at">show_row_names =</span> <span class="cn">FALSE</span>,</span>
 <span id="cb72-20"><a href="#cb72-20" aria-hidden="true" tabindex="-1"></a>                      <span class="at">left_annotation =</span> </span>
 <span id="cb72-21"><a href="#cb72-21" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">rowAnnotation</span>(<span class="at">df =</span> dff,</span>
-<span id="cb72-22"><a href="#cb72-22" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">col =</span> colorsP,                                      <span class="at">show_annotation_name=</span><span class="fu">c</span>(<span class="cn">FALSE</span>),</span>
+<span id="cb72-22"><a href="#cb72-22" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">col =</span> colorsP,                                      <span class="at">show_annotation_name=</span><span class="cn">FALSE</span>,</span>
 <span id="cb72-23"><a href="#cb72-23" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">show_legend =</span><span class="cn">FALSE</span></span>
 <span id="cb72-24"><a href="#cb72-24" aria-hidden="true" tabindex="-1"></a>                                      ))</span>
 <span id="cb72-25"><a href="#cb72-25" aria-hidden="true" tabindex="-1"></a></span>
@@ -2833,11 +2833,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb72-36"><a href="#cb72-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">show_row_names =</span> <span class="cn">FALSE</span>,</span>
 <span id="cb72-37"><a href="#cb72-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">left_annotation =</span> <span class="fu">rowAnnotation</span>(<span class="at">df =</span> dff,</span>
 <span id="cb72-38"><a href="#cb72-38" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">col =</span> colorsP,</span>
-<span id="cb72-39"><a href="#cb72-39" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">show_annotation_name=</span><span class="fu">c</span>(<span class="cn">FALSE</span>),</span>
+<span id="cb72-39"><a href="#cb72-39" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">show_annotation_name=</span><span class="cn">FALSE</span>,</span>
 <span id="cb72-40"><a href="#cb72-40" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">show_legend =</span><span class="cn">FALSE</span></span>
 <span id="cb72-41"><a href="#cb72-41" aria-hidden="true" tabindex="-1"></a>                                        ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="index_cache/html/heatmaps_df314b61ec46aa07c6e2d38b1d6bfd8d">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>MSA_heat_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/heatmaps-1.png" class="img-fluid" style="width:100.0%"></p>
@@ -2912,7 +2912,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb82-20"><a href="#cb82-20" aria-hidden="true" tabindex="-1"></a><span class="co"># fig</span></span>
 <span id="cb82-21"><a href="#cb82-21" aria-hidden="true" tabindex="-1"></a><span class="co"># dev.off</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-35_6864e9e24d2966b8ca844312b5051f53">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2925,7 +2925,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="hierarchical-cluster-msa" class="level1">
 <h1>Hierarchical cluster MSA</h1>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-36_76ba6ba015748c7fc2194bd741954941">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dendextend)</span>
 <span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span>
 <span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ape)</span>
@@ -2938,7 +2938,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="index_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-37_4ab99407ea0d2b837e16e2587b3f7778">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>clust4<span class="ot">=</span><span class="fu">cutree</span>(hc,<span class="dv">4</span>)</span>
 <span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(clust4,meta_taxo<span class="sc">$</span>Kingdom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2952,7 +2952,7 @@ clust4 Animals Fungi Plants Protists
 </div>
 <section id="mds-multidimensional-scaling-munkres" class="level2">
 <h2 class="anchored" data-anchor-id="mds-multidimensional-scaling-munkres">MDS (Multidimensional Scaling) Munkres</h2>
-<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-38_f0886eb4382fe89a4dee2701f5656ded">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Metric multidimensional scaling</span></span>
 <span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>mds7 <span class="ot">&lt;-</span> <span class="fu">cmdscale</span>(<span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>Sim_Mun_mDAG<span class="sc">^</span><span class="dv">2</span>),<span class="at">k=</span><span class="dv">7</span>,<span class="at">eig=</span><span class="cn">TRUE</span>)</span>
 <span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>mds7<span class="sc">$</span>GOF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2981,7 +2981,7 @@ clust4 Animals Fungi Plants Protists
 </section>
 <section id="hierarchical-cluster-munkres" class="level2">
 <h2 class="anchored" data-anchor-id="hierarchical-cluster-munkres">Hierarchical cluster Munkres</h2>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-39_980f1500d7d80c8a93e95b061b64792b">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>D<span class="ot">=</span><span class="fu">as.dist</span>(<span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>Sim_Mun_mDAG<span class="sc">^</span><span class="dv">2</span>))</span>
 <span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>hc<span class="ot">=</span><span class="fu">hclust</span>(<span class="fu">as.dist</span>(D),<span class="at">method =</span><span class="st">"ward.D"</span>)</span>
 <span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.ggdend</span>(<span class="fu">as.dendrogram</span>(hc)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2989,7 +2989,7 @@ clust4 Animals Fungi Plants Protists
 <p><img src="index_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-40_69f50e0530dd5f24b57f2ad213b625e3">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>clust4<span class="ot">=</span><span class="fu">cutree</span>(hc,<span class="dv">4</span>)</span>
 <span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(clust4,meta_taxo<span class="sc">$</span>Kingdom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -3006,7 +3006,7 @@ clust4 Animals Fungi Plants Protists
 <h2 class="anchored" data-anchor-id="similarity-comparison-eukaryotes">Similarity comparison Eukaryotes</h2>
 <p>Comparison of two similarities</p>
 <p>Load the similarities for pairs and comparison</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-41_002cc159268febc204af2825d448d0a5">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">length</span>(meta_taxo<span class="sc">$</span>mDAG_Id)</span>
 <span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -3042,27 +3042,27 @@ clust4 Animals Fungi Plants Protists
 <span id="cb96-24"><a href="#cb96-24" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(aux,aux_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Spearman and Pearson correlations</strong></p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-42_f79b0325be1a3bbe43fb6b3840c2af96">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Sim_comp[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)],<span class="at">method=</span><span class="st">"spearman"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          0221      0279
-0221 1.0000000 0.9590629
-0279 0.9590629 1.0000000</code></pre>
+<pre><code>          Sim_MSA   Sim_Mun
+Sim_MSA 1.0000000 0.8902412
+Sim_Mun 0.8902412 1.0000000</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(Sim_comp[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)],<span class="at">method=</span><span class="st">"pearson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          0221      0279
-0221 1.0000000 0.9535522
-0279 0.9535522 1.0000000</code></pre>
+<pre><code>         Sim_MSA  Sim_Mun
+Sim_MSA 1.000000 0.913906
+Sim_Mun 0.913906 1.000000</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-43_fdbb0c4b6342fc49bdb8dc4c0f9c4319">
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(Sim_comp[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>GGally<span class="sc">::</span><span class="fu">ggpairs</span>(Sim_comp[,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-44_aef233a4e32f791ec60c3fe783f5acbb">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span> Sim_comp<span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(</span>
 <span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">cols=</span><span class="fu">c</span>(Sim_MSA,Sim_Mun),            <span class="at">names_to=</span><span class="st">"Method"</span>,</span>
 <span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">values_to=</span><span class="st">"Similarity"</span>)</span>
@@ -3083,7 +3083,7 @@ clust4 Animals Fungi Plants Protists
 <section id="read-all-graphs-from-a-level-of-the-experiment" class="level2">
 <h2 class="anchored" data-anchor-id="read-all-graphs-from-a-level-of-the-experiment">Read all graphs from a level of the experiment</h2>
 <p>Read all graphs from a level from experiment; for example individuals. We read only firts (alphabetic) two graph</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-45_e601224233655e40a4b4ba78bdb91d74">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>path_exp<span class="ot">=</span><span class="st">"data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/"</span></span>
 <span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>list_names<span class="ot">=</span><span class="fu">dir</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/"</span>))</span>
 <span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3094,20 +3094,20 @@ clust4 Animals Fungi Plants Protists
 </div>
 <div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>graphs_list<span class="ot">=</span><span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/"</span>,list_names,<span class="st">"/"</span>,list_names,<span class="st">"_MDAG.graphml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-46_c0c915b971d292b7012a3db837ed47b3">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
 <span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_mDAG.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/Individuals/cang/cang_mDAG.svg" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-47_f142f827b9f5be5bcaef67327e3d6e73">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_mDAG_essential.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data/results_ff15c187-62e7-37c2-96a7-c824f7eab671/data/Individuals/cang/cang_mDAG_essential.svg" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-48_4279e3cdefa59fd46c6017ef907f6d72">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
 <span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_RC.svg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -3117,7 +3117,7 @@ clust4 Animals Fungi Plants Protists
 </section>
 <section id="graph-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="graph-statistics">Graph statistics</h2>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-49_fb4045ad7f149378f505c1f6a7e73aeb">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>read_mDAG<span class="ot">=</span><span class="cf">function</span>(x) {DAG<span class="ot">=</span><span class="fu">read.graph</span>(<span class="at">file=</span>x,</span>
 <span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">format=</span><span class="st">"graphml"</span>)</span>
 <span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(DAG)}</span>
@@ -3151,7 +3151,7 @@ clust4 Animals Fungi Plants Protists
 <span id="cb111-8"><a href="#cb111-8" aria-hidden="true" tabindex="-1"></a>aux2<span class="sc">$</span>index<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n,<span class="at">times=</span><span class="fu">dim</span>(aux)[<span class="dv">2</span>])</span>
 <span id="cb111-9"><a href="#cb111-9" aria-hidden="true" tabindex="-1"></a>aux2<span class="ot">=</span>aux2 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(meta_taxo,<span class="at">by=</span><span class="st">"Organism"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-50_93d7f3ed21f0b018293c4836fef39fd5">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>Organism<span class="ot">=</span><span class="fu">names</span>(compo_list)</span>
 <span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>big_MBB<span class="ot">=</span><span class="cf">function</span>(org){</span>
 <span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a>  x<span class="ot">=</span>Results <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Organism<span class="sc">==</span>org)</span>
@@ -3181,7 +3181,7 @@ clust4 Animals Fungi Plants Protists
 </div>
 <section id="sizes-of-mbb-for-each-mdag" class="level3">
 <h3 class="anchored" data-anchor-id="sizes-of-mbb-for-each-mdag">Sizes of MBB for each mDAG</h3>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-51_0953e39bc6f93b5e5ddda9ca7bde5722">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>COLOR_KINGDOM<span class="ot">=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"green"</span>,<span class="st">"yellow"</span>,<span class="st">"black"</span>)</span>
 <span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>colors_kingdom<span class="ot">=</span>big_MBB_list2<span class="sc">%&gt;%</span> <span class="fu">select</span>(Organism,Kingdom) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
 <span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(COLOR_KINGDOM)<span class="ot">=</span><span class="fu">sort</span>(<span class="fu">unique</span>(colors_kingdom<span class="sc">$</span>Kingdom))</span>
@@ -3229,7 +3229,7 @@ clust4 Animals Fungi Plants Protists
 </section>
 <section id="sizes-of-weak-components-for-each-mdag" class="level3">
 <h3 class="anchored" data-anchor-id="sizes-of-weak-components-for-each-mdag">Sizes of weak components for each mDAG</h3>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-52_f57c7837864fb8cae2be37ed1fd74d24">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>COLOR_KINGDOM<span class="ot">=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"yellow"</span>,<span class="st">"green"</span>,<span class="st">"yellow"</span>,<span class="st">"black"</span>)</span>
 <span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a>colors_kingdom<span class="ot">=</span>aux2<span class="sc">%&gt;%</span> <span class="fu">select</span>(Organism,Kingdom) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
 <span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(COLOR_KINGDOM)<span class="ot">=</span><span class="fu">sort</span>(<span class="fu">unique</span>(colors_kingdom<span class="sc">$</span>Kingdom))</span>
@@ -3273,7 +3273,7 @@ clust4 Animals Fungi Plants Protists
 <p><img src="index_files/figure-html/unnamed-chunk-52-3.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-53_290b5f4a84d80caff0d930a701fa97f4">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>data2<span class="ot">=</span>big_MBB_list2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(index <span class="sc">%in%</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">20</span>)</span>
 <span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a>p3<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>data2) <span class="sc">+</span> </span>
 <span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>MBBsize,<span class="at">group =</span> Organism,<span class="at">color=</span>Kingdom),<span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">+</span></span>
