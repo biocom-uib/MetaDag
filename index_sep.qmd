@@ -13,10 +13,6 @@ knitr::opts_chunk$set(echo = TRUE,
                       message = FALSE, out.width = "100%")
 ```
 
-
-
-
-
 ```{r  tidy,message=FALSE}
 library(tidyverse)
 library(igraph)
@@ -376,12 +372,6 @@ Mun_heat_1<- Heatmap(matrix = Sim_Mun_mDAG,
                                       ))
 ```
 
-
-
-
-
-
-
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
 meta_animals= meta_taxo %>% filter(Kingdom=="Animals")
 dff<-meta_taxo %>% filter(Kingdom=="Animals") %>% select(Phylum,Freq_Phylum) %>%   as.data.frame() %>% select(Phylum)
@@ -427,14 +417,12 @@ Mun_heat_2 <- Heatmap(matrix = Sim_Mun_mDAG[1:nrow(dff),1:nrow(dff)],
 
 ```
 
-
 ```{r heatmaps}
 MSA_heat_1
 MSA_heat_2
 Mun_heat_1
 Mun_heat_2
 ```
-
 
 ```{r echo=FALSE, include=FALSE}
 pdf("MSA_kingdoms.pdf")
@@ -450,7 +438,6 @@ pdf("Mun_phyla.pdf")
 Mun_heat_2
 dev.off()
 ```
-
 
 ## MDS (Multidimensional Scaling) MSA
 
@@ -505,10 +492,6 @@ knitr::include_graphics("figures/fig1.jpeg")
 
 # Hierarchical cluster MSA
 
-
-
-
-
 ```{r}
 library(dendextend)
 library(ggraph)
@@ -520,20 +503,12 @@ library(circlize)
 circlize_dendrogram(as.dendrogram(hc))
 ```
 
-
-
-
-
-
-
-
 ```{r}
 clust4=cutree(hc,4)
 table(clust4,meta_taxo$Kingdom)
 ```
 
-
-## MDS (Multidimensional Scaling)  Munkres
+## MDS (Multidimensional Scaling) Munkres
 
 ```{r, fig.align='center', fig.height=5}
 
