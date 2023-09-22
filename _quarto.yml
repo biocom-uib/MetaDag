@@ -7,7 +7,7 @@ book:
   author: "Version beta 0.2"
   date: "`r format(Sys.time(), '%d %B, %Y')`"
   chapters:
-    - index_sep.qmd  
+    - index.qmd
     
 format:
   html:
