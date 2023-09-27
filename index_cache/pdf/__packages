@@ -22,3 +22,5 @@ knitr
 GGally
 dendextend
 patchwork
+ggraph
+ape
