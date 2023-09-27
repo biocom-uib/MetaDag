@@ -172,7 +172,7 @@ summary(graph_core_mDAG)
 
 ```{r fig.cap="Core mDAG is empty",eval=FALSE}
 # file missing
-#knitr::include_graphics(paste0(path_exp,"Global/core/core_mDAG.pdf"))
+knitr::include_graphics(paste0(path_exp,"Global/core/core_mDAG.svg"))
 ```
 
 The graph core mDAG have `r igraph::vcount(graph_core_mDAG)` vertex and `r igraph::ecount(graph_core_mDAG)`, is an empty graph.
@@ -187,7 +187,7 @@ summary(graph_core_mDAG)
 
 ```{r fig.cap="Core mDAG is empty"}
 knitr::include_graphics(
-  paste0(path_exp,"Global/core/core_RC.pdf"))
+  paste0(path_exp,"Global/core/core_RC.svg"))
 ```
 
 The graph core reaction graph have `r igraph::vcount(graph_core_RC)` vertex and `r igraph::ecount(graph_core_RC)`, is an empty graph.
@@ -231,8 +231,8 @@ igraph::ecount(Big_Component)
 The curated plot of the bigger component of hsa mDAG
 
 ```{r fig.align='center',title="Bigger componet of hsa mDAG"}
-#knitr::include_graphics(paste0(path_exp,
-#                              "Individuals/hsa/hsa_mDAG_biggerDAG.pdf"))
+knitr::include_graphics(paste0(path_exp,
+                            "Individuals/hsa/hsa_mDAG_biggerDAG.svg"))
 ```
 
 # Similarities and metadata for an experiment
@@ -657,7 +657,7 @@ RRRRRRRRRRRRRRRRRRRRRRRRRRRRR
 
 ```{r}
 knitr::include_graphics(
-  paste0(path_exp,"Individuals/cang/cang_RC.pdf"))
+  paste0(path_exp,"Individuals/cang/cang_RC.svg"))
 ```
 
 ## Graph statistics
