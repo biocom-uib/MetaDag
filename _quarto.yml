@@ -5,7 +5,7 @@ project:
 book:
   title: "MetaDAG experiment example"
   author: "Version beta 0.2"
-  date: "`r format(Sys.time(), '%d %B, %Y')`"
+  date: "2023-10-03"
   chapters:
     - index.qmd
     
@@ -14,6 +14,8 @@ format:
     theme: Journal
   pdf:
     toc: true
+    toccolor: blue
+    highlight-style: atom-one-dark
     number-sections: true
     colorlinks: true
     include-in-header:
