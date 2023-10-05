@@ -496,41 +496,8 @@ ggpairs(cooordinates,columns=1:4,
             legend=1),upper=list(continuous="points")) +
   scale_fill_manual(values = colorsK$Kingdom) + 
   theme(legend.position = "left")
-
-mds <- mds %>%
-  mutate(groups =as.factor(meta_taxo$Kingdom))
-
-
-#,text= ~paste("Age:", groups, '<br>Name:')
-length(unique(meta_taxo$Phylum))
-
-
-col_mds=rainbow(33)
-
-
-#col_mds=c("purple","green","yellow","coral")
-#mcol_mds=bremer.pal(7,"Greens")
-
-# fig <- 
-# plot_ly(
-#   mds, x = ~Dim.1, y = ~Dim.2,
-#   color = ~groups, 
-#   colors= colors,
-#   type="scatter",
-#   mode="markers") %>%
-#   layout(
-#     xaxis = list(autorange=2,
-#       range=c(-0.8,0.8)), yaxis = list(autorange=2,
-#       range=c(-0.8,0.8)))
-# #
-# jpeg(filename="figures/fig1.jpeg")
-# fig
-# dev.off
 ```
 
-```{r echo=FALSE,fig.align='center',out.width="80%"}
-knitr::include_graphics("figures/fig1.jpeg")
-```
 
 # Hierarchical cluster MSA
 
@@ -590,7 +557,6 @@ The 14 plants in cluster 2 are all algae considered in the experiment.
 ## MDS (Multidimensional Scaling) Munkres
 
 ```{r, fig.align='center', fig.height=5}
-
 ## Metric multidimensional scaling
 mds7 <- cmdscale(sqrt(1-Sim_Mun_mDAG^2),k=7,eig=TRUE)
 mds7$GOF
@@ -605,21 +571,57 @@ ggpairs(cooordinates,columns=1:4,
         lower=list(continuous="points")) + 
   scale_fill_manual(values = colorsK$Kingdom) + 
   theme(legend.position = "left")
-
 ```
 
 ## Hierarchical cluster Munkres
 
 ```{r}
 D=as.dist(sqrt(1-Sim_Mun_mDAG^2))
-hc=hclust(as.dist(D),method ="ward.D")
-ggplot(as.ggdend(as.dendrogram(hc)))
+hc_Mun=hclust(as.dist(D),method ="ward.D")
+ggplot(as.ggdend(as.dendrogram(hc_Mun)))
 ```
 
+
 ```{r}
-clust4=cutree(hc,4)
-table(clust4,meta_taxo$Kingdom)
+clust4_Mun=cutree(hc_Mun,4)
+table(clust4_Mun,meta_taxo$Kingdom)
 ```
+
+
+Only two nematodes of the 9 return to the invertebrate animal cluster for Munkrest; all algae remain in the fungi and archaea cluster.  
+
+```{r}
+aux=meta_taxo %>%
+  select(Organism,Kingdom,Phylum,Class,Full_Name)
+aux$clust4_Mun=clust4_Mun
+aux_Animals_cluster_1_2_Mun = aux %>%
+  filter(Kingdom=="Animals",clust4_Mun %in% c(1,2))
+
+table(aux_Animals_cluster_1_2_Mun$Phylum,
+      aux_Animals_cluster_1_2_Mun$clust4_Mun)
+
+aux_7_Animals_cluster_3_Mun= filter(aux,
+                                clust4_Mun==3,
+                                Kingdom=="Animals")
+aux_7_Animals_cluster_3_Mun
+aux_all_Nematodes_Flatworns= aux %>% 
+  filter(Kingdom=="Animals",
+         Phylum %in% c("Nematodes","Flatworms"))
+aux_all_Nematodes_Flatworns
+
+aux_14_Plants_clust2_Mun= filter(aux,clust4_Mun==3,
+                             Kingdom=="Plants")
+aux_14_Plants_clust2_Mun
+aux_all_algae_class= aux %>% 
+  filter(Kingdom=="Plants",
+         Class %in% c("algae"))
+aux_all_algae_class
+```
+
+
+
+
+
 
 ## Similarity comparison Eukaryotes
 
@@ -668,7 +670,7 @@ cor(Sim_comp[,c(3,5)],method="pearson")
 GGally::ggpairs(Sim_comp[,c(3,5)])
 ```
 
-º```{r}
+```{r}
 
 aux= Sim_comp%>% pivot_longer(
   cols=c(Sim_MSA,Sim_Mun),
@@ -893,3 +895,13 @@ p3<- ggplot(data=data2) +
 
 p3
 ```
+
+## Comparison core's all algaes, fungi and archaea
+
+
+
+
+```{r}
+algae_core=read_csv("data/result_18455052-41fe-319a-91db-08c9dad69fb2/data/Groups/Algae/core/Algae_core_mDAG_nl.csv") 
+```
+
