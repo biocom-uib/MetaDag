@@ -899,11 +899,12 @@ p3
 ## Comparison core's all algaes, fungi and archaea
 
 
-
-
 ```{r}
-algae_core=read_csv("data/result_18455052-41fe-319a-91db-08c9dad69fb2/data/Groups/Algae/core/Algae_core_mDAG_nl.csv") 
-algae_data_MBB=read_csv("data/result_18455052-41fe-319a-91db-08c9dad69fb2/data/Different_MBB.csv)
-archaea_data_MBB=read_csv("data/result_18455052-41fe-319a-91db-08c9dad69fb2/data/Different_MBB.csv)
+reactions=names(Results)[-c(1:4)]
+cores=tibble(reactions)
+cores=cores %>%  separate(reactions, into=c("reactions","rev"),sep="\\(") 
+
+cores$encyme=gsub("\\(|\\)",replacement = "",Results3$encyme)
+algae_core=
 ```
 
