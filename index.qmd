@@ -3,9 +3,7 @@ This is an example of an experiment of [metaDag](https://http://bioinfo.uib.es/m
 
 Hash: bb261b6e-95c6-3e39-b82b-b68eea80e30b
 
-results_ff15c187-62e7-37c2-96a7-c824f7eab671
-
-URL: [](http://bioinfo.uib.es/metadag//handleExperiment/bb261b6e-95c6-3e39-b82b-b68eea80e30b)
+URL: [http://bioinfo.uib.es/metadag/results?uuid=bb261b6e-95c6-3e39-b82b-b68eea80e30b](http://bioinfo.uib.es/metadag/results?uuid=bb261b6e-95c6-3e39-b82b-b68eea80e30b){.uri}
 
 ```{r setup_load_data, include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
@@ -673,6 +671,7 @@ GGally::ggpairs(Sim_comp[,c(3,5)])
 ```
 
 ```{r}
+
 aux= Sim_comp%>% pivot_longer(
   cols=c(Sim_MSA,Sim_Mun),
   names_to="Method",
@@ -904,89 +903,7 @@ p3
 
 ```{r}
 algae_core=read_csv("data/result_18455052-41fe-319a-91db-08c9dad69fb2/data/Groups/Algae/core/Algae_core_mDAG_nl.csv") 
+algae_data_MBB=read_csv("data/result_18455052-41fe-319a-91db-08c9dad69fb2/data/Different_MBB.csv)
+archaea_data_MBB=read_csv("data/result_18455052-41fe-319a-91db-08c9dad69fb2/data/Different_MBB.csv)
 ```
-
-
-```{r}
-Results2 = Results %>% left_join(meta_taxo,by ="Organism")
-```
-
-
-
-
-```{r}
-N=dim(Results)[2]
-reactions=names(Results)[5:N]
-Rbinary=function(x) as.integer(!is.na(x))
-
-Results3=Results2 %>% mutate(across(starts_with("R"),Rbinary))
-
-core_algae= Results3 %>% filter(Phylum=="algae")
-M=as.matrix(core_algae %>% select(starts_with("R")))
-R_core_algae=as.tibble(apply(M,2,prod))
-dim(R_core_algae)
-
-R_core_fungi=Results3 %>% filter(Kingdom=="Fungi") %>%
-  select(starts_with("R"))
-M=as.matrix(core_algae %>% select(starts_with("R")))
-R_core_fungi=as.tibble(apply(M,2,prod))
-
-core_plants=Results3 %>% filter(Kingdom=="Plants")
-M=as.matrix(core_plants %>% select(starts_with("R")))
-R_core_plants=as.tibble(apply(M,2,prod))
-
-core_protists =Results3 %>% filter(Kingdom=="Protists")
-M=as.matrix(core_protists %>% select(starts_with("R")))
-R_core_protists=as.tibble(apply(M,2,prod))
-
-core_animals =Results3 %>% filter(Kingdom=="Animals")
-M=as.matrix(core_animals %>% select(starts_with("R")))
-R_core_animals=as.tibble(apply(M,2,prod))()
-
-core_vertebrates=Results3 %>% filter(Phylum=="Vertebrates")
-M=as.matrix(core_vertebrates %>% select(starts_with("R")))
-R_core_vertebrates=as.tibble(apply(M,2,prod))
-
-core_no_vertebrates=Results3 %>% filter(Kingdom=="Animals",Phylum!="Vertebrates")
-M=as.matrix(core_no_vertebrates %>% select(starts_with("R")))
-R_core_no_vertebrates=as.tibble(apply(M,2,prod))
-
-core_nematodes=Results3 %>% filter(Phylum=="Nematodes")
-M=as.matrix(core_nematodes %>% select(starts_with("R")))
-R_core_nematodes=as.tibble(apply(M,2,prod))
-
-core_flatworms=Results3 %>% filter(Phylum=="Flatworms")
-M=as.matrix(core_flatworms %>% select(starts_with("R")))
-R_core_flatworms=as.tibble(apply(M,2,prod))
-```
-
-```{r}
-cores=tibble(reactions,R_core_animals,R_core_plants,
-             R_core_fungi,R_core_protists,R_core_algae,
-             R_core_nematodes,R_core_flatworms)
-cores=cores %>% separate(reactions,
-                         into=c("reactions","encymes"),
-                         sep="\\(") %>%
-  separate(reactions,into=c("reactions","rev"),sep="_")
-
-cores$encymes=gsub("\\)",replacement="",cores$encymes)
-cores= cores %>% mutate(url_reaction=
-                          paste0("https://www.genome.jp/entry/",
-                                            cores$reactions),
-                        url_encymes=
-                          paste0("https://www.genome.jp/entry/",
-                                 encymes),.after=encymes)
-```
-
-```{r}
-cores
-```
-
-
-
-```{r}
-core_algae=cores %>% filter(R_core_algae==1) %>% select(contains("algae"))
-core_algae
-```
-
 
