@@ -7,7 +7,7 @@ URL: [http://bioinfo.uib.es/metadag/results?uuid=bb261b6e-95c6-3e39-b82b-b68eea8
 
 ```{r setup_load_data, include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
-                      cache=FALSE,
+                      cache=TRUE,
                       warning = FALSE,
                       message = FALSE, out.width = "100%")
 pdf="TRUE"
@@ -920,8 +920,42 @@ cores
 
 
 ```{r}
+clust4_MSA2=tibble(mDAG_Id=names(clust4_MSA), clust4_MSA=clust4_MSA)
+clust4_Mun2=tibble(mDAG_Id=names(clust4_Mun), clust4_Mun=clust4_Mun)
+meta_taxo2=meta_taxo
+meta_taxo2=meta_taxo2 %>% left_join(clust4_MSA2,by= "mDAG_Id") %>% 
+  left_join(clust4_Mun2,by= "mDAG_Id")
+meta_taxo2$combined_cluster_MSA_Kingdom=paste0(meta_taxo2$Kingdom,meta_taxo2$clust4_MSA)
+meta_taxo2$combined_cluster_Mun_Kingdom=paste0(meta_taxo2$Kingdom,meta_taxo2$clust4_MSA)
+write.csv(meta_taxo2,file="meta_taxo_4_clusters.csv")
+```
+
+
+```{r}
+knitr::kable(table(meta_taxo2$Kingdom,meta_taxo2$clust4_MSA))
+knitr::kable(table(meta_taxo2$Kingdom,meta_taxo2$clust4_Mun))
+knitr::kable(table(meta_taxo2$clust4_Mun,meta_taxo2$clust4_MSA))
+```
+
+```{r}
+
+```
 
 
 
+
+
+
+```{r}
+library(reshape2)
+MSA_table=melt(table(meta_taxo2$Kingdom,meta_taxo2$Phylum,meta_taxo2$clust4_MSA))
+names(MSA_table)=c("Kingdom","Phylum","cluster_MSA","Number")
+MSA_table=MSA_table %>% filter(Number!=0)
+MSA_table=as_tibble(table(meta_taxo2$Kingdom,meta_taxo2$Phylum,meta_taxo2$clust4_MSA),names=c("Kingdom","Phylum","cluster_MSA"))
+```
+
+
+```{r}
+knitr::kable(table(meta_taxo2$Kingdom,meta_taxo2$Phylum,meta_taxo2$clust4_Mun))
 ```
 

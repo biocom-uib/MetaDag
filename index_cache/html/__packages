@@ -8,8 +8,6 @@ dplyr
 stringr
 forcats
 lubridate
-knitr
-kableExtra
 igraph
 ComplexHeatmap
 viridisLite
@@ -19,9 +17,8 @@ plotly
 randomcoloR
 factoextra
 RColorBrewer
+kableExtra
 GGally
 dendextend
-gtools
-patchwork
 ggraph
 ape
