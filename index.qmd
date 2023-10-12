@@ -902,9 +902,26 @@ p3
 ```{r}
 reactions=names(Results)[-c(1:4)]
 cores=tibble(reactions)
-cores=cores %>%  separate(reactions, into=c("reactions","rev"),sep="\\(") 
+cores=cores %>%  separate(reactions, into=c("reactions","enzyme"),sep="\\(")
 
-cores$encyme=gsub("\\(|\\)",replacement = "",Results3$encyme)
-algae_core=
+cores= cores %>% separate(reactions,into=c("reactions","reactions2"),sep="\\|",fill = "right")
+   
+
+cores$enzyme=gsub("\\(|\\)",replacement = "",cores$enzyme)
+cores
+#algae_core=
+```
+
+
+
+
+### Comparion 4 kingdoms and 4 cluster for MSA and  Munkrest
+
+
+
+```{r}
+
+
+
 ```
 
