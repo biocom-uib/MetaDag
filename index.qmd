@@ -1004,8 +1004,8 @@ cores = cbind(cores,aux)
 
 ```{r}
 A2_A_3_F3=  cores$Animals2*cores$Animals3-cores$Animals3*cores$Fungi3
-cores[A2_A_3_F3==1,]
-cores[A2_A_3_F3==-1,]
+#cores[A2_A_3_F3==1,]
+#cores[A2_A_3_F3==-1,]
 ```
 
 
