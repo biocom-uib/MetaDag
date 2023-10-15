@@ -937,25 +937,68 @@ knitr::kable(table(meta_taxo2$Kingdom,meta_taxo2$clust4_Mun))
 knitr::kable(table(meta_taxo2$clust4_Mun,meta_taxo2$clust4_MSA))
 ```
 
-```{r}
-
-```
-
-
-
-
 
 
 ```{r}
 library(reshape2)
 MSA_table=melt(table(meta_taxo2$Kingdom,meta_taxo2$Phylum,meta_taxo2$clust4_MSA))
-names(MSA_table)=c("Kingdom","Phylum","cluster_MSA","Number")
-MSA_table=MSA_table %>% filter(Number!=0)
-MSA_table=as_tibble(table(meta_taxo2$Kingdom,meta_taxo2$Phylum,meta_taxo2$clust4_MSA),names=c("Kingdom","Phylum","cluster_MSA"))
+names(MSA_table)=c("Kingdom","Phylum","cluster_MSA","N")
+MSA_table=MSA_table %>% filter(N!=0)
 ```
 
 
 ```{r}
-knitr::kable(table(meta_taxo2$Kingdom,meta_taxo2$Phylum,meta_taxo2$clust4_Mun))
+knitr::kable(MSA_table)
 ```
+
+
+
+## Comparison core's all algaes, fungi and archaea
+
+
+```{r}
+reactions=names(Results)[-c(1:4)]
+cores=tibble(reactions)
+cores=cores %>%  separate(reactions, into=c("reactions","enzyme"),sep="\\(")
+
+#cores= cores %>% separate(reactions,into=c("reactions","reactions2"),sep="\\|",fill = "right")
+   
+
+cores$enzyme=gsub("\\(|\\)",replacement = "",cores$enzyme)
+cores
+#algae_core=
+```
+
+
+```{r}
+Results
+cores
+meta_taxo
+cores_names=unique(meta_taxo2$combined_cluster_MSA_Kingdom)
+cores_names
+
+cores_combi=function(x){
+#x=cores_names[º]  
+Id=meta_taxo2 %>% filter(combined_cluster_MSA_Kingdom==x) %>% select(mDAG_Id)
+Id=as.character(Id$mDAG_Id)
+bin_NA=function(x) {case_when(is.na(x) ~ 0, !is.na(x) ~ 1)}
+mda_filter= Results %>%
+  filter(mDAG_Id %in% Id)%>%
+  select(starts_with("R")) %>%   
+  mutate_all(bin_NA) 
+#%>%
+# mutate(mDag_id=Id,.before=1)
+aux=colSums(mda_filter)
+aux=case_when(aux>0 ~ 1, aux==0~0)
+return(aux)
+}
+cores_list=lapply(cores_names,cores_combi)
+
+aux=cores_list  %>% as_tibble(.name_repair ="universal")
+names(aux)=cores_names
+cores = cbind(cores,aux)
+
+
+```
+
 
