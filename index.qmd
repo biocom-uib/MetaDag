@@ -3,11 +3,11 @@ This is an example of an experiment of [metaDag](https://http://bioinfo.uib.es/m
 
 Hash: bb261b6e-95c6-3e39-b82b-b68eea80e30b
 
-URL: [http://bioinfo.uib.es/metadag/results?uuid=bb261b6e-95c6-3e39-b82b-b68eea80e30b](http://bioinfo.uib.es/metadag/results?uuid=bb261b6e-95c6-3e39-b82b-b68eea80e30b){.uri}
+URL: [https://bioinfo.uib.es/metadag/handleExperiment/0c982fc3-a45f-3645-b0b9-989a0425da6a](https://bioinfo.uib.es/metadag/handleExperiment/0c982fc3-a45f-3645-b0b9-989a0425da6a){.uri}
 
 ```{r setup_load_data, include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
-                      cache=TRUE,
+                      cache=FALSE,
                       warning = FALSE,
                       message = FALSE, out.width = "100%")
 pdf="TRUE"
@@ -50,13 +50,13 @@ knitr::include_graphics("figures/screen_4.png")
 
 ```{r}
 experiment=
-  "result_bb261b6e-95c6-3e39-b82b-b68eea80e30b"
+  "result_0c982fc3-a45f-3645-b0b9-989a0425da6a"
 path_exp=paste0("data/",experiment,"/data/")
 knitr::kable(data.frame(
   Directory_files_and_folders=dir(path_exp),
   Type=c(rep("Data file",2),
-  rep("Directory",2),
-  rep("Data file",5),
+  rep("Directory",3),
+  rep("Data file",6),
   "Directory")))
 ```
 
@@ -281,7 +281,8 @@ Meta data mDa_Id and taxonomy sort by Kingdom,Filum,Class,mDAG_Id
 ```{r}
 path_exp
 Results=read_csv(paste0(path_exp,"Results.csv"))
-names(Results)[c(1,3,4)]=c("Organism","mDAG_Id","Full_Name")
+#arreglo los nombres de MEtaDag
+names(Results)[c(1,2,3,4,5)]=c("Organism","Categories","Groups","mDAG_Id","Full_Name")
 taxo=Results %>% select(Organism:Full_Name)
 taxo=taxo %>% separate(Categories,into=c("Kingdom","Phylum","Class"))
 index=which(is.na(taxo$Class))
@@ -339,8 +340,7 @@ Sim_MSA_mDAG=Sim_MSA_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
 ```
 
 ```{r}
-Sim_Mun_mDAG=read_csv(paste0(path_exp,
-"Similarities_mDAG_MunkresMethod.csv"))
+Sim_Mun_mDAG=read_csv(paste0(path_exp,"Similarities_mDAG_MunkresMethod.csv"))
 Sim_Mun_mDAG=as.matrix(Sim_Mun_mDAG[,-1])
 rownames(Sim_Mun_mDAG)=colnames(Sim_Mun_mDAG)
 Sim_Mun_mDAG=Sim_Mun_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
@@ -671,7 +671,6 @@ GGally::ggpairs(Sim_comp[,c(3,5)])
 ```
 
 ```{r}
-
 aux= Sim_comp%>% pivot_longer(
   cols=c(Sim_MSA,Sim_Mun),
   names_to="Method",
@@ -680,7 +679,8 @@ aux= Sim_comp%>% pivot_longer(
 ggstatsplot::ggbetweenstats(
   data = aux,
   x = Method,
-  y = Similarity)
+  y = Similarity,
+  centrality.plotting=TRUE)
 ```
 
 # Graph
@@ -778,6 +778,7 @@ big_MBB_list2=pivot_longer(big_MBB_list,
 ```
 
 ### Sizes of MBB for each mDAG
+
 
 ```{r}
 COLOR_KINGDOM=c("red","green","yellow","black")
@@ -957,7 +958,7 @@ knitr::kable(MSA_table)
 
 
 ```{r}
-reactions=names(Results)[-c(1:4)]
+reactions=names(Results)[-c(1:5)]
 cores=tibble(reactions)
 cores=cores %>%  separate(reactions, into=c("reactions","enzyme"),sep="\\(")
 
@@ -971,35 +972,45 @@ cores
 
 
 ```{r}
-Results
-cores
-meta_taxo
-cores_names=unique(meta_taxo2$combined_cluster_MSA_Kingdom)
+#Results
+#cores
+#meta_taxo
+cores_names=unique(Results$Groups)
 cores_names
 
 cores_combi=function(x){
-#x=cores_names[º]  
-Id=meta_taxo2 %>% filter(combined_cluster_MSA_Kingdom==x) %>% select(mDAG_Id)
+#x=cores_names[1]  
+Id=meta_taxo2 %>% filter(Groups==x) %>% select(mDAG_Id)
 Id=as.character(Id$mDAG_Id)
-bin_NA=function(x) {case_when(is.na(x) ~ 0, !is.na(x) ~ 1)}
+#bin_NA=function(x) {case_when(!is.na(x) ~ 0 ,default=1)}
+not_NA= function(x) {!is.na(x)}
+
 mda_filter= Results %>%
-  filter(mDAG_Id %in% Id)%>%
+  filter(mDAG_Id %in% Id) %>%
   select(starts_with("R")) %>%   
-  mutate_all(bin_NA) 
+  mutate_all(not_NA) %>% mutate_all(as.integer)
+
 #%>%
 # mutate(mDag_id=Id,.before=1)
-aux=colSums(mda_filter)
-aux=case_when(aux>0 ~ 1, aux==0~0)
+aux=rowSums(mda_filter)
+aux=as.integer(aux==length(Id))
 return(aux)
 }
-cores_list=lapply(cores_names,cores_combi)
 
+cores_list=lapply(cores_names,cores_combi)
 aux=cores_list  %>% as_tibble(.name_repair ="universal")
 names(aux)=cores_names
 cores = cbind(cores,aux)
-
-
 ```
+
+
+
+
+
+```{r}
+colSums(cores[,-c(1,2)])
+```
+
 
 
 ```{r}
