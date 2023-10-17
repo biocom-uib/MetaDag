@@ -1016,9 +1016,6 @@ names(cores)
 knitr::kable(colSums(cores[,-c(1,2)]),col.names = c("Freq"))
 ```
 
-```{r}
-
-```
 
 
 
@@ -1031,5 +1028,47 @@ cores %>% select(reactions,enzyme,`Cluster 1`) %>%
 
 ```{r}
 knitr::kable(pp)
+```
+
+
+```{r}
+cores %>% 
+  select(reactions,enzyme,`Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3`) %>% 
+  filter(`Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3`==1) %>%
+  mutate(http=paste0("https://www.genome.jp/entry/",reactions))-> pp
+```
+
+
+
+
+```{r}
+knitr::kable(pp)
+```
+
+
+
+```{r}
+cores %>% 
+  select(reactions,enzyme,"MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms") %>% 
+  filter("MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms"==1) %>%
+  mutate(http=paste0("https://www.genome.jp/entry/",reactions))-> pp
+```
+
+```{r}
+knitr::kable(pp)
+```
+
+
+
+```{r}
+cores %>% 
+  select(reactions,enzyme,"MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms") %>% 
+  filter("MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms"==1) %>%
+  mutate(http=paste0("https://www.genome.jp/entry/",reactions))-> pp
+```
+
+```{r}
+knitr::kable(pp)
+
 ```
 
