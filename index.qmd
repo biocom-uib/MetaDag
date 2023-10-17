@@ -897,7 +897,7 @@ p3<- ggplot(data=data2) +
 p3
 ```
 
-## Comparison core's all algaes, fungi and archaea
+# Comparison core's all algaes, fungi and archaea and clusters
 
 
 ```{r}
@@ -916,7 +916,7 @@ cores
 
 
 
-### Comparion 4 kingdoms and 4 cluster for MSA and  Munkrest
+## Comparion 4 kingdoms and 4 cluster for MSA and  Munkrest
 
 
 

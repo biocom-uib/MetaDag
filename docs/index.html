@@ -200,11 +200,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sizes-of-mbb-for-each-mdag" id="toc-sizes-of-mbb-for-each-mdag" class="nav-link" data-scroll-target="#sizes-of-mbb-for-each-mdag"><span class="header-section-number">5.2.1</span> Sizes of MBB for each mDAG</a></li>
   <li><a href="#sizes-of-weak-components-for-each-mdag" id="toc-sizes-of-weak-components-for-each-mdag" class="nav-link" data-scroll-target="#sizes-of-weak-components-for-each-mdag"><span class="header-section-number">5.2.2</span> Sizes of weak components for each mDAG</a></li>
   </ul></li>
-  <li><a href="#comparison-cores-all-algaes-fungi-and-archaea" id="toc-comparison-cores-all-algaes-fungi-and-archaea" class="nav-link" data-scroll-target="#comparison-cores-all-algaes-fungi-and-archaea"><span class="header-section-number">5.3</span> Comparison core’s all algaes, fungi and archaea</a>
-  <ul class="collapse">
-  <li><a href="#comparion-4-kingdoms-and-4-cluster-for-msa-and-munkrest" id="toc-comparion-4-kingdoms-and-4-cluster-for-msa-and-munkrest" class="nav-link" data-scroll-target="#comparion-4-kingdoms-and-4-cluster-for-msa-and-munkrest"><span class="header-section-number">5.3.1</span> Comparion 4 kingdoms and 4 cluster for MSA and Munkrest</a></li>
   </ul></li>
-  <li><a href="#comparison-cores-all-algaes-fungi-and-archaea-1" id="toc-comparison-cores-all-algaes-fungi-and-archaea-1" class="nav-link" data-scroll-target="#comparison-cores-all-algaes-fungi-and-archaea-1"><span class="header-section-number">5.4</span> Comparison core’s all algaes, fungi and archaea</a></li>
+  <li><a href="#comparison-cores-all-algaes-fungi-and-archaea-and-clusters" id="toc-comparison-cores-all-algaes-fungi-and-archaea-and-clusters" class="nav-link" data-scroll-target="#comparison-cores-all-algaes-fungi-and-archaea-and-clusters"><span class="header-section-number">6</span> Comparison core’s all algaes, fungi and archaea and clusters</a>
+  <ul class="collapse">
+  <li><a href="#comparion-4-kingdoms-and-4-cluster-for-msa-and-munkrest" id="toc-comparion-4-kingdoms-and-4-cluster-for-msa-and-munkrest" class="nav-link" data-scroll-target="#comparion-4-kingdoms-and-4-cluster-for-msa-and-munkrest"><span class="header-section-number">6.1</span> Comparion 4 kingdoms and 4 cluster for MSA and Munkrest</a></li>
+  <li><a href="#comparison-cores-all-algaes-fungi-and-archaea" id="toc-comparison-cores-all-algaes-fungi-and-archaea" class="nav-link" data-scroll-target="#comparison-cores-all-algaes-fungi-and-archaea"><span class="header-section-number">6.2</span> Comparison core’s all algaes, fungi and archaea</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -1341,7 +1341,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">format=</span> <span class="st">"graphml"</span>)</span>
 <span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH bea5930 D--- 1026 1086 -- 
+<pre><code>IGRAPH fbdbf90 D--- 1026 1086 -- 
 + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(igraph<span class="sc">::</span><span class="fu">degree</span>(graph_mDAG,<span class="at">mode=</span><span class="st">"all"</span>)),</span>
@@ -1364,7 +1364,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_core_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH beb697a D--- 0 0 -- 
+<pre><code>IGRAPH fbf3099 D--- 0 0 -- 
 + attr: color (v/c), label (v/c), id (v/c)</code></pre>
 </div>
 </div>
@@ -1384,7 +1384,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_core_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH beb697a D--- 0 0 -- 
+<pre><code>IGRAPH fbf3099 D--- 0 0 -- 
 + attr: color (v/c), label (v/c), id (v/c)</code></pre>
 </div>
 </div>
@@ -1414,7 +1414,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_pan_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH bec9cc7 D--- 1184 1261 -- 
+<pre><code>IGRAPH fc09df0 D--- 1184 1261 -- 
 + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 </div>
@@ -1429,7 +1429,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_pan_RC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH bed326c D--- 4556 5798 -- 
+<pre><code>IGRAPH fc176e1 D--- 4556 5798 -- 
 + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 </div>
@@ -2682,8 +2682,9 @@ Sim_Mun 0.9203673 1.0000000</code></pre>
 </div>
 </section>
 </section>
-<section id="comparison-cores-all-algaes-fungi-and-archaea" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="comparison-cores-all-algaes-fungi-and-archaea"><span class="header-section-number">5.3</span> Comparison core’s all algaes, fungi and archaea</h2>
+</section>
+<section id="comparison-cores-all-algaes-fungi-and-archaea-and-clusters" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Comparison core’s all algaes, fungi and archaea and clusters</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb138"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span><span class="fu">names</span>(Results)[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)]</span>
 <span id="cb138-2"><a href="#cb138-2" aria-hidden="true" tabindex="-1"></a>cores<span class="ot">=</span><span class="fu">tibble</span>(reactions)</span>
@@ -2712,8 +2713,8 @@ Sim_Mun 0.9203673 1.0000000</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb140"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="co">#algae_core=</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="comparion-4-kingdoms-and-4-cluster-for-msa-and-munkrest" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="comparion-4-kingdoms-and-4-cluster-for-msa-and-munkrest"><span class="header-section-number">5.3.1</span> Comparion 4 kingdoms and 4 cluster for MSA and Munkrest</h3>
+<section id="comparion-4-kingdoms-and-4-cluster-for-msa-and-munkrest" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="comparion-4-kingdoms-and-4-cluster-for-msa-and-munkrest"><span class="header-section-number">6.1</span> Comparion 4 kingdoms and 4 cluster for MSA and Munkrest</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb141"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a>clust4_MSA2<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">mDAG_Id=</span><span class="fu">names</span>(clust4_MSA), <span class="at">clust4_MSA=</span>clust4_MSA)</span>
 <span id="cb141-2"><a href="#cb141-2" aria-hidden="true" tabindex="-1"></a>clust4_Mun2<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">mDAG_Id=</span><span class="fu">names</span>(clust4_Mun), <span class="at">clust4_Mun=</span>clust4_Mun)</span>
@@ -3089,9 +3090,8 @@ Sim_Mun 0.9203673 1.0000000</code></pre>
 </div>
 </div>
 </section>
-</section>
-<section id="comparison-cores-all-algaes-fungi-and-archaea-1" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="comparison-cores-all-algaes-fungi-and-archaea-1"><span class="header-section-number">5.4</span> Comparison core’s all algaes, fungi and archaea</h2>
+<section id="comparison-cores-all-algaes-fungi-and-archaea" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="comparison-cores-all-algaes-fungi-and-archaea"><span class="header-section-number">6.2</span> Comparison core’s all algaes, fungi and archaea</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb147"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span><span class="fu">names</span>(Results)[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)]</span>
 <span id="cb147-2"><a href="#cb147-2" aria-hidden="true" tabindex="-1"></a>cores<span class="ot">=</span><span class="fu">tibble</span>(reactions)</span>
