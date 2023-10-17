@@ -992,12 +992,15 @@ mda_filter= Results %>%
 
 #%>%
 # mutate(mDag_id=Id,.before=1)
-aux=rowSums(mda_filter)
-aux=as.integer(aux==length(Id))
-return(aux)
+#aux=colSums(mda_filter)
+#aux=as.integer(aux==length(Id))
+return(mda_filter)
 }
 
 cores_list=lapply(cores_names,cores_combi)
+lapply(cores_list,dim)
+
+
 aux=cores_list  %>% as_tibble(.name_repair ="universal")
 names(aux)=cores_names
 cores = cbind(cores,aux)
