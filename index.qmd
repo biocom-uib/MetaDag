@@ -1000,8 +1000,9 @@ return(mda_filter)
 cores_list=lapply(cores_names,cores_combi)
 lapply(cores_list,dim)
 
+cores_raw=lapply(cores_list,FUN=function(X){apply(X,2,prod)})
 
-aux=cores_list  %>% as_tibble(.name_repair ="universal")
+aux=cores_raw %>% as_tibble(.name_repair ="universal")
 names(aux)=cores_names
 cores = cbind(cores,aux)
 ```
@@ -1011,15 +1012,24 @@ cores = cbind(cores,aux)
 
 
 ```{r}
-colSums(cores[,-c(1,2)])
+names(cores)
+knitr::kable(colSums(cores[,-c(1,2)]),col.names = c("Freq"))
 ```
+
+```{r}
+
+```
+
 
 
 
 ```{r}
-A2_A_3_F3=  cores$Animals2*cores$Animals3-cores$Animals3*cores$Fungi3
-#cores[A2_A_3_F3==1,]
-#cores[A2_A_3_F3==-1,]
+cores %>% select(reactions,enzyme,`Cluster 1`) %>% 
+  filter(`Cluster 1`==1) %>%
+  mutate(http=paste0("https://www.genome.jp/entry/",reactions))-> pp
 ```
 
+```{r}
+knitr::kable(pp)
+```
 
