@@ -1,9 +1,8 @@
-
 This is an example of an experiment of [metaDag](https://http://bioinfo.uib.es/metadag/) data with results.
 
 Hash: bb261b6e-95c6-3e39-b82b-b68eea80e30b
 
-URL: [https://bioinfo.uib.es/metadag/handleExperiment/0c982fc3-a45f-3645-b0b9-989a0425da6a](https://bioinfo.uib.es/metadag/handleExperiment/0c982fc3-a45f-3645-b0b9-989a0425da6a){.uri}
+URL: <https://bioinfo.uib.es/metadag/handleExperiment/0c982fc3-a45f-3645-b0b9-989a0425da6a>
 
 ```{r setup_load_data, include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
@@ -12,8 +11,6 @@ knitr::opts_chunk$set(echo = TRUE,
                       message = FALSE, out.width = "100%")
 pdf="TRUE"
 ```
-
-
 
 ```{r  tidy,message=FALSE}
 library(tidyverse)
@@ -93,9 +90,6 @@ dim(mDAG)
 #100
 kable(mDAG[1:20,1:10]) %>%   scroll_box(width = "100%", height = "200px")
 ```
-
-
-
 
 ```{r}
 dim(mDAG)
@@ -498,7 +492,6 @@ ggpairs(cooordinates,columns=1:4,
   theme(legend.position = "left")
 ```
 
-
 # Hierarchical cluster MSA
 
 ```{r}
@@ -515,6 +508,16 @@ circlize_dendrogram(as.dendrogram(hc_MSA))
 ```{r}
 clust4_MSA=cutree(hc_MSA,4)
 table(clust4_MSA,meta_taxo$Kingdom)
+```
+```{r}
+clust5_MSA=cutree(hc_MSA,5)
+table(clust5_MSA,meta_taxo$Kingdom)
+```
+
+
+```{r}
+clust6_MSA=cutree(hc_MSA,6)
+table(clust6_MSA,meta_taxo$Kingdom)
 ```
 
 ```{r}
@@ -545,14 +548,9 @@ aux_all_algae_class
 
 The hierarchical classification by Ward's method recovers the kingdom Animal clusters 1 (all vertebrates) and 2 (invertebrate animals), cluster 4 the Plants and in cluster 3 are all protists and fungi together with 9 animals and 14 plants.
 
-
 The 9 Animals are all from the Phylum Nematodes or Flatworns, out of the total of the 10 species of these phylums considered in the experiment. Only the Nematode Necator americanus (New World hookworm) is classified in Animals.
 
-
 The 14 plants in cluster 2 are all algae considered in the experiment.
-
-
-
 
 ## MDS (Multidimensional Scaling) Munkres
 
@@ -581,14 +579,12 @@ hc_Mun=hclust(as.dist(D),method ="ward.D")
 ggplot(as.ggdend(as.dendrogram(hc_Mun)))
 ```
 
-
 ```{r}
 clust4_Mun=cutree(hc_Mun,4)
 table(clust4_Mun,meta_taxo$Kingdom)
 ```
 
-
-Only two nematodes of the 9 return to the invertebrate animal cluster for Munkrest; all algae remain in the fungi and archaea cluster.  
+Only two nematodes of the 9 return to the invertebrate animal cluster for Munkrest; all algae remain in the fungi and archaea cluster.
 
 ```{r}
 aux=meta_taxo %>%
@@ -617,11 +613,6 @@ aux_all_algae_class= aux %>%
          Class %in% c("algae"))
 aux_all_algae_class
 ```
-
-
-
-
-
 
 ## Similarity comparison Eukaryotes
 
@@ -692,7 +683,7 @@ Some statistics for graphs
 Read all graphs from a level from experiment; for example individuals. We read only firts (alphabetic) two graph
 
 ```{r}
-path_exp="data/result_bb261b6e-95c6-3e39-b82b-b68eea80e30b/data/"
+#path_exp="data/result_bb261b6e-95c6-3e39-b82b-b68eea80e30b/data/"
 list_names=dir(paste0(path_exp,"Individuals/"))
 
 list_names= list_names[-1] # filter 0000_RefPw
@@ -703,7 +694,6 @@ graphs_list=paste0(path_exp,"Individuals/",
                    list_names,"/",list_names,
                    "_MDAG.graphml")
 ```
-
 
 ```{r}
 knitr::include_graphics(
@@ -778,7 +768,6 @@ big_MBB_list2=pivot_longer(big_MBB_list,
 ```
 
 ### Sizes of MBB for each mDAG
-
 
 ```{r}
 COLOR_KINGDOM=c("red","green","yellow","black")
@@ -899,7 +888,6 @@ p3
 
 # Comparison core's all algaes, fungi and archaea and clusters
 
-
 ```{r}
 reactions=names(Results)[-c(1:4)]
 cores=tibble(reactions)
@@ -913,12 +901,7 @@ cores
 #algae_core=
 ```
 
-
-
-
-## Comparion 4 kingdoms and 4 cluster for MSA and  Munkrest
-
-
+## Comparion 4 kingdoms and 4 cluster for MSA and Munkrest
 
 ```{r}
 clust4_MSA2=tibble(mDAG_Id=names(clust4_MSA), clust4_MSA=clust4_MSA)
@@ -931,14 +914,11 @@ meta_taxo2$combined_cluster_Mun_Kingdom=paste0(meta_taxo2$Kingdom,meta_taxo2$clu
 write.csv(meta_taxo2,file="meta_taxo_4_clusters.csv")
 ```
 
-
 ```{r}
 knitr::kable(table(meta_taxo2$Kingdom,meta_taxo2$clust4_MSA))
 knitr::kable(table(meta_taxo2$Kingdom,meta_taxo2$clust4_Mun))
 knitr::kable(table(meta_taxo2$clust4_Mun,meta_taxo2$clust4_MSA))
 ```
-
-
 
 ```{r}
 library(reshape2)
@@ -947,29 +927,20 @@ names(MSA_table)=c("Kingdom","Phylum","cluster_MSA","N")
 MSA_table=MSA_table %>% filter(N!=0)
 ```
 
-
 ```{r}
 knitr::kable(MSA_table)
 ```
 
-
-
 ## Comparison core's all algaes, fungi and archaea
-
 
 ```{r}
 reactions=names(Results)[-c(1:5)]
 cores=tibble(reactions)
-cores=cores %>%  separate(reactions, into=c("reactions","enzyme"),sep="\\(")
-
-#cores= cores %>% separate(reactions,into=c("reactions","reactions2"),sep="\\|",fill = "right")
-   
-
-cores$enzyme=gsub("\\(|\\)",replacement = "",cores$enzyme)
+#cores=cores %>%  separate(reactions, into=c("reactions","enzyme"),sep="\\(")
+#cores$enzyme=gsub("\\(|\\)",replacement = "",cores$enzyme)
 cores
 #algae_core=
 ```
-
 
 ```{r}
 #Results
@@ -997,6 +968,7 @@ mda_filter= Results %>%
 return(mda_filter)
 }
 
+cores_combi("Cluster1")
 cores_list=lapply(cores_names,cores_combi)
 lapply(cores_list,dim)
 
@@ -1007,18 +979,10 @@ names(aux)=cores_names
 cores = cbind(cores,aux)
 ```
 
-
-
-
-
 ```{r}
 names(cores)
 knitr::kable(colSums(cores[,-c(1,2)]),col.names = c("Freq"))
 ```
-
-
-
-
 
 ```{r}
 cores %>% select(reactions,enzyme,`Cluster 1`) %>% 
@@ -1030,7 +994,6 @@ cores %>% select(reactions,enzyme,`Cluster 1`) %>%
 knitr::kable(pp)
 ```
 
-
 ```{r}
 cores %>% 
   select(reactions,enzyme,`Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3`) %>% 
@@ -1038,14 +1001,9 @@ cores %>%
   mutate(http=paste0("https://www.genome.jp/entry/",reactions))-> pp
 ```
 
-
-
-
 ```{r}
 knitr::kable(pp)
 ```
-
-
 
 ```{r}
 cores %>% 
@@ -1058,8 +1016,6 @@ cores %>%
 knitr::kable(pp)
 ```
 
-
-
 ```{r}
 cores %>% 
   select(reactions,enzyme,"MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms") %>% 
@@ -1071,4 +1027,3 @@ cores %>%
 knitr::kable(pp)
 
 ```
-
