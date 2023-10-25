@@ -1,12 +1,14 @@
 This is an example of an experiment of [metaDag](https://http://bioinfo.uib.es/metadag/) data with results.
 
+https://bioinfo.uib.es/metadag/MetaDAG_Supplementary_material
+
 Hash: bb261b6e-95c6-3e39-b82b-b68eea80e30b
 
-URL: <https://bioinfo.uib.es/metadag/handleExperiment/0c982fc3-a45f-3645-b0b9-989a0425da6a>
+URL: <https://bioinfo.uib.es/metadag/handleExperiment/result_0a845f74-826e-3b46-aed9-e7ecf74db262>
 
 ```{r setup_load_data, include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
-                      cache=FALSE,
+                      cache=TRUE,
                       warning = FALSE,
                       message = FALSE, out.width = "100%")
 pdf="TRUE"
@@ -509,11 +511,11 @@ circlize_dendrogram(as.dendrogram(hc_MSA))
 clust4_MSA=cutree(hc_MSA,4)
 table(clust4_MSA,meta_taxo$Kingdom)
 ```
+
 ```{r}
 clust5_MSA=cutree(hc_MSA,5)
 table(clust5_MSA,meta_taxo$Kingdom)
 ```
-
 
 ```{r}
 clust6_MSA=cutree(hc_MSA,6)
@@ -889,16 +891,13 @@ p3
 # Comparison core's all algaes, fungi and archaea and clusters
 
 ```{r}
-reactions=names(Results)[-c(1:4)]
-cores=tibble(reactions)
-cores=cores %>%  separate(reactions, into=c("reactions","enzyme"),sep="\\(")
-
-cores= cores %>% separate(reactions,into=c("reactions","reactions2"),sep="\\|",fill = "right")
-   
-
-cores$enzyme=gsub("\\(|\\)",replacement = "",cores$enzyme)
-cores
-#algae_core=
+reactions=names(Results)
+reactions=reactions[grep("(^R\\d{5})",reactions)]
+reactions=tibble(reactions)
+reactions=reactions %>% separate(reactions, into=c("r_id","enzyme"),sep="\\(",remove=FALSE)
+reactions=reactions %>% mutate(enzyme=gsub("\\(|\\)","",enzyme))
+#reactions=reactions[,-3]
+reactions$rev=stringr::str_detect(reactions$r_id,"v")
 ```
 
 ## Comparion 4 kingdoms and 4 cluster for MSA and Munkrest
@@ -934,11 +933,11 @@ knitr::kable(MSA_table)
 ## Comparison core's all algaes, fungi and archaea
 
 ```{r}
-reactions=names(Results)[-c(1:5)]
-cores=tibble(reactions)
+#reactions=names(Results)[-c(1:5)]
+#cores=tibble(reactions)
 #cores=cores %>%  separate(reactions, into=c("reactions","enzyme"),sep="\\(")
 #cores$enzyme=gsub("\\(|\\)",replacement = "",cores$enzyme)
-cores
+#cores
 #algae_core=
 ```
 
@@ -968,26 +967,26 @@ mda_filter= Results %>%
 return(mda_filter)
 }
 
-cores_combi("Cluster1")
+#cores_combi("Cluster1")
 cores_list=lapply(cores_names,cores_combi)
+names(cores_list)=cores_names
 lapply(cores_list,dim)
-
 cores_raw=lapply(cores_list,FUN=function(X){apply(X,2,prod)})
 
 aux=cores_raw %>% as_tibble(.name_repair ="universal")
-names(aux)=cores_names
-cores = cbind(cores,aux)
+#names(aux)=cores_names
+cores_reactions = cbind(reactions,aux)
 ```
 
 ```{r}
-names(cores)
-knitr::kable(colSums(cores[,-c(1,2)]),col.names = c("Freq"))
+#names(cores)
+#knitr::kable(colSums(cores[,-c(1,2)]),col.names = c("Freq"))
 ```
 
 ```{r}
-cores %>% select(reactions,enzyme,`Cluster 1`) %>% 
-  filter(`Cluster 1`==1) %>%
+cores %>% select(reactions,`Cluster 1`) %>% filter(`Cluster 1`==1) %>%
   mutate(http=paste0("https://www.genome.jp/entry/",reactions))-> pp
+
 ```
 
 ```{r}
@@ -996,7 +995,7 @@ knitr::kable(pp)
 
 ```{r}
 cores %>% 
-  select(reactions,enzyme,`Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3`) %>% 
+  select(reactions,`Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3`) %>% 
   filter(`Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3`==1) %>%
   mutate(http=paste0("https://www.genome.jp/entry/",reactions))-> pp
 ```
@@ -1007,7 +1006,7 @@ knitr::kable(pp)
 
 ```{r}
 cores %>% 
-  select(reactions,enzyme,"MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms") %>% 
+  select(reactions,"MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms") %>% 
   filter("MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms"==1) %>%
   mutate(http=paste0("https://www.genome.jp/entry/",reactions))-> pp
 ```
@@ -1018,12 +1017,11 @@ knitr::kable(pp)
 
 ```{r}
 cores %>% 
-  select(reactions,enzyme,"MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms") %>% 
+  select(reactions,"MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms") %>% 
   filter("MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms"==1) %>%
   mutate(http=paste0("https://www.genome.jp/entry/",reactions))-> pp
 ```
 
 ```{r}
 knitr::kable(pp)
-
 ```
