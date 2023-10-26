@@ -1015,6 +1015,8 @@ cores %>%
 knitr::kable(pp)
 ```
 
+
+
 ```{r}
 cores %>% 
   select(reactions,"MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms") %>% 
