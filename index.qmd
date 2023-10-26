@@ -1,14 +1,15 @@
-This is an example of an experiment of [metaDag](https://http://bioinfo.uib.es/metadag/) data with results.
+As a running example in [metaDag](https://http://bioinfo.uib.es/metadag/) we consider the test presented in Section 2.5 Eukaryotes test. Namely, we consider all Eukaryotes from the KEGG database. Results must be downloaded from: 
 
-https://bioinfo.uib.es/metadag/MetaDAG_Supplementary_material
 
-Hash: bb261b6e-95c6-3e39-b82b-b68eea80e30b
+Hash: [0a845f74-826e-3b46-aed9-e7ecf74db262](https://bioinfo.uib.es/metadag/handleExperiment/result_0a845f74-826e-3b46-aed9-e7ecf74db262){.uri}
 
 URL: <https://bioinfo.uib.es/metadag/handleExperiment/result_0a845f74-826e-3b46-aed9-e7ecf74db262>
 
+and saved in a folder named "data/result_0a845f74-826e-3b46-aed9-e7ecf74db262".
+
 ```{r setup_load_data, include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
-                      cache=TRUE,
+                      cache=FALSE,
                       warning = FALSE,
                       message = FALSE, out.width = "100%")
 pdf="TRUE"
@@ -45,12 +46,12 @@ knitr::include_graphics("figures/screen_3.png")
 knitr::include_graphics("figures/screen_4.png")
 ```
 
-# Load data MetaDag experiment
+# Load data
 
 ```{r}
 experiment=
-  "result_0c982fc3-a45f-3645-b0b9-989a0425da6a"
-path_exp=paste0("data/",experiment,"/data/")
+  "result_0a845f74-826e-3b46-aed9-e7ecf74db262/"
+path_exp=paste0("data/",experiment)
 knitr::kable(data.frame(
   Directory_files_and_folders=dir(path_exp),
   Type=c(rep("Data file",2),
@@ -70,9 +71,9 @@ save(MBB,mDAG,Results,
      file="MBB_mDag_Results.Rdata")
 ```
 
-## MBB
+## Table of MBBs
 
-In this experiment `MBB` is a table with `r nrow(MBB)` rows and `r ncol(MBB)` columns.
+In this example `MBB` is a table with `r nrow(MBB)` rows and `r ncol(MBB)` columns. It shows, for every MBB, the selected groups (Kingdoms, families, etc.) where it appears.  
 
 ```{r}
 #100
@@ -80,16 +81,12 @@ knitr::kable(MBB[1:20,1:10]) %>%
   scroll_box(width = "100%", height = "200px")
 ```
 
-## mDAG
+## Table of m-DAGs
 
-Abstract/unique mDAG's in this experiment
+In this example `mDAG` is a table with `r nrow(mDAG)` rows and `r ncol(mDAG)` columns. It shows, for every m-DAG, the selected groups (Kingdoms, families, etc.) where it belongs. 
 
-```{r}
-dim(mDAG)
-```
 
 ```{r}
-#100
 kable(mDAG[1:20,1:10]) %>%   scroll_box(width = "100%", height = "200px")
 ```
 
@@ -100,13 +97,11 @@ head(names(mDAG)[7:(dim(mDAG)[2]-1150)])
 # 28 to 1213  code MBB: 1 if MBB in mDAG 0
 ```
 
-## Results
+## Results Table
 
-Tabular data `Results` for this experiment
+Tabular data `Results` contains for every organism (row), its category (taxonomy), selected group, Full name, m-DAG id and all reactions name id with its enzyme. When the reaction is present in the corresponding m-DAG the MBB where it belongs is shown in this column.
 
 ```{r}
-#100
-#1:20
 kable(Results[1:20,1:10])%>%
   row_spec(0, angle = 0) %>%   
   scroll_box(width = "300%", height = "1000px")
@@ -116,27 +111,29 @@ kable(Results[1:20,1:10])%>%
 dim(Results)
 names(Results)[1]# organisms  kegg id  class representant of mDAG
 names(Results)[2]# taxonomy separate by |
-names(Results)[3]# mDAG_Id 
-names(Results)[4]# Full name representant
-names(Results)[6:36]# columns 6 to 2726  Variable Reactions name id: This reaction belongs to this ball for this MDAG. If not present the value is NA
+names(Results)[3]# groups 
+names(Results)[4]# mDAG_Id 
+names(Results)[5]# Full name representant
+names(Results)[6:36]# columns 6 to 3998 
+# reactions name id with its enzyme.
 ```
 
 ```{r}
 reactions=names(Results)[-c(1:5)]
 reverse_reactions=stringr::str_detect(reactions,"rev")
 reverse_reactions=table(reverse_reactions)
-dimnames(reverse_reactions)$reverse_reactions=c("One direction",
-                                                "Reverse reaction")
+dimnames(reverse_reactions)$reverse_reactions=
+  c("Non reverse reaction","Reverse reaction")
 reverse_reactions
 ```
 
-# Graphs
+# Metabolic Graphs
 
 Read graphs in graphml format
 
-## Individuals graph for each organism
+## Read graph for each organism
 
-Read individual graph for Homo sapiens (Keg id: hsa) at directory(Individuals/hsa)
+Read the individual graphs generated for Homo sapiens (KEGG id: hsa) at directory(Individuals/hsa)
 
 ```{r}
 files_hsa=dir(paste0(path_exp,"Individuals/hsa"))
@@ -147,19 +144,21 @@ files_hsa
 files_hsa=dir(paste0(path_exp,"Individuals/hsa"))
 # "plot mDAG pdf format",
 #             "plot mDAG svg format",
-type_file=c("graph mDAG graphml format",
-            "csv graph adjacency matrix of mDAG",
-            "plot bigger conected componet mDAG pdf format",
-            "plot bigger conected componet mDAG svg format",
-            "plot essential MBB mDAG pdf format",
-            "plot essential MBB mDAG svg format",
-            "csv names labels MBB vertex of mDAG",
-            "csv matrix membership of reacctions of each MBB of mDAG ordered by decreasing size of MBB",
-            "csv graph adjacency matrix of RC graph",
-            "csv names labels MBB vertex of RC",
-            "graph RC graphml format",
-            "plot RC pdf format",
-            "plot RC svg format")
+type_file=c("m-DAG GraphML format",
+            "m-DAG pdf graphic",
+            "m-DAG svg graphic",
+            "csv file with the adjacency matrix of the m-DAG",
+            "bigger conected componet of the m-DAG pdf graphic",
+            "bigger conected componet of the m-DAG svg graphic",
+            "csv file with node (MBBs) labels  of the m-DAG", 
+            "csv file with all connected components of the m-DAG ???????",
+            "csv file with the  adjacency matrix of the reaction graph",
+            "csv file with node (reactions) labels  of the reaction graph", 
+            "reaction graph  GraphML format",
+            "reaction graph pdf graphic",
+            "reaction graph svg graphic",
+            "text file with number of nodes, reactions, etc."
+            )
 knitr::kable(data.frame(files_Individual_hsa=files_hsa, Description=type_file))
 ```
 
@@ -332,14 +331,15 @@ Sim_MSA_mDAG=read_csv(paste0(path_exp,
                              "Similarities_mDAG_MSAMethod.csv"))
 Sim_MSA_mDAG=as.matrix(Sim_MSA_mDAG[,-1])
 rownames(Sim_MSA_mDAG)=colnames(Sim_MSA_mDAG)
-Sim_MSA_mDAG=Sim_MSA_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
+Sim_MSA_mDAG=Sim_MSA_mDAG[meta_taxo$mDAG_Id[1:884],
+                          meta_taxo$mDAG_Id[1:884]]
 ```
 
 ```{r}
 Sim_Mun_mDAG=read_csv(paste0(path_exp,"Similarities_mDAG_MunkresMethod.csv"))
 Sim_Mun_mDAG=as.matrix(Sim_Mun_mDAG[,-1])
 rownames(Sim_Mun_mDAG)=colnames(Sim_Mun_mDAG)
-Sim_Mun_mDAG=Sim_Mun_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
+Sim_Mun_mDAG=Sim_Mun_mDAG[meta_taxo$mDAG_Id[1:884],meta_taxo$mDAG_Id[1:884]]
 ```
 
 ## Heatmaps
@@ -347,7 +347,7 @@ Sim_Mun_mDAG=Sim_Mun_mDAG[meta_taxo$mDAG_Id,meta_taxo$mDAG_Id]
 ### Heatmap Similarity MSA and Munkres method
 
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
-dff<-meta_taxo %>% select(Kingdom)  %>% as.data.frame()
+dff<-meta_taxo[1:884,] %>% select(Kingdom)  %>% as.data.frame()
 colorsK <- list(Kingdom= c("Animals"="red",
                            "Plants"="green",
                            "Fungi"="yellow",
@@ -400,7 +400,7 @@ Mun_heat_1<- Heatmap(matrix = Sim_Mun_mDAG,
 ```
 
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
-meta_animals= meta_taxo %>% filter(Kingdom=="Animals")
+meta_animals= meta_taxo[1:884,] %>% filter(Kingdom=="Animals")
 
 dff<-meta_taxo %>%
   filter(Kingdom=="Animals") %>% 
@@ -487,7 +487,7 @@ colnames(mds) <-paste0("Dim.",1:dim(mds7$points)[2])
 cooordinates=as_tibble(mds7$points)
 colnames(cooordinates)=paste("Component",1:7)
 ggpairs(cooordinates,columns=1:4,
-        aes(color=meta_taxo$Kingdom,alpha=0.5,
+        aes(color=meta_taxo$Kingdom[1:884],alpha=0.5,
             title="MDS 4 dimensions projection",
             legend=1),upper=list(continuous="points")) +
   scale_fill_manual(values = colorsK$Kingdom) + 
@@ -509,21 +509,21 @@ circlize_dendrogram(as.dendrogram(hc_MSA))
 
 ```{r}
 clust4_MSA=cutree(hc_MSA,4)
-table(clust4_MSA,meta_taxo$Kingdom)
+table(clust4_MSA,meta_taxo$Kingdom[1:884])
 ```
 
 ```{r}
 clust5_MSA=cutree(hc_MSA,5)
-table(clust5_MSA,meta_taxo$Kingdom)
+table(clust5_MSA,meta_taxo$Kingdom[1:884])
 ```
 
 ```{r}
 clust6_MSA=cutree(hc_MSA,6)
-table(clust6_MSA,meta_taxo$Kingdom)
+table(clust6_MSA,meta_taxo$Kingdom[1:884])
 ```
 
 ```{r}
-aux=meta_taxo %>%
+aux=meta_taxo[1:884,] %>%
   select(Organism,Kingdom,Phylum,Class,Full_Name)
 aux$clust4_MSA=clust4_MSA
 aux_Animals_cluster_1_2 = aux %>%
@@ -566,7 +566,7 @@ colnames(mds) <-paste0("Dim.",1:dim(mds7$points)[2])
 cooordinates=as_tibble(mds7$points)
 colnames(cooordinates)=paste("Component",1:7)
 ggpairs(cooordinates,columns=1:4,
-        aes(color=meta_taxo$Kingdom,
+        aes(color=meta_taxo$Kingdom[1:884],
             title="MDS 4 dimensions projection",legend=1),
         lower=list(continuous="points")) + 
   scale_fill_manual(values = colorsK$Kingdom) + 
@@ -583,13 +583,13 @@ ggplot(as.ggdend(as.dendrogram(hc_Mun)))
 
 ```{r}
 clust4_Mun=cutree(hc_Mun,4)
-table(clust4_Mun,meta_taxo$Kingdom)
+table(clust4_Mun,meta_taxo$Kingdom[1:884])
 ```
 
 Only two nematodes of the 9 return to the invertebrate animal cluster for Munkrest; all algae remain in the fungi and archaea cluster.
 
 ```{r}
-aux=meta_taxo %>%
+aux=meta_taxo[1:884,] %>%
   select(Organism,Kingdom,Phylum,Class,Full_Name)
 aux$clust4_Mun=clust4_Mun
 aux_Animals_cluster_1_2_Mun = aux %>%
@@ -623,10 +623,9 @@ Comparison of two similarities
 Load the similarities for pairs and comparison
 
 ```{r}
-n=length(meta_taxo$mDAG_Id)
+n=length(meta_taxo$mDAG_Id[1:884])
 n
 dim(Sim_MSA_mDAG)
-#aux1=base::rep(x=1:n,each=c(n:1))
 
 aux=as_tibble(Sim_MSA_mDAG)
 aux$mDag=names(aux)
@@ -984,46 +983,18 @@ cores_reactions = cbind(reactions,aux)
 ```
 
 ```{r}
-cores %>% select(reactions,`Cluster 1`) %>% filter(`Cluster 1`==1) %>%
-  mutate(http=paste0("https://www.genome.jp/entry/",reactions))-> pp
-
+ cores_reactions %>% select(reactions,`MSA.Cluster.3.MUN.Cluster.3`) %>%
+  filter(`MSA.Cluster.3.MUN.Cluster.3`==1) %>%
+  mutate(http=paste0("https://www.genome.jp/entry/",
+                     reactions))-> aux
 ```
 
 ```{r}
-knitr::kable(pp)
-```
-
-```{r}
-cores %>% 
-  select(reactions,`Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3`) %>% 
-  filter(`Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3`==1) %>%
-  mutate(http=paste0("https://www.genome.jp/entry/",reactions))-> pp
-```
-
-```{r}
-knitr::kable(pp)
-```
-
-```{r}
-cores %>% 
-  select(reactions,"MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms") %>% 
-  filter("MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms"==1) %>%
-  mutate(http=paste0("https://www.genome.jp/entry/",reactions))-> pp
-```
-
-```{r}
-knitr::kable(pp)
+knitr::kable(aux)
 ```
 
 
 
-```{r}
-cores %>% 
-  select(reactions,"MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms") %>% 
-  filter("MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms"==1) %>%
-  mutate(http=paste0("https://www.genome.jp/entry/",reactions))-> pp
-```
 
-```{r}
-knitr::kable(pp)
-```
+
+
