@@ -9,7 +9,7 @@ and saved in a folder named "data/result_0a845f74-826e-3b46-aed9-e7ecf74db262".
 
 ```{r setup_load_data, include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
-                      cache=FALSE,
+                      cache=TRUE,
                       warning = FALSE,
                       message = FALSE, out.width = "100%")
 pdf="TRUE"
@@ -129,7 +129,7 @@ reverse_reactions
 
 # Metabolic Graphs
 
-Read graphs in graphml format
+Some analysis examples of generated graphs in GraphML format.
 
 ## Read graph for each organism
 
@@ -161,6 +161,9 @@ type_file=c("m-DAG GraphML format",
             )
 knitr::kable(data.frame(files_Individual_hsa=files_hsa, Description=type_file))
 ```
+## Graph's topology
+
+From the GraphML files one can extract topological information such as the nodes degree. The following diagram shows the nodes degree distribution for an m-DAG.
 
 ```{r}
 graph_mDAG=read.graph(
@@ -174,23 +177,23 @@ barplot(table(igraph::degree(graph_mDAG,mode="all")),
               ylab="Frequency",xlab="degree")
 ```
 
-## mDag Global core for eukaryotes
+## Pan & core metabolic graphs
 
-Note that the mDAG core is empty as it does not contain any reactions.
+XXXX
 
-### Core mDAG
 
+### Core m-DAG
+The global core m-DAG, i.e., the core of all organisms in this example is empty.
 ```{r}
 graph_core_mDAG=read.graph(
   paste0(path_exp,"Global/core/core_mDAG.graphml"),
   format = "graphml")
 summary(graph_core_mDAG)
 ```
+The core metabolic DAG for the Algae group is: 
 
-```{r fig.cap="Core mDAG is empty",eval=FALSE}
-# file missing
-knitr::include_graphics(paste0(path_exp,
-                               "Global/core/core_mDAG.pdf"))
+```{r fig.cap="Core m-DAG for Algae"}
+knitr::include_graphics(paste0(path_exp,                              "Groups/Algae/core/Algae_core_mDAG.pdf"))
 ```
 
 The graph core mDAG have `r igraph::vcount(graph_core_mDAG)` vertex and `r igraph::ecount(graph_core_mDAG)`, is an empty graph.
@@ -207,7 +210,7 @@ summary(graph_core_mDAG)
 
 ```{r fig.cap="Core mDAG is empty"}
 knitr::include_graphics(
-  paste0(path_exp,"Global/core/core_RC.pdf"))
+  paste0(path_exp,"Groups/MSA_Cluster_3/core/MSA_Cluster_3_core_RC.pdf"))
 ```
 
 The graph core reaction graph have `r igraph::vcount(graph_core_RC)` vertex and `r igraph::ecount(graph_core_RC)`, is an empty graph.
