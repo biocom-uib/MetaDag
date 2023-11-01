@@ -1,5 +1,4 @@
-As a running example in [metaDag](https://http://bioinfo.uib.es/metadag/) we consider the test presented in Section 2.5 Eukaryotes test. Namely, we consider all Eukaryotes from the KEGG database. Results must be downloaded from: 
-
+As a running example in [metaDag](https://http://bioinfo.uib.es/metadag/) we consider the test presented in Section 2.5 Eukaryotes test. Namely, we consider all Eukaryotes from the KEGG database. Results must be downloaded from:
 
 Hash: [0a845f74-826e-3b46-aed9-e7ecf74db262](https://bioinfo.uib.es/metadag/handleExperiment/result_0a845f74-826e-3b46-aed9-e7ecf74db262){.uri}
 
@@ -73,7 +72,7 @@ save(MBB,mDAG,Results,
 
 ## Table of MBBs
 
-In this example `MBB` is a table with `r nrow(MBB)` rows and `r ncol(MBB)` columns. It shows, for every MBB, the selected groups (Kingdoms, families, etc.) where it appears.  
+In this example `MBB` is a table with `r nrow(MBB)` rows and `r ncol(MBB)` columns. It shows, for every MBB, the selected groups (Kingdoms, families, etc.) where it appears.
 
 ```{r}
 #100
@@ -83,8 +82,7 @@ knitr::kable(MBB[1:20,1:10]) %>%
 
 ## Table of m-DAGs
 
-In this example `mDAG` is a table with `r nrow(mDAG)` rows and `r ncol(mDAG)` columns. It shows, for every m-DAG, the selected groups (Kingdoms, families, etc.) where it belongs. 
-
+In this example `mDAG` is a table with `r nrow(mDAG)` rows and `r ncol(mDAG)` columns. It shows, for every m-DAG, the selected groups (Kingdoms, families, etc.) where it belongs.
 
 ```{r}
 kable(mDAG[1:20,1:10]) %>%   scroll_box(width = "100%", height = "200px")
@@ -161,6 +159,7 @@ type_file=c("m-DAG GraphML format",
             )
 knitr::kable(data.frame(files_Individual_hsa=files_hsa, Description=type_file))
 ```
+
 ## Graph's topology
 
 From the GraphML files one can extract topological information such as the nodes degree. The following diagram shows the nodes degree distribution for an m-DAG.
@@ -181,16 +180,18 @@ barplot(table(igraph::degree(graph_mDAG,mode="all")),
 
 XXXX
 
-
 ### Core m-DAG
+
 The global core m-DAG, i.e., the core of all organisms in this example is empty.
+
 ```{r}
 graph_core_mDAG=read.graph(
   paste0(path_exp,"Global/core/core_mDAG.graphml"),
   format = "graphml")
 summary(graph_core_mDAG)
 ```
-The core metabolic DAG for the Algae group is: 
+
+The core metabolic DAG for the Algae group is:
 
 ```{r fig.cap="Core m-DAG for Algae"}
 knitr::include_graphics(paste0(path_exp,                              "Groups/Algae/core/Algae_core_mDAG.pdf"))
@@ -995,9 +996,3 @@ cores_reactions = cbind(reactions,aux)
 ```{r}
 knitr::kable(aux)
 ```
-
-
-
-
-
-

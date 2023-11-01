@@ -12,7 +12,7 @@ and saved in the folder:
 
 ```{r setup_load_data, include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
-                      cache=TRUE,
+                      cache=FALSE,
                       warning = FALSE,
                       message = FALSE, out.width = "100%")
 pdf="TRUE"
@@ -175,12 +175,12 @@ files_Algae
 
 The global core reaction graph, which is the core of all the organisms' reaction graphs in this Eukaryotes test, is empty.
 
-```{r}
+```{r graph_core_ALL}
 graph_core_RC=read.graph(
   paste0(path_exp,
          "Global/core/core_RC.graphml"),
   format = "graphml")
-summary(graph_core_mDAG)
+summary(graph_core_RC)
 ```
 
 The global core reaction graph has `r igraph::vcount(graph_core_RC)` vertex and `r igraph::ecount(graph_core_RC)` edges. It is an empty graph.

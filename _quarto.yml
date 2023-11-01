@@ -15,6 +15,7 @@ format:
   pdf:
     toc: true
     toccolor: blue
+    output-file: pdf-book
     highlight-style: atom-one-dark
     number-sections: true
     colorlinks: true
