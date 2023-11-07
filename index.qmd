@@ -1,5 +1,7 @@
 As an illustrative example for interpreting [metaDag](https://bioinfo.uib.es/metadag/) results, we consider here the Eukaryotes test presented in Section 2.5. Namely, we consider all Eukaryotes from the KEGG database.
 
+The source files for this example can be obtained from https://github.com/biocom-uib/metadag.
+
 First of all, results must be downloaded from:
 
 Hash: [0a845f74-826e-3b46-aed9-e7ecf74db262](https://bioinfo.uib.es/metadag/handleExperiment/result_0a845f74-826e-3b46-aed9-e7ecf74db262){.uri}
@@ -16,6 +18,7 @@ knitr::opts_chunk$set(echo = TRUE,
                       warning = FALSE,
                       message = FALSE, out.width = "100%")
 pdf="TRUE"
+library(igraph)
 ```
 
 ```{r  tidy,message=FALSE}
@@ -206,7 +209,7 @@ The global core m-DAG has `r igraph::vcount(graph_core_mDAG)` vertex and `r igra
 The core metabolic DAG for the Algae group is:
 
 ```{r fig.cap="Core m-DAG for Algae"}
-knitr::include_graphics(paste0(path_exp,                              "Groups/Algae/core/Algae_core_mDAG.pdf"))
+#######knitr::include_graphics(paste0(path_exp,                              "Groups/Algae/core/Algae_core_mDAG.pdf"))
 ```
 
 The global pan reaction graph for the Animals Kingdom is:
@@ -508,11 +511,6 @@ library(ape)
 
 D=as.dist(sqrt(1-Sim_MSA_mDAG^2))
 hc_MSA=hclust(as.dist(D),method ="ward.D")
-library(circlize)
-circlize_dendrogram(as.dendrogram(hc_MSA))
-```
-
-```{r}
 clust4_MSA=cutree(hc_MSA,4)
 table(clust4_MSA,meta_taxo$Kingdom[1:884])
 ```
@@ -583,15 +581,19 @@ ggpairs(cooordinates,columns=1:4,
 ```{r}
 D=as.dist(sqrt(1-Sim_Mun_mDAG^2))
 hc_Mun=hclust(as.dist(D),method ="ward.D")
-ggplot(as.ggdend(as.dendrogram(hc_Mun)))
-```
-
-```{r}
 clust4_Mun=cutree(hc_Mun,4)
 table(clust4_Mun,meta_taxo$Kingdom[1:884])
 ```
 
 Only two nematodes of the 9 return to the invertebrate animal cluster for Munkrest; all algae remain in the fungi and archaea cluster.
+```{r}
+clust5_Mun=cutree(hc_Mun,5)
+table(clust5_Mun,meta_taxo$Kingdom[1:884])
+clust6_Mun=cutree(hc_Mun,6)
+table(clust6_Mun,meta_taxo$Kingdom[1:884])
+```
+
+
 
 ```{r}
 aux=meta_taxo[1:884,] %>%
