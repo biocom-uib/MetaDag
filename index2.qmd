@@ -1,9 +1,8 @@
-
 This is an example of an experiment of [metaDag](https://http://bioinfo.uib.es/metadag/) data with results.
 
 Hash: bb261b6e-95c6-3e39-b82b-b68eea80e30b
 
-URL: [http://bioinfo.uib.es/metadag/results?uuid=bb261b6e-95c6-3e39-b82b-b68eea80e30b](http://bioinfo.uib.es/metadag/results?uuid=bb261b6e-95c6-3e39-b82b-b68eea80e30b){.uri}
+URL: <http://bioinfo.uib.es/metadag/results?uuid=bb261b6e-95c6-3e39-b82b-b68eea80e30b>
 
 ```{r setup_load_data, include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
@@ -12,8 +11,6 @@ knitr::opts_chunk$set(echo = TRUE,
                       message = FALSE, out.width = "100%")
 pdf="TRUE"
 ```
-
-
 
 ```{r  tidy,message=FALSE}
 library(tidyverse)
@@ -93,9 +90,6 @@ dim(mDAG)
 #100
 kable(mDAG[1:20,1:10]) %>%   scroll_box(width = "100%", height = "200px")
 ```
-
-
-
 
 ```{r}
 dim(mDAG)
@@ -498,7 +492,6 @@ ggpairs(cooordinates,columns=1:4,
   theme(legend.position = "left")
 ```
 
-
 # Hierarchical cluster MSA
 
 ```{r}
@@ -545,14 +538,9 @@ aux_all_algae_class
 
 The hierarchical classification by Ward's method recovers the kingdom Animal clusters 1 (all vertebrates) and 2 (invertebrate animals), cluster 4 the Plants and in cluster 3 are all protists and fungi together with 9 animals and 14 plants.
 
-
 The 9 Animals are all from the Phylum Nematodes or Flatworns, out of the total of the 10 species of these phylums considered in the experiment. Only the Nematode Necator americanus (New World hookworm) is classified in Animals.
 
-
 The 14 plants in cluster 2 are all algae considered in the experiment.
-
-
-
 
 ## MDS (Multidimensional Scaling) Munkres
 
@@ -581,14 +569,12 @@ hc_Mun=hclust(as.dist(D),method ="ward.D")
 ggplot(as.ggdend(as.dendrogram(hc_Mun)))
 ```
 
-
 ```{r}
 clust4_Mun=cutree(hc_Mun,4)
 table(clust4_Mun,meta_taxo$Kingdom)
 ```
 
-
-Only two nematodes of the 9 return to the invertebrate animal cluster for Munkrest; all algae remain in the fungi and archaea cluster.  
+Only two nematodes of the 9 return to the invertebrate animal cluster for Munkrest; all algae remain in the fungi and archaea cluster.
 
 ```{r}
 aux=meta_taxo %>%
@@ -617,11 +603,6 @@ aux_all_algae_class= aux %>%
          Class %in% c("algae"))
 aux_all_algae_class
 ```
-
-
-
-
-
 
 ## Similarity comparison Eukaryotes
 
@@ -703,7 +684,6 @@ graphs_list=paste0(path_exp,"Individuals/",
                    list_names,"/",list_names,
                    "_MDAG.graphml")
 ```
-
 
 ```{r}
 knitr::include_graphics(

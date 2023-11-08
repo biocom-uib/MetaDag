@@ -1,6 +1,4 @@
-As an illustrative example for interpreting [metaDag](https://bioinfo.uib.es/metadag/) results, we consider here the Eukaryotes test presented in Section 2.5. Namely, we consider all Eukaryotes from the KEGG database.
-
-The source files for this example can be obtained from https://github.com/biocom-uib/metadag.
+As an illustrative example for interpreting [metaDAG](https://bioinfo.uib.es/metadag/) results, we consider here the Eukaryotes test presented in Section 2.5. Namely, we consider all Eukaryotes from the KEGG database.
 
 First of all, results must be downloaded from:
 
@@ -14,11 +12,10 @@ and saved in the folder:
 
 ```{r setup_load_data, include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
-                      cache= TRUE,
+                      cache=FALSE,
                       warning = FALSE,
                       message = FALSE, out.width = "100%")
 pdf="TRUE"
-library(igraph)
 ```
 
 ```{r  tidy,message=FALSE}
@@ -54,6 +51,7 @@ knitr::include_graphics("figures/screen_4.png")
 
 # Load data
 
+
 ```{r}
 experiment=
   "result_0a845f74-826e-3b46-aed9-e7ecf74db262/"
@@ -66,16 +64,57 @@ knitr::kable(data.frame(
   "Directory")))
 ```
 
+
 ```{r}
 MBB=read_csv(paste0(path_exp,"Different_MBB.csv"),
              show_col_types = FALSE)
 mDAG=read_csv(paste0(path_exp,"Different_mDAG.csv"),
               show_col_types = FALSE)
-Results=read_csv(paste0(path_exp,"Results.csv"),
-                 show_col_types = FALSE)
-save(MBB,mDAG,Results,
-     file="MBB_mDag_Results.Rdata")
 ```
+
+## Load metadata
+
+Organisms are sorted by Kingdom, Phylum and Class:
+
+```{r}
+path_exp
+Results=read_csv(paste0(path_exp,"Results.csv"))
+#rename MetaDaG variables
+names(Results)[c(1,2,3,4,5)]=c("Organism","Categories","Groups","mDAG_Id","Full_Name")
+taxo=Results %>% select(Organism:Full_Name)
+taxo=taxo %>% separate(Categories,into=c("Kingdom","Phylum","Class"))
+index=which(is.na(taxo$Class))
+taxo$Class[index]=paste(taxo$Phylum[index])
+meta_taxo=taxo
+aux=table(meta_taxo$Phylum)
+Freq_Phylum=tibble(Phylum=names(aux),Freq_Phylum=aux)
+names(Freq_Phylum)=c("Phylum","Freq_Phylum")
+aux=table(meta_taxo$Class)
+Freq_Class=tibble(Class=names(aux),Freq_Class=aux)
+names(Freq_Class)=c("Class","Freq_Class")
+
+
+meta_taxo = meta_taxo %>% 
+  left_join(Freq_Phylum) %>%
+  left_join(Freq_Class)
+meta_taxo = meta_taxo %>% 
+  arrange(Kingdom,desc(Freq_Phylum),Phylum,
+          desc(Freq_Class),Class)
+head(meta_taxo)
+```
+
+```{r}
+table(meta_taxo$Kingdom) %>% kable %>%
+  kable_styling("striped", full_width = F,position="left")%>% 
+ scroll_box(width = "400px", height = "200px")
+table(meta_taxo$Phylum,meta_taxo$Kingdom) %>% kable %>%
+  kable_styling("striped", full_width = F,position="left")%>% 
+ scroll_box(width = "500px", height = "500px")
+```
+
+
+
+
 
 ## Table of MBBs
 
@@ -156,7 +195,7 @@ type_file=c("m-DAG GraphML format",
             "pdf graphic with the biggest conected componet of the m-DAG",
             "svg graphic with the biggest conected componet of the m-DAG ",
             "csv file with the node (MBBs) labels  of the m-DAG", 
-            "csv file with all connected components of the m-DAG ???????",
+            "csv file with all connected components of the m-DAG",
             "csv file with the  adjacency matrix of the reaction graph",
             "csv file with the node (reactions) labels  of the reaction graph", 
             "reaction graph  GraphML format",
@@ -209,7 +248,7 @@ The global core m-DAG has `r igraph::vcount(graph_core_mDAG)` vertex and `r igra
 The core metabolic DAG for the Algae group is:
 
 ```{r fig.cap="Core m-DAG for Algae"}
-#######knitr::include_graphics(paste0(path_exp,                              "Groups/Algae/core/Algae_core_mDAG.pdf"))
+knitr::include_graphics(paste0(path_exp,                              "Groups/Algae/core/Algae_core_mDAG.pdf"))
 ```
 
 The global pan reaction graph for the Animals Kingdom is:
@@ -265,9 +304,223 @@ knitr::include_graphics(paste0(path_exp,
                             "Individuals/hsa/hsa_mDAG_biggerDAG.pdf"))
 ```
 
+<!-- # Graphs statistics -->
+
+<!-- Some statistics for graphs -->
+
+<!-- ## Read all graphs from a level of the experiment -->
+
+<!-- Read all graphs from a level from experiment; for example individuals. We read only firts (alphabetic) two graph -->
+
+```{r}
+#path_exp="data/result_bb261b6e-95c6-3e39-b82b-b68eea80e30b/data/" 
+list_names=dir(paste0(path_exp,"Individuals/"))
+list_names= list_names[-1] # filter 0000_RefPw
+
+length(list_names)
+graphs_list=paste0(path_exp,"Individuals/",
+list_names,"/",list_names,                    "_MDAG.graphml")
+```
+
+```{r}
+knitr::include_graphics(
+paste0(path_exp,"Individuals/cang/cang_RC.pdf"))
+```
+
+## Graph statistics
+
+The number of connected component in each generated m-DAG with their frequency in the entire set of m-DAGs, can be obtained as follows:
+
+```{r}
+read_mDAG=function(x) {DAG=read.graph(file=x,
+                                  format="graphml")
+  return(DAG)}
+mDAG_componets=function(x) {
+  sort(components(x,mode = "weak")$csize,
+       decreasing=TRUE)
+  }
+
+compo_list=lapply(graphs_list,
+                  FUN=function(x) {
+                    gg=read_mDAG(x)
+                  aux=list(
+                    mDAG_componets=mDAG_componets(gg),
+                    degree_count=igraph::degree(gg,mode="total"))
+                    return(aux)}
+                  )
+
+names(compo_list)=list_names
+n=max(sapply(compo_list,FUN=function(x) {length(x[[1]])}))
+n
+size_compo_list=lapply(compo_list,FUN=function(x) {
+  return(c(x[[1]],rep(NA,n-length(x[[1]]))))})
+
+aux=do.call(bind_cols,size_compo_list)
+aux2=pivot_longer(aux,aaf:zvi,names_to="Organism",
+                  values_to="csize") %>%
+  arrange(Organism,-csize)
+aux2$index=rep(1:n,times=dim(aux)[2])
+aux2=aux2 %>%
+  left_join(meta_taxo,by="Organism")
+```
+
+```{r}
+Organism=names(compo_list)
+big_MBB=function(org){
+  org="hsa"
+  x=Results %>% filter(Organism==org)
+  x=as.character(x[1,5:dim(Results)[2]])
+  x=x[x!="NA"]
+  tt=sort(table(x),decreasing=TRUE)
+  return(tt)
+  }
+big_MBB_list= lapply(Organism,FUN=function(x) big_MBB(x))
+nMBB=max(sapply(big_MBB_list,FUN=function(x) length(x)))
+nMBB
+big_MBB_list=lapply(big_MBB_list,
+                    FUN=function(x){
+                      x=c(x,rep(NA,nMBB-length(x)))
+                      return(x)}
+)
+names(big_MBB_list)=Organism
+big_MBB_list=do.call(bind_cols,big_MBB_list)
+
+kMBB=nrow(big_MBB_list)
+index=rep(1:kMBB,times=length(Organism))
+
+big_MBB_list2=pivot_longer(big_MBB_list,
+                           cols=names(big_MBB_list),
+                           values_to = "MBBsize",
+                           names_to = "Organism") %>% 
+  arrange(Organism,-MBBsize) %>%  
+  mutate(index=index) %>% 
+  left_join(meta_taxo,by="Organism")
+```
+
+We can visualize the sizes of the MBBs for each m-DAG, using colors to represent the different Kingdoms:
+
+```{r}
+COLOR_KINGDOM=c("red","green","yellow","black")
+colors_kingdom=big_MBB_list2 %>%
+  select(Organism,Kingdom) %>%
+  distinct()
+
+names(COLOR_KINGDOM)=sort(unique(colors_kingdom$Kingdom))
+
+p0<-ggplot(data=big_MBB_list2) + 
+  geom_line(mapping=aes(x=index,
+                        y=MBBsize,
+                        group = Organism,
+                        color=Kingdom)) + 
+  scale_y_continuous(trans='log10') + 
+  scale_x_continuous(trans='identity') +
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom]) +
+   ggtitle("Plot log-identity of MBB \n  decreasing index.") +
+  ylab("Log10 MBB size") + xlab("Index")
+
+
+p1<- ggplot(data=big_MBB_list2) + 
+  geom_line(mapping=aes(x=index,
+                        y=MBBsize,
+                        group = Organism,color=Kingdom),
+                        na.rm=TRUE) + 
+  scale_x_continuous(trans='log10') + 
+  scale_y_continuous(trans='log10') +
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom]) +
+   ggtitle("Plot log10-log10identity of MBB \n  decreasing index.") +
+  ylab("Log10 MBB size") + xlab("Log10 Index")
+
+p2<- ggplot(data=big_MBB_list2) + 
+  geom_line(mapping=aes(x=index,
+                        y=MBBsize,
+                        group = Organism, 
+                        color=Kingdom),
+            na.rm=TRUE)+
+   scale_x_continuous(trans="identity") + 
+   scale_y_continuous(trans="identity") + 
+  ylim(0,1039)+ 
+  ggtitle("Plot  of MBB sized  decreasing index.") +
+  ylab("MBB size") + xlab("Index") +
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
+
+
+p0
+p1
+p2
+```
+
+Additionally, we visualize the sizes of the MBBs of each m-DAG, using colors to represent the different Kingdoms:
+
+
+
+```{r}
+COLOR_KINGDOM=c("red","yellow","green","yellow","black")
+colors_kingdom=aux2%>% select(Organism,Kingdom) %>% distinct()
+names(COLOR_KINGDOM)=sort(unique(colors_kingdom$Kingdom))
+
+p0<-ggplot(data=aux2) + 
+  geom_line(mapping=aes(x=index,
+                        y=csize,
+                        group = Organism,
+                        color=Kingdom),
+            na.rm=TRUE) + 
+  scale_x_continuous(trans='log10') + 
+  scale_y_continuous(trans='identity') +
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom]) +
+   ggtitle("Plot log-identity of size  weak components decreasing index.") +
+  ylab("Log10 Weak componente size") + xlab("Index")
+
+
+p1<- ggplot(data=aux2) + 
+  geom_line(mapping=aes(x=index,
+                        y=csize,group = Organism,
+                        color=Kingdom),
+            na.rm=TRUE) + 
+  scale_y_continuous(trans='log10') + 
+  scale_x_continuous(trans='log10') +
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])+
+   ggtitle("Plot log-log of size  weak components decreasing index.") +
+  ylab("Log10 weak component size") + xlab("Log10 Index")
+
+p2<- ggplot(data=aux2) + 
+  geom_line(mapping=aes(x=index,
+                        y=csize,group = Organism,
+                        color=Kingdom),
+            na.rm=TRUE) + 
+   scale_x_continuous(trans="identity") + 
+  scale_y_continuous(trans="identity") +
+  ylim(0,1039)+
+   ggtitle("Plot  of size  weak components decreasing index.")+
+  ylab("Weak components size") + xlab("Index")+
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
+
+
+p0
+p1
+p2
+```
+
+```{r}
+data2=big_MBB_list2 %>% filter(index %in% 2:20)
+p3<- ggplot(data=data2) + 
+  geom_line(mapping=aes(x=index,
+                        y=MBBsize,
+                        group = Organism,
+                        color=Kingdom),
+            na.rm=TRUE)+
+  scale_x_continuous(trans="identity") + 
+  scale_y_continuous(trans="identity") +
+  ylim(0,25)+
+  ggtitle("Plot  of size  weak components  decreasing index 2 to 20.")+
+  ylab("Weak components size") + xlab("Index")+
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
+
+p3
+```
+
 # m-DAGs similarities and Metadata
 
-First, we will load the metadata and adjust them to match the structure of the similarities (???). This will facilitate the creation of graphs and statistics.
+First, we will load the metadata and adjust them to match the structure of the similarities. This will facilitate the creation of graphs and statistics.
 
 Keep in mind the path of the experiment:
 
@@ -275,64 +528,25 @@ Keep in mind the path of the experiment:
 path_exp
 ```
 
-## Load metadata
-
-Organisms sorted by Kingdom, Phylum and Class:
-
-```{r}
-path_exp
-Results=read_csv(paste0(path_exp,"Results.csv"))
-#arreglo los nombres de MEtaDag
-names(Results)[c(1,2,3,4,5)]=c("Organism","Categories","Groups","mDAG_Id","Full_Name")
-taxo=Results %>% select(Organism:Full_Name)
-taxo=taxo %>% separate(Categories,into=c("Kingdom","Phylum","Class"))
-index=which(is.na(taxo$Class))
-taxo$Class[index]=paste(taxo$Phylum[index])
-meta_taxo=taxo
-aux=table(meta_taxo$Phylum)
-Freq_Phylum=tibble(Phylum=names(aux),Freq_Phylum=aux)
-names(Freq_Phylum)=c("Phylum","Freq_Phylum")
-aux=table(meta_taxo$Class)
-Freq_Class=tibble(Class=names(aux),Freq_Class=aux)
-names(Freq_Class)=c("Class","Freq_Class")
-
-
-meta_taxo = meta_taxo %>% 
-  left_join(Freq_Phylum) %>%
-  left_join(Freq_Class)
-meta_taxo = meta_taxo %>% 
-  arrange(Kingdom,desc(Freq_Phylum),Phylum,
-          desc(Freq_Class),Class)
-head(meta_taxo)
-```
-
-```{r}
-table(meta_taxo$Kingdom) %>% kable %>%
-  kable_styling("striped", full_width = F,position="left")%>% 
- scroll_box(width = "400px", height = "200px")
-table(meta_taxo$Phylum,meta_taxo$Kingdom) %>% kable %>%
-  kable_styling("striped", full_width = F,position="left")%>% 
- scroll_box(width = "500px", height = "500px")
-```
 
 ## MSA & Munkres similarities
 
-In this section, we will present the similarities between mDAGs considering the two similarity meausures MSA and Munkres.
+In this section, we will present the similarities between m-DAGs considering the two similarity meausures described in the paper. Namely, the MSA and Munkres similarities.
 
-The experimental data set consists of `r nrow(meta_taxo)` eurkaryotes from the animal, plant, fungus, and protist kingdoms.
+The experimental data set consists of `r nrow(meta_taxo)` Eukaryotes from the animal, plant, fungus, and protists kingdoms.
 
 ```{r, echo=FALSE}
 knitr::kable(table(meta_taxo$Kingdom),col.names = c("Kingdom","Abs. Freq."))
 ```
 
-The similarity values are provided in the files:
+The similarity values are provided in the following files:
 
 ```{r}
 list_Sim=dir(path_exp,pattern="^Similarities")
 list_Sim
 ```
 
-Load the mDAGs similarities
+Load the m-DAGs similarities
 
 ```{r}
 Sim_MSA_mDAG=read_csv(paste0(path_exp,
@@ -352,7 +566,7 @@ Sim_Mun_mDAG=Sim_Mun_mDAG[meta_taxo$mDAG_Id[1:884],meta_taxo$mDAG_Id[1:884]]
 
 ## Heatmaps
 
-We present here some examples of heatmaps displaying the m-DAG similarities.
+Here, we provide examples of heatmaps to visualize the similarities betweem m-DAGs. We again consider colors to represent the different Kingdoms.
 
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
 dff<-meta_taxo[1:884,] %>% select(Kingdom)  %>% as.data.frame()
@@ -480,7 +694,11 @@ Mun_heat_2
 dev.off()
 ```
 
-## MDS (Multidimensional Scaling) MSA
+## MDS (Multidimensional Scaling) MSA & Munkres similarity
+
+Multi-dimensional Scaling (MDS) is a classic multivariate data analysis technique that allows for obtaining a low-dimensional representation of the observed similarities.
+
+The following is the MDS for the MSA similarity:
 
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
 
@@ -502,62 +720,27 @@ ggpairs(cooordinates,columns=1:4,
   theme(legend.position = "left")
 ```
 
-# Hierarchical cluster MSA
+<!-- # Hierarchical cluster MSA -->
 
-```{r}
-library(dendextend)
-library(ggraph)
-library(ape)
+<!-- ```{r} -->
 
-D=as.dist(sqrt(1-Sim_MSA_mDAG^2))
-hc_MSA=hclust(as.dist(D),method ="ward.D")
-clust4_MSA=cutree(hc_MSA,4)
-table(clust4_MSA,meta_taxo$Kingdom[1:884])
-```
+<!-- library(dendextend) -->
 
-```{r}
-clust5_MSA=cutree(hc_MSA,5)
-table(clust5_MSA,meta_taxo$Kingdom[1:884])
-```
+<!-- library(ggraph) -->
 
-```{r}
-clust6_MSA=cutree(hc_MSA,6)
-table(clust6_MSA,meta_taxo$Kingdom[1:884])
-```
+<!-- library(ape) -->
 
-```{r}
-aux=meta_taxo[1:884,] %>%
-  select(Organism,Kingdom,Phylum,Class,Full_Name)
-aux$clust4_MSA=clust4_MSA
-aux_Animals_cluster_1_2 = aux %>%
-  filter(Kingdom=="Animals",clust4_MSA %in% c(1,2))
+<!-- D=as.dist(sqrt(1-Sim_MSA_mDAG^2)) -->
 
-table(aux_Animals_cluster_1_2$Phylum,aux_Animals_cluster_1_2$clust4_MSA)
+<!-- hc_MSA=hclust(as.dist(D),method ="ward.D") -->
 
-aux_9_Animals_cluster_3= filter(aux,
-                                clust4_MSA==3,
-                                Kingdom=="Animals")
-aux_9_Animals_cluster_3
-aux_all_Nematodes_Flatworns= aux %>% 
-  filter(Kingdom=="Animals",
-         Phylum %in% c("Nematodes","Flatworms"))
-aux_all_Nematodes_Flatworns
-aux_14_Plants_clust2= filter(aux,clust4_MSA==3,
-                             Kingdom=="Plants")
-aux_14_Plants_clust2
-aux_all_algae_class= aux %>% 
-  filter(Kingdom=="Plants",
-         Class %in% c("algae"))
-aux_all_algae_class
-```
+<!-- library(circlize) -->
 
-The hierarchical classification by Ward's method recovers the kingdom Animal clusters 1 (all vertebrates) and 2 (invertebrate animals), cluster 4 the Plants and in cluster 3 are all protists and fungi together with 9 animals and 14 plants.
+<!-- circlize_dendrogram(as.dendrogram(hc_MSA)) -->
 
-The 9 Animals are all from the Phylum Nematodes or Flatworns, out of the total of the 10 species of these phylums considered in the experiment. Only the Nematode Necator americanus (New World hookworm) is classified in Animals.
+<!-- ``` -->
 
-The 14 plants in cluster 2 are all algae considered in the experiment.
-
-## MDS (Multidimensional Scaling) Munkres
+The following is the MDS for the Munkres similarity:
 
 ```{r, fig.align='center', fig.height=5}
 ## Metric multidimensional scaling
@@ -576,24 +759,81 @@ ggpairs(cooordinates,columns=1:4,
   theme(legend.position = "left")
 ```
 
-## Hierarchical cluster Munkres
+## Hierarchical clustering MSA similarity
+
+We obtain a classification of the m-DAGs into different clusters as follows:
+
+```{r}
+D=as.dist(sqrt(1-Sim_MSA_mDAG^2))
+hc_MSA=hclust(as.dist(D),method ="ward.D")
+clust4_MSA=cutree(hc_MSA,4)
+table(clust4_MSA,meta_taxo$Kingdom[1:884])
+```
+
+```{r}
+clust5_MSA=cutree(hc_MSA,5)
+table(clust5_MSA,meta_taxo$Kingdom[1:884])
+```
+
+```{r}
+clust6_MSA=cutree(hc_MSA,6)
+table(clust6_MSA,meta_taxo$Kingdom[1:884])
+```
+
+We can also create a table that correlates the clusters (in this case, two clusters) with the Phylum classification:
+
+```{r}
+aux=meta_taxo[1:884,] %>%
+  select(Organism,Kingdom,Phylum,Class,Full_Name)
+aux$clust4_MSA=clust4_MSA
+aux_Animals_cluster_1_2 = aux %>%
+  filter(Kingdom=="Animals",clust4_MSA %in% c(1,2))
+
+table(aux_Animals_cluster_1_2$Phylum,aux_Animals_cluster_1_2$clust4_MSA)
+```
+
+We can retrieve the information of the elements belonging to a specific classification (Animals) that are part of a particular cluster as follows:
+
+```{r}
+aux_7_Animals_cluster_3= filter(aux,
+                                clust4_MSA==3,
+                                Kingdom=="Animals")
+aux_7_Animals_cluster_3
+
+aux_14_Plants_clust2= filter(aux,clust4_MSA==3,
+                             Kingdom=="Plants")
+aux_14_Plants_clust2
+aux_all_algae_class= aux %>% 
+  filter(Kingdom=="Plants",
+         Class %in% c("algae"))
+aux_all_algae_class
+
+```
+
+We can retrieve the information of the elements from a specific Phylum or Class, and the cluster they belong to, as follows:
+
+```{r}
+aux_all_Nematodes_Flatworns= aux %>% 
+  filter(Kingdom=="Animals",
+         Phylum %in% c("Nematodes","Flatworms"))
+aux_all_Nematodes_Flatworns
+```
+
+## Hierarchical clustering Munkres similarity
+
+We obtain a classification of the m-DAGs into different clusters and retrieve the cluster's information as follows:
 
 ```{r}
 D=as.dist(sqrt(1-Sim_Mun_mDAG^2))
 hc_Mun=hclust(as.dist(D),method ="ward.D")
+```
+
+```{r}
 clust4_Mun=cutree(hc_Mun,4)
 table(clust4_Mun,meta_taxo$Kingdom[1:884])
 ```
 
 Only two nematodes of the 9 return to the invertebrate animal cluster for Munkrest; all algae remain in the fungi and archaea cluster.
-```{r}
-clust5_Mun=cutree(hc_Mun,5)
-table(clust5_Mun,meta_taxo$Kingdom[1:884])
-clust6_Mun=cutree(hc_Mun,6)
-table(clust6_Mun,meta_taxo$Kingdom[1:884])
-```
-
-
 
 ```{r}
 aux=meta_taxo[1:884,] %>%
@@ -623,11 +863,9 @@ aux_all_algae_class= aux %>%
 aux_all_algae_class
 ```
 
-## Similarity comparison Eukaryotes
+## Comparison between MSA and Munkres similarities
 
-Comparison of two similarities
-
-Load the similarities for pairs and comparison
+In order to compare the two similarities we consider the Spearman and Pearson correlation. First, we load the similarities for every pair of m-DAG and each similarity measure.
 
 ```{r}
 n=length(meta_taxo$mDAG_Id[1:884])
@@ -658,7 +896,7 @@ Sim_comp=aux_2
 rm(aux,aux_2)
 ```
 
-**Spearman and Pearson correlations**
+Next we obtain the Spearman and Pearson correlations as follows:
 
 ```{r}
 cor(Sim_comp[,c(3,5)],method="spearman")
@@ -682,217 +920,7 @@ ggstatsplot::ggbetweenstats(
   centrality.plotting=TRUE)
 ```
 
-# Graph
-
-Some statistics for graphs
-
-## Read all graphs from a level of the experiment
-
-Read all graphs from a level from experiment; for example individuals. We read only firts (alphabetic) two graph
-
-```{r}
-#path_exp="data/result_bb261b6e-95c6-3e39-b82b-b68eea80e30b/data/"
-list_names=dir(paste0(path_exp,"Individuals/"))
-
-list_names= list_names[-1] # filter 0000_RefPw
-length(list_names)
-
-
-graphs_list=paste0(path_exp,"Individuals/",
-                   list_names,"/",list_names,
-                   "_MDAG.graphml")
-```
-
-```{r}
-knitr::include_graphics(
-  paste0(path_exp,"Individuals/cang/cang_RC.pdf"))
-```
-
-## Graph statistics
-
-```{r}
-read_mDAG=function(x) {DAG=read.graph(file=x,
-                                  format="graphml")
-  return(DAG)}
-mDAG_componets=function(x) {
-  sort(components(x,mode = "weak")$csize,
-       decreasing=TRUE)
-  }
-
-compo_list=lapply(graphs_list,
-                  FUN=function(x) {
-                    gg=read_mDAG(x)
-                  aux=list(
-                    mDAG_componets=mDAG_componets(gg),
-                    degree_count=igraph::degree(gg,mode="total"))
-                    return(aux)}
-                  )
-
-names(compo_list)=list_names
-n=max(sapply(compo_list,FUN=function(x) {length(x[[1]])}))
-n
-size_compo_list=lapply(compo_list,FUN=function(x) {
-  return(c(x[[1]],rep(NA,n-length(x[[1]]))))})
-
-aux=do.call(bind_cols,size_compo_list)
-aux2=pivot_longer(aux,aaf:zvi,names_to="Organism",
-                  values_to="csize") %>%
-  arrange(Organism,-csize)
-aux2$index=rep(1:n,times=dim(aux)[2])
-aux2=aux2 %>%
-  left_join(meta_taxo,by="Organism")
-```
-
-```{r}
-Organism=names(compo_list)
-big_MBB=function(org){
-  x=Results %>% filter(Organism==org)
-  x=as.character(x[1,5:dim(Results)[2]])
-  x=x[x!="NA"]
-  tt=sort(table(x),decreasing=TRUE)
-  return(tt)
-  }
-big_MBB_list= lapply(Organism,FUN=function(x) big_MBB(x))
-nMBB=max(sapply(big_MBB_list,FUN=function(x) length(x)))
-nMBB
-big_MBB_list=lapply(big_MBB_list,
-                    FUN=function(x){
-                      x=c(x,rep(NA,nMBB-length(x)))
-                      return(x)}
-)
-names(big_MBB_list)=Organism
-big_MBB_list=do.call(bind_cols,big_MBB_list)
-
-kMBB=nrow(big_MBB_list)
-index=rep(1:kMBB,times=length(Organism))
-
-big_MBB_list2=pivot_longer(big_MBB_list,
-                           cols=names(big_MBB_list),
-                           values_to = "MBBsize",
-                           names_to = "Organism") %>% 
-  arrange(Organism,-MBBsize) %>%  
-  mutate(index=index) %>% 
-  left_join(meta_taxo,by="Organism")
-```
-
-### Sizes of MBB for each mDAG
-
-```{r}
-COLOR_KINGDOM=c("red","green","yellow","black")
-colors_kingdom=big_MBB_list2 %>%
-  select(Organism,Kingdom) %>%
-  distinct()
-
-names(COLOR_KINGDOM)=sort(unique(colors_kingdom$Kingdom))
-
-p0<-ggplot(data=big_MBB_list2) + 
-  geom_line(mapping=aes(x=index,
-                        y=MBBsize,
-                        group = Organism,
-                        color=Kingdom)) + 
-  scale_y_continuous(trans='log10') + 
-  scale_x_continuous(trans='identity') +
-  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom]) +
-   ggtitle("Plot log-identity of MBB \n  decreasing index.") +
-  ylab("Log10 MBB size") + xlab("Index")
-
-
-p1<- ggplot(data=big_MBB_list2) + 
-  geom_line(mapping=aes(x=index,
-                        y=MBBsize,
-                        group = Organism,color=Kingdom),
-                        na.rm=TRUE) + 
-  scale_x_continuous(trans='log10') + 
-  scale_y_continuous(trans='log10') +
-  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom]) +
-   ggtitle("Plot log10-log10identity of MBB \n  decreasing index.") +
-  ylab("Log10 MBB size") + xlab("Log10 Index")
-
-p2<- ggplot(data=big_MBB_list2) + 
-  geom_line(mapping=aes(x=index,
-                        y=MBBsize,
-                        group = Organism, 
-                        color=Kingdom),
-            na.rm=TRUE)+
-   scale_x_continuous(trans="identity") + 
-   scale_y_continuous(trans="identity") + 
-  ylim(0,1039)+ 
-  ggtitle("Plot  of MBB sized  decreasing index.") +
-  ylab("MBB size") + xlab("Index") +
-  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
-
-
-p0
-p1
-p2
-```
-
-### Sizes of weak components for each mDAG
-
-```{r}
-COLOR_KINGDOM=c("red","yellow","green","yellow","black")
-colors_kingdom=aux2%>% select(Organism,Kingdom) %>% distinct()
-names(COLOR_KINGDOM)=sort(unique(colors_kingdom$Kingdom))
-
-p0<-ggplot(data=aux2) + 
-  geom_line(mapping=aes(x=index,
-                        y=csize,
-                        group = Organism,
-                        color=Kingdom),
-            na.rm=TRUE) + 
-  scale_x_continuous(trans='log10') + 
-  scale_y_continuous(trans='identity') +
-  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom]) +
-   ggtitle("Plot log-identity of size  weak components decreasing index.") +
-  ylab("Log10 Weak componente size") + xlab("Index")
-
-
-p1<- ggplot(data=aux2) + 
-  geom_line(mapping=aes(x=index,
-                        y=csize,group = Organism,
-                        color=Kingdom),
-            na.rm=TRUE) + 
-  scale_y_continuous(trans='log10') + 
-  scale_x_continuous(trans='log10') +
-  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])+
-   ggtitle("Plot log-log of size  weak components decreasing index.") +
-  ylab("Log10 weak component size") + xlab("Log10 Index")
-
-p2<- ggplot(data=aux2) + 
-  geom_line(mapping=aes(x=index,
-                        y=csize,group = Organism,
-                        color=Kingdom),
-            na.rm=TRUE) + 
-   scale_x_continuous(trans="identity") + 
-  scale_y_continuous(trans="identity") +
-  ylim(0,1039)+
-   ggtitle("Plot  of size  weak components decreasing index.")+
-  ylab("Weak components size") + xlab("Index")+
-  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
-
-
-p0
-p1
-p2
-```
-
-```{r}
-data2=big_MBB_list2 %>% filter(index %in% 2:20)
-p3<- ggplot(data=data2) + 
-  geom_line(mapping=aes(x=index,
-                        y=MBBsize,
-                        group = Organism,
-                        color=Kingdom),
-            na.rm=TRUE)+
-  scale_x_continuous(trans="identity") + 
-  scale_y_continuous(trans="identity") +
-  ylim(0,25)+
-  ggtitle("Plot  of size  weak components  decreasing index 2 to 20.")+
-  ylab("Weak components size") + xlab("Index")+
-  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
-
-p3
-```
+&&&&&&&&&&&&&&&
 
 # Comparison core's all algaes, fungi and archaea and clusters
 
@@ -982,6 +1010,7 @@ cores_raw=lapply(cores_list,FUN=function(X){apply(X,2,prod)})
 aux=cores_raw %>% as_tibble(.name_repair ="universal")
 #names(aux)=cores_names
 cores_reactions = cbind(reactions,aux)
+
 ```
 
 ```{r}

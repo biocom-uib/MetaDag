@@ -579,7 +579,7 @@ ggpairs(cooordinates,columns=1:4,
 
 ## Hierarchical cluster Munkres
 
-```{r}
+```{r,eval=FALSE}
 D=as.dist(sqrt(1-Sim_Mun_mDAG^2))
 hc_Mun=hclust(as.dist(D),method ="ward.D")
 ggplot(as.ggdend(as.dendrogram(hc_Mun)))
@@ -588,6 +588,10 @@ ggplot(as.ggdend(as.dendrogram(hc_Mun)))
 ```{r}
 clust4_Mun=cutree(hc_Mun,4)
 table(clust4_Mun,meta_taxo$Kingdom[1:884])
+
+
+table(clust4_Mun,meta_taxo$Kingdom[1:884],meta_taxo$Phylum[1:884],meta_taxo$Class[1:884])
+
 ```
 
 Only two nematodes of the 9 return to the invertebrate animal cluster for Munkrest; all algae remain in the fungi and archaea cluster.
