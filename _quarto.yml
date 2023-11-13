@@ -12,6 +12,11 @@ book:
 format:
   html:
     theme: Journal
+    code-fold: true
+    cde-summary: "Show the code"
+    code-tools: true
+    code-overflow: wrap
+    highlight-style: github
   pdf:
     toc: true
     toccolor: blue
@@ -24,3 +29,5 @@ format:
           \usepackage{svg}
     
 editor: visual
+
+
