@@ -888,9 +888,8 @@ sim_pairs %>%
   ggplot( aes(x=Method, y=Similarity, fill=Method)) +
   geom_boxplot() +
   scale_fill_viridis(discrete = TRUE, alpha=0.6) +
-  theme_ipsum() +
   theme(legend.position="none")+
-  ggtitle("Boxplot diagram of the similaritires between the two aproaches") 
+  ggtitle("Boxplot diagram of the similarities between the two aproaches") 
 ```
 
 # Clusters analysis

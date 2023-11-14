@@ -1720,7 +1720,7 @@ Non reverse reaction     Reverse reaction
 <span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_core_RC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH c8c510c D--- 0 0 -- 
+<pre><code>IGRAPH e3c5825 D--- 0 0 -- 
 + attr: color (v/c), label (v/c), id (v/c)</code></pre>
 </div>
 </div>
@@ -1751,7 +1751,7 @@ Non reverse reaction     Reverse reaction
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_core_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH c8cba44 D--- 0 0 -- 
+<pre><code>IGRAPH e3cf26f D--- 0 0 -- 
 + attr: color (v/c), label (v/c), id (v/c)</code></pre>
 </div>
 </div>
@@ -1782,7 +1782,7 @@ Non reverse reaction     Reverse reaction
 <span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_pan_RC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH c8d638a D--- 4556 5798 -- 
+<pre><code>IGRAPH e3deb3e D--- 4556 5798 -- 
 + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 </div>
@@ -1802,7 +1802,7 @@ Non reverse reaction     Reverse reaction
 <span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH c8da84a D--- 1026 1086 -- 
+<pre><code>IGRAPH e3e57e5 D--- 1026 1086 -- 
 + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 <details>
@@ -2915,9 +2915,8 @@ Sim_Mun 0.9203871 1.0000000</code></pre>
 <span id="cb142-4"><a href="#cb142-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>Method, <span class="at">y=</span>Similarity, <span class="at">fill=</span>Method)) <span class="sc">+</span></span>
 <span id="cb142-5"><a href="#cb142-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb142-6"><a href="#cb142-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">alpha=</span><span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb142-7"><a href="#cb142-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
-<span id="cb142-8"><a href="#cb142-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>)<span class="sc">+</span></span>
-<span id="cb142-9"><a href="#cb142-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Boxplot diagram of the similaritires between the two aproaches"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb142-7"><a href="#cb142-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>)<span class="sc">+</span></span>
+<span id="cb142-8"><a href="#cb142-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Boxplot diagram of the similarities between the two aproaches"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid" style="width:100.0%"></p>
@@ -4859,123 +4858,122 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb159-970"><a href="#cb159-970" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>Method, <span class="at">y=</span>Similarity, <span class="at">fill=</span>Method)) <span class="sc">+</span></span>
 <span id="cb159-971"><a href="#cb159-971" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb159-972"><a href="#cb159-972" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>, <span class="at">alpha=</span><span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb159-973"><a href="#cb159-973" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
-<span id="cb159-974"><a href="#cb159-974" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>)<span class="sc">+</span></span>
-<span id="cb159-975"><a href="#cb159-975" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Boxplot diagram of the similaritires between the two aproaches"</span>) </span>
-<span id="cb159-976"><a href="#cb159-976" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb159-977"><a href="#cb159-977" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-978"><a href="#cb159-978" aria-hidden="true" tabindex="-1"></a><span class="fu"># Clusters analysis</span></span>
-<span id="cb159-979"><a href="#cb159-979" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-980"><a href="#cb159-980" aria-hidden="true" tabindex="-1"></a>In the Eukaryotes test, we aimed to analyze which factors caused some algae and plants to be distinguished from their respective kingdoms. To address this question, we revisited the core metabolism obtained with MetaDAG, focusing on each cluster.</span>
-<span id="cb159-981"><a href="#cb159-981" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-984"><a href="#cb159-984" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb159-985"><a href="#cb159-985" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span><span class="fu">names</span>(Results)</span>
-<span id="cb159-986"><a href="#cb159-986" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span>reactions[<span class="fu">grep</span>(<span class="st">"(^R</span><span class="sc">\\</span><span class="st">d{5})"</span>,reactions)]</span>
-<span id="cb159-987"><a href="#cb159-987" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span><span class="fu">tibble</span>(reactions)</span>
-<span id="cb159-988"><a href="#cb159-988" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span>reactions <span class="sc">%&gt;%</span> <span class="fu">separate</span>(reactions, <span class="at">into=</span><span class="fu">c</span>(<span class="st">"r_id"</span>,<span class="st">"enzyme"</span>),<span class="at">sep=</span><span class="st">"</span><span class="sc">\\</span><span class="st">("</span>,<span class="at">remove=</span><span class="cn">FALSE</span>)</span>
-<span id="cb159-989"><a href="#cb159-989" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span>reactions <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">enzyme=</span><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">(|</span><span class="sc">\\</span><span class="st">)"</span>,<span class="st">""</span>,enzyme))</span>
-<span id="cb159-990"><a href="#cb159-990" aria-hidden="true" tabindex="-1"></a><span class="co">#reactions=reactions[,-3]</span></span>
-<span id="cb159-991"><a href="#cb159-991" aria-hidden="true" tabindex="-1"></a>reactions<span class="sc">$</span>rev<span class="ot">=</span>stringr<span class="sc">::</span><span class="fu">str_detect</span>(reactions<span class="sc">$</span>r_id,<span class="st">"v"</span>)</span>
-<span id="cb159-992"><a href="#cb159-992" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb159-993"><a href="#cb159-993" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-994"><a href="#cb159-994" aria-hidden="true" tabindex="-1"></a>The results of the clusters are compared to the classification of Kingdoms for both similarity measures:</span>
-<span id="cb159-995"><a href="#cb159-995" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-998"><a href="#cb159-998" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb159-999"><a href="#cb159-999" aria-hidden="true" tabindex="-1"></a>clust4_MSA2<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">mDAG_Id=</span><span class="fu">names</span>(clust4_MSA), <span class="at">clust4_MSA=</span>clust4_MSA)</span>
-<span id="cb159-1000"><a href="#cb159-1000" aria-hidden="true" tabindex="-1"></a>clust4_Mun2<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">mDAG_Id=</span><span class="fu">names</span>(clust4_Mun), <span class="at">clust4_Mun=</span>clust4_Mun)</span>
-<span id="cb159-1001"><a href="#cb159-1001" aria-hidden="true" tabindex="-1"></a>meta_taxo2<span class="ot">=</span>meta_taxo</span>
-<span id="cb159-1002"><a href="#cb159-1002" aria-hidden="true" tabindex="-1"></a>meta_taxo2<span class="ot">=</span>meta_taxo2 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(clust4_MSA2,<span class="at">by=</span> <span class="st">"mDAG_Id"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb159-1003"><a href="#cb159-1003" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(clust4_Mun2,<span class="at">by=</span> <span class="st">"mDAG_Id"</span>)</span>
-<span id="cb159-1004"><a href="#cb159-1004" aria-hidden="true" tabindex="-1"></a>meta_taxo2<span class="sc">$</span>combined_cluster_MSA_Kingdom<span class="ot">=</span><span class="fu">paste0</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>clust4_MSA)</span>
-<span id="cb159-1005"><a href="#cb159-1005" aria-hidden="true" tabindex="-1"></a>meta_taxo2<span class="sc">$</span>combined_cluster_Mun_Kingdom<span class="ot">=</span><span class="fu">paste0</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>clust4_MSA)</span>
-<span id="cb159-1006"><a href="#cb159-1006" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(meta_taxo2,<span class="at">file=</span><span class="st">"meta_taxo_4_clusters.csv"</span>)</span>
-<span id="cb159-1007"><a href="#cb159-1007" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb159-1008"><a href="#cb159-1008" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1011"><a href="#cb159-1011" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb159-1012"><a href="#cb159-1012" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">table</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>clust4_MSA))</span>
-<span id="cb159-1013"><a href="#cb159-1013" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">table</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>clust4_Mun))</span>
-<span id="cb159-1014"><a href="#cb159-1014" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">table</span>(meta_taxo2<span class="sc">$</span>clust4_Mun,meta_taxo2<span class="sc">$</span>clust4_MSA))</span>
-<span id="cb159-1015"><a href="#cb159-1015" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb159-1016"><a href="#cb159-1016" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1017"><a href="#cb159-1017" aria-hidden="true" tabindex="-1"></a>The table below correlates the clusters with the Phylum information.</span>
-<span id="cb159-1018"><a href="#cb159-1018" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1021"><a href="#cb159-1021" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb159-1022"><a href="#cb159-1022" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
-<span id="cb159-1023"><a href="#cb159-1023" aria-hidden="true" tabindex="-1"></a>MSA_table<span class="ot">=</span><span class="fu">melt</span>(<span class="fu">table</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>Phylum,meta_taxo2<span class="sc">$</span>clust4_MSA))</span>
-<span id="cb159-1024"><a href="#cb159-1024" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(MSA_table)<span class="ot">=</span><span class="fu">c</span>(<span class="st">"Kingdom"</span>,<span class="st">"Phylum"</span>,<span class="st">"cluster_MSA"</span>,<span class="st">"N"</span>)</span>
-<span id="cb159-1025"><a href="#cb159-1025" aria-hidden="true" tabindex="-1"></a>MSA_table<span class="ot">=</span>MSA_table <span class="sc">%&gt;%</span> <span class="fu">filter</span>(N<span class="sc">!=</span><span class="dv">0</span>)</span>
-<span id="cb159-1026"><a href="#cb159-1026" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb159-1027"><a href="#cb159-1027" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1030"><a href="#cb159-1030" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb159-1031"><a href="#cb159-1031" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(MSA_table)</span>
-<span id="cb159-1032"><a href="#cb159-1032" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb159-1033"><a href="#cb159-1033" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1034"><a href="#cb159-1034" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparison core's all algaes, fungi and archaea</span></span>
-<span id="cb159-1035"><a href="#cb159-1035" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1036"><a href="#cb159-1036" aria-hidden="true" tabindex="-1"></a>????? Aquí no sé muy bien que hacemos XXXXXX</span>
-<span id="cb159-1037"><a href="#cb159-1037" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1040"><a href="#cb159-1040" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb159-1041"><a href="#cb159-1041" aria-hidden="true" tabindex="-1"></a><span class="co">#reactions=names(Results)[-c(1:5)]</span></span>
-<span id="cb159-1042"><a href="#cb159-1042" aria-hidden="true" tabindex="-1"></a><span class="co">#cores=tibble(reactions)</span></span>
-<span id="cb159-1043"><a href="#cb159-1043" aria-hidden="true" tabindex="-1"></a><span class="co">#cores=cores %&gt;%  separate(reactions, into=c("reactions","enzyme"),sep="\\(")</span></span>
-<span id="cb159-1044"><a href="#cb159-1044" aria-hidden="true" tabindex="-1"></a><span class="co">#cores$enzyme=gsub("\\(|\\)",replacement = "",cores$enzyme)</span></span>
-<span id="cb159-1045"><a href="#cb159-1045" aria-hidden="true" tabindex="-1"></a><span class="co">#cores</span></span>
-<span id="cb159-1046"><a href="#cb159-1046" aria-hidden="true" tabindex="-1"></a><span class="co">#algae_core=</span></span>
-<span id="cb159-1047"><a href="#cb159-1047" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb159-1048"><a href="#cb159-1048" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1051"><a href="#cb159-1051" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb159-1052"><a href="#cb159-1052" aria-hidden="true" tabindex="-1"></a><span class="co">#Results</span></span>
-<span id="cb159-1053"><a href="#cb159-1053" aria-hidden="true" tabindex="-1"></a><span class="co">#cores</span></span>
-<span id="cb159-1054"><a href="#cb159-1054" aria-hidden="true" tabindex="-1"></a><span class="co">#meta_taxo</span></span>
-<span id="cb159-1055"><a href="#cb159-1055" aria-hidden="true" tabindex="-1"></a>cores_names<span class="ot">=</span><span class="fu">unique</span>(Results<span class="sc">$</span>Groups)</span>
-<span id="cb159-1056"><a href="#cb159-1056" aria-hidden="true" tabindex="-1"></a>cores_names</span>
-<span id="cb159-1057"><a href="#cb159-1057" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1058"><a href="#cb159-1058" aria-hidden="true" tabindex="-1"></a>cores_combi<span class="ot">=</span><span class="cf">function</span>(x){</span>
-<span id="cb159-1059"><a href="#cb159-1059" aria-hidden="true" tabindex="-1"></a><span class="co">#x=cores_names[1]  </span></span>
-<span id="cb159-1060"><a href="#cb159-1060" aria-hidden="true" tabindex="-1"></a>Id<span class="ot">=</span>meta_taxo2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Groups<span class="sc">==</span>x) <span class="sc">%&gt;%</span> <span class="fu">select</span>(mDAG_Id)</span>
-<span id="cb159-1061"><a href="#cb159-1061" aria-hidden="true" tabindex="-1"></a>Id<span class="ot">=</span><span class="fu">as.character</span>(Id<span class="sc">$</span>mDAG_Id)</span>
-<span id="cb159-1062"><a href="#cb159-1062" aria-hidden="true" tabindex="-1"></a><span class="co">#bin_NA=function(x) {case_when(!is.na(x) ~ 0 ,default=1)}</span></span>
-<span id="cb159-1063"><a href="#cb159-1063" aria-hidden="true" tabindex="-1"></a>not_NA<span class="ot">=</span> <span class="cf">function</span>(x) {<span class="sc">!</span><span class="fu">is.na</span>(x)}</span>
-<span id="cb159-1064"><a href="#cb159-1064" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1065"><a href="#cb159-1065" aria-hidden="true" tabindex="-1"></a>mda_filter<span class="ot">=</span> Results <span class="sc">%&gt;%</span></span>
-<span id="cb159-1066"><a href="#cb159-1066" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mDAG_Id <span class="sc">%in%</span> Id) <span class="sc">%&gt;%</span></span>
-<span id="cb159-1067"><a href="#cb159-1067" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"R"</span>)) <span class="sc">%&gt;%</span>   </span>
-<span id="cb159-1068"><a href="#cb159-1068" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(not_NA) <span class="sc">%&gt;%</span> <span class="fu">mutate_all</span>(as.integer)</span>
-<span id="cb159-1069"><a href="#cb159-1069" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1070"><a href="#cb159-1070" aria-hidden="true" tabindex="-1"></a><span class="co">#%&gt;%</span></span>
-<span id="cb159-1071"><a href="#cb159-1071" aria-hidden="true" tabindex="-1"></a><span class="co"># mutate(mDag_id=Id,.before=1)</span></span>
-<span id="cb159-1072"><a href="#cb159-1072" aria-hidden="true" tabindex="-1"></a><span class="co">#aux=colSums(mda_filter)</span></span>
-<span id="cb159-1073"><a href="#cb159-1073" aria-hidden="true" tabindex="-1"></a><span class="co">#aux=as.integer(aux==length(Id))</span></span>
-<span id="cb159-1074"><a href="#cb159-1074" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(mda_filter)</span>
-<span id="cb159-1075"><a href="#cb159-1075" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb159-1076"><a href="#cb159-1076" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1077"><a href="#cb159-1077" aria-hidden="true" tabindex="-1"></a><span class="co">#cores_combi("Cluster1")</span></span>
-<span id="cb159-1078"><a href="#cb159-1078" aria-hidden="true" tabindex="-1"></a>cores_list<span class="ot">=</span><span class="fu">lapply</span>(cores_names,cores_combi)</span>
-<span id="cb159-1079"><a href="#cb159-1079" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(cores_list)<span class="ot">=</span>cores_names</span>
-<span id="cb159-1080"><a href="#cb159-1080" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(cores_list,dim)</span>
-<span id="cb159-1081"><a href="#cb159-1081" aria-hidden="true" tabindex="-1"></a>cores_raw<span class="ot">=</span><span class="fu">lapply</span>(cores_list,<span class="at">FUN=</span><span class="cf">function</span>(X){<span class="fu">apply</span>(X,<span class="dv">2</span>,prod)})</span>
-<span id="cb159-1082"><a href="#cb159-1082" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1083"><a href="#cb159-1083" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span>cores_raw <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>(<span class="at">.name_repair =</span><span class="st">"universal"</span>)</span>
-<span id="cb159-1084"><a href="#cb159-1084" aria-hidden="true" tabindex="-1"></a><span class="co">#names(aux)=cores_names</span></span>
-<span id="cb159-1085"><a href="#cb159-1085" aria-hidden="true" tabindex="-1"></a>cores_reactions <span class="ot">=</span> <span class="fu">cbind</span>(reactions,aux)</span>
-<span id="cb159-1086"><a href="#cb159-1086" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1087"><a href="#cb159-1087" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb159-1088"><a href="#cb159-1088" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1091"><a href="#cb159-1091" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb159-1092"><a href="#cb159-1092" aria-hidden="true" tabindex="-1"></a><span class="co">#names(cores)</span></span>
-<span id="cb159-1093"><a href="#cb159-1093" aria-hidden="true" tabindex="-1"></a><span class="co">#knitr::kable(colSums(cores[,-c(1,2)]),col.names = c("Freq"))</span></span>
-<span id="cb159-1094"><a href="#cb159-1094" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb159-1095"><a href="#cb159-1095" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1098"><a href="#cb159-1098" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb159-1099"><a href="#cb159-1099" aria-hidden="true" tabindex="-1"></a> cores_reactions <span class="sc">%&gt;%</span> <span class="fu">select</span>(reactions,<span class="st">`</span><span class="at">MSA.Cluster.3.MUN.Cluster.3</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb159-1100"><a href="#cb159-1100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">MSA.Cluster.3.MUN.Cluster.3</span><span class="st">`</span><span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb159-1101"><a href="#cb159-1101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">http=</span><span class="fu">paste0</span>(<span class="st">"https://www.genome.jp/entry/"</span>,</span>
-<span id="cb159-1102"><a href="#cb159-1102" aria-hidden="true" tabindex="-1"></a>                     reactions))<span class="ot">-&gt;</span> aux</span>
-<span id="cb159-1103"><a href="#cb159-1103" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb159-1104"><a href="#cb159-1104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb159-1107"><a href="#cb159-1107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb159-1108"><a href="#cb159-1108" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(aux)</span>
-<span id="cb159-1109"><a href="#cb159-1109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb159-973"><a href="#cb159-973" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>)<span class="sc">+</span></span>
+<span id="cb159-974"><a href="#cb159-974" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Boxplot diagram of the similarities between the two aproaches"</span>) </span>
+<span id="cb159-975"><a href="#cb159-975" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb159-976"><a href="#cb159-976" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-977"><a href="#cb159-977" aria-hidden="true" tabindex="-1"></a><span class="fu"># Clusters analysis</span></span>
+<span id="cb159-978"><a href="#cb159-978" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-979"><a href="#cb159-979" aria-hidden="true" tabindex="-1"></a>In the Eukaryotes test, we aimed to analyze which factors caused some algae and plants to be distinguished from their respective kingdoms. To address this question, we revisited the core metabolism obtained with MetaDAG, focusing on each cluster.</span>
+<span id="cb159-980"><a href="#cb159-980" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-983"><a href="#cb159-983" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb159-984"><a href="#cb159-984" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span><span class="fu">names</span>(Results)</span>
+<span id="cb159-985"><a href="#cb159-985" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span>reactions[<span class="fu">grep</span>(<span class="st">"(^R</span><span class="sc">\\</span><span class="st">d{5})"</span>,reactions)]</span>
+<span id="cb159-986"><a href="#cb159-986" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span><span class="fu">tibble</span>(reactions)</span>
+<span id="cb159-987"><a href="#cb159-987" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span>reactions <span class="sc">%&gt;%</span> <span class="fu">separate</span>(reactions, <span class="at">into=</span><span class="fu">c</span>(<span class="st">"r_id"</span>,<span class="st">"enzyme"</span>),<span class="at">sep=</span><span class="st">"</span><span class="sc">\\</span><span class="st">("</span>,<span class="at">remove=</span><span class="cn">FALSE</span>)</span>
+<span id="cb159-988"><a href="#cb159-988" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span>reactions <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">enzyme=</span><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">(|</span><span class="sc">\\</span><span class="st">)"</span>,<span class="st">""</span>,enzyme))</span>
+<span id="cb159-989"><a href="#cb159-989" aria-hidden="true" tabindex="-1"></a><span class="co">#reactions=reactions[,-3]</span></span>
+<span id="cb159-990"><a href="#cb159-990" aria-hidden="true" tabindex="-1"></a>reactions<span class="sc">$</span>rev<span class="ot">=</span>stringr<span class="sc">::</span><span class="fu">str_detect</span>(reactions<span class="sc">$</span>r_id,<span class="st">"v"</span>)</span>
+<span id="cb159-991"><a href="#cb159-991" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb159-992"><a href="#cb159-992" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-993"><a href="#cb159-993" aria-hidden="true" tabindex="-1"></a>The results of the clusters are compared to the classification of Kingdoms for both similarity measures:</span>
+<span id="cb159-994"><a href="#cb159-994" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-997"><a href="#cb159-997" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb159-998"><a href="#cb159-998" aria-hidden="true" tabindex="-1"></a>clust4_MSA2<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">mDAG_Id=</span><span class="fu">names</span>(clust4_MSA), <span class="at">clust4_MSA=</span>clust4_MSA)</span>
+<span id="cb159-999"><a href="#cb159-999" aria-hidden="true" tabindex="-1"></a>clust4_Mun2<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">mDAG_Id=</span><span class="fu">names</span>(clust4_Mun), <span class="at">clust4_Mun=</span>clust4_Mun)</span>
+<span id="cb159-1000"><a href="#cb159-1000" aria-hidden="true" tabindex="-1"></a>meta_taxo2<span class="ot">=</span>meta_taxo</span>
+<span id="cb159-1001"><a href="#cb159-1001" aria-hidden="true" tabindex="-1"></a>meta_taxo2<span class="ot">=</span>meta_taxo2 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(clust4_MSA2,<span class="at">by=</span> <span class="st">"mDAG_Id"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb159-1002"><a href="#cb159-1002" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(clust4_Mun2,<span class="at">by=</span> <span class="st">"mDAG_Id"</span>)</span>
+<span id="cb159-1003"><a href="#cb159-1003" aria-hidden="true" tabindex="-1"></a>meta_taxo2<span class="sc">$</span>combined_cluster_MSA_Kingdom<span class="ot">=</span><span class="fu">paste0</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>clust4_MSA)</span>
+<span id="cb159-1004"><a href="#cb159-1004" aria-hidden="true" tabindex="-1"></a>meta_taxo2<span class="sc">$</span>combined_cluster_Mun_Kingdom<span class="ot">=</span><span class="fu">paste0</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>clust4_MSA)</span>
+<span id="cb159-1005"><a href="#cb159-1005" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(meta_taxo2,<span class="at">file=</span><span class="st">"meta_taxo_4_clusters.csv"</span>)</span>
+<span id="cb159-1006"><a href="#cb159-1006" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb159-1007"><a href="#cb159-1007" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1010"><a href="#cb159-1010" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb159-1011"><a href="#cb159-1011" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">table</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>clust4_MSA))</span>
+<span id="cb159-1012"><a href="#cb159-1012" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">table</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>clust4_Mun))</span>
+<span id="cb159-1013"><a href="#cb159-1013" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">table</span>(meta_taxo2<span class="sc">$</span>clust4_Mun,meta_taxo2<span class="sc">$</span>clust4_MSA))</span>
+<span id="cb159-1014"><a href="#cb159-1014" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb159-1015"><a href="#cb159-1015" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1016"><a href="#cb159-1016" aria-hidden="true" tabindex="-1"></a>The table below correlates the clusters with the Phylum information.</span>
+<span id="cb159-1017"><a href="#cb159-1017" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1020"><a href="#cb159-1020" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb159-1021"><a href="#cb159-1021" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb159-1022"><a href="#cb159-1022" aria-hidden="true" tabindex="-1"></a>MSA_table<span class="ot">=</span><span class="fu">melt</span>(<span class="fu">table</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>Phylum,meta_taxo2<span class="sc">$</span>clust4_MSA))</span>
+<span id="cb159-1023"><a href="#cb159-1023" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(MSA_table)<span class="ot">=</span><span class="fu">c</span>(<span class="st">"Kingdom"</span>,<span class="st">"Phylum"</span>,<span class="st">"cluster_MSA"</span>,<span class="st">"N"</span>)</span>
+<span id="cb159-1024"><a href="#cb159-1024" aria-hidden="true" tabindex="-1"></a>MSA_table<span class="ot">=</span>MSA_table <span class="sc">%&gt;%</span> <span class="fu">filter</span>(N<span class="sc">!=</span><span class="dv">0</span>)</span>
+<span id="cb159-1025"><a href="#cb159-1025" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb159-1026"><a href="#cb159-1026" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1029"><a href="#cb159-1029" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb159-1030"><a href="#cb159-1030" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(MSA_table)</span>
+<span id="cb159-1031"><a href="#cb159-1031" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb159-1032"><a href="#cb159-1032" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1033"><a href="#cb159-1033" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparison core's all algaes, fungi and archaea</span></span>
+<span id="cb159-1034"><a href="#cb159-1034" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1035"><a href="#cb159-1035" aria-hidden="true" tabindex="-1"></a>????? Aquí no sé muy bien que hacemos XXXXXX</span>
+<span id="cb159-1036"><a href="#cb159-1036" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1039"><a href="#cb159-1039" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb159-1040"><a href="#cb159-1040" aria-hidden="true" tabindex="-1"></a><span class="co">#reactions=names(Results)[-c(1:5)]</span></span>
+<span id="cb159-1041"><a href="#cb159-1041" aria-hidden="true" tabindex="-1"></a><span class="co">#cores=tibble(reactions)</span></span>
+<span id="cb159-1042"><a href="#cb159-1042" aria-hidden="true" tabindex="-1"></a><span class="co">#cores=cores %&gt;%  separate(reactions, into=c("reactions","enzyme"),sep="\\(")</span></span>
+<span id="cb159-1043"><a href="#cb159-1043" aria-hidden="true" tabindex="-1"></a><span class="co">#cores$enzyme=gsub("\\(|\\)",replacement = "",cores$enzyme)</span></span>
+<span id="cb159-1044"><a href="#cb159-1044" aria-hidden="true" tabindex="-1"></a><span class="co">#cores</span></span>
+<span id="cb159-1045"><a href="#cb159-1045" aria-hidden="true" tabindex="-1"></a><span class="co">#algae_core=</span></span>
+<span id="cb159-1046"><a href="#cb159-1046" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb159-1047"><a href="#cb159-1047" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1050"><a href="#cb159-1050" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb159-1051"><a href="#cb159-1051" aria-hidden="true" tabindex="-1"></a><span class="co">#Results</span></span>
+<span id="cb159-1052"><a href="#cb159-1052" aria-hidden="true" tabindex="-1"></a><span class="co">#cores</span></span>
+<span id="cb159-1053"><a href="#cb159-1053" aria-hidden="true" tabindex="-1"></a><span class="co">#meta_taxo</span></span>
+<span id="cb159-1054"><a href="#cb159-1054" aria-hidden="true" tabindex="-1"></a>cores_names<span class="ot">=</span><span class="fu">unique</span>(Results<span class="sc">$</span>Groups)</span>
+<span id="cb159-1055"><a href="#cb159-1055" aria-hidden="true" tabindex="-1"></a>cores_names</span>
+<span id="cb159-1056"><a href="#cb159-1056" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1057"><a href="#cb159-1057" aria-hidden="true" tabindex="-1"></a>cores_combi<span class="ot">=</span><span class="cf">function</span>(x){</span>
+<span id="cb159-1058"><a href="#cb159-1058" aria-hidden="true" tabindex="-1"></a><span class="co">#x=cores_names[1]  </span></span>
+<span id="cb159-1059"><a href="#cb159-1059" aria-hidden="true" tabindex="-1"></a>Id<span class="ot">=</span>meta_taxo2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Groups<span class="sc">==</span>x) <span class="sc">%&gt;%</span> <span class="fu">select</span>(mDAG_Id)</span>
+<span id="cb159-1060"><a href="#cb159-1060" aria-hidden="true" tabindex="-1"></a>Id<span class="ot">=</span><span class="fu">as.character</span>(Id<span class="sc">$</span>mDAG_Id)</span>
+<span id="cb159-1061"><a href="#cb159-1061" aria-hidden="true" tabindex="-1"></a><span class="co">#bin_NA=function(x) {case_when(!is.na(x) ~ 0 ,default=1)}</span></span>
+<span id="cb159-1062"><a href="#cb159-1062" aria-hidden="true" tabindex="-1"></a>not_NA<span class="ot">=</span> <span class="cf">function</span>(x) {<span class="sc">!</span><span class="fu">is.na</span>(x)}</span>
+<span id="cb159-1063"><a href="#cb159-1063" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1064"><a href="#cb159-1064" aria-hidden="true" tabindex="-1"></a>mda_filter<span class="ot">=</span> Results <span class="sc">%&gt;%</span></span>
+<span id="cb159-1065"><a href="#cb159-1065" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mDAG_Id <span class="sc">%in%</span> Id) <span class="sc">%&gt;%</span></span>
+<span id="cb159-1066"><a href="#cb159-1066" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"R"</span>)) <span class="sc">%&gt;%</span>   </span>
+<span id="cb159-1067"><a href="#cb159-1067" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(not_NA) <span class="sc">%&gt;%</span> <span class="fu">mutate_all</span>(as.integer)</span>
+<span id="cb159-1068"><a href="#cb159-1068" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1069"><a href="#cb159-1069" aria-hidden="true" tabindex="-1"></a><span class="co">#%&gt;%</span></span>
+<span id="cb159-1070"><a href="#cb159-1070" aria-hidden="true" tabindex="-1"></a><span class="co"># mutate(mDag_id=Id,.before=1)</span></span>
+<span id="cb159-1071"><a href="#cb159-1071" aria-hidden="true" tabindex="-1"></a><span class="co">#aux=colSums(mda_filter)</span></span>
+<span id="cb159-1072"><a href="#cb159-1072" aria-hidden="true" tabindex="-1"></a><span class="co">#aux=as.integer(aux==length(Id))</span></span>
+<span id="cb159-1073"><a href="#cb159-1073" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(mda_filter)</span>
+<span id="cb159-1074"><a href="#cb159-1074" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb159-1075"><a href="#cb159-1075" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1076"><a href="#cb159-1076" aria-hidden="true" tabindex="-1"></a><span class="co">#cores_combi("Cluster1")</span></span>
+<span id="cb159-1077"><a href="#cb159-1077" aria-hidden="true" tabindex="-1"></a>cores_list<span class="ot">=</span><span class="fu">lapply</span>(cores_names,cores_combi)</span>
+<span id="cb159-1078"><a href="#cb159-1078" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(cores_list)<span class="ot">=</span>cores_names</span>
+<span id="cb159-1079"><a href="#cb159-1079" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(cores_list,dim)</span>
+<span id="cb159-1080"><a href="#cb159-1080" aria-hidden="true" tabindex="-1"></a>cores_raw<span class="ot">=</span><span class="fu">lapply</span>(cores_list,<span class="at">FUN=</span><span class="cf">function</span>(X){<span class="fu">apply</span>(X,<span class="dv">2</span>,prod)})</span>
+<span id="cb159-1081"><a href="#cb159-1081" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1082"><a href="#cb159-1082" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span>cores_raw <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>(<span class="at">.name_repair =</span><span class="st">"universal"</span>)</span>
+<span id="cb159-1083"><a href="#cb159-1083" aria-hidden="true" tabindex="-1"></a><span class="co">#names(aux)=cores_names</span></span>
+<span id="cb159-1084"><a href="#cb159-1084" aria-hidden="true" tabindex="-1"></a>cores_reactions <span class="ot">=</span> <span class="fu">cbind</span>(reactions,aux)</span>
+<span id="cb159-1085"><a href="#cb159-1085" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1086"><a href="#cb159-1086" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb159-1087"><a href="#cb159-1087" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1090"><a href="#cb159-1090" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb159-1091"><a href="#cb159-1091" aria-hidden="true" tabindex="-1"></a><span class="co">#names(cores)</span></span>
+<span id="cb159-1092"><a href="#cb159-1092" aria-hidden="true" tabindex="-1"></a><span class="co">#knitr::kable(colSums(cores[,-c(1,2)]),col.names = c("Freq"))</span></span>
+<span id="cb159-1093"><a href="#cb159-1093" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb159-1094"><a href="#cb159-1094" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1097"><a href="#cb159-1097" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb159-1098"><a href="#cb159-1098" aria-hidden="true" tabindex="-1"></a> cores_reactions <span class="sc">%&gt;%</span> <span class="fu">select</span>(reactions,<span class="st">`</span><span class="at">MSA.Cluster.3.MUN.Cluster.3</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb159-1099"><a href="#cb159-1099" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">MSA.Cluster.3.MUN.Cluster.3</span><span class="st">`</span><span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb159-1100"><a href="#cb159-1100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">http=</span><span class="fu">paste0</span>(<span class="st">"https://www.genome.jp/entry/"</span>,</span>
+<span id="cb159-1101"><a href="#cb159-1101" aria-hidden="true" tabindex="-1"></a>                     reactions))<span class="ot">-&gt;</span> aux</span>
+<span id="cb159-1102"><a href="#cb159-1102" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb159-1103"><a href="#cb159-1103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-1106"><a href="#cb159-1106" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb159-1107"><a href="#cb159-1107" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(aux)</span>
+<span id="cb159-1108"><a href="#cb159-1108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
