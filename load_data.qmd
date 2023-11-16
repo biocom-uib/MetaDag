@@ -1,0 +1,138 @@
+```{r  include=FALSE,message=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      cache=FALSE,
+                      warning = FALSE,
+                      message = FALSE, out.width = "100%")
+pdf="TRUE"
+```
+
+```{r message=FALSE,echo=FALSE}
+library(tidyverse)
+library(igraph)
+library(ComplexHeatmap)
+library(viridis)
+library(circlize)
+library(plotly)
+library(randomcoloR)
+library(factoextra)
+library(RColorBrewer)
+library(kableExtra)
+library(igraph)
+library(GGally)
+```
+
+# Load data
+
+```{r}
+experiment=
+  "result_0a845f74-826e-3b46-aed9-e7ecf74db262/"
+path_exp=paste0("data/",experiment)
+knitr::kable(data.frame(
+  Directory_files_and_folders=dir(path_exp),
+  Type=c(rep("Data file",2),
+  rep("Directory",3),
+  rep("Data file",6),
+  "Directory")))
+```
+
+```{r}
+MBB=read_csv(paste0(path_exp,"Different_MBB.csv"),
+             show_col_types = FALSE)
+mDAG=read_csv(paste0(path_exp,"Different_mDAG.csv"),
+              show_col_types = FALSE)
+```
+
+## Load metadata
+
+Organisms are sorted by Kingdom, Phylum and Class:
+
+```{r}
+path_exp
+Results=read_csv(paste0(path_exp,"Results.csv"))
+#rename MetaDaG variables
+names(Results)[c(1,2,3,4,5)]=c("Organism","Categories","Groups","mDAG_Id","Full_Name")
+taxo=Results %>% select(Organism:Full_Name)
+taxo=taxo %>% separate(Categories,into=c("Kingdom","Phylum","Class"))
+index=which(is.na(taxo$Class))
+taxo$Class[index]=paste(taxo$Phylum[index])
+meta_taxo=taxo
+aux=table(meta_taxo$Phylum)
+Freq_Phylum=tibble(Phylum=names(aux),Freq_Phylum=aux)
+names(Freq_Phylum)=c("Phylum","Freq_Phylum")
+aux=table(meta_taxo$Class)
+Freq_Class=tibble(Class=names(aux),Freq_Class=aux)
+names(Freq_Class)=c("Class","Freq_Class")
+
+
+meta_taxo = meta_taxo %>% 
+  left_join(Freq_Phylum) %>%
+  left_join(Freq_Class)
+meta_taxo = meta_taxo %>% 
+  arrange(Kingdom,desc(Freq_Phylum),Phylum,
+          desc(Freq_Class),Class)
+head(meta_taxo)
+```
+
+```{r}
+table(meta_taxo$Kingdom) %>% kable %>%
+  kable_styling("striped", full_width = F,position="left")%>% 
+ scroll_box(width = "400px", height = "200px")
+table(meta_taxo$Phylum,meta_taxo$Kingdom) %>% kable %>%
+  kable_styling("striped", full_width = F,position="left")%>% 
+ scroll_box(width = "500px", height = "500px")
+```
+
+## Table of MBBs
+
+In this example `MBB` is a table with `r nrow(MBB)` rows and `r ncol(MBB)` columns. It displays, for every MBB, the selected groups (Kingdoms, families, etc.) to which it belongs.
+
+```{r}
+#100
+knitr::kable(MBB[1:20,1:10]) %>%   
+  scroll_box(width = "100%", height = "200px")
+```
+
+## Table of m-DAGs
+
+In this example `mDAG` is a table with `r nrow(mDAG)` rows and `r ncol(mDAG)` columns. It displays, for every m-DAG, the selected groups (Kingdoms, families, etc.) in which it belongs.
+
+```{r}
+kable(mDAG[1:20,1:10]) %>%   scroll_box(width = "100%", height = "200px")
+```
+
+```{r}
+dim(mDAG)
+names(mDAG)[1:6]
+head(names(mDAG)[7:(dim(mDAG)[2]-1150)])
+# 28 to 1213  code MBB: 1 if MBB in mDAG 0
+```
+
+## Results Table
+
+The `Results` table contains for every organism (row) the following information: its category (taxonomy), selected group, Full name, m-DAG id and all reactions name id with their corresponding enzyme. When a reaction is present in the corresponding m-DAG, the MBB to which it belongs is displayed in this column.
+
+```{r}
+kable(Results[1:20,1:10])%>%
+  row_spec(0, angle = 0) %>%   
+  scroll_box(width = "300%", height = "1000px")
+```
+
+```{r}
+dim(Results)
+names(Results)[1]# organisms  kegg id  class representant of mDAG
+names(Results)[2]# taxonomy separate by |
+names(Results)[3]# groups 
+names(Results)[4]# mDAG_Id 
+names(Results)[5]# Full name representant
+names(Results)[6:36]# columns 6 to 3998 
+# reactions name id with its enzyme.
+```
+
+```{r}
+reactions=names(Results)[-c(1:5)]
+reverse_reactions=stringr::str_detect(reactions,"rev")
+reverse_reactions=table(reverse_reactions)
+dimnames(reverse_reactions)$reverse_reactions=
+  c("Non reverse reaction","Reverse reaction")
+reverse_reactions
+```

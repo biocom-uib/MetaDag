@@ -1,0 +1,33 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "A Guide to Interpreting the Results of MetaDAG Analysis"
+  author: ""
+  date: ""
+  chapters:
+    - index.qmd
+    
+format:
+  html:
+    theme: Journal
+    code-fold: true
+    cde-summary: "Show the code"
+    code-tools: true
+    code-overflow: wrap
+    highlight-style: github
+  pdf:
+    toc: true
+    toccolor: blue
+    output-file: pdf-book
+    highlight-style: atom-one-dark
+    number-sections: true
+    colorlinks: true
+    include-in-header:
+      - text: |
+          \usepackage{svg}
+    
+editor: visual
+
+

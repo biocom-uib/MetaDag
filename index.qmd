@@ -1,3 +1,26 @@
+```{r  include=FALSE,message=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      cache=FALSE,
+                      warning = FALSE,
+                      message = FALSE, out.width = "100%")
+pdf="TRUE"
+```
+
+```{r  message=FALSE,echo=FALSE}
+library(tidyverse)
+library(igraph)
+library(ComplexHeatmap)
+library(viridis)
+library(circlize)
+library(plotly)
+library(randomcoloR)
+library(factoextra)
+library(RColorBrewer)
+library(kableExtra)
+library(igraph)
+library(GGally)
+```
+
 As an illustrative example for interpreting [metaDAG](https://bioinfo.uib.es/metadag/) results, we consider here the Eukaryotes test presented in Section 2.5. Namely, we consider all Eukaryotes from the KEGG database.
 
 First of all, results must be downloaded from:
@@ -47,6 +70,28 @@ knitr::include_graphics("figures/screen_3.png")
 
 ```{r echo=FALSE}
 knitr::include_graphics("figures/screen_4.png")
+```
+```{r  include=FALSE,message=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      cache=FALSE,
+                      warning = FALSE,
+                      message = FALSE, out.width = "100%")
+pdf="TRUE"
+```
+
+```{r message=FALSE,echo=FALSE}
+library(tidyverse)
+library(igraph)
+library(ComplexHeatmap)
+library(viridis)
+library(circlize)
+library(plotly)
+library(randomcoloR)
+library(factoextra)
+library(RColorBrewer)
+library(kableExtra)
+library(igraph)
+library(GGally)
 ```
 
 # Load data
@@ -165,6 +210,28 @@ dimnames(reverse_reactions)$reverse_reactions=
 reverse_reactions
 ```
 
+```{r  include=FALSE,message=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      cache=FALSE,
+                      warning = FALSE,
+                      message = FALSE, out.width = "100%")
+pdf="TRUE"
+```
+
+```{r message=FALSE,echo=FALSE}
+library(tidyverse)
+library(igraph)
+library(ComplexHeatmap)
+library(viridis)
+library(circlize)
+library(plotly)
+library(randomcoloR)
+library(factoextra)
+library(RColorBrewer)
+library(kableExtra)
+library(igraph)
+library(GGally)
+```
 # Metabolic Graphs
 
 We present here some analysis examples of the metabolic graphs generated in GraphML format.
@@ -174,6 +241,9 @@ We present here some analysis examples of the metabolic graphs generated in Grap
 Read the individual metabolic graphs generated for Homo sapiens (KEGG id: hsa) in the directory(Individuals/hsa)
 
 ```{r}
+experiment=
+  "result_0a845f74-826e-3b46-aed9-e7ecf74db262/"
+path_exp=paste0("data/",experiment)
 files_hsa=dir(paste0(path_exp,"Individuals/hsa"))
 files_hsa
 ```
@@ -500,6 +570,29 @@ p3<- ggplot(data=data2) +
 p3
 ```
 
+
+```{r  include=FALSE,message=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      cache=FALSE,
+                      warning = FALSE,
+                      message = FALSE, out.width = "100%")
+pdf="TRUE"
+```
+
+```{r  message=FALSE,echo=FALSE}
+library(tidyverse)
+library(igraph)
+library(ComplexHeatmap)
+library(viridis)
+library(circlize)
+library(plotly)
+library(randomcoloR)
+library(factoextra)
+library(RColorBrewer)
+library(kableExtra)
+library(igraph)
+library(GGally)
+```
 # m-DAGs similarities and Metadata
 
 First, we will load the metadata and adjust them to match the structure of the similarities. This will facilitate the creation of graphs and statistics.
@@ -507,7 +600,9 @@ First, we will load the metadata and adjust them to match the structure of the s
 Keep in mind the path of the experiment:
 
 ```{r}
-path_exp
+experiment=
+  "result_0a845f74-826e-3b46-aed9-e7ecf74db262/"
+path_exp=paste0("data/",experiment)
 ```
 
 ## MSA & Munkres similarities
@@ -583,7 +678,7 @@ MSA_heat_1 <- Heatmap(matrix = Sim_MSA_mDAG,
 
 
 Mun_heat_1<- Heatmap(matrix = Sim_Mun_mDAG, 
-             column_title="mDAGs Munkres-similarity  Eukaryotes by Kingdoms",
+             column_title="m-DAGs Munkres-similarity  Eukaryotes by Kingdoms",
             name = "Munkres Similarity",
             heatmap_legend_param=list(
                         title="Similarity",
@@ -619,7 +714,7 @@ names(colorsP$Phylum)=namesP
 annotation_H2 <- HeatmapAnnotation(df=dff, col = colorsP)
 MSA_heat_2 <- Heatmap(matrix =
                         Sim_MSA_mDAG[1:nrow(dff),1:nrow(dff)],
-                      column_title="mDAGs MSA-similarity  Animals by Phyla",
+                      column_title="m-DAGs MSA-similarity  Animals by Phyla",
                       col=rev(viridis(256)),
                       cluster_rows = FALSE,
                       show_heatmap_legend=FALSE, 
@@ -637,7 +732,7 @@ MSA_heat_2 <- Heatmap(matrix =
 
 
 Mun_heat_2 <- Heatmap(matrix = Sim_Mun_mDAG[1:nrow(dff),1:nrow(dff)], 
-              column_title="mDAGs Munkres-similarity  Animals by Phyla",
+              column_title="m-DAGs Munkres-similarity  Animals by Phyla",
         col=rev(viridis(256)),
     show_heatmap_legend=FALSE, 
         cluster_rows = FALSE,
@@ -677,15 +772,13 @@ dev.off()
 
 ## MDS (Multidimensional Scaling) MSA & Munkres similarity
 
-Multi-dimensional Scaling (MDS) is a classic multivariate data analysis technique that allows for obtaining a low-dimensional representation of the observed similarities.
+Multi-dimensional Scaling (MDS) is a classic multivariate data analysis technique that allows for obtaining a low-dimensional representation of the observed similarities. First, we transform each similarity measure into a distance measure as follows: let $s_{ij}$ be a similarity measure between a pair $i,j$, we define its distance measure as  $d_{ij}=\sqrt{1-s_{ij}^2}$.
 
 The following is the MDS for the MSA similarity:
 
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
-
 ## Metric multidimensional scaling (mMDS)
 mds7 <- cmdscale(sqrt(1-Sim_MSA_mDAG^2),k=7,eig=TRUE)
-#pairs(mds7$points[,1:4])
 mds7$GOF
 mds <- mds7$points %>%  as_tibble()
 colnames(mds) <-paste0("Dim.",1:dim(mds7$points)[2])
@@ -694,9 +787,9 @@ colnames(mds) <-paste0("Dim.",1:dim(mds7$points)[2])
 cooordinates=as_tibble(mds7$points)
 colnames(cooordinates)=paste("Component",1:7)
 ggpairs(cooordinates,columns=1:4,
-        aes(color=meta_taxo$Kingdom[1:884],alpha=0.5,
-            title="MDS 4 dimensions projection",
-            legend=1),upper=list(continuous="points")) +
+        aes(color=meta_taxo$Kingdom[1:884],
+            title="MDS 4 dimensions projection",legend=1),
+        lower=list(continuous="points")) + 
   scale_fill_manual(values = colorsK$Kingdom) + 
   theme(legend.position = "left")
 ```
@@ -722,7 +815,7 @@ ggpairs(cooordinates,columns=1:4,
 
 ## Hierarchical clustering MSA similarity
 
-We obtain a classification of the m-DAGs into different clusters as follows:
+Through hierarchical clustering using the Ward method, we have derived a partition of the m-DAGs into 4, 5, and 6 clusters, respectively. The corresponding information has been organized into a table, as follows:
 
 ```{r}
 D=as.dist(sqrt(1-Sim_MSA_mDAG^2))
@@ -753,7 +846,7 @@ aux_Animals_cluster_1_2 = aux %>%
 table(aux_Animals_cluster_1_2$Phylum,aux_Animals_cluster_1_2$clust4_MSA)
 ```
 
-We can retrieve the information of the elements belonging to a specific classification (Animals) that are part of a particular cluster as follows:
+We can retrieve the information of the elements belonging to a specific classification (Animals and Plants) that are part of a particular cluster as follows:
 
 ```{r}
 aux_7_Animals_cluster_3= filter(aux,
@@ -764,6 +857,7 @@ aux_7_Animals_cluster_3
 aux_14_Plants_clust2= filter(aux,clust4_MSA==3,
                              Kingdom=="Plants")
 aux_14_Plants_clust2
+
 aux_all_algae_class= aux %>% 
   filter(Kingdom=="Plants",
          Class %in% c("algae"))
@@ -866,8 +960,6 @@ cor(Sim_comp[,c(3,5)],method="pearson")
 GGally::ggpairs(Sim_comp[,c(3,5)])
 ```
 
-
-
 ```{r}
 sim_pairs= Sim_comp%>% pivot_longer(
   cols=c(Sim_MSA,Sim_Mun),
@@ -891,6 +983,29 @@ sim_pairs %>%
   theme(legend.position="none")+
   ggtitle("Boxplot diagram of the similarities between the two aproaches") 
 ```
+```{r  include=FALSE,message=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      cache=FALSE,
+                      warning = FALSE,
+                      message = FALSE, out.width = "100%")
+pdf="TRUE"
+```
+
+```{r  message=FALSE,echo=FALSE}
+library(tidyverse)
+library(igraph)
+library(ComplexHeatmap)
+library(viridis)
+library(circlize)
+library(plotly)
+library(randomcoloR)
+library(factoextra)
+library(RColorBrewer)
+library(kableExtra)
+library(igraph)
+library(GGally)
+```
+
 
 # Clusters analysis
 
@@ -1004,3 +1119,4 @@ cores_reactions = cbind(reactions,aux)
 ```{r}
 knitr::kable(aux)
 ```
+

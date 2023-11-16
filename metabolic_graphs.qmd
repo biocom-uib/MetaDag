@@ -1,0 +1,360 @@
+
+```{r  include=FALSE,message=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      cache=FALSE,
+                      warning = FALSE,
+                      message = FALSE, out.width = "100%")
+pdf="TRUE"
+```
+
+```{r message=FALSE,echo=FALSE}
+library(tidyverse)
+library(igraph)
+library(ComplexHeatmap)
+library(viridis)
+library(circlize)
+library(plotly)
+library(randomcoloR)
+library(factoextra)
+library(RColorBrewer)
+library(kableExtra)
+library(igraph)
+library(GGally)
+```
+# Metabolic Graphs
+
+We present here some analysis examples of the metabolic graphs generated in GraphML format.
+
+## Metabolic graphs for each organism
+
+Read the individual metabolic graphs generated for Homo sapiens (KEGG id: hsa) in the directory(Individuals/hsa)
+
+```{r}
+experiment=
+  "result_0a845f74-826e-3b46-aed9-e7ecf74db262/"
+path_exp=paste0("data/",experiment)
+files_hsa=dir(paste0(path_exp,"Individuals/hsa"))
+files_hsa
+```
+
+```{r echo=FALSE}
+files_hsa=dir(paste0(path_exp,"Individuals/hsa"))
+# "plot mDAG pdf format",
+#             "plot mDAG svg format",
+type_file=c("m-DAG GraphML format",
+            "m-DAG pdf graphic",
+            "m-DAG svg graphic",
+            "csv file with the adjacency matrix of the m-DAG",
+            "pdf graphic with the biggest conected componet of the m-DAG",
+            "svg graphic with the biggest conected componet of the m-DAG ",
+            "csv file with the node (MBBs) labels  of the m-DAG", 
+            "csv file with all connected components of the m-DAG",
+            "csv file with the  adjacency matrix of the reaction graph",
+            "csv file with the node (reactions) labels  of the reaction graph", 
+            "reaction graph  GraphML format",
+            "reaction graph pdf graphic",
+            "reaction graph svg graphic",
+            "text summary file with the number of MBBs, reactions, etc. in the previous graphs"
+            )
+knitr::kable(data.frame(files_Individual_hsa=files_hsa, Description=type_file))
+```
+
+## Pan & core metabolic graphs
+
+Pan and core metabolic graphs for every group were generated. For instance, one can read the pan and core metabolic graphs generated for the group Algae in the directory (Groups/Algae).
+
+```{r}
+files_Algae=dir(paste0(path_exp,"Groups/Algae"))
+files_Algae
+```
+
+The global core reaction graph, which is the core of all the organisms' reaction graphs in this Eukaryotes test, is empty.
+
+```{r graph_core_ALL}
+graph_core_RC=read.graph(
+  paste0(path_exp,
+         "Global/core/core_RC.graphml"),
+  format = "graphml")
+summary(graph_core_RC)
+```
+
+The global core reaction graph has `r igraph::vcount(graph_core_RC)` vertex and `r igraph::ecount(graph_core_RC)` edges. It is an empty graph.
+
+The core reaction graph for the Algae group is:
+
+```{r fig.cap="Algae core reaction graph"}
+knitr::include_graphics(
+  paste0(path_exp,"Groups/MSA_Cluster_3/core/MSA_Cluster_3_core_RC.pdf"))
+```
+
+The global core m-DAG, i.e., the core of all organisms in this example is empty.
+
+```{r}
+graph_core_mDAG=read.graph(
+  paste0(path_exp,"Global/core/core_mDAG.graphml"),
+  format = "graphml")
+summary(graph_core_mDAG)
+```
+
+The global core m-DAG has `r igraph::vcount(graph_core_mDAG)` vertex and `r igraph::ecount(graph_core_mDAG)` edges. It is an empty graph.
+
+The core metabolic DAG for the Algae group is:
+
+```{r fig.cap="Core m-DAG for Algae"}
+knitr::include_graphics(paste0(path_exp,                              "Groups/Algae/core/Algae_core_mDAG.pdf"))
+```
+
+The global pan reaction graph for the Animals Kingdom is:
+
+```{r}
+graph_pan_RC=read.graph(
+  paste0(path_exp,
+         "TaxonomyLevels/Kingdom/Animals/pan/Animals_pan_RC.graphml"),
+  format = "graphml")
+summary(graph_pan_RC)
+```
+
+This pan reaction graph has `r igraph::vcount(graph_pan_RC)` nodes and `r igraph::ecount(graph_pan_RC)` edges.
+
+## Graph's topology
+
+From the GraphML files, one can extract topological information. Some examples are as follows.
+
+The diagram below illustrates the distribution of node degrees for an m-DAG.
+
+```{r}
+graph_mDAG=read.graph(
+  paste0(path_exp,
+         "Individuals/hsa/hsa_mDAG.graphml"),
+  format= "graphml")
+summary(graph_mDAG)
+barplot(table(igraph::degree(graph_mDAG,mode="all")),
+              ylim=c(0,350),col="blue",
+              main="Frequency of Node Degrees",
+              ylab="Frequency",xlab="Degree")
+```
+
+The connected components of every graph as well as the size of every connected component can be obtained as:
+
+```{r}
+compo=components(graph_mDAG,mode = "weak")
+str(compo)
+compo$csize
+k=which.max(compo$csize==max(compo$csize))
+k
+table(compo$membership)
+vertex=which(compo$membership==k)
+length(vertex)
+Big_Component=induced_subgraph(graph_mDAG, vids=vertex)
+igraph::vcount(Big_Component)
+igraph::ecount(Big_Component)
+```
+
+And the plot of the bigger component of the m-DAG in Homo sapiens is:
+
+```{r fig.align='center',title="Bigger componet of hsa mDAG"}
+knitr::include_graphics(paste0(path_exp,
+                    "Individuals/hsa/hsa_mDAG_biggerDAG.pdf"))
+```
+
+```{r}
+#path_exp="data/result_bb261b6e-95c6-3e39-b82b-b68eea80e30b/data/" 
+list_names=dir(paste0(path_exp,"Individuals/"))
+list_names= list_names[-1] # filter 0000_RefPw
+length(list_names) 
+graphs_list=paste0(path_exp,"Individuals/", list_names,"/",list_names, "_MDAG.graphml")
+```
+
+```{r}
+knitr::include_graphics(
+paste0(path_exp,"Individuals/cang/cang_RC.pdf"))
+```
+
+## Graph statistics
+
+The number of connected component in each generated m-DAG with their frequency in the entire set of m-DAGs, can be obtained as follows:
+
+```{r}
+read_mDAG=function(x) {DAG=read.graph(file=x,
+                                  format="graphml")
+  return(DAG)}
+mDAG_componets=function(x) {
+  sort(components(x,mode = "weak")$csize,
+       decreasing=TRUE)
+  }
+
+compo_list=lapply(graphs_list,
+                  FUN=function(x) {
+                    gg=read_mDAG(x)
+                  aux=list(
+                    mDAG_componets=mDAG_componets(gg),
+                    degree_count=igraph::degree(gg,mode="total"))
+                    return(aux)}
+                  )
+
+names(compo_list)=list_names
+n=max(sapply(compo_list,FUN=function(x) {length(x[[1]])}))
+n
+size_compo_list=lapply(compo_list,FUN=function(x) {
+  return(c(x[[1]],rep(NA,n-length(x[[1]]))))})
+
+aux=do.call(bind_cols,size_compo_list)
+aux2=pivot_longer(aux,aaf:zvi,names_to="Organism",
+                  values_to="csize") %>%
+  arrange(Organism,-csize)
+aux2$index=rep(1:n,times=dim(aux)[2])
+aux2=aux2 %>%
+  left_join(meta_taxo,by="Organism")
+```
+
+```{r}
+Organism=names(compo_list)
+big_MBB=function(org){
+  org="hsa"
+  x=Results %>% filter(Organism==org)
+  x=as.character(x[1,5:dim(Results)[2]])
+  x=x[x!="NA"]
+  tt=sort(table(x),decreasing=TRUE)
+  return(tt)
+  }
+big_MBB_list= lapply(Organism,FUN=function(x) big_MBB(x))
+nMBB=max(sapply(big_MBB_list,FUN=function(x) length(x)))
+nMBB
+big_MBB_list=lapply(big_MBB_list,
+                    FUN=function(x){
+                      x=c(x,rep(NA,nMBB-length(x)))
+                      return(x)}
+)
+names(big_MBB_list)=Organism
+big_MBB_list=do.call(bind_cols,big_MBB_list)
+
+kMBB=nrow(big_MBB_list)
+index=rep(1:kMBB,times=length(Organism))
+
+big_MBB_list2=pivot_longer(big_MBB_list,
+                           cols=names(big_MBB_list),
+                           values_to = "MBBsize",
+                           names_to = "Organism") %>% 
+  arrange(Organism,-MBBsize) %>%  
+  mutate(index=index) %>% 
+  left_join(meta_taxo,by="Organism")
+```
+
+We can visualize the sizes of the MBBs for each m-DAG, using colors to represent the different Kingdoms:
+
+```{r}
+COLOR_KINGDOM=c("red","green","yellow","black")
+colors_kingdom=big_MBB_list2 %>%
+  select(Organism,Kingdom) %>%
+  distinct()
+
+names(COLOR_KINGDOM)=sort(unique(colors_kingdom$Kingdom))
+
+p0<-ggplot(data=big_MBB_list2) + 
+  geom_line(mapping=aes(x=index,
+                        y=MBBsize,
+                        group = Organism,
+                        color=Kingdom)) + 
+  scale_y_continuous(trans='log10') + 
+  scale_x_continuous(trans='identity') +
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom]) +
+   ggtitle("Plot log-identity of MBB \n  decreasing index.") +
+  ylab("Log10 MBB size") + xlab("Index")
+
+
+p1<- ggplot(data=big_MBB_list2) + 
+  geom_line(mapping=aes(x=index,
+                        y=MBBsize,
+                        group = Organism,color=Kingdom),
+                        na.rm=TRUE) + 
+  scale_x_continuous(trans='log10') + 
+  scale_y_continuous(trans='log10') +
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom]) +
+   ggtitle("Plot log10-log10identity of MBB \n  decreasing index.") +
+  ylab("Log10 MBB size") + xlab("Log10 Index")
+
+p2<- ggplot(data=big_MBB_list2) + 
+  geom_line(mapping=aes(x=index,
+                        y=MBBsize,
+                        group = Organism, 
+                        color=Kingdom),
+            na.rm=TRUE)+
+   scale_x_continuous(trans="identity") + 
+   scale_y_continuous(trans="identity") + 
+  ylim(0,1039)+ 
+  ggtitle("Plot  of MBB sized  decreasing index.") +
+  ylab("MBB size") + xlab("Index") +
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
+
+
+p0
+p1
+p2
+```
+
+Additionally, we visualize the sizes of the MBBs of each m-DAG, using colors to represent the different Kingdoms:
+
+```{r}
+COLOR_KINGDOM=c("red","yellow","green","yellow","black")
+colors_kingdom=aux2%>% select(Organism,Kingdom) %>% distinct()
+names(COLOR_KINGDOM)=sort(unique(colors_kingdom$Kingdom))
+
+p0<-ggplot(data=aux2) + 
+  geom_line(mapping=aes(x=index,
+                        y=csize,
+                        group = Organism,
+                        color=Kingdom),
+            na.rm=TRUE) + 
+  scale_x_continuous(trans='log10') + 
+  scale_y_continuous(trans='identity') +
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom]) +
+   ggtitle("Plot log-identity of size  weak components decreasing order") +
+  ylab("Log10 Weak componente size") + xlab("Order")
+
+
+p1<- ggplot(data=aux2) + 
+  geom_line(mapping=aes(x=index,
+                        y=csize,group = Organism,
+                        color=Kingdom),
+            na.rm=TRUE) + 
+  scale_y_continuous(trans='log10') + 
+  scale_x_continuous(trans='log10') +
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])+
+   ggtitle("Plot log10-log10 of size  weak components decreasing order.") +
+  ylab("Log10 weak component size") + xlab("Log10 order")
+
+p2<- ggplot(data=aux2) + 
+  geom_line(mapping=aes(x=index,
+                        y=csize,group = Organism,
+                        color=Kingdom),
+            na.rm=TRUE) + 
+   scale_x_continuous(trans="identity") + 
+  scale_y_continuous(trans="identity") +
+  ylim(0,1039)+
+   ggtitle("Plot  of size  weak components decreasing order.")+
+  ylab("Weak components size") + xlab("Order")+
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
+
+
+p0
+p1
+p2
+```
+
+```{r}
+data2=big_MBB_list2 %>% filter(index %in% 2:20)
+p3<- ggplot(data=data2) + 
+  geom_line(mapping=aes(x=index,
+                        y=MBBsize,
+                        group = Organism,
+                        color=Kingdom),
+            na.rm=TRUE)+
+  scale_x_continuous(trans="identity") + 
+  scale_y_continuous(trans="identity") +
+  ylim(0,25)+
+  ggtitle("Plot  of size  weak components  decreasing order 2 to 20.")+
+  ylab("Weak components size") + xlab("Order")+
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
+
+p3
+```
