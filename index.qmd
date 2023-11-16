@@ -71,6 +71,7 @@ knitr::include_graphics("figures/screen_3.png")
 ```{r echo=FALSE}
 knitr::include_graphics("figures/screen_4.png")
 ```
+
 ```{r  include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
                       cache=FALSE,
@@ -232,6 +233,7 @@ library(kableExtra)
 library(igraph)
 library(GGally)
 ```
+
 # Metabolic Graphs
 
 We present here some analysis examples of the metabolic graphs generated in GraphML format.
@@ -385,7 +387,7 @@ paste0(path_exp,"Individuals/cang/cang_RC.pdf"))
 
 The number of connected component in each generated m-DAG with their frequency in the entire set of m-DAGs, can be obtained as follows:
 
-```{r}
+```{r ,warning=FALSE}
 read_mDAG=function(x) {DAG=read.graph(file=x,
                                   format="graphml")
   return(DAG)}
@@ -410,15 +412,15 @@ size_compo_list=lapply(compo_list,FUN=function(x) {
   return(c(x[[1]],rep(NA,n-length(x[[1]]))))})
 
 aux=do.call(bind_cols,size_compo_list)
-aux2=pivot_longer(aux,aaf:zvi,names_to="Organism",
+weak_componets_size=pivot_longer(aux,aaf:zvi,names_to="Organism",
                   values_to="csize") %>%
   arrange(Organism,-csize)
-aux2$index=rep(1:n,times=dim(aux)[2])
-aux2=aux2 %>%
+weak_componets_size$index=rep(1:n,times=dim(aux)[2])
+weak_componets_size=weak_componets_size %>%
   left_join(meta_taxo,by="Organism")
 ```
 
-```{r}
+```{r ,warning=FALSE}
 Organism=names(compo_list)
 big_MBB=function(org){
   org="hsa"
@@ -451,79 +453,33 @@ big_MBB_list2=pivot_longer(big_MBB_list,
   left_join(meta_taxo,by="Organism")
 ```
 
-We can visualize the sizes of the MBBs for each m-DAG, using colors to represent the different Kingdoms:
+
+
+
+
+
+We can visualize the sizes of the weak components  for each m-DAG, using colors to represent the different Kingdoms, also we scale the results by a log-log plot:
+
+
 
 ```{r}
-COLOR_KINGDOM=c("red","green","yellow","black")
-colors_kingdom=big_MBB_list2 %>%
-  select(Organism,Kingdom) %>%
-  distinct()
-
+COLOR_KINGDOM=c("red","yellow","green","black")
+colors_kingdom=weak_componets_size%>% select(Organism,Kingdom) %>% distinct()
 names(COLOR_KINGDOM)=sort(unique(colors_kingdom$Kingdom))
 
-p0<-ggplot(data=big_MBB_list2) + 
+p1<- ggplot(data=weak_componets_size) + 
   geom_line(mapping=aes(x=index,
-                        y=MBBsize,
-                        group = Organism,
-                        color=Kingdom)) + 
-  scale_y_continuous(trans='log10') + 
-  scale_x_continuous(trans='identity') +
-  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom]) +
-   ggtitle("Plot log-identity of MBB \n  decreasing index.") +
-  ylab("Log10 MBB size") + xlab("Index")
-
-
-p1<- ggplot(data=big_MBB_list2) + 
-  geom_line(mapping=aes(x=index,
-                        y=MBBsize,
-                        group = Organism,color=Kingdom),
-                        na.rm=TRUE) + 
-  scale_x_continuous(trans='log10') + 
-  scale_y_continuous(trans='log10') +
-  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom]) +
-   ggtitle("Plot log10-log10identity of MBB \n  decreasing index.") +
-  ylab("Log10 MBB size") + xlab("Log10 Index")
-
-p2<- ggplot(data=big_MBB_list2) + 
-  geom_line(mapping=aes(x=index,
-                        y=MBBsize,
-                        group = Organism, 
-                        color=Kingdom),
-            na.rm=TRUE)+
-   scale_x_continuous(trans="identity") + 
-   scale_y_continuous(trans="identity") + 
-  ylim(0,1039)+ 
-  ggtitle("Plot  of MBB sized  decreasing index.") +
-  ylab("MBB size") + xlab("Index") +
-  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
-
-
-p0
-p1
-p2
-```
-
-Additionally, we visualize the sizes of the MBBs of each m-DAG, using colors to represent the different Kingdoms:
-
-```{r}
-COLOR_KINGDOM=c("red","yellow","green","yellow","black")
-colors_kingdom=aux2%>% select(Organism,Kingdom) %>% distinct()
-names(COLOR_KINGDOM)=sort(unique(colors_kingdom$Kingdom))
-
-p0<-ggplot(data=aux2) + 
-  geom_line(mapping=aes(x=index,
-                        y=csize,
-                        group = Organism,
+                        y=csize,group = Organism,
                         color=Kingdom),
             na.rm=TRUE) + 
-  scale_x_continuous(trans='log10') + 
-  scale_y_continuous(trans='identity') +
-  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom]) +
-   ggtitle("Plot log-identity of size  weak components decreasing order") +
-  ylab("Log10 Weak componente size") + xlab("Order")
+   scale_x_continuous(trans="identity") + 
+  scale_y_continuous(trans="identity") +
+  ylim(0,640)+
+   ggtitle("Plot  of size  weak components decreasing order.")+
+  ylab("Weak components size") + xlab("Order")+
+  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
 
-
-p1<- ggplot(data=aux2) + 
+p2<- ggplot(data=weak_componets_size) + 
   geom_line(mapping=aes(x=index,
                         y=csize,group = Organism,
                         color=Kingdom),
@@ -533,66 +489,39 @@ p1<- ggplot(data=aux2) +
   scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])+
    ggtitle("Plot log10-log10 of size  weak components decreasing order.") +
   ylab("Log10 weak component size") + xlab("Log10 order")
-
-p2<- ggplot(data=aux2) + 
-  geom_line(mapping=aes(x=index,
-                        y=csize,group = Organism,
-                        color=Kingdom),
-            na.rm=TRUE) + 
-   scale_x_continuous(trans="identity") + 
-  scale_y_continuous(trans="identity") +
-  ylim(0,1039)+
-   ggtitle("Plot  of size  weak components decreasing order.")+
-  ylab("Weak components size") + xlab("Order")+
-  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
-
-
-p0
 p1
 p2
 ```
+A table with the frequencies of the weak connected components sizes, displayed by Kingdom, can be obtained as follows:
 
 ```{r}
-data2=big_MBB_list2 %>% filter(index %in% 2:20)
-p3<- ggplot(data=data2) + 
-  geom_line(mapping=aes(x=index,
-                        y=MBBsize,
-                        group = Organism,
-                        color=Kingdom),
-            na.rm=TRUE)+
-  scale_x_continuous(trans="identity") + 
-  scale_y_continuous(trans="identity") +
-  ylim(0,25)+
-  ggtitle("Plot  of size  weak components  decreasing order 2 to 20.")+
-  ylab("Weak components size") + xlab("Order")+
-  scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
-
-p3
+aux=table(weak_componets_size$csize,weak_componets_size$Kingdom)
+table_wcc_size=tibble(Order=1:dim(aux)[1],
+                        Wcc_size=as.integer(unlist(dimnames(aux)[1])),
+                        Animals=aux[,1],
+                      Fungi=aux[,2],
+                      Plants=aux[,3],
+                      Protists=aux[,4])
+knitr::kable(table_wcc_size)
 ```
 
 
-```{r  include=FALSE,message=FALSE}
-knitr::opts_chunk$set(echo = TRUE,
-                      cache=FALSE,
-                      warning = FALSE,
-                      message = FALSE, out.width = "100%")
-pdf="TRUE"
+
+A table with the frequencies of the MBBs sizes displayed by Kingdom can be obtained as follows:
+
+```{r}
+aux=table(big_MBB_list2$MBBsize,big_MBB_list2$Kingdom)
+table_MBB_size=tibble(Order=1:dim(aux)[1],
+                        MBB_size=as.integer(unlist(dimnames(aux)[1])),
+                        Animals=aux[,1],
+                      Fungi=aux[,2],
+                      Plants=aux[,3],
+                      Protists=aux[,4])
+knitr::kable(table_MBB_size)
 ```
 
-```{r  message=FALSE,echo=FALSE}
-library(tidyverse)
-library(igraph)
-library(ComplexHeatmap)
-library(viridis)
-library(circlize)
-library(plotly)
-library(randomcoloR)
-library(factoextra)
-library(RColorBrewer)
-library(kableExtra)
-library(igraph)
-library(GGally)
-```
+
+
 # m-DAGs similarities and Metadata
 
 First, we will load the metadata and adjust them to match the structure of the similarities. This will facilitate the creation of graphs and statistics.
@@ -770,11 +699,11 @@ Mun_heat_2
 dev.off()
 ```
 
-## MDS (Multidimensional Scaling) MSA & Munkres similarity
+## MDS (Multidimensional Scaling) MSA & Munkres similarities
 
-Multi-dimensional Scaling (MDS) is a classic multivariate data analysis technique that allows for obtaining a low-dimensional representation of the observed similarities. First, we transform each similarity measure into a distance measure as follows: let $s_{ij}$ be a similarity measure between a pair $i,j$, we define its distance measure as  $d_{ij}=\sqrt{1-s_{ij}^2}$.
+Multi-dimensional Scaling (MDS) is a classic multivariate data analysis technique that allows for obtaining a low-dimensional representation of the observed similarities. First, we transform each similarity measure into a distance measure as follows: let $s_{ij}$ be a similarity measure between a pair $i,j$, we define its distance measure as $d_{ij}=\sqrt{1-s_{ij}^2}$.
 
-The following is the MDS for the MSA similarity:
+The following is the MDS for the MSA distance:
 
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
 ## Metric multidimensional scaling (mMDS)
@@ -794,7 +723,7 @@ ggpairs(cooordinates,columns=1:4,
   theme(legend.position = "left")
 ```
 
-The following is the MDS for the Munkres similarity:
+The following is the MDS for the Munkres distance:
 
 ```{r, fig.align='center', fig.height=5}
 ## Metric multidimensional scaling
@@ -854,15 +783,9 @@ aux_7_Animals_cluster_3= filter(aux,
                                 Kingdom=="Animals")
 aux_7_Animals_cluster_3
 
-aux_14_Plants_clust2= filter(aux,clust4_MSA==3,
+aux_14_Plants_clust_3= filter(aux,clust4_MSA==3,
                              Kingdom=="Plants")
-aux_14_Plants_clust2
-
-aux_all_algae_class= aux %>% 
-  filter(Kingdom=="Plants",
-         Class %in% c("algae"))
-aux_all_algae_class
-
+aux_14_Plants_clust_3
 ```
 
 We can retrieve the information of the elements from a specific Phylum or Class, and the cluster they belong to, as follows:
@@ -874,9 +797,19 @@ aux_all_Nematodes_Flatworns= aux %>%
 aux_all_Nematodes_Flatworns
 ```
 
+The class Algae are all in the same cluster: 
+
+```{r}
+aux_all_algae_class= aux %>% 
+  filter(Kingdom=="Plants",
+         Class %in% c("algae"))
+aux_all_algae_class
+```
+
+
 ## Hierarchical clustering Munkres similarity
 
-We obtain a classification of the m-DAGs into different clusters and retrieve the cluster's information as follows:
+Analogous to the MSA similarity we obtain a classification of the m-DAGs into different clusters and retrieve the cluster's information as follows:
 
 ```{r}
 D=as.dist(sqrt(1-Sim_Mun_mDAG^2))
@@ -983,6 +916,7 @@ sim_pairs %>%
   theme(legend.position="none")+
   ggtitle("Boxplot diagram of the similarities between the two aproaches") 
 ```
+
 ```{r  include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
                       cache=FALSE,
@@ -1005,7 +939,6 @@ library(kableExtra)
 library(igraph)
 library(GGally)
 ```
-
 
 # Clusters analysis
 
@@ -1053,70 +986,3 @@ MSA_table=MSA_table %>% filter(N!=0)
 knitr::kable(MSA_table)
 ```
 
-## Comparison core's all algaes, fungi and archaea
-
-????? Aquí no sé muy bien que hacemos XXXXXX
-
-```{r}
-#reactions=names(Results)[-c(1:5)]
-#cores=tibble(reactions)
-#cores=cores %>%  separate(reactions, into=c("reactions","enzyme"),sep="\\(")
-#cores$enzyme=gsub("\\(|\\)",replacement = "",cores$enzyme)
-#cores
-#algae_core=
-```
-
-```{r}
-#Results
-#cores
-#meta_taxo
-cores_names=unique(Results$Groups)
-cores_names
-
-cores_combi=function(x){
-#x=cores_names[1]  
-Id=meta_taxo2 %>% filter(Groups==x) %>% select(mDAG_Id)
-Id=as.character(Id$mDAG_Id)
-#bin_NA=function(x) {case_when(!is.na(x) ~ 0 ,default=1)}
-not_NA= function(x) {!is.na(x)}
-
-mda_filter= Results %>%
-  filter(mDAG_Id %in% Id) %>%
-  select(starts_with("R")) %>%   
-  mutate_all(not_NA) %>% mutate_all(as.integer)
-
-#%>%
-# mutate(mDag_id=Id,.before=1)
-#aux=colSums(mda_filter)
-#aux=as.integer(aux==length(Id))
-return(mda_filter)
-}
-
-#cores_combi("Cluster1")
-cores_list=lapply(cores_names,cores_combi)
-names(cores_list)=cores_names
-lapply(cores_list,dim)
-cores_raw=lapply(cores_list,FUN=function(X){apply(X,2,prod)})
-
-aux=cores_raw %>% as_tibble(.name_repair ="universal")
-#names(aux)=cores_names
-cores_reactions = cbind(reactions,aux)
-
-```
-
-```{r}
-#names(cores)
-#knitr::kable(colSums(cores[,-c(1,2)]),col.names = c("Freq"))
-```
-
-```{r}
- cores_reactions %>% select(reactions,`MSA.Cluster.3.MUN.Cluster.3`) %>%
-  filter(`MSA.Cluster.3.MUN.Cluster.3`==1) %>%
-  mutate(http=paste0("https://www.genome.jp/entry/",
-                     reactions))-> aux
-```
-
-```{r}
-knitr::kable(aux)
-```
-
