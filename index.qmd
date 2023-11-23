@@ -475,7 +475,7 @@ p1<- ggplot(data=weak_componets_size) +
    scale_x_continuous(trans="identity") + 
   scale_y_continuous(trans="identity") +
   ylim(0,640)+
-   ggtitle("Plot  of size  weak components decreasing order.")+
+   ggtitle("Plot of weak components size decreasing order.")+
   ylab("Weak components size") + xlab("Order")+
   scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
 
@@ -916,6 +916,22 @@ sim_pairs %>%
   theme(legend.position="none")+
   ggtitle("Boxplot diagram of the similarities between the two aproaches") 
 ```
+
+Basic statistics similarity
+
+```{r} 
+sim_pairs %>% group_by(Method) %>% 
+  summarise(N=n(),
+          mean=mean(Similarity),
+          sd=sd(Similarity),
+          Q1=quantile(Similarity,0.25),
+          median=quantile(Similarity,0.5),
+          Q3=quantile(Similarity,0.75))
+```
+
+
+
+
 
 ```{r  include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
