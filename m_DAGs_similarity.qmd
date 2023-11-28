@@ -1,14 +1,10 @@
-
-
 ```{r  include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
                       cache=FALSE,
                       warning = FALSE,
                       message = FALSE, out.width = "100%")
 pdf="TRUE"
-```
 
-```{r  message=FALSE,echo=FALSE}
 library(tidyverse)
 library(igraph)
 library(ComplexHeatmap)
@@ -22,6 +18,11 @@ library(kableExtra)
 library(igraph)
 library(GGally)
 ```
+
+```{r}
+load(file='metadag_work_space.RData')
+```
+
 # m-DAGs similarities and Metadata
 
 First, we will load the metadata and adjust them to match the structure of the similarities. This will facilitate the creation of graphs and statistics.
@@ -199,11 +200,11 @@ Mun_heat_2
 dev.off()
 ```
 
-## MDS (Multidimensional Scaling) MSA & Munkres similarity
+## MDS (Multidimensional Scaling) MSA & Munkres similarities
 
-Multi-dimensional Scaling (MDS) is a classic multivariate data analysis technique that allows for obtaining a low-dimensional representation of the observed similarities. First, we transform each similarity measure into a distance measure as follows: let $s_{ij}$ be a similarity measure between a pair $i,j$, we define its distance measure as  $d_{ij}=\sqrt{1-s_{ij}^2}$.
+Multi-dimensional Scaling (MDS) is a classic multivariate data analysis technique that allows for obtaining a low-dimensional representation of the observed similarities. First, we transform each similarity measure into a distance measure as follows: let $s_{ij}$ be a similarity measure between a pair $i,j$, we define its distance measure as $d_{ij}=\sqrt{1-s_{ij}^2}$.
 
-The following is the MDS for the MSA similarity:
+The following is the MDS for the MSA distance:
 
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
 ## Metric multidimensional scaling (mMDS)
@@ -223,7 +224,7 @@ ggpairs(cooordinates,columns=1:4,
   theme(legend.position = "left")
 ```
 
-The following is the MDS for the Munkres similarity:
+The following is the MDS for the Munkres distance:
 
 ```{r, fig.align='center', fig.height=5}
 ## Metric multidimensional scaling
@@ -283,15 +284,9 @@ aux_7_Animals_cluster_3= filter(aux,
                                 Kingdom=="Animals")
 aux_7_Animals_cluster_3
 
-aux_14_Plants_clust2= filter(aux,clust4_MSA==3,
+aux_14_Plants_clust_3= filter(aux,clust4_MSA==3,
                              Kingdom=="Plants")
-aux_14_Plants_clust2
-
-aux_all_algae_class= aux %>% 
-  filter(Kingdom=="Plants",
-         Class %in% c("algae"))
-aux_all_algae_class
-
+aux_14_Plants_clust_3
 ```
 
 We can retrieve the information of the elements from a specific Phylum or Class, and the cluster they belong to, as follows:
@@ -303,9 +298,18 @@ aux_all_Nematodes_Flatworns= aux %>%
 aux_all_Nematodes_Flatworns
 ```
 
+The class Algae are all in the same cluster:
+
+```{r}
+aux_all_algae_class= aux %>% 
+  filter(Kingdom=="Plants",
+         Class %in% c("algae"))
+aux_all_algae_class
+```
+
 ## Hierarchical clustering Munkres similarity
 
-We obtain a classification of the m-DAGs into different clusters and retrieve the cluster's information as follows:
+Analogous to the MSA similarity we obtain a classification of the m-DAGs into different clusters and retrieve the cluster's information as follows:
 
 ```{r}
 D=as.dist(sqrt(1-Sim_Mun_mDAG^2))
@@ -411,4 +415,20 @@ sim_pairs %>%
   scale_fill_viridis(discrete = TRUE, alpha=0.6) +
   theme(legend.position="none")+
   ggtitle("Boxplot diagram of the similarities between the two aproaches") 
+```
+
+Basic statistics similarity
+
+```{r}
+sim_pairs %>% group_by(Method) %>% 
+  summarise(N=n(),
+          mean=mean(Similarity),
+          sd=sd(Similarity),
+          Q1=quantile(Similarity,0.25),
+          median=quantile(Similarity,0.5),
+          Q3=quantile(Similarity,0.75))
+```
+
+```{r pasar_load, include=FALSE}
+save.image(file='metadag_work_space.RData')
 ```

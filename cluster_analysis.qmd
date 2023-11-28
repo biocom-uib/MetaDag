@@ -4,9 +4,7 @@ knitr::opts_chunk$set(echo = TRUE,
                       warning = FALSE,
                       message = FALSE, out.width = "100%")
 pdf="TRUE"
-```
 
-```{r  message=FALSE,echo=FALSE}
 library(tidyverse)
 library(igraph)
 library(ComplexHeatmap)
@@ -19,6 +17,11 @@ library(RColorBrewer)
 library(kableExtra)
 library(igraph)
 library(GGally)
+```
+
+
+```{r}
+load(file='metadag_work_space.RData')
 ```
 
 
@@ -37,7 +40,7 @@ reactions$rev=stringr::str_detect(reactions$r_id,"v")
 ```
 
 The results of the clusters are compared to the classification of Kingdoms for both similarity measures:
-
+  
 ```{r}
 clust4_MSA2=tibble(mDAG_Id=names(clust4_MSA), clust4_MSA=clust4_MSA)
 clust4_Mun2=tibble(mDAG_Id=names(clust4_Mun), clust4_Mun=clust4_Mun)
@@ -66,71 +69,4 @@ MSA_table=MSA_table %>% filter(N!=0)
 
 ```{r}
 knitr::kable(MSA_table)
-```
-
-## Comparison core's all algaes, fungi and archaea
-
-????? Aquí no sé muy bien que hacemos XXXXXX
-
-```{r}
-#reactions=names(Results)[-c(1:5)]
-#cores=tibble(reactions)
-#cores=cores %>%  separate(reactions, into=c("reactions","enzyme"),sep="\\(")
-#cores$enzyme=gsub("\\(|\\)",replacement = "",cores$enzyme)
-#cores
-#algae_core=
-```
-
-```{r}
-#Results
-#cores
-#meta_taxo
-cores_names=unique(Results$Groups)
-cores_names
-
-cores_combi=function(x){
-#x=cores_names[1]  
-Id=meta_taxo2 %>% filter(Groups==x) %>% select(mDAG_Id)
-Id=as.character(Id$mDAG_Id)
-#bin_NA=function(x) {case_when(!is.na(x) ~ 0 ,default=1)}
-not_NA= function(x) {!is.na(x)}
-
-mda_filter= Results %>%
-  filter(mDAG_Id %in% Id) %>%
-  select(starts_with("R")) %>%   
-  mutate_all(not_NA) %>% mutate_all(as.integer)
-
-#%>%
-# mutate(mDag_id=Id,.before=1)
-#aux=colSums(mda_filter)
-#aux=as.integer(aux==length(Id))
-return(mda_filter)
-}
-
-#cores_combi("Cluster1")
-cores_list=lapply(cores_names,cores_combi)
-names(cores_list)=cores_names
-lapply(cores_list,dim)
-cores_raw=lapply(cores_list,FUN=function(X){apply(X,2,prod)})
-
-aux=cores_raw %>% as_tibble(.name_repair ="universal")
-#names(aux)=cores_names
-cores_reactions = cbind(reactions,aux)
-
-```
-
-```{r}
-#names(cores)
-#knitr::kable(colSums(cores[,-c(1,2)]),col.names = c("Freq"))
-```
-
-```{r}
- cores_reactions %>% select(reactions,`MSA.Cluster.3.MUN.Cluster.3`) %>%
-  filter(`MSA.Cluster.3.MUN.Cluster.3`==1) %>%
-  mutate(http=paste0("https://www.genome.jp/entry/",
-                     reactions))-> aux
-```
-
-```{r}
-knitr::kable(aux)
 ```

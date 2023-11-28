@@ -1,0 +1,11 @@
+## Appendix
+
+Some tables and graphs for the supplementary material.
+
+
+
+
+```{r}
+load(file='metadag_work_space.RData')
+```
+

@@ -1,12 +1,11 @@
-```{r  include=FALSE,message=FALSE}
+# Load data
+
+```{r setup_load_data, include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
                       cache=FALSE,
                       warning = FALSE,
                       message = FALSE, out.width = "100%")
 pdf="TRUE"
-```
-
-```{r message=FALSE,echo=FALSE}
 library(tidyverse)
 library(igraph)
 library(ComplexHeatmap)
@@ -21,8 +20,6 @@ library(igraph)
 library(GGally)
 ```
 
-# Load data
-
 ```{r}
 experiment=
   "result_0a845f74-826e-3b46-aed9-e7ecf74db262/"
@@ -30,9 +27,9 @@ path_exp=paste0("data/",experiment)
 knitr::kable(data.frame(
   Directory_files_and_folders=dir(path_exp),
   Type=c(rep("Data file",2),
-  rep("Directory",3),
-  rep("Data file",6),
-  "Directory")))
+         rep("Directory",3),
+         rep("Data file",6),
+         "Directory")))
 ```
 
 ```{r}
@@ -70,16 +67,16 @@ meta_taxo = meta_taxo %>%
 meta_taxo = meta_taxo %>% 
   arrange(Kingdom,desc(Freq_Phylum),Phylum,
           desc(Freq_Class),Class)
-head(meta_taxo)
+knitr::kable(head(meta_taxo))
 ```
 
 ```{r}
 table(meta_taxo$Kingdom) %>% kable %>%
   kable_styling("striped", full_width = F,position="left")%>% 
- scroll_box(width = "400px", height = "200px")
+  scroll_box(width = "400px", height = "200px")
 table(meta_taxo$Phylum,meta_taxo$Kingdom) %>% kable %>%
   kable_styling("striped", full_width = F,position="left")%>% 
- scroll_box(width = "500px", height = "500px")
+  scroll_box(width = "500px", height = "500px")
 ```
 
 ## Table of MBBs
@@ -134,5 +131,10 @@ reverse_reactions=stringr::str_detect(reactions,"rev")
 reverse_reactions=table(reverse_reactions)
 dimnames(reverse_reactions)$reverse_reactions=
   c("Non reverse reaction","Reverse reaction")
-reverse_reactions
+reverse_reactions %>% kable %>%
+  kable_styling("striped", full_width = F,position="left")
+```
+
+```{r pasar_load, include=FALSE}
+save.image(file='metadag_work_space.RData')
 ```
