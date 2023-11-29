@@ -1,0 +1,885 @@
+Organism,Kingdom,Phylum,Class,Groups,mDAG_Id,Full_Name,clust4_MSA,clust4_Mun
+aamp,Animals,Vertebrates,Mammals,Cluster 1,0313,Arvicola amphibius (Eurasian water vole),1,1
+afz,Animals,Vertebrates,Mammals,Cluster 1,0143,Antechinus flavipes (yellow-footed antechinus),1,1
+ajm,Animals,Vertebrates,Mammals,Cluster 1,0221,Artibeus jamaicensis (Jamaican fruit-eating bat),1,1
+aju,Animals,Vertebrates,Mammals,Cluster 1,0224,Acinonyx jubatus (cheetah),1,1
+aml,Animals,Vertebrates,Mammals,Cluster 1,0279,Ailuropoda melanoleuca (giant panda),1,1
+anu,Animals,Vertebrates,Mammals,Cluster 1,0310,Arvicanthis niloticus (African grass rat),1,1
+bacu,Animals,Vertebrates,Mammals,Cluster 1,0600,Balaenoptera acutorostrata scammoni (minke whale),1,1
+bbis,Animals,Vertebrates,Mammals,Cluster 1,0193,Bison bison bison (American bison),1,1
+bbub,Animals,Vertebrates,Mammals,Cluster 1,0416,Bubalus bubalis (water buffalo),1,1
+biu,Animals,Vertebrates,Mammals,Cluster 1,0622,Bos indicus (zebu cattle),1,1
+bom,Animals,Vertebrates,Mammals,Cluster 1,0701,Bos mutus (wild yak),1,1
+bta,Animals,Vertebrates,Mammals,Cluster 1,0741,Bos taurus (cow),1,1
+btax,Animals,Vertebrates,Mammals,Cluster 1,0544,Budorcas taxicolor (takin),1,1
+cang,Animals,Vertebrates,Mammals,Cluster 1,0402,Colobus angolensis palliatus (Angola colobus),1,1
+caty,Animals,Vertebrates,Mammals,Cluster 1,0464,Cercocebus atys (sooty mangabey),1,1
+cbai,Animals,Vertebrates,Mammals,Cluster 1,0606,Camelus bactrianus (Bactrian camel),1,1
+ccad,Animals,Vertebrates,Mammals,Cluster 1,0101,Cervus canadensis (wapiti),1,1
+ccan,Animals,Vertebrates,Mammals,Cluster 1,0089,Castor canadensis (American beaver),1,1
+cdk,Animals,Vertebrates,Mammals,Cluster 1,0017,Camelus dromedarius (Arabian camel),1,1
+cfa,Animals,Vertebrates,Mammals,Cluster 1,0052,Canis lupus familiaris (dog),1,1
+cfr,Animals,Vertebrates,Mammals,Cluster 1,0067,Camelus ferus (Wild Bactrian camel),1,1
+cge,Animals,Vertebrates,Mammals,Cluster 1,0077,Cricetulus griseus (Chinese hamster),1,1
+chx,Animals,Vertebrates,Mammals,Cluster 1,0105,Capra hircus (goat),1,1
+cimi,Animals,Vertebrates,Mammals,Cluster 1,0098,Cebus imitator (Panamanian white-faced capuchin),1,1
+cjc,Animals,Vertebrates,Mammals,Cluster 1,0132,Callithrix jacchus (white-tufted-ear marmoset),1,1
+clud,Animals,Vertebrates,Mammals,Cluster 1,0573,Canis lupus dingo (dingo),1,1
+cpoc,Animals,Vertebrates,Mammals,Cluster 1,0448,Cavia porcellus (domestic guinea pig),1,1
+csab,Animals,Vertebrates,Mammals,Cluster 1,0584,Chlorocebus sabaeus (green monkey),1,1
+csyr,Animals,Vertebrates,Mammals,Cluster 1,0848,Carlito syrichta (Philippine tarsier),1,1
+dle,Animals,Vertebrates,Mammals,Cluster 1,0598,Delphinapterus leucas (beluga whale),1,1
+dnm,Animals,Vertebrates,Mammals,Cluster 1,0628,Dasypus novemcinctus (nine-banded armadillo),1,1
+dord,Animals,Vertebrates,Mammals,Cluster 1,0516,Dipodomys ordii (Ord's kangaroo rat),1,1
+dro,Animals,Vertebrates,Mammals,Cluster 1,0683,Desmodus rotundus (common vampire bat),1,1
+dsp,Animals,Vertebrates,Mammals,Cluster 1,0700,Dipodomys spectabilis (banner-tailed kangaroo rat),1,1
+eai,Animals,Vertebrates,Mammals,Cluster 1,0818,Equus asinus (ass),1,1
+ecb,Animals,Vertebrates,Mammals,Cluster 1,0839,Equus caballus (horse),1,1
+eju,Animals,Vertebrates,Mammals,Cluster 1,0070,Eumetopias jubatus (Steller sea lion),1,1
+elk,Animals,Vertebrates,Mammals,Cluster 1,0090,Enhydra lutris kenyoni (northern sea otter),1,1
+epz,Animals,Vertebrates,Mammals,Cluster 1,0184,Equus przewalskii (Przewalski's horse),1,1
+etf,Animals,Vertebrates,Mammals,Cluster 1,0248,Echinops telfairi (small Madagascar hedgehog),1,1
+fca,Animals,Vertebrates,Mammals,Cluster 1,0459,Felis catus (domestic cat),1,1
+gas,Animals,Vertebrates,Mammals,Cluster 1,0780,Gracilinanus agilis (agile gracile opossum),1,1
+ggo,Animals,Vertebrates,Mammals,Cluster 1,0840,Gorilla gorilla gorilla (western lowland gorilla),1,1
+gvr,Animals,Vertebrates,Mammals,Cluster 1,0218,Galeopterus variegatus (Sunda flying lemur),1,1
+hai,Animals,Vertebrates,Mammals,Cluster 1,0382,Hipposideros armiger (great roundleaf bat),1,1
+hgl,Animals,Vertebrates,Mammals,Cluster 1,0463,Heterocephalus glaber (naked mole-rat),1,1
+hhv,Animals,Vertebrates,Mammals,Cluster 1,0483,Hyaena hyaena (striped hyena),1,1
+hmh,Animals,Vertebrates,Mammals,Cluster 1,0530,Hylobates moloch (silvery gibbon),1,1
+hsa,Animals,Vertebrates,Mammals,Cluster 1,0581,Homo sapiens (human),1,1
+lav,Animals,Vertebrates,Mammals,Cluster 1,0254,Loxodonta africana (African savanna elephant),1,1
+lcat,Animals,Vertebrates,Mammals,Cluster 1,0870,Lemur catta (Ring-tailed lemur),1,1
+llv,Animals,Vertebrates,Mammals,Cluster 1,0427,Lutra lutra (Eurasian river otter),1,1
+lruf,Animals,Vertebrates,Mammals,Cluster 1,0396,Lynx rufus (bobcat),1,1
+lve,Animals,Vertebrates,Mammals,Cluster 1,0539,Lipotes vexillifer (Yangtze River dolphin),1,1
+lww,Animals,Vertebrates,Mammals,Cluster 1,0551,Leptonychotes weddellii (Weddell seal),1,1
+maua,Animals,Vertebrates,Mammals,Cluster 1,0798,Mesocricetus auratus (golden hamster),1,1
+mcal,Animals,Vertebrates,Mammals,Cluster 1,0564,Mus caroli (Ryukyu mouse),1,1
+mcc,Animals,Vertebrates,Mammals,Cluster 1,0668,Macaca mulatta (rhesus monkey),1,1
+mcf,Animals,Vertebrates,Mammals,Cluster 1,0670,Macaca fascicularis (crab-eating macaque),1,1
+mcoc,Animals,Vertebrates,Mammals,Cluster 1,0710,Mastomys coucha (southern multimammate mouse),1,1
+mdo,Animals,Vertebrates,Mammals,Cluster 1,0694,Monodelphis domestica (gray short-tailed opossum),1,1
+mfot,Animals,Vertebrates,Mammals,Cluster 1,0161,Microtus fortis (reed vole),1,1
+mjv,Animals,Vertebrates,Mammals,Cluster 1,0757,Manis javanica (Malayan pangolin),1,1
+mleu,Animals,Vertebrates,Mammals,Cluster 1,0771,Mandrillus leucophaeus (drill),1,1
+mlf,Animals,Vertebrates,Mammals,Cluster 1,0765,Myotis lucifugus (little brown bat),1,1
+mlx,Animals,Vertebrates,Mammals,Cluster 1,0769,Mirounga leonina (Southern elephant seal),1,1
+mmf,Animals,Vertebrates,Mammals,Cluster 1,0773,Molossus molossus (Pallas's mastiff bat),1,1
+mmu,Animals,Vertebrates,Mammals,Cluster 1,0779,Mus musculus (house mouse),1,1
+mmur,Animals,Vertebrates,Mammals,Cluster 1,0534,Microcebus murinus (gray mouse lemur),1,1
+mmyo,Animals,Vertebrates,Mammals,Cluster 1,0568,Myotis myotis (greater mouse-eared bat),1,1
+mna,Animals,Vertebrates,Mammals,Cluster 1,0784,Miniopterus natalensis (Natal long-fingered bat),1,1
+mni,Animals,Vertebrates,Mammals,Cluster 1,0787,Macaca nemestrina (pig-tailed macaque),1,1
+morg,Animals,Vertebrates,Mammals,Cluster 1,0476,Microtus oregoni (creeping vole),1,1
+mpah,Animals,Vertebrates,Mammals,Cluster 1,0637,Mus pahari (shrew mouse),1,1
+mpuf,Animals,Vertebrates,Mammals,Cluster 1,0815,Mustela putorius furo (domestic ferret),1,1
+mthb,Animals,Vertebrates,Mammals,Cluster 1,0596,Macaca thibetana thibetana (Pere David's macaque),1,1
+mun,Animals,Vertebrates,Mammals,Cluster 1,0861,Meriones unguiculatus (Mongolian gerbil),1,1
+myb,Animals,Vertebrates,Mammals,Cluster 1,0030,Myotis brandtii (Brandt's bat),1,1
+myd,Animals,Vertebrates,Mammals,Cluster 1,0031,Myotis davidii (David's myotis),1,1
+nasi,Animals,Vertebrates,Mammals,Cluster 1,0484,Neophocaena asiaeorientalis asiaeorientalis (Yangtze finless porpoise),1,1
+ncar,Animals,Vertebrates,Mammals,Cluster 1,0085,Sciurus carolinensis (gray squirrel),1,1
+ngi,Animals,Vertebrates,Mammals,Cluster 1,0292,Nannospalax galili (Upper Galilee mountains blind mole rat),1,1
+nle,Animals,Vertebrates,Mammals,Cluster 1,0364,Nomascus leucogenys (northern white-cheeked gibbon),1,1
+nsu,Animals,Vertebrates,Mammals,Cluster 1,0465,Neomonachus schauinslandi (Hawaiian monk seal),1,1
+nvs,Animals,Vertebrates,Mammals,Cluster 1,0501,Neogale vison (American mink),1,1
+oaa,Animals,Vertebrates,Mammals,Cluster 1,0593,Ornithorhynchus anatinus (platypus),1,1
+oas,Animals,Vertebrates,Mammals,Cluster 1,0601,Ovis aries (sheep),1,1
+ocu,Animals,Vertebrates,Mammals,Cluster 1,0626,Oryctolagus cuniculus (rabbit),1,1
+oda,Animals,Vertebrates,Mammals,Cluster 1,0631,Oryx dammah (scimitar-horned oryx),1,1
+oga,Animals,Vertebrates,Mammals,Cluster 1,0665,Otolemur garnettii (small-eared galago),1,1
+oor,Animals,Vertebrates,Mammals,Cluster 1,0761,Orcinus orca (killer whale),1,1
+opi,Animals,Vertebrates,Mammals,Cluster 1,0767,Ochotona princeps (American pika),1,1
+oro,Animals,Vertebrates,Mammals,Cluster 1,0789,Odobenus rosmarus divergens (Pacific walrus),1,1
+pale,Animals,Vertebrates,Mammals,Cluster 1,0440,Pteropus alecto (black flying fox),1,1
+panu,Animals,Vertebrates,Mammals,Cluster 1,0462,Papio anubis (olive baboon),1,1
+pbg,Animals,Vertebrates,Mammals,Cluster 1,0110,Prionailurus bengalensis (leopard cat),1,1
+pcad,Animals,Vertebrates,Mammals,Cluster 1,0219,Physeter catodon (sperm whale),1,1
+pcoo,Animals,Vertebrates,Mammals,Cluster 1,0445,Puma concolor (puma),1,1
+pcoq,Animals,Vertebrates,Mammals,Cluster 1,0441,Propithecus coquereli (Coquerel's sifaka),1,1
+pcw,Animals,Vertebrates,Mammals,Cluster 1,0135,Phascolarctos cinereus (koala),1,1
+pdic,Animals,Vertebrates,Mammals,Cluster 1,0737,Phyllostomus discolor (pale spear-nosed bat),1,1
+pgig,Animals,Vertebrates,Mammals,Cluster 1,0215,Pteropus giganteus (Indian flying fox),1,1
+phas,Animals,Vertebrates,Mammals,Cluster 1,0542,Phyllostomus hastatus (greater spear-nosed bat),1,1
+pkl,Animals,Vertebrates,Mammals,Cluster 1,0290,Pipistrellus kuhlii (Kuhl's pipistrelle),1,1
+pleu,Animals,Vertebrates,Mammals,Cluster 1,0494,Peromyscus leucopus (white-footed mouse),1,1
+plop,Animals,Vertebrates,Mammals,Cluster 1,0605,Perognathus longimembris pacificus (Pacific pocket mouse),1,1
+pon,Animals,Vertebrates,Mammals,Cluster 1,0349,Pongo abelii (Sumatran orangutan),1,1
+ppad,Animals,Vertebrates,Mammals,Cluster 1,0334,Panthera pardus (leopard),1,1
+pps,Animals,Vertebrates,Mammals,Cluster 1,0369,Pan paniscus (bonobo),1,1
+prob,Animals,Vertebrates,Mammals,Cluster 1,0474,Phodopus roborovskii (desert hamster),1,1
+psiu,Animals,Vertebrates,Mammals,Cluster 1,0746,Phocoena sinus (vaquita),1,1
+pteh,Animals,Vertebrates,Mammals,Cluster 1,0246,Piliocolobus tephrosceles (Ugandan red Colobus),1,1
+ptg,Animals,Vertebrates,Mammals,Cluster 1,0414,Panthera tigris altaica (Amur tiger),1,1
+ptr,Animals,Vertebrates,Mammals,Cluster 1,0424,Pan troglodytes (chimpanzee),1,1
+puc,Animals,Vertebrates,Mammals,Cluster 1,0429,Panthera uncia (snow leopard),1,1
+pvp,Animals,Vertebrates,Mammals,Cluster 1,0446,Pteropus vampyrus (large flying fox),1,1
+pyu,Animals,Vertebrates,Mammals,Cluster 1,0486,Puma yagouaroundi (jaguarundi),1,1
+ray,Animals,Vertebrates,Mammals,Cluster 1,0018,Rousettus aegyptiacus (Egyptian rousette),1,1
+rbb,Animals,Vertebrates,Mammals,Cluster 1,0023,Rhinopithecus bieti (black snub-nosed monkey),1,1
+rfq,Animals,Vertebrates,Mammals,Cluster 1,0115,Rhinolophus ferrumequinum (greater horseshoe bat),1,1
+rno,Animals,Vertebrates,Mammals,Cluster 1,0270,Rattus norvegicus (rat),1,1
+rro,Animals,Vertebrates,Mammals,Cluster 1,0342,Rhinopithecus roxellana (golden snub-nosed monkey),1,1
+sara,Animals,Vertebrates,Mammals,Cluster 1,0124,Sorex araneus (European shrew),1,1
+sbq,Animals,Vertebrates,Mammals,Cluster 1,0531,Saimiri boliviensis boliviensis (Bolivian squirrel monkey),1,1
+shon,Animals,Vertebrates,Mammals,Cluster 1,0407,Sturnira hondurensis,1,1
+shr,Animals,Vertebrates,Mammals,Cluster 1,0583,Sarcophilus harrisii (Tasmanian devil),1,1
+ssc,Animals,Vertebrates,Mammals,Cluster 1,0718,Sus scrofa (pig),1,1
+tfn,Animals,Vertebrates,Mammals,Cluster 1,0033,Trachypithecus francoisi (Francois's langur),1,1
+tge,Animals,Vertebrates,Mammals,Cluster 1,0044,Theropithecus gelada (gelada),1,1
+tmu,Animals,Vertebrates,Mammals,Cluster 1,0170,Trichechus manatus latirostris (Florida manatee),1,1
+tod,Animals,Vertebrates,Mammals,Cluster 1,0195,Talpa occidentalis (Iberian mole),1,1
+tup,Animals,Vertebrates,Mammals,Cluster 1,0329,Tupaia chinensis (Chinese tree shrew),1,1
+uah,Animals,Vertebrates,Mammals,Cluster 1,0470,Ursus arctos horribilis (North American brown bear),1,1
+uar,Animals,Vertebrates,Mammals,Cluster 1,0478,Ursus americanus (American black bear),1,1
+umr,Animals,Vertebrates,Mammals,Cluster 1,0597,Ursus maritimus (polar bear),1,1
+vlg,Animals,Vertebrates,Mammals,Cluster 1,0069,Vulpes lagopus (Arctic fox),1,1
+vpc,Animals,Vertebrates,Mammals,Cluster 1,0137,Vicugna pacos (alpaca),1,1
+vvp,Animals,Vertebrates,Mammals,Cluster 1,0269,Vulpes vulpes (red fox),1,1
+zca,Animals,Vertebrates,Mammals,Cluster 1,0744,Zalophus californianus (California sea lion),1,1
+aang,Animals,Vertebrates,Fishes,Cluster 1,0317,Anguilla anguilla (European eel),1,1
+alat,Animals,Vertebrates,Fishes,Cluster 1,0271,Acanthopagrus latus (yellowfin seabream),1,1
+alim,Animals,Vertebrates,Fishes,Cluster 1,0394,Austrofundulus limnaeus (annual killifish),1,1
+amex,Animals,Vertebrates,Fishes,Cluster 1,0715,Astyanax mexicanus (Mexican tetra),1,1
+aoce,Animals,Vertebrates,Fishes,Cluster 1,0639,Amphiprion ocellaris (clown anemonefish),1,1
+arut,Animals,Vertebrates,Fishes,Cluster 1,0405,Acipenser ruthenus (sterlet),1,1
+bpec,Animals,Vertebrates,Fishes,Cluster 1,0641,Boleophthalmus pectinirostris (great blue-spotted mudskipper),1,1
+bspl,Animals,Vertebrates,Fishes,Cluster 1,0341,Betta splendens (Siamese fighting fish),1,1
+caua,Animals,Vertebrates,Fishes,Cluster 1,0458,Carassius auratus (goldfish),1,1
+ccar,Animals,Vertebrates,Fishes,Cluster 1,0121,Cyprinus carpio (common carp),1,1
+cclu,Animals,Vertebrates,Fishes,Cluster 1,0284,Coregonus clupeaformis (lake whitefish),1,1
+cgib,Animals,Vertebrates,Fishes,Cluster 1,0045,Carassius gibelio (silver crucian carp),1,1
+cgob,Animals,Vertebrates,Fishes,Cluster 1,0167,Cottoperca gobio,1,1
+cide,Animals,Vertebrates,Fishes,Cluster 1,0816,Ctenopharyngodon idella (grass carp),1,1
+csem,Animals,Vertebrates,Fishes,Cluster 1,0636,Cynoglossus semilaevis (tongue sole),1,1
+ctul,Animals,Vertebrates,Fishes,Cluster 1,0421,Cyprinodon tularosa (White Sands pupfish),1,1
+cud,Animals,Vertebrates,Fishes,Cluster 1,0345,Cheilinus undulatus (humphead wrasse),1,1
+cvg,Animals,Vertebrates,Fishes,Cluster 1,0354,Cyprinodon variegatus (sheepshead minnow),1,1
+dre,Animals,Vertebrates,Fishes,Cluster 1,0675,Danio rerio (zebrafish),1,1
+ecra,Animals,Vertebrates,Fishes,Cluster 1,0475,Etheostoma cragini (Arkansas darter),1,1
+eee,Animals,Vertebrates,Fishes,Cluster 1,0859,Electrophorus electricus (electric eel),1,1
+efo,Animals,Vertebrates,Fishes,Cluster 1,0878,Epinephelus fuscoguttatus (brown-marbled grouper),1,1
+els,Animals,Vertebrates,Fishes,Cluster 1,0102,Esox lucius (northern pike),1,1
+ely,Animals,Vertebrates,Fishes,Cluster 1,0108,Epinephelus lanceolatus (giant grouper),1,1
+esp,Animals,Vertebrates,Fishes,Cluster 1,0238,Etheostoma spectabile (orangethroat darter),1,1
+gaf,Animals,Vertebrates,Fishes,Cluster 1,0777,Gambusia affinis (western mosquitofish),1,1
+gat,Animals,Vertebrates,Fishes,Cluster 1,0782,Gasterosteus aculeatus (three-spined stickleback),1,1
+gmu,Animals,Vertebrates,Fishes,Cluster 1,0041,Girardinichthys multiradiatus (darkedged splitfin),1,1
+hcq,Animals,Vertebrates,Fishes,Cluster 1,0411,Hippocampus comes (tiger tail seahorse),1,1
+hhip,Animals,Vertebrates,Fishes,Cluster 1,0335,Hippoglossus hippoglossus (Atlantic halibut),1,1
+hsp,Animals,Vertebrates,Fishes,Cluster 1,0588,Hippoglossus stenolepis (Pacific halibut),1,1
+ipu,Animals,Vertebrates,Fishes,Cluster 1,0020,Ictalurus punctatus (channel catfish),1,1
+kmr,Animals,Vertebrates,Fishes,Cluster 1,0819,Kryptolebias marmoratus (mangrove rivulus),1,1
+lcf,Animals,Vertebrates,Fishes,Cluster 1,0288,Lates calcarifer (barramundi perch),1,1
+lcm,Animals,Vertebrates,Fishes,Cluster 1,0298,Latimeria chalumnae (coelacanth),1,1
+lco,Animals,Vertebrates,Fishes,Cluster 1,0301,Larimichthys crocea (large yellow croaker),1,1
+loc,Animals,Vertebrates,Fishes,Cluster 1,0457,Lepisosteus oculatus (spotted gar),1,1
+malb,Animals,Vertebrates,Fishes,Cluster 1,0735,Monopterus albus (swamp eel),1,1
+mamb,Animals,Vertebrates,Fishes,Cluster 1,0727,Megalobrama amblycephala (Wuchang bream),1,1
+masi,Animals,Vertebrates,Fishes,Cluster 1,0781,Myxocyprinus asiaticus (Chinese sucker),1,1
+mcep,Animals,Vertebrates,Fishes,Cluster 1,0612,Mugil cephalus (flathead mullet),1,1
+msam,Animals,Vertebrates,Fishes,Cluster 1,0055,Micropterus salmoides (largemouth bass),1,1
+mze,Animals,Vertebrates,Fishes,Cluster 1,0048,Maylandia zebra (zebra mbuna),1,1
+ncc,Animals,Vertebrates,Fishes,Cluster 1,0200,Notothenia coriiceps (black rockcod),1,1
+nfu,Animals,Vertebrates,Fishes,Cluster 1,0277,Nothobranchius furzeri (turquoise killifish),1,1
+nwh,Animals,Vertebrates,Fishes,Cluster 1,0506,Nematolebias whitei (Rio pearlfish),1,1
+oau,Animals,Vertebrates,Fishes,Cluster 1,0602,Oreochromis aureus (blue tilapia),1,1
+ogo,Animals,Vertebrates,Fishes,Cluster 1,0676,Oncorhynchus gorbuscha (pink salmon),1,1
+ola,Animals,Vertebrates,Fishes,Cluster 1,0731,Oryzias latipes (Japanese medaka),1,1
+oml,Animals,Vertebrates,Fishes,Cluster 1,0742,Oryzias melastigma (Indian medaka),1,1
+omy,Animals,Vertebrates,Fishes,Cluster 1,0745,Oncorhynchus mykiss (rainbow trout),1,1
+one,Animals,Vertebrates,Fishes,Cluster 1,0752,Oncorhynchus nerka (sockeye salmon),1,1
+onl,Animals,Vertebrates,Fishes,Cluster 1,0753,Oreochromis niloticus (Nile tilapia),1,1
+otw,Animals,Vertebrates,Fishes,Cluster 1,0811,Oncorhynchus tshawytscha (Chinook salmon),1,1
+pflv,Animals,Vertebrates,Fishes,Cluster 1,0733,Perca flavescens (yellow perch),1,1
+pfor,Animals,Vertebrates,Fishes,Cluster 1,0754,Poecilia formosa (Amazon molly),1,1
+phyp,Animals,Vertebrates,Fishes,Cluster 1,0812,Pangasianodon hypophthalmus (striped catfish),1,1
+pki,Animals,Vertebrates,Fishes,Cluster 1,0289,Paramormyrops kingsleyae,1,1
+plai,Animals,Vertebrates,Fishes,Cluster 1,0436,Poecilia latipinna (sailfin molly),1,1
+plep,Animals,Vertebrates,Fishes,Cluster 1,0492,Plectropomus leopardus (leopard coralgrouper),1,1
+pmei,Animals,Vertebrates,Fishes,Cluster 1,0820,Poecilia mexicana (shortfin molly),1,1
+pov,Animals,Vertebrates,Fishes,Cluster 1,0355,Paralichthys olivaceus (Japanese flounder),1,1
+pprm,Animals,Vertebrates,Fishes,Cluster 1,0535,Pimephales promelas (fathead minnow),1,1
+ppug,Animals,Vertebrates,Fishes,Cluster 1,0577,Pungitius pungitius (ninespine stickleback),1,1
+pret,Animals,Vertebrates,Fishes,Cluster 1,0324,Poecilia reticulata (guppy),1,1
+psex,Animals,Vertebrates,Fishes,Cluster 1,0702,Polypterus senegalus (gray bichir),1,1
+pspa,Animals,Vertebrates,Fishes,Cluster 1,0793,Polyodon spathula (Mississippi paddlefish),1,1
+salp,Animals,Vertebrates,Fishes,Cluster 1,0062,Salvelinus sp. IW2-2015 (Arctic char),1,1
+sanh,Animals,Vertebrates,Fishes,Cluster 1,0117,Sinocyclocheilus anshuiensis,1,1
+sasa,Animals,Vertebrates,Fishes,Cluster 1,0178,Salmo salar (Atlantic salmon),1,1
+schu,Animals,Vertebrates,Fishes,Cluster 1,0827,Siniperca chuatsi (mandarin fish),1,1
+sdu,Animals,Vertebrates,Fishes,Cluster 1,0550,Seriola dumerili (greater amberjack),1,1
+sfm,Animals,Vertebrates,Fishes,Cluster 1,0565,Scleropages formosus (Asian bonytongue),1,1
+sgh,Animals,Vertebrates,Fishes,Cluster 1,0572,Sinocyclocheilus grahami (golden-line barbel),1,1
+slal,Animals,Vertebrates,Fishes,Cluster 1,0071,Seriola lalandi dorsalis (Yellowtail amberjack),1,1
+sluc,Animals,Vertebrates,Fishes,Cluster 1,0383,Sander lucioperca (pikeperch),1,1
+smeo,Animals,Vertebrates,Fishes,Cluster 1,0580,Silurus meridionalis (southern catfish),1,1
+snh,Animals,Vertebrates,Fishes,Cluster 1,0657,Salvelinus namaycush (lake trout),1,1
+srx,Animals,Vertebrates,Fishes,Cluster 1,0717,Sinocyclocheilus rhinocerous,1,1
+sscv,Animals,Vertebrates,Fishes,Cluster 1,0420,Syngnathus scovelli (Gulf pipefish),1,1
+ssen,Animals,Vertebrates,Fishes,Cluster 1,0454,Solea senegalensis (Senegalese sole),1,1
+stru,Animals,Vertebrates,Fishes,Cluster 1,0043,Salmo trutta (river trout),1,1
+tfd,Animals,Vertebrates,Fishes,Cluster 1,0024,Tachysurus fulvidraco (yellow catfish),1,1
+tng,Animals,Vertebrates,Fishes,Cluster 1,0181,Tetraodon nigroviridis (spotted green pufferfish),1,1
+tru,Animals,Vertebrates,Fishes,Cluster 1,0273,Takifugu rubripes (torafugu),1,1
+xco,Animals,Vertebrates,Fishes,Cluster 1,0785,Xiphophorus couchianus (Monterrey platyfish),1,1
+xgl,Animals,Vertebrates,Fishes,Cluster 1,0822,Xiphias gladius (swordfish),1,1
+xhe,Animals,Vertebrates,Fishes,Cluster 1,0833,Xiphophorus hellerii (green swordtail),1,1
+xma,Animals,Vertebrates,Fishes,Cluster 1,0005,Xiphophorus maculatus (southern platyfish),1,1
+aam,Animals,Vertebrates,Birds,Cluster 1,0040,Apteryx mantelli mantelli (North Island brown kiwi),1,1
+acar,Animals,Vertebrates,Birds,Cluster 1,0884,Antrostomus carolinensis (chuck-will's-widow),1,1
+achc,Animals,Vertebrates,Birds,Cluster 1,0103,Aquila chrysaetos chrysaetos (golden eagle),1,1
+achl,Animals,Vertebrates,Birds,Cluster 1,0081,Acanthisitta chloris (rifleman),1,1
+acun,Animals,Vertebrates,Birds,Cluster 1,0333,Athene cunicularia (burrowing owl),1,1
+acyg,Animals,Vertebrates,Birds,Cluster 1,0389,Anser cygnoides domesticus (swan goose),1,1
+afor,Animals,Vertebrates,Birds,Cluster 1,0603,Aptenodytes forsteri (emperor penguin),1,1
+aful,Animals,Vertebrates,Birds,Cluster 1,0644,Aythya fuligula (tufted duck),1,1
+agen,Animals,Vertebrates,Birds,Cluster 1,0824,Accipiter gentilis (Northern goshawk),1,1
+apla,Animals,Vertebrates,Birds,Cluster 1,0285,Anas platyrhynchos (mallard),1,1
+arow,Animals,Vertebrates,Birds,Cluster 1,0316,Apteryx rowi (Okarito brown kiwi),1,1
+avit,Animals,Vertebrates,Birds,Cluster 1,0004,Apaloderma vittatum (bar-tailed trogon),1,1
+brhi,Animals,Vertebrates,Birds,Cluster 1,0662,Buceros rhinoceros silvestris (Rhinoceros hornbill),1,1
+cbrc,Animals,Vertebrates,Birds,Cluster 1,0792,Corvus brachyrhynchos (American crow),1,1
+ccae,Animals,Vertebrates,Birds,Cluster 1,0096,Cyanistes caeruleus (blue tit),1,1
+ccri,Animals,Vertebrates,Birds,Cluster 1,0403,Cariama cristata (Red-legged seriema),1,1
+ccw,Animals,Vertebrates,Birds,Cluster 1,0010,Corvus cornix (hooded crow),1,1
+cjo,Animals,Vertebrates,Birds,Cluster 1,0138,Coturnix japonica (Japanese quail),1,1
+clv,Animals,Vertebrates,Birds,Cluster 1,0180,Columba livia (rock pigeon),1,1
+cmac,Animals,Vertebrates,Birds,Cluster 1,0730,Chlamydotis macqueenii (Macqueen's bustard),1,1
+cpea,Animals,Vertebrates,Birds,Cluster 1,0309,Chaetura pelagica (chimney swift),1,1
+csti,Animals,Vertebrates,Birds,Cluster 1,0776,Colius striatus (speckled mousebird),1,1
+cuca,Animals,Vertebrates,Birds,Cluster 1,0566,Cuculus canorus (common cuckoo),1,1
+cvf,Animals,Vertebrates,Birds,Cluster 1,0352,Charadrius vociferus (killdeer),1,1
+dne,Animals,Vertebrates,Birds,Cluster 1,0625,Dromaius novaehollandiae (emu),1,1
+dpub,Animals,Vertebrates,Birds,Cluster 1,0028,Dryobates pubescens (Downy woodpecker),1,1
+egz,Animals,Vertebrates,Birds,Cluster 1,0011,Egretta garzetta (little egret),1,1
+ehs,Animals,Vertebrates,Birds,Cluster 1,0021,Eurypyga helias (sunbittern),1,1
+etl,Animals,Vertebrates,Birds,Cluster 1,0253,Empidonax traillii (willow flycatcher),1,1
+fab,Animals,Vertebrates,Birds,Cluster 1,0432,Ficedula albicollis (collared flycatcher),1,1
+fch,Animals,Vertebrates,Birds,Cluster 1,0461,Falco cherrug (Saker falcon),1,1
+fga,Animals,Vertebrates,Birds,Cluster 1,0507,Fulmarus glacialis (Northern fulmar),1,1
+fpg,Animals,Vertebrates,Birds,Cluster 1,0599,Falco peregrinus (peregrine falcon),1,1
+gcl,Animals,Vertebrates,Birds,Cluster 1,0797,Gymnogyps californianus (California condor),1,1
+gfr,Animals,Vertebrates,Birds,Cluster 1,0831,Geospiza fortis (medium ground-finch),1,1
+gga,Animals,Vertebrates,Birds,Cluster 1,0838,Gallus gallus (chicken),1,1
+gste,Animals,Vertebrates,Birds,Cluster 1,0065,Gavia stellata (red-throated loon),1,1
+hald,Animals,Vertebrates,Birds,Cluster 1,0001,Haliaeetus albicilla (white-tailed eagle),1,1
+hle,Animals,Vertebrates,Birds,Cluster 1,0521,Haliaeetus leucocephalus (bald eagle),1,1
+ldi,Animals,Vertebrates,Birds,Cluster 1,0315,Leptosomus discolor (cuckoo roller),1,1
+lsr,Animals,Vertebrates,Birds,Cluster 1,0509,Lonchura striata domestica (Bengalese finch),1,1
+mgp,Animals,Vertebrates,Birds,Cluster 1,0724,Meleagris gallopavo (turkey),1,1
+mnb,Animals,Vertebrates,Birds,Cluster 1,0783,Merops nubicus (carmine bee-eater),1,1
+mui,Animals,Vertebrates,Birds,Cluster 1,0858,Mesitornis unicolor (brown roatelo),1,1
+nmel,Animals,Vertebrates,Birds,Cluster 1,0762,Numida meleagris (helmeted guineafowl),1,1
+nni,Animals,Vertebrates,Birds,Cluster 1,0397,Nipponia nippon (crested ibis),1,1
+nnt,Animals,Vertebrates,Birds,Cluster 1,0401,Nestor notabilis (Kea),1,1
+npd,Animals,Vertebrates,Birds,Cluster 1,0418,Nothoprocta perdicaria (Chilean tinamou),1,1
+oha,Animals,Vertebrates,Birds,Cluster 1,0686,Opisthocomus hoazin (hoatzin),1,1
+otc,Animals,Vertebrates,Birds,Cluster 1,0801,Onychostruthus taczanowskii (white-rumped snowfinch),1,1
+padl,Animals,Vertebrates,Birds,Cluster 1,0327,Pygoscelis adeliae (Adelie penguin),1,1
+pcao,Animals,Vertebrates,Birds,Cluster 1,0203,Phalacrocorax carbo (great cormorant),1,1
+pcoc,Animals,Vertebrates,Birds,Cluster 1,0452,Phasianus colchicus (Ring-necked pheasant),1,1
+pcri,Animals,Vertebrates,Birds,Cluster 1,0472,Pelecanus crispus (Dalmatian pelican),1,1
+pguu,Animals,Vertebrates,Birds,Cluster 1,0417,Pterocles gutturalis (yellow-throated sandgrouse),1,1
+phi,Animals,Vertebrates,Birds,Cluster 1,0227,Pseudopodoces humilis (Tibetan ground-tit),1,1
+plet,Animals,Vertebrates,Birds,Cluster 1,0498,Phaethon lepturus (White-tailed tropicbird),1,1
+pmaj,Animals,Vertebrates,Birds,Cluster 1,0778,Parus major (Great Tit),1,1
+pmoa,Animals,Vertebrates,Birds,Cluster 1,0112,Passer montanus (Eurasian tree sparrow),1,1
+pruf,Animals,Vertebrates,Birds,Cluster 1,0545,Pyrgilauda ruficollis (rufous-necked snowfinch),1,1
+scam,Animals,Vertebrates,Birds,Cluster 1,0740,Struthio camelus australis (South African ostrich),1,1
+scan,Animals,Vertebrates,Birds,Cluster 1,0739,Serinus canaria (common canary),1,1
+shab,Animals,Vertebrates,Birds,Cluster 1,0155,Strigops habroptila (Kakapo),1,1
+svg,Animals,Vertebrates,Birds,Cluster 1,0751,Sturnus vulgaris (common starling),1,1
+tala,Animals,Vertebrates,Birds,Cluster 1,0571,Tyto alba (Barn owl),1,1
+teo,Animals,Vertebrates,Birds,Cluster 1,0013,Tauraco erythrolophus (red-crested turaco),1,1
+tgt,Animals,Vertebrates,Birds,Cluster 1,0053,Tinamus guttatus (white-throated tinamou),1,1
+tgu,Animals,Vertebrates,Birds,Cluster 1,0058,Taeniopygia guttata (zebra finch),1,1
+tpai,Animals,Vertebrates,Birds,Cluster 1,0491,Tympanuchus pallidicinctus (lesser prairie-chicken),1,1
+zab,Animals,Vertebrates,Birds,Cluster 1,0726,Zonotrichia albicollis (white-throated sparrow),1,1
+acs,Animals,Vertebrates,Reptiles,Cluster 1,0083,Anolis carolinensis (green anole),1,1
+amj,Animals,Vertebrates,Reptiles,Cluster 1,0278,Alligator mississippiensis (American alligator),1,1
+asn,Animals,Vertebrates,Reptiles,Cluster 1,0373,Alligator sinensis (Chinese alligator),1,1
+cabi,Animals,Vertebrates,Reptiles,Cluster 1,0158,Chelonoidis abingdonii (Abingdon island giant tortoise),1,1
+cmy,Animals,Vertebrates,Reptiles,Cluster 1,0199,Chelonia mydas (green sea turtle),1,1
+cpic,Animals,Vertebrates,Reptiles,Cluster 1,0365,Chrysemys picta (western painted turtle),1,1
+cpoo,Animals,Vertebrates,Reptiles,Cluster 1,0443,Crocodylus porosus (Australian saltwater crocodile),1,1
+ctig,Animals,Vertebrates,Reptiles,Cluster 1,0216,Crotalus tigris (Tiger rattlesnake),1,1
+ggn,Animals,Vertebrates,Reptiles,Cluster 1,0841,Gavialis gangeticus (Gharial),1,1
+gja,Animals,Vertebrates,Reptiles,Cluster 1,0871,Gekko japonicus (Schlegel's Japanese gecko),1,1
+hcg,Animals,Vertebrates,Reptiles,Cluster 1,0408,Hemicordylus capensis (graceful crag lizard),1,1
+mrv,Animals,Vertebrates,Reptiles,Cluster 1,0830,Mauremys reevesii (Reeves's turtle),1,1
+pbi,Animals,Vertebrates,Reptiles,Cluster 1,0111,Python bivittatus (Burmese python),1,1
+pgut,Animals,Vertebrates,Reptiles,Cluster 1,0415,Pantherophis guttatus (corn snake),1,1
+pmua,Animals,Vertebrates,Reptiles,Cluster 1,0236,Podarcis muralis (common wall lizard),1,1
+pmur,Animals,Vertebrates,Reptiles,Cluster 1,0225,Protobothrops mucrosquamatus (Taiwan habu),1,1
+pss,Animals,Vertebrates,Reptiles,Cluster 1,0410,Pelodiscus sinensis (Chinese soft-shelled turtle),1,1
+pvt,Animals,Vertebrates,Reptiles,Cluster 1,0449,Pogona vitticeps (central bearded dragon),1,1
+stow,Animals,Vertebrates,Reptiles,Cluster 1,0034,Sphaerodactylus townsendi (Townsend's least gecko),1,1
+sund,Animals,Vertebrates,Reptiles,Cluster 1,0502,Sceloporus undulatus (fence lizard),1,1
+tsr,Animals,Vertebrates,Reptiles,Cluster 1,0293,Thamnophis sirtalis (common garter snake),1,1
+tst,Animals,Vertebrates,Reptiles,Cluster 1,0296,Trachemys scripta elegans (red-eared slider),1,1
+vko,Animals,Vertebrates,Reptiles,Cluster 1,0049,Varanus komodoensis (Komodo dragon),1,1
+zvi,Animals,Vertebrates,Reptiles,Cluster 1,0099,Zootoca vivipara (common lizard),1,1
+bbuf,Animals,Vertebrates,Amphibians,Cluster 1,0430,Bufo bufo (common toad),1,1
+bgar,Animals,Vertebrates,Amphibians,Cluster 1,0437,Bufo gargarizans (Asiatic toad),1,1
+npr,Animals,Vertebrates,Amphibians,Cluster 1,0425,Nanorana parkeri (Xizang Plateau frog),1,1
+rtem,Animals,Vertebrates,Amphibians,Cluster 1,0359,Rana temporaria (common frog),1,1
+xla,Animals,Vertebrates,Amphibians,Cluster 1,0876,Xenopus laevis (African clawed frog),1,1
+xtr,Animals,Vertebrates,Amphibians,Cluster 1,0147,Xenopus tropicalis (tropical clawed frog),1,1
+cmk,Animals,Vertebrates,Cartilaginous,Cluster 1,0191,Callorhinchus milii (elephant shark),1,1
+cpla,Animals,Vertebrates,Cartilaginous,Cluster 1,0378,Chiloscyllium plagiosum (whitespotted bambooshark),1,1
+rtp,Animals,Vertebrates,Cartilaginous,Cluster 1,0367,Rhincodon typus (whale shark),1,1
+aag,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0035,Aedes aegypti (yellow fever mosquito),2,2
+aalb,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0276,Aedes albopictus (Asian tiger mosquito),2,2
+aali,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0267,Anopheles albimanus,2,2
+aara,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0362,Anopheles arabiensis,2,2
+acep,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0054,Atta cephalotes (leaf cutting ant),2,2
+acer,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0057,Apis cerana (Asiatic honeybee),2,2
+acoz,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0255,Anopheles coluzzii,2,2
+aec,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0120,Acromyrmex echinatior (Panamanian leafcutter ant),2,2
+aga,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0150,Anopheles gambiae (malaria mosquito),2,2
+agb,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0151,Anoplophora glabripennis (Asian longhorned beetle),2,2
+agif,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0877,Aphidius gifuensis,2,2
+agrg,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0146,Anthonomus grandis grandis (boll weevil),2,2
+ags,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0159,Aphis gossypii (cotton aphid),2,2
+alab,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0256,Apis laboriosa (Himalayan honeybee),2,2
+ame,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0274,Apis mellifera (honey bee),2,2
+amer,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0716,Anopheles merus,2,2
+api,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0337,Acyrthosiphon pisum (pea aphid),2,2
+apln,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0305,Agrilus planipennis (emerald ash borer),2,2
+aste,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0720,Anopheles stephensi (Asian malaria mosquito),2,2
+atd,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0380,Aethina tumida (small hive beetle),2,2
+bany,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0750,Bicyclus anynana (squinting bush brown),2,2
+bbif,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0232,Bombus bifarius (two-form bumblebee),2,2
+bcoo,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0707,Bradysia coprophila,2,2
+bim,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0620,Bombus impatiens (common eastern bumble bee),2,2
+bman,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0249,Bombyx mandarina (wild silkworm),2,2
+bmor,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0456,Bombyx mori (domestic silkworm),2,2
+bod,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0691,Bactrocera oleae (olive fruit fly),2,2
+bpyo,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0862,Bombus pyrosoma,2,2
+btab,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0520,Bemisia tabaci (sweet potato whitefly),2,2
+bter,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0555,Bombus terrestris (buff-tailed bumblebee),2,2
+bvan,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0503,Bombus vancouverensis nearcticus,2,2
+bvk,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0763,Bombus vosnesenskii (yellow-faced bumblebee),2,2
+ccal,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0091,Ceratina calcarata (carpenter bee),2,2
+ccat,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0118,Ceratitis capitata (Mediterranean fruit fly),2,2
+ccin,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0262,Cephus cinctus (wheat stem sawfly),2,2
+ccrc,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0406,Colias croceus (clouded yellow),2,2
+cfel,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0559,Ctenocephalides felis (cat flea),2,2
+cfo,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0066,Camponotus floridanus (Florida carpenter ant),2,2
+cgig,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0100,Colletes gigas,2,2
+cglo,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0127,Cotesia glomerata,2,2
+cins,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0080,Chelonus insularis,2,2
+clec,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0423,Cimex lectularius (bed bug),2,2
+cns,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0222,Contarinia nasturtii (swede midge),2,2
+cpii,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0363,Culex pipiens pallens (Northern house mosquito),2,2
+cqu,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0283,Culex quinquefasciatus (southern house mosquito),2,2
+csec,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0627,Cryptotermes secundus (drywood termite),2,2
+cset,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0635,Coccinella septempunctata (seven-spotted ladybird),2,2
+csol,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0749,Ceratosolen solmsi marchali (fig wasp),2,2
+dam,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0489,Diachasma alloeum,2,2
+dan,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0487,Drosophila ananassae,2,2
+daz,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0496,Drosophila arizonae,2,2
+dci,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0511,Diaphorina citri (Asian citrus psyllid),2,2
+der,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0536,Drosophila erecta,2,2
+dgr,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0552,Drosophila grimshawi,2,2
+dhe,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0557,Drosophila hydei,2,2
+dme,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0614,Drosophila melanogaster (fruit fly),2,2
+dmn,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0618,Drosophila miranda,2,2
+dmo,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0619,Drosophila mojavensis,2,2
+dnv,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0632,Drosophila navojoa,2,2
+dnx,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0634,Diuraphis noxia (Russian wheat aphid),2,2
+dpa,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0646,Dendroctonus ponderosae (mountain pine beetle),2,2
+dpe,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0650,Drosophila persimilis,2,2
+dpl,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0652,Danaus plexippus (monarch butterfly),2,2
+dpo,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0653,Drosophila pseudoobscura,2,2
+dqu,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0667,Dinoponera quadriceps,2,2
+dse,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0692,Drosophila sechellia,2,2
+dsi,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0697,Drosophila simulans,2,2
+dsm,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0699,Diprion similis,2,2
+dsr,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0703,Drosophila serrata,2,2
+dvi,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0723,Drosophila virilis,2,2
+dwi,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0734,Drosophila willistoni,2,2
+dya,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0755,Drosophila yakuba,2,2
+fas,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0438,Fopius arisanus,2,2
+fcd,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0460,Folsomia candida,2,2
+fex,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0495,Formica exsecta (narrow-headed ant),2,2
+foc,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0582,Frankliniella occidentalis (western flower thrips),2,2
+haw,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0392,Helicoverpa armigera (cotton bollworm),2,2
+hhal,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0168,Halyomorpha halys (brown marmorated stink bug),2,2
+his,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0493,Hermetia illucens (black soldier fly),2,2
+hst,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0589,Harpegnathos saltator (Jerdon's jumping ant),2,2
+hze,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0671,Helicoverpa zea (corn earworm),2,2
+lbd,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0265,Leptopilina boulardi,2,2
+lcq,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0303,Lucilia cuprina (Australian sheep blowfly),2,2
+ldc,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0311,Leptinotarsa decemlineata (Colorado potato beetle),2,2
+lht,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0372,Leptopilina heterotoma,2,2
+lhu,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0371,Linepithema humile (Argentine ant),2,2
+lsq,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0510,Lucilia sericata (common green bottle fly),2,2
+mde,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0687,Musca domestica (house fly),2,2
+mdl,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0689,Microplitis demolitor,2,2
+mgen,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0527,Megalopta genalis,2,2
+mpha,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0713,Monomorium pharaonis (pharaoh ant),2,2
+msex,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0140,Manduca sexta (tobacco hornworm),2,2
+niq,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0336,Nymphalis io (European peacock),2,2
+nlu,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0370,Nilaparvata lugens (brown planthopper),2,2
+nmea,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0766,Nomia melanderi (Alkali bee),2,2
+npt,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0426,Neodiprion pinetum (white pine sawfly),2,2
+nvi,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0499,Nasonia vitripennis (jewel wasp),2,2
+nvl,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0500,Nicrophorus vespilloides (burying beetle),2,2
+obb,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0611,Osmia bicornis bicornis (red mason bee),2,2
+obo,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0615,Ooceraea biroi (clonal raider ant),2,2
+ofu,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0663,Ostrinia furnacalis (Asian corn borer),2,2
+otu,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0810,Onthophagus taurus (bull-headed dung beetle),2,2
+pbar,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0677,Pogonomyrmex barbatus (red harvester ant),2,2
+pbx,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0123,Pieris brassicae (large cabbage white),2,2
+pcf,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0130,Polistes canadensis,2,2
+pfuc,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0809,Polistes fuscatus (common paper wasp),2,2
+pgc,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0198,Pseudomyrmex gracilis (graceful twig ant),2,2
+phu,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0235,Pediculus humanus corporis (human body louse),2,2
+pmac,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0788,Papilio machaon (common yellow swallowtail),2,2
+pnap,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0386,Pieris napi (green-veined white),2,2
+ppot,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0515,Papilio polytes (common Mormon),2,2
+ppyr,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0633,Photinus pyralis (common eastern firefly),2,2
+prap,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0239,Pieris rapae (cabbage white),2,2
+pxu,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0480,Papilio xuthus (Asian swallowtail),2,2
+pxy,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0481,Plutella xylostella (diamondback moth),2,2
+rmd,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0241,Rhopalosiphum maidis (corn leaf aphid),2,2
+rze,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0439,Rhagoletis zephyria (snowberry fruit fly),2,2
+scac,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0738,Stomoxys calcitrans (stable fly),2,2
+sgre,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0854,Schistocerca gregaria (desert locust),2,2
+sliu,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0228,Spodoptera litura (tobacco cutworm),2,2
+soc,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0664,Solenopsis invicta (red fire ant),2,2
+soy,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0681,Sitophilus oryzae (rice weevil),2,2
+tca,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0868,Tribolium castaneum (red flour beetle),2,2
+tnl,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0186,Trichoplusia ni (cabbage looper),2,2
+tpal,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0490,Thrips palmi (melon thrips),2,2
+tpre,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0678,Trichogramma pretiosum,2,2
+vem,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0846,Vollenhovia emeryi,2,2
+vps,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0148,Vespula pensylvanica (western yellowjacket),2,2
+zce,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0747,Zerene cesonia (dogface butterfly),2,2
+zne,Animals,Arthropods,Insects,MSA Cluster 2|MUN Cluster 2,0853,Zootermopsis nevadensis (dampwood termite),2,2
+dmk,Animals,Arthropods,Crustaceans,MSA Cluster 2|MUN Cluster 2,0617,Daphnia magna (water flea),2,2
+dpx,Animals,Arthropods,Crustaceans,MSA Cluster 2|MUN Cluster 2,0658,Daphnia pulex (common water flea),2,2
+dpz,Animals,Arthropods,Crustaceans,MSA Cluster 2|MUN Cluster 2,0659,Daphnia pulicaria,2,2
+eaf,Animals,Arthropods,Crustaceans,MSA Cluster 2|MUN Cluster 2,0817,Eurytemora affinis,2,2
+esn,Animals,Arthropods,Crustaceans,MSA Cluster 2|MUN Cluster 2,0237,Eriocheir sinensis (Chinese mitten crab),2,2
+hame,Animals,Arthropods,Crustaceans,MSA Cluster 2|MUN Cluster 2,0056,Homarus americanus (American lobster),2,2
+hazt,Animals,Arthropods,Crustaceans,MSA Cluster 2|MUN Cluster 2,0281,Hyalella azteca,2,2
+lsm,Animals,Arthropods,Crustaceans,MSA Cluster 2|MUN Cluster 2,0508,Lepeophtheirus salmonis (salmon louse),2,2
+pchn,Animals,Arthropods,Crustaceans,MSA Cluster 2|MUN Cluster 2,0328,Penaeus chinensis (fleshy prawn),2,2
+pcla,Animals,Arthropods,Crustaceans,MSA Cluster 2|MUN Cluster 2,0388,Procambarus clarkii (red swamp crayfish),2,2
+pja,Animals,Arthropods,Crustaceans,MSA Cluster 2|MUN Cluster 2,0257,Penaeus japonicus (kuruma prawn),2,2
+pmoo,Animals,Arthropods,Crustaceans,MSA Cluster 2|MUN Cluster 2,0095,Penaeus monodon (black tiger shrimp),2,2
+ppoi,Animals,Arthropods,Crustaceans,MSA Cluster 2|MUN Cluster 2,0526,Pollicipes pollicipes (gooseneck barnacle),2,2
+ptru,Animals,Arthropods,Crustaceans,MSA Cluster 2|MUN Cluster 2,0482,Portunus trituberculatus (swimming crab),2,2
+pvm,Animals,Arthropods,Crustaceans,MSA Cluster 2|MUN Cluster 2,0444,Penaeus vannamei (Pacific white shrimp),2,2
+cscu,Animals,Arthropods,Chelicerates,MSA Cluster 2|MUN Cluster 2,0592,Centruroides sculpturatus (bark scorpion),2,2
+dfr,Animals,Arthropods,Chelicerates,MSA Cluster 2|MUN Cluster 2,0547,Dermatophagoides farinae (American house dust mite),2,2
+dpte,Animals,Arthropods,Chelicerates,MSA Cluster 2|MUN Cluster 2,0867,Dermatophagoides pteronyssinus (European house dust mite),2,2
+dsv,Animals,Arthropods,Chelicerates,MSA Cluster 2|MUN Cluster 2,0706,Dermacentor silvarum,2,2
+isc,Animals,Arthropods,Chelicerates,MSA Cluster 2|MUN Cluster 2,0075,Ixodes scapularis (black-legged tick),2,2
+lpol,Animals,Arthropods,Chelicerates,MSA Cluster 2|MUN Cluster 2,0353,Limulus polyphemus (Atlantic horseshoe crab),2,2
+ptep,Animals,Arthropods,Chelicerates,MSA Cluster 2|MUN Cluster 2,0251,Parasteatoda tepidariorum (common house spider),2,2
+rmp,Animals,Arthropods,Chelicerates,MSA Cluster 2|MUN Cluster 2,0247,Rhipicephalus microplus (southern cattle tick),2,2
+rsan,Animals,Arthropods,Chelicerates,MSA Cluster 2|MUN Cluster 2,0728,Rhipicephalus sanguineus (brown dog tick),2,2
+sdm,Animals,Arthropods,Chelicerates,MSA Cluster 2|MUN Cluster 2,0549,Stegodyphus dumicola,2,2
+tut,Animals,Arthropods,Chelicerates,MSA Cluster 2|MUN Cluster 2,0330,Tetranychus urticae (two-spotted spider mite),2,2
+vde,Animals,Arthropods,Chelicerates,MSA Cluster 2|MUN Cluster 2,0834,Varroa destructor (honeybee mite),2,2
+vja,Animals,Arthropods,Chelicerates,MSA Cluster 2|MUN Cluster 2,0019,Varroa jacobsoni,2,2
+bgt,Animals,Mollusks,Mollusks,MSA Cluster 2|MUN Cluster 2,0594,Biomphalaria glabrata (bloodfluke planorb),2,2
+crg,Animals,Mollusks,Mollusks,MSA Cluster 2|MUN Cluster 2,0302,Crassostrea gigas (Pacific oyster),2,2
+dpol,Animals,Mollusks,Mollusks,MSA Cluster 2|MUN Cluster 2,0814,Dreissena polymorpha (Zebra mussel),2,2
+gae,Animals,Mollusks,Mollusks,MSA Cluster 2|MUN Cluster 2,0775,Gigantopelta aegis (peltospirid snail),2,2
+hrf,Animals,Mollusks,Mollusks,MSA Cluster 2|MUN Cluster 2,0574,Haliotis rufescens (red abalone),2,2
+hrj,Animals,Mollusks,Mollusks,MSA Cluster 2|MUN Cluster 2,0575,Haliotis rubra (blacklip abalone),2,2
+lgi,Animals,Mollusks,Mollusks,MSA Cluster 2|MUN Cluster 2,0350,Lottia gigantea (owl limpet),2,2
+mcaf,Animals,Mollusks,Mollusks,MSA Cluster 2|MUN Cluster 2,0533,Mytilus californianus (California mussel),2,2
+mmer,Animals,Mollusks,Mollusks,MSA Cluster 2|MUN Cluster 2,0374,Mercenaria mercenaria (northern quahog),2,2
+myi,Animals,Mollusks,Mollusks,MSA Cluster 2|MUN Cluster 2,0032,Mizuhopecten yessoensis (Yesso scallop),2,2
+obi,Animals,Mollusks,Mollusks,MSA Cluster 2|MUN Cluster 2,0613,Octopus bimaculoides (California two-spot octopus),2,2
+osn,Animals,Mollusks,Mollusks,MSA Cluster 2|MUN Cluster 2,0795,Octopus sinensis (East Asian common octopus),2,2
+pcan,Animals,Mollusks,Mollusks,MSA Cluster 2|MUN Cluster 2,0202,Pomacea canaliculata (golden apple snail),2,2
+pmax,Animals,Mollusks,Mollusks,MSA Cluster 2|MUN Cluster 2,0772,Pecten maximus (king scallop),2,2
+adf,Animals,Cnidarians,Cnidarians,MSA Cluster 2|MUN Cluster 2,0088,Acropora digitifera (stony coral),2,2
+amil,Animals,Cnidarians,Cnidarians,MSA Cluster 2|MUN Cluster 2,0748,Acropora millepora,2,2
+aten,Animals,Cnidarians,Cnidarians,MSA Cluster 2|MUN Cluster 2,0022,Actinia tenebrosa (Australian red waratah sea anemone),2,2
+dgt,Animals,Cnidarians,Cnidarians,MSA Cluster 2|MUN Cluster 2,0553,Dendronephthya gigantea (soft corals),2,2
+epa,Animals,Cnidarians,Cnidarians,MSA Cluster 2|MUN Cluster 2,0166,Exaiptasia diaphana (Aiptasia),2,2
+hmg,Animals,Cnidarians,Cnidarians,MSA Cluster 2|MUN Cluster 2,0532,Hydra vulgaris (swiftwater hydra),2,2
+nve,Animals,Cnidarians,Cnidarians,MSA Cluster 2|MUN Cluster 2,0497,Nematostella vectensis (starlet sea anemone),2,2
+pdam,Animals,Cnidarians,Cnidarians,MSA Cluster 2|MUN Cluster 2,0623,Pocillopora damicornis (lace coral),2,2
+spis,Animals,Cnidarians,Cnidarians,MSA Cluster 2|MUN Cluster 2,0072,Stylophora pistillata (Smooth Cauliflower Coral),2,2
+xen,Animals,Cnidarians,Cnidarians,MSA Cluster 2|MUN Cluster 2,0802,Xenia sp. Carnegie-2017 (soft corals),2,2
+bmy,Animals,Nematodes,Nematodes,MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms,0669,Brugia malayi (filaria),3,3
+cbr,Animals,Nematodes,Nematodes,MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Cluster 2|two worms|whole set of worms,0880,Caenorhabditis briggsae (nematode),2,2
+cel,Animals,Nematodes,Nematodes,MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Cluster 2|two worms|whole set of worms,0038,Caenorhabditis elegans (nematode),2,2
+loa,Animals,Nematodes,Nematodes,MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms,0455,Loa loa (eye worm),3,3
+nai,Animals,Nematodes,Nematodes,MSA Cluster 2|MUN Cluster 2|whole set of worms,0165,Necator americanus (New World hookworm),2,2
+tsp,Animals,Nematodes,Nematodes,MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms,0291,Trichinella spiralis,3,3
+egl,Animals,Flatworms,Flatworms,MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms,0003,Echinococcus granulosus (hydatid tapeworm),3,3
+ovi,Animals,Flatworms,Flatworms,MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms,0825,Opisthorchis viverrini (Southeast Asian liver fluke),3,3
+shx,Animals,Flatworms,Flatworms,MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms,0586,Schistosoma haematobium (urinary blood fluke),3,3
+smm,Animals,Flatworms,Flatworms,MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MSA Nematodes and Flatworms|MUN Algae and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms|MUN Nematodes and Flatworms|whole set of worms,0645,Schistosoma mansoni,3,3
+ajc,Animals,Echinoderms,Echinoderms,MSA Cluster 2|MUN Cluster 2,0208,Anneissia japonica (feather star),2,2
+aplc,Animals,Echinoderms,Echinoderms,MSA Cluster 2|MUN Cluster 2,0287,Acanthaster planci (crown-of-thorns starfish),2,2
+spu,Animals,Echinoderms,Echinoderms,MSA Cluster 2|MUN Cluster 2,0695,Strongylocentrotus purpuratus (purple sea urchin),2,2
+bbel,Animals,Cephalochordates,Cephalochordates,MSA Cluster 2|MUN Cluster 2,0126,Branchiostoma belcheri (Belcher's lancelet),2,2
+bfo,Animals,Cephalochordates,Cephalochordates,MSA Cluster 2|MUN Cluster 2,0578,Branchiostoma floridae (Florida lancelet),2,2
+cin,Animals,Tunicates,Tunicates,MSA Cluster 2|MUN Cluster 2,0125,Ciona intestinalis (yellow sea squirt),2,2
+sclv,Animals,Tunicates,Tunicates,MSA Cluster 2|MUN Cluster 2,0879,Styela clava (leathery sea squirt),2,2
+aqu,Animals,Poriferans,Poriferans,MSA Cluster 2|MUN Cluster 2,0346,Amphimedon queenslandica (sponge),2,2
+hro,Animals,Annelids,Annelids,MSA Cluster 2|MUN Cluster 2,0576,Helobdella robusta,2,2
+lak,Animals,Brachiopodas,Brachiopodas,MSA Cluster 2|MUN Cluster 2,0250,Lingula anatina,2,2
+sko,Animals,Hemichordates,Hemichordates,MSA Cluster 2|MUN Cluster 2,0624,Saccoglossus kowalevskii (acorn worm),2,2
+tad,Animals,Placozoans,Placozoans,MSA Cluster 2|MUN Cluster 2,0843,Trichoplax adhaerens (placozoan),2,2
+ago,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0157,Ashbya gossypii (Eremothecium gossypii),3,3
+bbrx,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0398,Brettanomyces bruxellensis,3,3
+bnn,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0684,Brettanomyces nanus,3,3
+cal,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0865,Candida albicans,3,3
+caur,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0467,Candida auris,3,3
+cdu,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0027,Candida dubliniensis,3,3
+cgr,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0082,Nakaseomyces glabratus,3,3
+clu,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0183,Clavispora lusitaniae ATCC 42720,3,3
+clus,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0607,Clavispora lusitaniae CBS 6936,3,3
+cot,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0242,Candida orthopsilosis,3,3
+cten,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0145,Yamadazyma tenuis,3,3
+ctp,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0338,Candida tropicalis,3,3
+dha,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0556,Debaryomyces hansenii,3,3
+erc,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0205,Eremothecium cymbalariae,3,3
+kaf,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0708,Kazachstania africana,3,3
+kla,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0804,Kluyveromyces lactis,3,3
+kmx,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0821,Kluyveromyces marxianus,3,3
+kng,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0826,Kazachstania naganishii,3,3
+lel,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0331,Lodderomyces elongisporus,3,3
+lth,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0522,Lachancea thermotolerans,3,3
+ncs,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0213,Naumovozyma castellii,3,3
+ndi,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0231,Naumovozyma dairenensis,3,3
+opa,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0764,Ogataea parapolymorpha,3,3
+pgu,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0214,Meyerozyma guilliermondii,3,3
+pic,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0243,Scheffersomyces stipitis,3,3
+pkz,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0308,Pichia kudriavzevii,3,3
+ppa,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0360,Komagataella phaffii,3,3
+sce,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0538,Saccharomyces cerevisiae (budding yeast),3,3
+seub,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0063,Saccharomyces eubayanus,3,3
+slb,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0629,Sugiyamaella lignohabitans,3,3
+slud,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0390,Saccharomycodes ludwigii,3,3
+spaa,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0794,Spathaspora passalidarum,3,3
+spao,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0837,Saccharomyces paradoxus,3,3
+tbl,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0857,Tetrapisispora blattae,3,3
+tdl,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0883,Torulaspora delbrueckii,3,3
+tgb,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0042,Torulaspora globosa,3,3
+tpf,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0223,Tetrapisispora phaffii,3,3
+vpo,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0144,Vanderwaltozyma polyspora,3,3
+yli,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0505,Yarrowia lipolytica,3,3
+zmk,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0845,Zygotorulaspora mrakii,3,3
+zro,Fungi,Ascomycetes,Saccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0029,Zygosaccharomyces rouxii,3,3
+cfj,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0061,Colletotrichum fioriniae,3,3
+chig,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0563,Colletotrichum higginsianum,3,3
+clup,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0609,Colletotrichum lupini,3,3
+cmt,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0197,Cordyceps militaris,3,3
+cthr,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0164,Thermochaetoides thermophila,3,3
+ela,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0086,Eutypa lata,3,3
+fgr,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0513,Fusarium graminearum,3,3
+fox,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0595,Fusarium oxysporum,3,3
+fpu,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0608,Fusarium pseudograminearum,3,3
+fvr,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0685,Fusarium verticillioides,3,3
+maj,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0649,Metarhizium robertsii,3,3
+maw,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0654,Metarhizium acridum,3,3
+mgr,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0725,Pyricularia oryzae,3,3
+mtm,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0849,Thermothelomyces thermophilus,3,3
+ncr,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0210,Neurospora crassa,3,3
+nhe,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0312,Fusarium vanettenii,3,3
+nte,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0473,Neurospora tetrasperma,3,3
+pan,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0087,Podospora anserina,3,3
+pfy,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0192,Pestalotiopsis fici,3,3
+plj,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0314,Purpureocillium lilacinum,3,3
+ppei,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0381,Pyricularia pennisetigena,3,3
+ptkz,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0347,Purpureocillium takamizusanense,3,3
+sapo,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0149,Scedosporium apiospermum,3,3
+smp,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0648,Sordaria macrospora,3,3
+ssck,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0428,Sporothrix schenckii,3,3
+tmn,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0163,Phaeoacremonium minimum,3,3
+tre,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0258,Trichoderma reesei QM6a,3,3
+trr,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0272,Trichoderma reesei RUT C-30,3,3
+ttt,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0318,Thermothielavioides terrestris,3,3
+val,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0803,Verticillium alfalfae,3,3
+vda,Fungi,Ascomycetes,Sordariomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0832,Verticillium dahliae,3,3
+abe,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0060,Trichophyton benhamiae,3,3
+ache,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0106,Aspergillus chevalieri,3,3
+act,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0084,Aspergillus clavatus,3,3
+afm,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0139,Aspergillus fumigatus,3,3
+afv,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0142,Aspergillus flavus,3,3
+aje,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0211,Histoplasma mississippiense,3,3
+aluc,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0519,Aspergillus luchuensis,3,3
+ang,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0304,Aspergillus niger (black aspergilli),3,3
+ani,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0307,Aspergillus nidulans,3,3
+aor,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0325,Aspergillus oryzae,3,3
+apuu,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0442,Aspergillus puulaauensis,3,3
+bgh,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0587,Blastomyces gilchristii,3,3
+cim,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0122,Coccidioides immitis,3,3
+cpw,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0263,Coccidioides posadasii,3,3
+nfi,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0268,Aspergillus fischeri,3,3
+pbl,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0114,Paracoccidioides lutzii Pb01,3,3
+pbn,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0119,Paracoccidioides brasiliensis,3,3
+pcs,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0134,Penicillium rubens,3,3
+pdp,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0152,Penicillium digitatum,3,3
+tmf,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0160,Talaromyces marneffei,3,3
+trg,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0260,Talaromyces rugulosus,3,3
+tve,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0340,Trichophyton verrucosum,3,3
+ure,Fungi,Ascomycetes,Eurotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0656,Uncinocarpus reesii,3,3
+aalt,Fungi,Ascomycetes,Dothideomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0240,Alternaria alternata,3,3
+bcom,Fungi,Ascomycetes,Dothideomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0714,Baudoinia panamericana,3,3
+bor,Fungi,Ascomycetes,Dothideomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0705,Bipolaris oryzae,3,3
+bsc,Fungi,Ascomycetes,Dothideomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0732,Bipolaris sorokiniana,3,3
+bze,Fungi,Ascomycetes,Dothideomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0796,Bipolaris zeicola,3,3
+ffu,Fungi,Ascomycetes,Dothideomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0504,Fulvia fulva,3,3
+npa,Fungi,Ascomycetes,Dothideomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0412,Neofusicoccum parvum,3,3
+pfj,Fungi,Ascomycetes,Dothideomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0188,Pseudocercospora fijiensis,3,3
+pno,Fungi,Ascomycetes,Dothideomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0343,Parastagonospora nodorum,3,3
+pte,Fungi,Ascomycetes,Dothideomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0413,Pyrenophora teres,3,3
+ztr,Fungi,Ascomycetes,Dothideomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0076,Zymoseptoria tritici,3,3
+bfu,Fungi,Ascomycetes,Leotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0579,Botrytis cinerea (Gray mold),3,3
+glz,Fungi,Ascomycetes,Leotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0025,Glarea lozoyensis,3,3
+mbe,Fungi,Ascomycetes,Leotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0660,Drepanopeziza brunnea,3,3
+psco,Fungi,Ascomycetes,Leotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0680,Mollisia scopiformis,3,3
+ssl,Fungi,Ascomycetes,Leotiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0719,Sclerotinia sclerotiorum,3,3
+spo,Fungi,Ascomycetes,Schizosaccharomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0688,Schizosaccharomyces pombe (fission yeast),3,3
+tml,Fungi,Ascomycetes,Pezizomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0162,Tuber melanosporum,3,3
+abp,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0068,Agaricus bisporus var. burnettii JB137-S8,3,3
+abv,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0073,Agaricus bisporus var. bisporus H97,3,3
+adl,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0094,Auricularia subglabra,3,3
+cci,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0002,Coprinopsis cinerea,3,3
+cgi,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0079,Cryptococcus gattii,3,3
+cnb,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0204,Cryptococcus neoformans var. neoformans B-3501A,3,3
+cne,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0209,Cryptococcus neoformans var. neoformans JEC21,3,3
+cng,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0212,Cryptococcus neoformans var. grubii H99,3,3
+cput,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0523,Coniophora puteana,3,3
+dsq,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0704,Dichomitus squalens,3,3
+fme,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0567,Fomitiporia mediterranea,3,3
+gtr,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0176,Gloeophyllum trabeum,3,3
+hir,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0488,Heterobasidion irregulare,3,3
+lbc,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0264,Laccaria bicolor,3,3
+mgl,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0722,Malassezia globosa,3,3
+mlr,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0768,Melampsora larici-populina,3,3
+more,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0477,Marasmius oreades (fairy-ring mushroom),3,3
+mpr,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0808,Moniliophthora perniciosa,3,3
+mrr,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0828,Moniliophthora roreri,3,3
+mrt,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0829,Malassezia restricta,3,3
+msym,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0433,Malassezia sympodialis,3,3
+pco,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0133,Phanerochaete carnosa,3,3
+pcub,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0528,Psilocybe cubensis (magic mushroom),3,3
+pfp,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0190,Pseudozyma flocculosa,3,3
+pgr,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0207,Puccinia graminis,3,3
+ppl,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0366,Postia placenta,3,3
+psq,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0409,Punctularia strigosozonata,3,3
+scm,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0541,Schizophyllum commune,3,3
+shs,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0585,Stereum hirsutum,3,3
+sla,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0630,Serpula lacrymans,3,3
+tasa,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0643,Trichosporon asahii var. asahii,3,3
+tms,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0169,Tremella mesenterica,3,3
+tvs,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0344,Trametes versicolor,3,3
+uma,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0590,Ustilago maydis,3,3
+wic,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0514,Wallemia ichthyophaga,3,3
+wse,Fungi,Basidiomycetes,Basidiomycetes,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0621,Wallemia mellicola,3,3
+ecu,Fungi,Microsporidians,Microsporidians,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0844,Encephalitozoon cuniculi,3,3
+ehe,Fungi,Microsporidians,Microsporidians,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0015,Encephalitozoon hellem,3,3
+ein,Fungi,Microsporidians,Microsporidians,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0039,Encephalitozoon intestinalis,3,3
+ero,Fungi,Microsporidians,Microsporidians,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0220,Encephalitozoon romaleae,3,3
+nce,Fungi,Microsporidians,Microsporidians,Fungui and Algae|MSA Cluster 3|MSA Fungui and Nematodes and Flatworms|MUN Cluster 3|MUN Fungui and Nematodes and Flatworms,0201,Nosema ceranae,3,3
+adu,Plants,Eudicots,Pea,Cluster 4,0109,Arachis duranensis,4,4
+ahf,Plants,Eudicots,Pea,Cluster 4,0172,Arachis hypogaea (peanut),4,4
+aip,Plants,Eudicots,Pea,Cluster 4,0196,Arachis ipaensis,4,4
+aprc,Plants,Eudicots,Pea,Cluster 4,0379,Abrus precatorius (Indian licorice),4,4
+cam,Plants,Eudicots,Pea,Cluster 4,0864,Cicer arietinum (chickpea),4,4
+ccaj,Plants,Eudicots,Pea,Cluster 4,0093,Cajanus cajan (pigeon pea),4,4
+gmx,Plants,Eudicots,Pea,Cluster 4,0046,Glycine max (soybean),4,4
+gsj,Plants,Eudicots,Pea,Cluster 4,0153,Glycine soja (wild soybean),4,4
+lang,Plants,Eudicots,Pea,Cluster 4,0306,Lupinus angustifolius (narrow-leaved blue lupine),4,4
+lja,Plants,Eudicots,Pea,Cluster 4,0395,Lotus japonicus,4,4
+mtr,Plants,Eudicots,Pea,Cluster 4,0851,Medicago truncatula (barrel medic),4,4
+psat,Plants,Eudicots,Pea,Cluster 4,0642,Pisum sativum (pea),4,4
+pvu,Plants,Eudicots,Pea,Cluster 4,0447,Phaseolus vulgaris (common bean),4,4
+tpra,Plants,Eudicots,Pea,Cluster 4,0682,Trifolium pratense (red clover),4,4
+var,Plants,Eudicots,Pea,Cluster 4,0805,Vigna angularis (adzuki bean),4,4
+vra,Plants,Eudicots,Pea,Cluster 4,0175,Vigna radiata (mung bean),4,4
+vun,Plants,Eudicots,Pea,Cluster 4,0245,Vigna unguiculata (cowpea),4,4
+aly,Plants,Eudicots,Mustard,Cluster 4,0266,Arabidopsis lyrata (lyrate rockcress),4,4
+ath,Plants,Eudicots,Mustard,Cluster 4,0384,Arabidopsis thaliana (thale cress),4,4
+bna,Plants,Eudicots,Mustard,Cluster 4,0672,Brassica napus (rape),4,4
+boe,Plants,Eudicots,Mustard,Cluster 4,0696,Brassica oleracea (wild cabbage),4,4
+brp,Plants,Eudicots,Mustard,Cluster 4,0729,Brassica rapa (field mustard),4,4
+cann,Plants,Eudicots,Nightshade,Cluster 4,0399,Capsicum annuum (peppers),4,4
+crb,Plants,Eudicots,Mustard,Cluster 4,0294,Capsella rubella (pink shepherd's-purse),4,4
+csat,Plants,Eudicots,Mustard,Cluster 4,0569,Camelina sativa (false flax),4,4
+eus,Plants,Eudicots,Mustard,Cluster 4,0280,Eutrema salsugineum (saltwater cress),4,4
+nau,Plants,Eudicots,Nightshade,Cluster 4,0174,Nicotiana attenuata (coyote tobacco),4,4
+nsy,Plants,Eudicots,Nightshade,Cluster 4,0466,Nicotiana sylvestris (wood tobacco),4,4
+nta,Plants,Eudicots,Nightshade,Cluster 4,0468,Nicotiana tabacum (common tobacco),4,4
+nto,Plants,Eudicots,Nightshade,Cluster 4,0479,Nicotiana tomentosiformis,4,4
+rsz,Plants,Eudicots,Mustard,Cluster 4,0356,Raphanus sativus (radish),4,4
+sly,Plants,Eudicots,Nightshade,Cluster 4,0640,Solanum lycopersicum (tomato),4,4
+sot,Plants,Eudicots,Nightshade,Cluster 4,0679,Solanum tuberosum (potato),4,4
+spen,Plants,Eudicots,Nightshade,Cluster 4,0882,Solanum pennellii,4,4
+sstn,Plants,Eudicots,Nightshade,Cluster 4,0610,Solanum stenotomum,4,4
+fve,Plants,Eudicots,Rose,Cluster 4,0673,Fragaria vesca (woodland strawberry),4,4
+mdm,Plants,Eudicots,Rose,Cluster 4,0693,Malus domestica (apple),4,4
+pavi,Plants,Eudicots,Rose,Cluster 4,0554,Prunus avium (sweet cherry),4,4
+pdul,Plants,Eudicots,Rose,Cluster 4,0856,Prunus dulcis (almond),4,4
+pmum,Plants,Eudicots,Rose,Cluster 4,0217,Prunus mume (Japanese apricot),4,4
+pper,Plants,Eudicots,Rose,Cluster 4,0387,Prunus persica (peach),4,4
+pxb,Plants,Eudicots,Rose,Cluster 4,0469,Pyrus x bretschneideri (Chinese white pear),4,4
+rcn,Plants,Eudicots,Rose,Cluster 4,0050,Rosa chinensis (China rose),4,4
+bhj,Plants,Eudicots,Cucumber,Cluster 4,0604,Benincasa hispida (wax gourd),4,4
+cmax,Plants,Eudicots,Cucumber,Cluster 4,0721,Cucurbita maxima (winter squash),4,4
+cmo,Plants,Eudicots,Cucumber,Cluster 4,0194,Cucumis melo (muskmelon),4,4
+cmos,Plants,Eudicots,Cucumber,Cluster 4,0872,Cucurbita moschata (crookneck pumpkin),4,4
+cpep,Plants,Eudicots,Cucumber,Cluster 4,0319,Cucurbita pepo subsp. pepo (vegetable marrow),4,4
+csv,Plants,Eudicots,Cucumber,Cluster 4,0326,Cucumis sativus (cucumber),4,4
+mcha,Plants,Eudicots,Cucumber,Cluster 4,0638,Momordica charantia (bitter melon),4,4
+dzi,Plants,Eudicots,Mallow,Cluster 4,0758,Durio zibethinus (durian),4,4
+gab,Plants,Eudicots,Mallow,Cluster 4,0774,Gossypium arboreum (tree cotton),4,4
+ghi,Plants,Eudicots,Mallow,Cluster 4,0850,Gossypium hirsutum (upland cotton),4,4
+gra,Plants,Eudicots,Mallow,Cluster 4,0131,Gossypium raimondii,4,4
+tcc,Plants,Eudicots,Mallow,Cluster 4,0869,Theobroma cacao (cacao),4,4
+ccav,Plants,Eudicots,Daisy,Cluster 4,0113,Cynara cardunculus var. scolymus (artichoke),4,4
+ecad,Plants,Eudicots,Daisy,Cluster 4,0226,Erigeron canadensis (horseweed),4,4
+han,Plants,Eudicots,Daisy,Cluster 4,0385,Helianthus annuus (common sunflower),4,4
+hbr,Plants,Eudicots,Spurge,Cluster 4,0404,Hevea brasiliensis (rubber tree),4,4
+jcu,Plants,Eudicots,Spurge,Cluster 4,0357,Jatropha curcas (Barbados nut),4,4
+lsv,Plants,Eudicots,Daisy,Cluster 4,0512,Lactuca sativa (garden lettuce),4,4
+mesc,Plants,Eudicots,Spurge,Cluster 4,0711,Manihot esculenta (cassava),4,4
+rcu,Plants,Eudicots,Spurge,Cluster 4,0059,Ricinus communis (castor bean),4,4
+bvg,Plants,Eudicots,Amaranth,Cluster 4,0760,Beta vulgaris (sugar beet),4,4
+cqi,Plants,Eudicots,Amaranth,Cluster 4,0275,Chenopodium quinoa (quinoa),4,4
+palz,Plants,Eudicots,Willow,Cluster 4,0435,Populus alba (white poplar),4,4
+peu,Plants,Eudicots,Willow,Cluster 4,0173,Populus euphratica (Euphrates poplar),4,4
+pop,Plants,Eudicots,Willow,Cluster 4,0351,Populus trichocarpa (black cottonwood),4,4
+soe,Plants,Eudicots,Amaranth,Cluster 4,0666,Spinacia oleracea (spinach),4,4
+cic,Plants,Eudicots,Rue,Cluster 4,0116,Citrus clementina (mandarin orange),4,4
+cill,Plants,Eudicots,Walnut,Cluster 4,0037,Carya illinoinensis (pecan),4,4
+cit,Plants,Eudicots,Rue,Cluster 4,0129,Citrus sinensis (Valencia orange),4,4
+ini,Plants,Eudicots,Morning,Cluster 4,0875,Ipomoea nil (Japanese morning glory),4,4
+itr,Plants,Eudicots,Morning,Cluster 4,0092,Ipomoea triloba (trilobed morning glory),4,4
+jre,Plants,Eudicots,Walnut,Cluster 4,0540,Juglans regia (English walnut),4,4
+minc,Plants,Eudicots,Sumac,Cluster 4,0558,Mangifera indica (mango),4,4
+ming,Plants,Eudicots,Protea,Cluster 4,0560,Macadamia integrifolia (macadamia nut),4,4
+pvy,Plants,Eudicots,Sumac,Cluster 4,0451,Pistacia vera (pistachio),4,4
+qlo,Plants,Eudicots,Beech,Cluster 4,0690,Quercus lobata (valley oak),4,4
+qsu,Plants,Eudicots,Beech,Cluster 4,0759,Quercus suber (cork oak),4,4
+tss,Plants,Eudicots,Protea,Cluster 4,0297,Telopea speciosissima (New South Wales waratah),4,4
+vri,Plants,Eudicots,Grape,Cluster 4,0182,Vitis riparia (riverbank grape),4,4
+vvi,Plants,Eudicots,Grape,Cluster 4,0259,Vitis vinifera (wine grape),4,4
+apan,Plants,Eudicots,Acanthus,Cluster 4,0104,Andrographis paniculata,4,4
+cpap,Plants,Eudicots,Papaya,Cluster 4,0230,Carica papaya (papaya),4,4
+csin,Plants,Eudicots,Tea,Cluster 4,0698,Camellia sinensis (tea plant),4,4
+dcr,Plants,Eudicots,Parsley,Cluster 4,0517,Daucus carota (carrot),4,4
+egr,Plants,Eudicots,Myrtle,Cluster 4,0006,Eucalyptus grandis (rose gum),4,4
+egt,Plants,Eudicots,Lopseed,Cluster 4,0009,Erythranthe guttata (spotted monkey flower),4,4
+mnt,Plants,Eudicots,Mulberry,Cluster 4,0790,Morus notabilis,4,4
+nnu,Plants,Eudicots,Lotus,Cluster 4,0400,Nelumbo nucifera (sacred lotus),4,4
+oeu,Plants,Eudicots,Olive,Cluster 4,0651,Olea europaea var. sylvestris (wild olive),4,4
+psom,Plants,Eudicots,Poppy,Cluster 4,0799,Papaver somniferum (opium poppy),4,4
+sind,Plants,Eudicots,Sesame,Cluster 4,0770,Sesamum indicum (sesame),4,4
+sspl,Plants,Eudicots,Mint,Cluster 4,0562,Salvia splendens (scarlet sage),4,4
+thj,Plants,Eudicots,Caper,Cluster 4,0074,Tarenaya hassleriana (spider flower),4,4
+twl,Plants,Eudicots,Bittersweet,Cluster 4,0348,Tripterygium wilfordii (thunder duke vine),4,4
+zju,Plants,Eudicots,Buckthorn,Cluster 4,0813,Ziziphus jujuba (Chinese jujube),4,4
+ats,Plants,Monocots,Grass,Cluster 4,0393,Aegilops tauschii (wheat D),4,4
+bdi,Plants,Monocots,Grass,Cluster 4,0561,Brachypodium distachyon (stiff brome),4,4
+dosa,Plants,Monocots,Grass,Cluster 4,0548,Oryza sativa japonica (Japanese rice) (RAPDB),4,4
+lper,Plants,Monocots,Grass,Cluster 4,0156,Lolium perenne (perennial ryegrass),4,4
+obr,Plants,Monocots,Grass,Cluster 4,0616,Oryza brachyantha (malo sina),4,4
+ogl,Plants,Monocots,Grass,Cluster 4,0674,Oryza glaberrima (African rice),4,4
+osa,Plants,Monocots,Grass,Cluster 4,0791,Oryza sativa japonica (Japanese rice) (RefSeq),4,4
+phai,Plants,Monocots,Grass,Cluster 4,0537,Panicum hallii (Hall's panicgrass),4,4
+pvir,Plants,Monocots,Grass,Cluster 4,0252,Panicum virgatum (switchgrass),4,4
+sbi,Plants,Monocots,Grass,Cluster 4,0529,Sorghum bicolor (sorghum),4,4
+sita,Plants,Monocots,Grass,Cluster 4,0835,Setaria italica (foxtail millet),4,4
+svs,Plants,Monocots,Grass,Cluster 4,0756,Setaria viridis (green foxtail),4,4
+taes,Plants,Monocots,Grass,Cluster 4,0525,Triticum aestivum (bread wheat),4,4
+tdc,Plants,Monocots,Grass,Cluster 4,0881,Triticum dicoccoides (wild emmer wheat),4,4
+tua,Plants,Monocots,Grass,Cluster 4,0323,Triticum urartu (red wild einkorn wheat),4,4
+zma,Plants,Monocots,Grass,Cluster 4,0842,Zea mays (maize),4,4
+dct,Plants,Monocots,Orchid,Cluster 4,0518,Dendrobium catenatum,4,4
+egu,Plants,Monocots,Palm,Cluster 4,0008,Elaeis guineensis (African oil palm),4,4
+pda,Plants,Monocots,Palm,Cluster 4,0141,Phoenix dactylifera (date palm),4,4
+peq,Plants,Monocots,Orchid,Cluster 4,0171,Phalaenopsis equestris,4,4
+aof,Plants,Monocots,Asparagus,Cluster 4,0321,Asparagus officinalis (garden asparagus),4,4
+mus,Plants,Monocots,Banana,Cluster 4,0863,Musa acuminata (wild Malaysian banana),4,4
+zof,Plants,Monocots,Ginger,Cluster 4,0866,Zingiber officinale (ginger),4,4
+apro,Plants,Green,algae,Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3,0375,Auxenochlorella protothecoides,3,3
+bpg,Plants,Green,algae,Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3,0709,Bathycoccus prasinos,3,3
+cre,Plants,Green,algae,Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3,0299,Chlamydomonas reinhardtii,3,3
+csl,Plants,Green,algae,Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3,0322,Coccomyxa subellipsoidea,3,3
+cvr,Plants,Green,algae,Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3,0358,Chlorella variabilis,3,3
+mis,Plants,Green,algae,Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3,0743,Micromonas commoda,3,3
+mng,Plants,Green,algae,Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3,0786,Monoraphidium neglectum,3,3
+mpp,Plants,Green,algae,Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3,0807,Micromonas pusilla,3,3
+olu,Plants,Green,algae,Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3,0736,Ostreococcus lucimarinus,3,3
+ota,Plants,Green,algae,Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3,0800,Ostreococcus tauri,3,3
+vcn,Plants,Green,algae,Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3,0823,Volvox carteri f. nagariensis,3,3
+ccp,Plants,Red,algae,Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3,0007,Chondrus crispus (carragheen),3,3
+cme,Plants,Red,algae,Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3,0189,Cyanidioschyzon merolae,3,3
+gsl,Plants,Red,algae,Algae|Fungui and Algae|MSA Algae and Nematodes and Flatworms|MSA Cluster 3|MUN Algae and Nematodes and Flatworms|MUN Cluster 3,0154,Galdieria sulphuraria,3,3
+atr,Plants,Basal,angiosperms,Cluster 4,0391,Amborella trichopoda,4,4
+ncol,Plants,Basal,angiosperms,Cluster 4,0361,Nymphaea colorata (blue-petal water lily),4,4
+ppp,Plants,Mosses,Mosses,Cluster 4,0368,Physcomitrium patens (spreading earthmoss),4,4
+smo,Plants,Ferns,Ferns,Cluster 4,0647,Selaginella moellendorffii,4,4
+bbig,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0229,Babesia bigemina,3,3
+bbo,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0546,Babesia bovis,3,3
+beq,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0570,Theileria equi,3,3
+bmic,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0377,Babesia microti,3,3
+cho,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0097,Cryptosporidium hominis,3,3
+cpv,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0261,Cryptosporidium parvum,3,3
+pbe,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0107,Plasmodium berghei,3,3
+pcb,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0128,Plasmodium chabaudi,3,3
+pcy,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0136,Plasmodium cynomolgi,3,3
+pfa,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0179,Plasmodium falciparum 3D7,3,3
+pfd,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0185,Plasmodium falciparum Dd2,3,3
+pfh,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0187,Plasmodium falciparum HB3,3,3
+pgab,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0064,Plasmodium gaboni,3,3
+pkn,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0295,Plasmodium knowlesi,3,3
+prei,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0332,Plasmodium reichenowi,3,3
+pvv,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0450,Plasmodium vinckei vinckei,3,3
+pvx,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0453,Plasmodium vivax,3,3
+pyo,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0485,Plasmodium yoelii,3,3
+tan,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0847,Theileria annulata,3,3
+tgo,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0051,Toxoplasma gondii,3,3
+tot,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0206,Theileria orientalis,3,3
+tpv,Protists,Alveolates,Apicomplexans,MSA Cluster 3|MUN Cluster 3,0234,Theileria parva,3,3
+ptm,Protists,Alveolates,Ciliates,MSA Cluster 3|MUN Cluster 3,0422,Paramecium tetraurelia,3,3
+tet,Protists,Alveolates,Ciliates,MSA Cluster 3|MUN Cluster 3,0014,Tetrahymena thermophila,3,3
+smin,Protists,Alveolates,Dinoflagellates,MSA Cluster 3|MUN Cluster 3,0591,Breviolum minutum,3,3
+lbz,Protists,Euglenozoa,Kinetoplasts,MSA Cluster 3|MUN Cluster 3,0282,Leishmania braziliensis,3,3
+ldo,Protists,Euglenozoa,Kinetoplasts,MSA Cluster 3|MUN Cluster 3,0320,Leishmania donovani,3,3
+lif,Protists,Euglenozoa,Kinetoplasts,MSA Cluster 3|MUN Cluster 3,0376,Leishmania infantum,3,3
+lma,Protists,Euglenozoa,Kinetoplasts,MSA Cluster 3|MUN Cluster 3,0431,Leishmania major,3,3
+lmi,Protists,Euglenozoa,Kinetoplasts,MSA Cluster 3|MUN Cluster 3,0434,Leishmania mexicana,3,3
+lpan,Protists,Euglenozoa,Kinetoplasts,MSA Cluster 3|MUN Cluster 3,0078,Leishmania panamensis,3,3
+tbg,Protists,Euglenozoa,Kinetoplasts,MSA Cluster 3|MUN Cluster 3,0855,Trypanosoma brucei gambiense,3,3
+tbr,Protists,Euglenozoa,Kinetoplasts,MSA Cluster 3|MUN Cluster 3,0860,Trypanosoma brucei brucei,3,3
+tcr,Protists,Euglenozoa,Kinetoplasts,MSA Cluster 3|MUN Cluster 3,0874,Trypanosoma cruzi,3,3
+fcy,Protists,Stramenopiles,Diatoms,MSA Cluster 3|MUN Cluster 3,0471,Fragilariopsis cylindrus,3,3
+pif,Protists,Stramenopiles,Oomycetes,MSA Cluster 3|MUN Cluster 3,0244,Phytophthora infestans,3,3
+psoj,Protists,Stramenopiles,Oomycetes,MSA Cluster 3|MUN Cluster 3,0806,Phytophthora sojae,3,3
+pti,Protists,Stramenopiles,Diatoms,MSA Cluster 3|MUN Cluster 3,0419,Phaeodactylum tricornutum,3,3
+spar,Protists,Stramenopiles,Oomycetes,MSA Cluster 3|MUN Cluster 3,0836,Saprolegnia parasitica,3,3
+tps,Protists,Stramenopiles,Diatoms,MSA Cluster 3|MUN Cluster 3,0233,Thalassiosira pseudonana,3,3
+aaf,Protists,Stramenopiles,Pelagophytes,MSA Cluster 3|MUN Cluster 3,0036,Aureococcus anophagefferens,3,3
+ngd,Protists,Stramenopiles,Eustigmatophytes,MSA Cluster 3|MUN Cluster 3,0286,Nannochloropsis gaditana,3,3
+ddi,Protists,Amoebozoa,Dictyostelia,MSA Cluster 3|MUN Cluster 3,0524,Dictyostelium discoideum (cellular slime mold),3,3
+dfa,Protists,Amoebozoa,Dictyostelia,MSA Cluster 3|MUN Cluster 3,0543,Cavenderia fasciculata (cellular slime mold),3,3
+dpp,Protists,Amoebozoa,Dictyostelia,MSA Cluster 3|MUN Cluster 3,0655,Dictyostelium purpureum (cellular slime mold),3,3
+edi,Protists,Amoebozoa,Entamoeba,MSA Cluster 3|MUN Cluster 3,0852,Entamoeba dispar,3,3
+ehi,Protists,Amoebozoa,Entamoeba,MSA Cluster 3|MUN Cluster 3,0016,Entamoeba histolytica,3,3
+eiv,Protists,Amoebozoa,Entamoeba,MSA Cluster 3|MUN Cluster 3,0047,Entamoeba invadens,3,3
+acan,Protists,Amoebozoa,Acanthamoeba,MSA Cluster 3|MUN Cluster 3,0873,Acanthamoeba castellanii,3,3
+mbr,Protists,Choanoflagellates,Choanoflagellates,MSA Cluster 3|MUN Cluster 3,0661,Monosiga brevicollis,3,3
+sre,Protists,Choanoflagellates,Choanoflagellates,MSA Cluster 3|MUN Cluster 3,0712,Salpingoeca rosetta,3,3
+gla,Protists,Metamonada,Diplomonads,MSA Cluster 3|MUN Cluster 3,0012,Giardia lamblia,3,3
+tva,Protists,Metamonada,Trichomonads,MSA Cluster 3|MUN Cluster 3,0339,Trichomonas vaginalis,3,3
+ehx,Protists,Haptophyta,Haptophyta,MSA Cluster 3|MUN Cluster 3,0026,Emiliania huxleyi,3,3
+gtt,Protists,Cryptomonads,Cryptomonads,MSA Cluster 3|MUN Cluster 3,0177,Guillardia theta,3,3
+ngr,Protists,Heterolobosea,Tetramitia,MSA Cluster 3|MUN Cluster 3,0300,Naegleria gruberi,3,3

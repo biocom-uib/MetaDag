@@ -163,6 +163,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Clusters analysis</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -185,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Metabolic Graphs</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Metabolic Graphs</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -201,24 +207,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file=</span><span class="st">'metadag_work_space.RData'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>We present here some analysis examples of the metabolic graphs generated in GraphML format.</p>
 <section id="metabolic-graphs-for-each-organism" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="metabolic-graphs-for-each-organism"><span class="header-section-number">3.1</span> Metabolic graphs for each organism</h2>
 <p>Read the individual metabolic graphs generated for Homo sapiens (KEGG id: hsa) in the directory(Individuals/hsa)</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>experiment<span class="ot">=</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"result_0a845f74-826e-3b46-aed9-e7ecf74db262/"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>path_exp<span class="ot">=</span><span class="fu">paste0</span>(<span class="st">"data/"</span>,experiment)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>files_hsa<span class="ot">=</span><span class="fu">dir</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/hsa"</span>))</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>files_hsa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "hsa_mDAG.graphml"       "hsa_mDAG.pdf"           "hsa_mDAG.svg"          
  [4] "hsa_mDAG_adj.csv"       "hsa_mDAG_biggerDAG.pdf" "hsa_mDAG_biggerDAG.svg"
@@ -304,38 +304,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="3.2" class="anchored" data-anchor-id="pan-core-metabolic-graphs"><span class="header-section-number">3.2</span> Pan &amp; core metabolic graphs</h2>
 <p>Pan and core metabolic graphs for every group were generated. For instance, one can read the pan and core metabolic graphs generated for the group Algae in the directory (Groups/Algae).</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>files_Algae<span class="ot">=</span><span class="fu">dir</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Groups/Algae"</span>))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>files_Algae</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "core" "pan" </code></pre>
 </div>
 </div>
 <p>The global core reaction graph, which is the core of all the organisms’ reaction graphs in this Eukaryotes test, is empty.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>graph_core_RC<span class="ot">=</span><span class="fu">read.graph</span>(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Global/core/core_RC.graphml"</span>),</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_core_RC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 6654ec3 D--- 0 0 -- 
+<pre><code>IGRAPH cc7ceac D--- 0 0 -- 
 + attr: color (v/c), label (v/c), id (v/c)</code></pre>
 </div>
 </div>
 <p>The global core reaction graph has 0 vertex and 0 edges. It is an empty graph.</p>
 <p>The core reaction graph for the Algae group is:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Groups/MSA_Cluster_3/core/MSA_Cluster_3_core_RC.pdf"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -347,25 +338,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The global core m-DAG, i.e., the core of all organisms in this example is empty.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>graph_core_mDAG<span class="ot">=</span><span class="fu">read.graph</span>(</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Global/core/core_mDAG.graphml"</span>),</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_core_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 665bb90 D--- 0 0 -- 
+<pre><code>IGRAPH cc837e9 D--- 0 0 -- 
 + attr: color (v/c), label (v/c), id (v/c)</code></pre>
 </div>
 </div>
 <p>The global core m-DAG has 0 vertex and 0 edges. It is an empty graph.</p>
 <p>The core metabolic DAG for the Algae group is:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">paste0</span>(path_exp,                              <span class="st">"Groups/Algae/core/Algae_core_mDAG.pdf"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -377,16 +362,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The global pan reaction graph for the Animals Kingdom is:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>graph_pan_RC<span class="ot">=</span><span class="fu">read.graph</span>(</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">"TaxonomyLevels/Kingdom/Animals/pan/Animals_pan_RC.graphml"</span>),</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_pan_RC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 666e4a6 D--- 4556 5798 -- 
+<pre><code>IGRAPH cc9504d D--- 4556 5798 -- 
 + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 </div>
@@ -397,46 +379,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>From the GraphML files, one can extract topological information. Some examples are as follows.</p>
 <p>The diagram below illustrates the distribution of node degrees for an m-DAG.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>graph_mDAG<span class="ot">=</span><span class="fu">read.graph</span>(</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Individuals/hsa/hsa_mDAG.graphml"</span>),</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">format=</span> <span class="st">"graphml"</span>)</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 6672979 D--- 1026 1086 -- 
+<pre><code>IGRAPH cc9954e D--- 1026 1086 -- 
 + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(igraph<span class="sc">::</span><span class="fu">degree</span>(graph_mDAG,<span class="at">mode=</span><span class="st">"all"</span>)),</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">350</span>),<span class="at">col=</span><span class="st">"blue"</span>,</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"Frequency of Node Degrees"</span>,</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"Frequency"</span>,<span class="at">xlab=</span><span class="st">"Degree"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="metabolic_graphs_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p>The connected components of every graph as well as the size of every connected component can be obtained as:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>compo<span class="ot">=</span><span class="fu">components</span>(graph_mDAG,<span class="at">mode =</span> <span class="st">"weak"</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(compo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>List of 3
  $ membership: num [1:1026] 1 1 1 1 1 1 1 1 1 1 ...
  $ csize     : num [1:167] 589 1 1 1 1 1 4 3 4 3 ...
  $ no        : int 167</code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>compo<span class="sc">$</span>csize</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] 589   1   1   1   1   1   4   3   4   3   2   3   3   1   1   1   2   6
  [19]   3   1   3   6   1   1   1   1   1   3   1   6   2   1   1   1   2   1
@@ -449,18 +419,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [145]   1   1   1   1   1   2   7   1  15   3   1   1   1   1   2   1   3   1
 [163]   1   1   1   1   2</code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="fu">which.max</span>(compo<span class="sc">$</span>csize<span class="sc">==</span><span class="fu">max</span>(compo<span class="sc">$</span>csize))</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>k</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(compo<span class="sc">$</span>membership)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20 
@@ -482,37 +446,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 161 162 163 164 165 166 167 
   3   1   1   1   1   1   2 </code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>vertex<span class="ot">=</span><span class="fu">which</span>(compo<span class="sc">$</span>membership<span class="sc">==</span>k)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(vertex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 589</code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>Big_Component<span class="ot">=</span><span class="fu">induced_subgraph</span>(graph_mDAG, <span class="at">vids=</span>vertex)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>igraph<span class="sc">::</span><span class="fu">vcount</span>(Big_Component)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 589</code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>igraph<span class="sc">::</span><span class="fu">ecount</span>(Big_Component)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 774</code></pre>
 </div>
 </div>
 <p>And the plot of the bigger component of the m-DAG in Homo sapiens is:</p>
 <div class="cell" data-layout-align="center" title="Bigger componet of hsa mDAG">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">paste0</span>(path_exp,</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Individuals/hsa/hsa_mDAG_biggerDAG.pdf"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -522,27 +474,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#path_exp="data/result_bb261b6e-95c6-3e39-b82b-b68eea80e30b/data/" </span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>list_names<span class="ot">=</span><span class="fu">dir</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/"</span>))</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>list_names<span class="ot">=</span> list_names[<span class="sc">-</span><span class="dv">1</span>] <span class="co"># filter 0000_RefPw</span></span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(list_names) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 884</code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>graphs_list<span class="ot">=</span><span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/"</span>, list_names,<span class="st">"/"</span>,list_names, <span class="st">"_MDAG.graphml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_RC.pdf"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><embed src="data/result_0a845f74-826e-3b46-aed9-e7ecf74db262/Individuals/cang/cang_RC.pdf" class="img-fluid" style="width:100.0%"></p>
 </div>
@@ -552,8 +495,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="3.4" class="anchored" data-anchor-id="graph-statistics"><span class="header-section-number">3.4</span> Graph statistics</h2>
 <p>The number of connected component in each generated m-DAG with their frequency in the entire set of m-DAGs, can be obtained as follows:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>read_mDAG<span class="ot">=</span><span class="cf">function</span>(x) {DAG<span class="ot">=</span><span class="fu">read.graph</span>(<span class="at">file=</span>x,</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">format=</span><span class="st">"graphml"</span>)</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(DAG)}</span>
@@ -574,12 +515,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(compo_list)<span class="ot">=</span>list_names</span>
 <span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">max</span>(<span class="fu">sapply</span>(compo_list,<span class="at">FUN=</span><span class="cf">function</span>(x) {<span class="fu">length</span>(x[[<span class="dv">1</span>]])}))</span>
 <span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 234</code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>size_compo_list<span class="ot">=</span><span class="fu">lapply</span>(compo_list,<span class="at">FUN=</span><span class="cf">function</span>(x) {</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(x[[<span class="dv">1</span>]],<span class="fu">rep</span>(<span class="cn">NA</span>,n<span class="sc">-</span><span class="fu">length</span>(x[[<span class="dv">1</span>]]))))})</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -590,11 +528,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>weak_componets_size<span class="sc">$</span>index<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n,<span class="at">times=</span><span class="fu">dim</span>(aux)[<span class="dv">2</span>])</span>
 <span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>weak_componets_size<span class="ot">=</span>weak_componets_size <span class="sc">%&gt;%</span></span>
 <span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(meta_taxo,<span class="at">by=</span><span class="st">"Organism"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>Organism<span class="ot">=</span><span class="fu">names</span>(compo_list)</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>big_MBB<span class="ot">=</span><span class="cf">function</span>(org){</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  org<span class="ot">=</span><span class="st">"hsa"</span></span>
@@ -607,12 +542,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>big_MBB_list<span class="ot">=</span> <span class="fu">lapply</span>(Organism,<span class="at">FUN=</span><span class="cf">function</span>(x) <span class="fu">big_MBB</span>(x))</span>
 <span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>nMBB<span class="ot">=</span><span class="fu">max</span>(<span class="fu">sapply</span>(big_MBB_list,<span class="at">FUN=</span><span class="cf">function</span>(x) <span class="fu">length</span>(x)))</span>
 <span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>nMBB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1028</code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>big_MBB_list<span class="ot">=</span><span class="fu">lapply</span>(big_MBB_list,</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">FUN=</span><span class="cf">function</span>(x){</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>                      x<span class="ot">=</span><span class="fu">c</span>(x,<span class="fu">rep</span>(<span class="cn">NA</span>,nMBB<span class="sc">-</span><span class="fu">length</span>(x)))</span>
@@ -631,12 +563,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Organism,<span class="sc">-</span>MBBsize) <span class="sc">%&gt;%</span>  </span>
 <span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">index=</span>index) <span class="sc">%&gt;%</span> </span>
 <span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(meta_taxo,<span class="at">by=</span><span class="st">"Organism"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>We can visualize the sizes of the weak components for each m-DAG, using colors to represent the different Kingdoms, also we scale the results by a log-log plot:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>COLOR_KINGDOM<span class="ot">=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"yellow"</span>,<span class="st">"green"</span>,<span class="st">"black"</span>)</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>colors_kingdom<span class="ot">=</span>weak_componets_size<span class="sc">%&gt;%</span> <span class="fu">select</span>(Organism,Kingdom) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(COLOR_KINGDOM)<span class="ot">=</span><span class="fu">sort</span>(<span class="fu">unique</span>(colors_kingdom<span class="sc">$</span>Kingdom))</span>
@@ -664,22 +593,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb42-25"><a href="#cb42-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Plot log10-log10 of size  weak components decreasing order."</span>) <span class="sc">+</span></span>
 <span id="cb42-26"><a href="#cb42-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log10 weak component size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Log10 order"</span>)</span>
 <span id="cb42-27"><a href="#cb42-27" aria-hidden="true" tabindex="-1"></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="metabolic_graphs_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <p><img src="metabolic_graphs_files/figure-html/unnamed-chunk-17-2.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p>A table with the frequencies of the weak connected components sizes, displayed by Kingdom, can be obtained as follows:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">table</span>(weak_componets_size<span class="sc">$</span>csize,weak_componets_size<span class="sc">$</span>Kingdom)</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>table_wcc_size<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">Order=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(aux)[<span class="dv">1</span>],</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Wcc_size=</span><span class="fu">as.integer</span>(<span class="fu">unlist</span>(<span class="fu">dimnames</span>(aux)[<span class="dv">1</span>])),</span>
@@ -688,7 +611,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Plants=</span>aux[,<span class="dv">3</span>],</span>
 <span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Protists=</span>aux[,<span class="dv">4</span>])</span>
 <span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_wcc_size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
@@ -4086,8 +4008,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>A table with the frequencies of the MBBs sizes displayed by Kingdom can be obtained as follows:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">table</span>(big_MBB_list2<span class="sc">$</span>MBBsize,big_MBB_list2<span class="sc">$</span>Kingdom)</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>table_MBB_size<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">Order=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(aux)[<span class="dv">1</span>],</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">MBB_size=</span><span class="fu">as.integer</span>(<span class="fu">unlist</span>(<span class="fu">dimnames</span>(aux)[<span class="dv">1</span>])),</span>
@@ -4096,7 +4016,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Plants=</span>aux[,<span class="dv">3</span>],</span>
 <span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Protists=</span>aux[,<span class="dv">4</span>])</span>
 <span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_MBB_size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>

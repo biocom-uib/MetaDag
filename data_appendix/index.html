@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Supplementary material for the paper 'Metabolomics Analysis: Finding Out Metabolic Building Blocks'">
+  <meta name="author" content="Ricardo Alberich">
+  <meta name="author" content="Jos&eacute; A. Castro">
+  <meta name="author" content="Merc&egrave; Llabr&eacute;s">
+  <meta name="author" content="Pere Palmer-Rodr&iacute;guez">
+
+  <title>Supplementary material for the Paper "MetaDAG: a web tool to generate and analyse metabolic networks"</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <style>
+		body {
+		  padding-top: 80px;
+		  text-align: center;
+		  font-family: arial, sans-serif;
+		}
+		h1 {
+		  font-size: 30px
+		}
+		h2 {
+		  font-size: 20px;
+		}
+		h1, h2 {
+		  display: inline-block;
+		  background: #ffffff;
+		  font-family: monaco, monospace;
+		}
+		ul {
+		  display: inline-block;
+		  padding-left: 10%;
+		  padding-right: 10%;
+		  text-align: center;
+		}
+		li {
+		  text-align: left;
+		}
+		table {
+			border-collapse: collapse;
+			width: 80%;
+			margin-left: 10%;
+			margin-right: 10%;
+		}
+		tr:nth-child(even) {
+		  background-color: #f2f2f2;
+		}
+		tr:hover {
+		  background-color: #d2d2d2;
+		}
+		th, td {
+		  text-align: left;
+		  vertical-align: middle;
+		  padding: 8px;
+		}
+		img.icon {
+			width: 32px;
+			height: 32px;
+		}
+		math {
+		  display: inline-block;
+		  text-align: center;
+		}
+		.departments {
+		  display: flex;
+		  justify-content: center;
+		}
+	</style>
+</head>
+
+
+<body>
+
+<h1>
+Supplementary material for the Paper <br>
+"MetaDAG: a web tool to generate and analyse metabolic networks"
+</h1>
+
+<p><b>Authors:</b></p>
+<ul>
+  <li><a href="mailto:pere.palmer@uib.es">Pere Palmer-Rodr&iacute;guez<sup>1</sup>&nbsp;<span class="glyphicon glyphicon-envelope"></span></a></li>
+  <li>Ricardo Alberich<sup>1</sup></li>
+  <li>Jos&eacute; A. Castro<sup>2</sup></li>
+  <li>Merc&egrave; Llabr&eacute;s<sup>1</sup> </li>
+</ul>
+
+<br/>
+
+<div class="departments">
+  <div style="text-align: left; margin-left: 10%; margin-right: 10%;">
+    <sup>1</sup> Department of Mathematics and Computer Science, University of the Balearic Islands, Palma, Balearic Islands, Spain<br/>
+    <sup>2</sup> Department of Biology, University of the Balearic Islands, Palma, Balearic Islands, Spain
+  </div>
+</div>
+
+<br/>
+
+<h2> Links </h2>
+
+<p>
+MetaDAG web tool is available at <a href="https:bioinfo.uib.es/metadag/">https://bioinfo.uib.es/metadag/</a>
+</p>
+<p>
+A pipeline to analyse metaDAG results is available at <a href="https://biocom-uib.github.io/MetaDag/">https://biocom-uib.github.io/MetaDag/</a>
+</p>
+
+
+<h2>Supplementary files</h2>
+
+<table>
+    <thead>
+      <tr>
+        <th style="text-align: center;" width="80%">Description</th>
+        <th style="text-align: center;" width="20%">Files</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>S1. A visualization of the core m-DAG for the kingdom of Animalia.</td>
+        <td style="text-align: center;"><a href="./material/Animals_core_mDAG.pdf" target="_blank"><img class="icon" src="./images/pdf.svg"></a></td>
+      </tr>
+
+      <tr>
+        <td>S2. A visualization of the largest connected component of the core m-DAG for the kingdom of Animalia.</td>
+        <td style="text-align: center;"><a href="./material/Animals_core_mDAG_biggerDAG.pdf" target="_blank"><img class="icon" src="./images/pdf.svg"></a></td>
+      </tr>
+
+      <tr>
+        <td>S3. A file with the description of the whole set of results files and their format.</td>
+        <td style="text-align: center;"><a href="./material/MetaDAG_Tool-Files_and_formats.pdf" target="_blank"><img class="icon" src="./images/pdf.svg"></a></td>
+      </tr>
+
+
+      <tr>
+        <td>S4. A file with the taxonomy classification of all Eukariotes in the KEGG database (updated to 2023/04/26).</td>
+        <td style="text-align: center;"><a href="./material/eukaryotes.csv" download="" target="_blank"><img class="icon" src="./images/csv.png"></a></td>
+      </tr>
+
+      <tr>
+        <td>S5. A table with the size distribution of the MBBs of all Eukariotes m-DAGs</td>
+        <td style="text-align: center;"><a href="./material/table_MBB_size.csv" target="_blank"><img class="icon" src="./images/pdf.csv"></a></td>
+      </tr>
+
+      <tr>
+        <td>S6. A file with the classification in 4 clusters of all Eukariotes with MSA m-DAGs similarity.</td>
+        <td style="text-align: center;"><a href="./material/clust4_MSA_MUN_Eukaryotes_taxo.csv" download="" target="_blank"><img class="icon" src="./images/csv.svg"></a></td>
+      </tr>
+
+      <tr>
+        <td>S7. A file with the classification in 4 clusters of all Eukariotes with Munkres m-DAGs similarity.</td>
+        <td style="text-align: center;"><a href="./material/clust4_MSA_MUN_Eukaryotes_taxo.csv" download="" target="_blank"><img class="icon" src="./images/csv.svg"></a></td>    
+      </tr>
+       
+      <tr>
+        <td>S8. Heatmap of the Munkres m-DAGs similarity for the kingdom of Plants.</td>
+        <td style="text-align: center;"><a href="./material/Mun_plants_phyla.pdf" target="_blank"><img class="icon" src="./images/pdf.svg"></a></td>
+      </tr>
+
+      <tr>
+        <td>S9. Heatmap of the MSA m-DAGs similarity for the kingdom of Plants.</td>
+        <td style="text-align: center;"><a href="./material/MSA_plants_phyla.pdf" target="_blank"><img class="icon" src="./images/pdf.svg"></a></td>
+      </tr>
+
+      <tr>
+        <td>S10. Heatmap of the Munkres m-DAGs similarity for the kingdom of Fungi.</td>
+        <td style="text-align: center;"><a href="./material/Mun_fungi_phyla.pdf" target="_blank"><img class="icon" src="./images/pdf.svg"></a></td>
+      </tr>
+
+      <tr>
+        <td>S11.Heatmap of the MSA m-DAGs similarity for the kingdom of Fungi.</td>
+        <td style="text-align: center;"><a href="./material/MSA_fungi_phyla.pdf" target="_blank"><img class="icon" src="./images/pdf.svg"></a></td>
+      </tr>
+
+      <tr>
+        <td>S12. Heatmap of the Munkres m-DAGs similarity for the kingdom of Protists.</td>
+        <td style="text-align: center;"><a href="./material/Mun_protits_phyla.pdf" target="_blank"><img class="icon" src="./images/pdf.svg"></a></td>
+      </tr>
+
+      <tr>
+        <td>S13. Heatmap of the MSA m-DAGs similarity for the kingdom of Protists.</td>
+        <td style="text-align: center;"><a href="./material/MSA_fungi_phyla.pdf" target="_blank"><img class="icon" src="./images/pdf.svg"></a></td>
+      </tr>
+  </tbody>
+</table>
+</body>
+</html>
