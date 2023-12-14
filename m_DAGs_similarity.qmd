@@ -194,8 +194,8 @@ draw(Mun_heat_1,merge_legend=TRUE)
 draw(Mun_heat_2,merge_legend=TRUE)
 ```
 
-```{r echo=FALSE, include=FALSE}
-pdf("data_appendix/MSA_kingdoms.pdf")
+```{r echo=FALSE, include=FALSE,eval=FALSE}
+pdf("data_appendix/MSA_kingdoms.pdf",width=5,height=5)
 draw(MSA_heat_1,merge_legend=TRUE)
 dev.off()
 pdf("data_appendix/MSA_phyla.pdf")

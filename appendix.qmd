@@ -41,22 +41,29 @@ clust4_MSA2=tibble(mDAG_Id=names(clust4_MSA),
 clust4_Mun2=tibble(mDAG_Id=names(clust4_Mun),
                       clust4_Mun=as.integer(clust4_Mun))
 
-clust4_MSA_MUN_Eukaryotes_taxo= meta_taxo %>%
-  filter(!is.na(Kingdom))%>%
+clust4_MSA_Eukaryotes_taxo= meta_taxo %>% filter(!is.na(Kingdom))%>%
   select(-c(Freq_Kingdom,Freq_Phylum,Freq_Class)) %>%
-  left_join(clust4_MSA2,by="mDAG_Id")%>%
+  left_join(clust4_MSA2,by="mDAG_Id")
+  
+clust4_Mun_Eukaryotes_taxo= meta_taxo %>% filter(!is.na(Kingdom))%>%
+  select(-c(Freq_Kingdom,Freq_Phylum,Freq_Class)) %>%
   left_join(clust4_Mun2,by="mDAG_Id")
+  
 
 
 
-write_delim(clust4_MSA_MUN_Eukaryotes_taxo,
-                        file="data_appendix/clust4_MSA_MUN_Eukaryotes_taxo.csv",
+write_delim(clust4_MSA_Eukaryotes_taxo,
+                        file="data_appendix/clust4_MSA_Eukaryotes_taxo.csv",
+                        delim=",")
+write_delim(clust4_Mun_Eukaryotes_taxo,
+                        file="data_appendix/clust4_Mun_Eukaryotes_taxo.csv",
                         delim=",")
 ```
 
 Heatmaps by Kingdom MSA y Mun: Animals, Fungi, Plants ans Protists.
 
 **Animals**
+
 ```{r, fig.align='center', fig.height=5, cache=TRUE}
 ##  Animals by phylum
 meta_animals= meta_taxo %>% filter(Kingdom=="Animals")
@@ -132,13 +139,10 @@ draw(Mun_heat_2,merge_legend=TRUE)
 dev.off()
 ```
 
-
 ```{r echo=FALSE, include=TRUE}
 draw(MSA_heat_2,merge_legend=TRUE)
 draw(Mun_heat_2,merge_legend=TRUE)
 ```
-
-
 
 **Plants**
 
@@ -201,6 +205,7 @@ col = rev(viridis(256)),
     )
 )
 ```
+
 Save graphics
 
 ```{r echo=FALSE, include=TRUE}
@@ -218,7 +223,6 @@ draw(Mun_heat_2,merge_legend=TRUE)
 ```
 
 **Fungi**
-
 
 ```{r, fig.align='center', fig.height=5, cache=FALSE}
 meta_fungi= meta_taxo%>% filter(Kingdom=="Fungi")
@@ -381,6 +385,3 @@ dev.off()
 draw(MSA_heat_2,merge_legend=TRUE)
 draw(Mun_heat_2,merge_legend=TRUE)
 ```
-
-
-

@@ -25,7 +25,6 @@ library(GGally)
 
 As an illustrative example for interpreting [metaDAG](https://bioinfo.uib.es/metadag/) results, we consider here the Eukaryotes test presented in Section 2.5. Namely, we consider all Eukaryotes from the KEGG database. [Experiment github.](www.github.com/biocom-uib/metadag)
 
-
 First of all, results must be downloaded from:
 
 Hash: [0a845f74-826e-3b46-aed9-e7ecf74db262](https://bioinfo.uib.es/metadag/handleExperiment/result_0a845f74-826e-3b46-aed9-e7ecf74db262){.uri}
@@ -74,4 +73,3 @@ knitr::include_graphics("figures/screen_3.png")
 ```{r echo=FALSE}
 knitr::include_graphics("figures/screen_4.png")
 ```
-
