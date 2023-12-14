@@ -2,7 +2,7 @@
 
 ```{r  include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
-                      cache= TRUE,
+                      cache= FALSE,
                       warning = FALSE,
                       message = FALSE, out.width = "100%")
 pdf="TRUE"
@@ -23,7 +23,7 @@ library(igraph)
 library(GGally)
 ```
 
-As an illustrative example for interpreting [metaDAG](https://bioinfo.uib.es/metadag/) results, we consider here the Eukaryotes test presented in Section 2.5. Namely, we consider all Eukaryotes from the KEGG database. [Experiment github.](www.github.com/biocom-uib/metadag)
+As an illustrative example for interpreting [metaDAG](https://bioinfo.uib.es/metadag/) results, we consider here the Eukaryotes test presented in Section 2.5. Namely, we consider all Eukaryotes from the KEGG database. [Experiment github.](https://www.github.com/biocom-uib/metadag)
 
 First of all, results must be downloaded from:
 
