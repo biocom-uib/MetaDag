@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>A Guide to Interpreting the Results of MetaDAG Analysis - 3&nbsp; Metabolic Graphs</title>
+<title>3&nbsp; Metabolic Graphs – A Guide to Interpreting the Results of MetaDAG Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -81,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -105,13 +112,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./metabolic_graphs.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Metabolic Graphs</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./metabolic_graphs.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Metabolic Graphs</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -120,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">A Guide to Interpreting the Results of MetaDAG Analysis</a> 
@@ -172,7 +179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -204,7 +211,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file=</span><span class="st">'metadag_work_space.RData'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -229,11 +238,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 78%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">files_Individual_hsa</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Description</th>
+<th style="text-align: left;">files_Individual_hsa</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
@@ -295,8 +308,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 </section>
@@ -318,7 +329,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_core_RC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 3ceba4e D--- 0 0 -- 
+<pre><code>IGRAPH aecdd1d D--- 0 0 -- 
 + attr: color (v/c), label (v/c), id (v/c)</code></pre>
 </div>
 </div>
@@ -331,7 +342,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><embed src="data/result_0a845f74-826e-3b46-aed9-e7ecf74db262/Groups/MSA_Cluster_3/core/MSA_Cluster_3_core_RC.pdf" class="img-fluid" style="width:100.0%"></p>
-<figcaption class="figure-caption">Algae core reaction graph</figcaption>
+<figcaption>Algae core reaction graph</figcaption>
 </figure>
 </div>
 </div>
@@ -343,7 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_core_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 3cf2292 D--- 0 0 -- 
+<pre><code>IGRAPH aed590c D--- 0 0 -- 
 + attr: color (v/c), label (v/c), id (v/c)</code></pre>
 </div>
 </div>
@@ -355,7 +366,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><embed src="data/result_0a845f74-826e-3b46-aed9-e7ecf74db262/Groups/Algae/core/Algae_core_mDAG.pdf" class="img-fluid" style="width:100.0%"></p>
-<figcaption class="figure-caption">Core m-DAG for Algae</figcaption>
+<figcaption>Core m-DAG for Algae</figcaption>
 </figure>
 </div>
 </div>
@@ -368,7 +379,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_pan_RC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 3d04e34 D--- 4556 5798 -- 
+<pre><code>IGRAPH aeec932 D--- 4556 5798 -- 
 + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 </div>
@@ -385,7 +396,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">format=</span> <span class="st">"graphml"</span>)</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 3d08c25 D--- 1026 1086 -- 
+<pre><code>IGRAPH aef1a97 D--- 1026 1086 -- 
 + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(igraph<span class="sc">::</span><span class="fu">degree</span>(graph_mDAG,<span class="at">mode=</span><span class="st">"all"</span>)),</span>
@@ -393,7 +404,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"Frequency of Node Degrees"</span>,</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"Frequency"</span>,<span class="at">xlab=</span><span class="st">"Degree"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="metabolic_graphs_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" style="width:100.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="metabolic_graphs_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The connected components of every graph as well as the size of every connected component can be obtained as:</p>
@@ -404,7 +419,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>List of 3
  $ membership: num [1:1026] 1 1 1 1 1 1 1 1 1 1 ...
  $ csize     : num [1:167] 589 1 1 1 1 1 4 3 4 3 ...
- $ no        : int 167</code></pre>
+ $ no        : num 167</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>compo<span class="sc">$</span>csize</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -468,7 +483,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><embed src="data/result_0a845f74-826e-3b46-aed9-e7ecf74db262/Individuals/hsa/hsa_mDAG_biggerDAG.pdf" class="img-fluid" style="width:100.0%"></p>
+<p><embed src="data/result_0a845f74-826e-3b46-aed9-e7ecf74db262/Individuals/hsa/hsa_mDAG_biggerDAG.pdf" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -487,7 +502,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/cang/cang_RC.pdf"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div>
+<figure class="figure">
 <p><embed src="data/result_0a845f74-826e-3b46-aed9-e7ecf74db262/Individuals/cang/cang_RC.pdf" class="img-fluid" style="width:100.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -594,11 +613,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb42-26"><a href="#cb42-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Log10 weak component size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Log10 order"</span>)</span>
 <span id="cb42-27"><a href="#cb42-27" aria-hidden="true" tabindex="-1"></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="metabolic_graphs_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" style="width:100.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="metabolic_graphs_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="metabolic_graphs_files/figure-html/unnamed-chunk-17-2.png" class="img-fluid" style="width:100.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="metabolic_graphs_files/figure-html/unnamed-chunk-17-2.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>A table with the frequencies of the weak connected components sizes, displayed by Kingdom, can be obtained as follows:</p>
@@ -612,15 +639,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Protists=</span>aux[,<span class="dv">4</span>])</span>
 <span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_wcc_size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">Order</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Wcc_size</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Animals</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Fungi</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Plants</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Protists</th>
+<th style="text-align: right;">Order</th>
+<th style="text-align: right;">Wcc_size</th>
+<th style="text-align: right;">Animals</th>
+<th style="text-align: right;">Fungi</th>
+<th style="text-align: right;">Plants</th>
+<th style="text-align: right;">Protists</th>
 </tr>
 </thead>
 <tbody>
@@ -4002,8 +4029,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 <p>A table with the frequencies of the MBBs sizes displayed by Kingdom can be obtained as follows:</p>
@@ -4017,15 +4042,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Protists=</span>aux[,<span class="dv">4</span>])</span>
 <span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_MBB_size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">Order</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">MBB_size</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Animals</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Fungi</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Plants</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Protists</th>
+<th style="text-align: right;">Order</th>
+<th style="text-align: right;">MBB_size</th>
+<th style="text-align: right;">Animals</th>
+<th style="text-align: right;">Fungi</th>
+<th style="text-align: right;">Plants</th>
+<th style="text-align: right;">Protists</th>
 </tr>
 </thead>
 <tbody>
@@ -4143,8 +4168,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 
@@ -4189,18 +4212,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -4232,7 +4244,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -4284,10 +4318,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -4297,8 +4348,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -4310,7 +4370,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -4354,6 +4537,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -4379,6 +4563,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -4440,35 +4650,35 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./load_data.html" class="pagination-link">
+      <a href="./load_data.html" class="pagination-link" aria-label="Load data">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Load data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./m_DAGs_similarity.html" class="pagination-link">
+      <a href="./m_DAGs_similarity.html" class="pagination-link" aria-label="m-DAGs similarities and Metadata">
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">m-DAGs similarities and Metadata</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb46" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r  include=FALSE,message=FALSE}</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">cache=</span><span class="cn">FALSE</span>,</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">warning =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">message =</span> <span class="cn">FALSE</span>, <span class="at">out.width =</span> <span class="st">"100%"</span>)</span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>pdf<span class="ot">=</span><span class="st">"TRUE"</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(echo = TRUE,</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="in">                      cache=FALSE,</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="in">                      warning = FALSE,</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="in">                      message = FALSE, out.width = "100%")</span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="in">pdf="TRUE"</span></span>
 <span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
-<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ComplexHeatmap)</span>
-<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
-<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(circlize)</span>
-<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
-<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(randomcoloR)</span>
-<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
-<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
-<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
-<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="in">library(igraph)</span></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="in">library(ComplexHeatmap)</span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="in">library(viridis)</span></span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a><span class="in">library(circlize)</span></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a><span class="in">library(plotly)</span></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="in">library(randomcoloR)</span></span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a><span class="in">library(factoextra)</span></span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a><span class="in">library(RColorBrewer)</span></span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a><span class="in">library(kableExtra)</span></span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a><span class="in">library(igraph)</span></span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a><span class="in">library(GGally)</span></span>
 <span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-24"><a href="#cb46-24" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
@@ -4492,25 +4702,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb46-44"><a href="#cb46-44" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-45"><a href="#cb46-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-46"><a href="#cb46-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo=FALSE}</span></span>
-<span id="cb46-47"><a href="#cb46-47" aria-hidden="true" tabindex="-1"></a>files_hsa<span class="ot">=</span><span class="fu">dir</span>(<span class="fu">paste0</span>(path_exp,<span class="st">"Individuals/hsa"</span>))</span>
-<span id="cb46-48"><a href="#cb46-48" aria-hidden="true" tabindex="-1"></a><span class="co"># "plot mDAG pdf format",</span></span>
-<span id="cb46-49"><a href="#cb46-49" aria-hidden="true" tabindex="-1"></a><span class="co">#             "plot mDAG svg format",</span></span>
-<span id="cb46-50"><a href="#cb46-50" aria-hidden="true" tabindex="-1"></a>type_file<span class="ot">=</span><span class="fu">c</span>(<span class="st">"m-DAG GraphML format"</span>,</span>
-<span id="cb46-51"><a href="#cb46-51" aria-hidden="true" tabindex="-1"></a>            <span class="st">"m-DAG pdf graphic"</span>,</span>
-<span id="cb46-52"><a href="#cb46-52" aria-hidden="true" tabindex="-1"></a>            <span class="st">"m-DAG svg graphic"</span>,</span>
-<span id="cb46-53"><a href="#cb46-53" aria-hidden="true" tabindex="-1"></a>            <span class="st">"csv file with the adjacency matrix of the m-DAG"</span>,</span>
-<span id="cb46-54"><a href="#cb46-54" aria-hidden="true" tabindex="-1"></a>            <span class="st">"pdf graphic with the biggest conected componet of the m-DAG"</span>,</span>
-<span id="cb46-55"><a href="#cb46-55" aria-hidden="true" tabindex="-1"></a>            <span class="st">"svg graphic with the biggest conected componet of the m-DAG "</span>,</span>
-<span id="cb46-56"><a href="#cb46-56" aria-hidden="true" tabindex="-1"></a>            <span class="st">"csv file with the node (MBBs) labels  of the m-DAG"</span>, </span>
-<span id="cb46-57"><a href="#cb46-57" aria-hidden="true" tabindex="-1"></a>            <span class="st">"csv file with all connected components of the m-DAG"</span>,</span>
-<span id="cb46-58"><a href="#cb46-58" aria-hidden="true" tabindex="-1"></a>            <span class="st">"csv file with the  adjacency matrix of the reaction graph"</span>,</span>
-<span id="cb46-59"><a href="#cb46-59" aria-hidden="true" tabindex="-1"></a>            <span class="st">"csv file with the node (reactions) labels  of the reaction graph"</span>, </span>
-<span id="cb46-60"><a href="#cb46-60" aria-hidden="true" tabindex="-1"></a>            <span class="st">"reaction graph  GraphML format"</span>,</span>
-<span id="cb46-61"><a href="#cb46-61" aria-hidden="true" tabindex="-1"></a>            <span class="st">"reaction graph pdf graphic"</span>,</span>
-<span id="cb46-62"><a href="#cb46-62" aria-hidden="true" tabindex="-1"></a>            <span class="st">"reaction graph svg graphic"</span>,</span>
-<span id="cb46-63"><a href="#cb46-63" aria-hidden="true" tabindex="-1"></a>            <span class="st">"text summary file with the number of MBBs, reactions, etc. in the previous graphs"</span></span>
-<span id="cb46-64"><a href="#cb46-64" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb46-65"><a href="#cb46-65" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">data.frame</span>(<span class="at">files_Individual_hsa=</span>files_hsa, <span class="at">Description=</span>type_file))</span>
+<span id="cb46-47"><a href="#cb46-47" aria-hidden="true" tabindex="-1"></a><span class="in">files_hsa=dir(paste0(path_exp,"Individuals/hsa"))</span></span>
+<span id="cb46-48"><a href="#cb46-48" aria-hidden="true" tabindex="-1"></a><span class="in"># "plot mDAG pdf format",</span></span>
+<span id="cb46-49"><a href="#cb46-49" aria-hidden="true" tabindex="-1"></a><span class="in">#             "plot mDAG svg format",</span></span>
+<span id="cb46-50"><a href="#cb46-50" aria-hidden="true" tabindex="-1"></a><span class="in">type_file=c("m-DAG GraphML format",</span></span>
+<span id="cb46-51"><a href="#cb46-51" aria-hidden="true" tabindex="-1"></a><span class="in">            "m-DAG pdf graphic",</span></span>
+<span id="cb46-52"><a href="#cb46-52" aria-hidden="true" tabindex="-1"></a><span class="in">            "m-DAG svg graphic",</span></span>
+<span id="cb46-53"><a href="#cb46-53" aria-hidden="true" tabindex="-1"></a><span class="in">            "csv file with the adjacency matrix of the m-DAG",</span></span>
+<span id="cb46-54"><a href="#cb46-54" aria-hidden="true" tabindex="-1"></a><span class="in">            "pdf graphic with the biggest conected componet of the m-DAG",</span></span>
+<span id="cb46-55"><a href="#cb46-55" aria-hidden="true" tabindex="-1"></a><span class="in">            "svg graphic with the biggest conected componet of the m-DAG ",</span></span>
+<span id="cb46-56"><a href="#cb46-56" aria-hidden="true" tabindex="-1"></a><span class="in">            "csv file with the node (MBBs) labels  of the m-DAG", </span></span>
+<span id="cb46-57"><a href="#cb46-57" aria-hidden="true" tabindex="-1"></a><span class="in">            "csv file with all connected components of the m-DAG",</span></span>
+<span id="cb46-58"><a href="#cb46-58" aria-hidden="true" tabindex="-1"></a><span class="in">            "csv file with the  adjacency matrix of the reaction graph",</span></span>
+<span id="cb46-59"><a href="#cb46-59" aria-hidden="true" tabindex="-1"></a><span class="in">            "csv file with the node (reactions) labels  of the reaction graph", </span></span>
+<span id="cb46-60"><a href="#cb46-60" aria-hidden="true" tabindex="-1"></a><span class="in">            "reaction graph  GraphML format",</span></span>
+<span id="cb46-61"><a href="#cb46-61" aria-hidden="true" tabindex="-1"></a><span class="in">            "reaction graph pdf graphic",</span></span>
+<span id="cb46-62"><a href="#cb46-62" aria-hidden="true" tabindex="-1"></a><span class="in">            "reaction graph svg graphic",</span></span>
+<span id="cb46-63"><a href="#cb46-63" aria-hidden="true" tabindex="-1"></a><span class="in">            "text summary file with the number of MBBs, reactions, etc. in the previous graphs"</span></span>
+<span id="cb46-64"><a href="#cb46-64" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb46-65"><a href="#cb46-65" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(data.frame(files_Individual_hsa=files_hsa, Description=type_file))</span></span>
 <span id="cb46-66"><a href="#cb46-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-67"><a href="#cb46-67" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-68"><a href="#cb46-68" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pan &amp; core metabolic graphs</span></span>
@@ -4525,11 +4735,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb46-79"><a href="#cb46-79" aria-hidden="true" tabindex="-1"></a>The global core reaction graph, which is the core of all the organisms' reaction graphs in this Eukaryotes test, is empty.</span>
 <span id="cb46-80"><a href="#cb46-80" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-81"><a href="#cb46-81" aria-hidden="true" tabindex="-1"></a><span class="in">```{r graph_core_ALL}</span></span>
-<span id="cb46-82"><a href="#cb46-82" aria-hidden="true" tabindex="-1"></a>graph_core_RC<span class="ot">=</span><span class="fu">read.graph</span>(</span>
-<span id="cb46-83"><a href="#cb46-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,</span>
-<span id="cb46-84"><a href="#cb46-84" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Global/core/core_RC.graphml"</span>),</span>
-<span id="cb46-85"><a href="#cb46-85" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
-<span id="cb46-86"><a href="#cb46-86" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_core_RC)</span>
+<span id="cb46-82"><a href="#cb46-82" aria-hidden="true" tabindex="-1"></a><span class="in">graph_core_RC=read.graph(</span></span>
+<span id="cb46-83"><a href="#cb46-83" aria-hidden="true" tabindex="-1"></a><span class="in">  paste0(path_exp,</span></span>
+<span id="cb46-84"><a href="#cb46-84" aria-hidden="true" tabindex="-1"></a><span class="in">         "Global/core/core_RC.graphml"),</span></span>
+<span id="cb46-85"><a href="#cb46-85" aria-hidden="true" tabindex="-1"></a><span class="in">  format = "graphml")</span></span>
+<span id="cb46-86"><a href="#cb46-86" aria-hidden="true" tabindex="-1"></a><span class="in">summary(graph_core_RC)</span></span>
 <span id="cb46-87"><a href="#cb46-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-88"><a href="#cb46-88" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-89"><a href="#cb46-89" aria-hidden="true" tabindex="-1"></a>The global core reaction graph has <span class="in">`r igraph::vcount(graph_core_RC)`</span> vertex and <span class="in">`r igraph::ecount(graph_core_RC)`</span> edges. It is an empty graph.</span>
@@ -4537,8 +4747,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb46-91"><a href="#cb46-91" aria-hidden="true" tabindex="-1"></a>The core reaction graph for the Algae group is:</span>
 <span id="cb46-92"><a href="#cb46-92" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-93"><a href="#cb46-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.cap="Algae core reaction graph"}</span></span>
-<span id="cb46-94"><a href="#cb46-94" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
-<span id="cb46-95"><a href="#cb46-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(path_exp,<span class="st">"Groups/MSA_Cluster_3/core/MSA_Cluster_3_core_RC.pdf"</span>))</span>
+<span id="cb46-94"><a href="#cb46-94" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics(</span></span>
+<span id="cb46-95"><a href="#cb46-95" aria-hidden="true" tabindex="-1"></a><span class="in">  paste0(path_exp,"Groups/MSA_Cluster_3/core/MSA_Cluster_3_core_RC.pdf"))</span></span>
 <span id="cb46-96"><a href="#cb46-96" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-97"><a href="#cb46-97" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-98"><a href="#cb46-98" aria-hidden="true" tabindex="-1"></a>The global core m-DAG, i.e., the core of all organisms in this example is empty.</span>
@@ -4555,7 +4765,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb46-111"><a href="#cb46-111" aria-hidden="true" tabindex="-1"></a>The core metabolic DAG for the Algae group is:</span>
 <span id="cb46-112"><a href="#cb46-112" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-113"><a href="#cb46-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.cap="Core m-DAG for Algae"}</span></span>
-<span id="cb46-114"><a href="#cb46-114" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">paste0</span>(path_exp,                              <span class="st">"Groups/Algae/core/Algae_core_mDAG.pdf"</span>))</span>
+<span id="cb46-114"><a href="#cb46-114" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics(paste0(path_exp,                              "Groups/Algae/core/Algae_core_mDAG.pdf"))</span></span>
 <span id="cb46-115"><a href="#cb46-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-116"><a href="#cb46-116" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-117"><a href="#cb46-117" aria-hidden="true" tabindex="-1"></a>The global pan reaction graph for the Animals Kingdom is:</span>
@@ -4607,8 +4817,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb46-169"><a href="#cb46-169" aria-hidden="true" tabindex="-1"></a>And the plot of the bigger component of the m-DAG in Homo sapiens is:</span>
 <span id="cb46-170"><a href="#cb46-170" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-171"><a href="#cb46-171" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align='center',title="Bigger componet of hsa mDAG"}</span></span>
-<span id="cb46-172"><a href="#cb46-172" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">paste0</span>(path_exp,</span>
-<span id="cb46-173"><a href="#cb46-173" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Individuals/hsa/hsa_mDAG_biggerDAG.pdf"</span>))</span>
+<span id="cb46-172"><a href="#cb46-172" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics(paste0(path_exp,</span></span>
+<span id="cb46-173"><a href="#cb46-173" aria-hidden="true" tabindex="-1"></a><span class="in">                               "Individuals/hsa/hsa_mDAG_biggerDAG.pdf"))</span></span>
 <span id="cb46-174"><a href="#cb46-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-175"><a href="#cb46-175" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-178"><a href="#cb46-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
@@ -4629,69 +4839,69 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb46-195"><a href="#cb46-195" aria-hidden="true" tabindex="-1"></a>The number of connected component in each generated m-DAG with their frequency in the entire set of m-DAGs, can be obtained as follows:</span>
 <span id="cb46-196"><a href="#cb46-196" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-197"><a href="#cb46-197" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ,warning=FALSE}</span></span>
-<span id="cb46-198"><a href="#cb46-198" aria-hidden="true" tabindex="-1"></a>read_mDAG<span class="ot">=</span><span class="cf">function</span>(x) {DAG<span class="ot">=</span><span class="fu">read.graph</span>(<span class="at">file=</span>x,</span>
-<span id="cb46-199"><a href="#cb46-199" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">format=</span><span class="st">"graphml"</span>)</span>
-<span id="cb46-200"><a href="#cb46-200" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(DAG)}</span>
-<span id="cb46-201"><a href="#cb46-201" aria-hidden="true" tabindex="-1"></a>mDAG_componets<span class="ot">=</span><span class="cf">function</span>(x) {</span>
-<span id="cb46-202"><a href="#cb46-202" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sort</span>(<span class="fu">components</span>(x,<span class="at">mode =</span> <span class="st">"weak"</span>)<span class="sc">$</span>csize,</span>
-<span id="cb46-203"><a href="#cb46-203" aria-hidden="true" tabindex="-1"></a>       <span class="at">decreasing=</span><span class="cn">TRUE</span>)</span>
-<span id="cb46-204"><a href="#cb46-204" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb46-198"><a href="#cb46-198" aria-hidden="true" tabindex="-1"></a><span class="in">read_mDAG=function(x) {DAG=read.graph(file=x,</span></span>
+<span id="cb46-199"><a href="#cb46-199" aria-hidden="true" tabindex="-1"></a><span class="in">                                      format="graphml")</span></span>
+<span id="cb46-200"><a href="#cb46-200" aria-hidden="true" tabindex="-1"></a><span class="in">return(DAG)}</span></span>
+<span id="cb46-201"><a href="#cb46-201" aria-hidden="true" tabindex="-1"></a><span class="in">mDAG_componets=function(x) {</span></span>
+<span id="cb46-202"><a href="#cb46-202" aria-hidden="true" tabindex="-1"></a><span class="in">  sort(components(x,mode = "weak")$csize,</span></span>
+<span id="cb46-203"><a href="#cb46-203" aria-hidden="true" tabindex="-1"></a><span class="in">       decreasing=TRUE)</span></span>
+<span id="cb46-204"><a href="#cb46-204" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
 <span id="cb46-205"><a href="#cb46-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-206"><a href="#cb46-206" aria-hidden="true" tabindex="-1"></a>compo_list<span class="ot">=</span><span class="fu">lapply</span>(graphs_list,</span>
-<span id="cb46-207"><a href="#cb46-207" aria-hidden="true" tabindex="-1"></a>                  <span class="at">FUN=</span><span class="cf">function</span>(x) {</span>
-<span id="cb46-208"><a href="#cb46-208" aria-hidden="true" tabindex="-1"></a>                    gg<span class="ot">=</span><span class="fu">read_mDAG</span>(x)</span>
-<span id="cb46-209"><a href="#cb46-209" aria-hidden="true" tabindex="-1"></a>                    aux<span class="ot">=</span><span class="fu">list</span>(</span>
-<span id="cb46-210"><a href="#cb46-210" aria-hidden="true" tabindex="-1"></a>                      <span class="at">mDAG_componets=</span><span class="fu">mDAG_componets</span>(gg),</span>
-<span id="cb46-211"><a href="#cb46-211" aria-hidden="true" tabindex="-1"></a>                      <span class="at">degree_count=</span>igraph<span class="sc">::</span><span class="fu">degree</span>(gg,<span class="at">mode=</span><span class="st">"total"</span>))</span>
-<span id="cb46-212"><a href="#cb46-212" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">return</span>(aux)}</span>
-<span id="cb46-213"><a href="#cb46-213" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb46-206"><a href="#cb46-206" aria-hidden="true" tabindex="-1"></a><span class="in">compo_list=lapply(graphs_list,</span></span>
+<span id="cb46-207"><a href="#cb46-207" aria-hidden="true" tabindex="-1"></a><span class="in">                  FUN=function(x) {</span></span>
+<span id="cb46-208"><a href="#cb46-208" aria-hidden="true" tabindex="-1"></a><span class="in">                    gg=read_mDAG(x)</span></span>
+<span id="cb46-209"><a href="#cb46-209" aria-hidden="true" tabindex="-1"></a><span class="in">                    aux=list(</span></span>
+<span id="cb46-210"><a href="#cb46-210" aria-hidden="true" tabindex="-1"></a><span class="in">                      mDAG_componets=mDAG_componets(gg),</span></span>
+<span id="cb46-211"><a href="#cb46-211" aria-hidden="true" tabindex="-1"></a><span class="in">                      degree_count=igraph::degree(gg,mode="total"))</span></span>
+<span id="cb46-212"><a href="#cb46-212" aria-hidden="true" tabindex="-1"></a><span class="in">                    return(aux)}</span></span>
+<span id="cb46-213"><a href="#cb46-213" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
 <span id="cb46-214"><a href="#cb46-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-215"><a href="#cb46-215" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(compo_list)<span class="ot">=</span>list_names</span>
-<span id="cb46-216"><a href="#cb46-216" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">max</span>(<span class="fu">sapply</span>(compo_list,<span class="at">FUN=</span><span class="cf">function</span>(x) {<span class="fu">length</span>(x[[<span class="dv">1</span>]])}))</span>
-<span id="cb46-217"><a href="#cb46-217" aria-hidden="true" tabindex="-1"></a>n</span>
-<span id="cb46-218"><a href="#cb46-218" aria-hidden="true" tabindex="-1"></a>size_compo_list<span class="ot">=</span><span class="fu">lapply</span>(compo_list,<span class="at">FUN=</span><span class="cf">function</span>(x) {</span>
-<span id="cb46-219"><a href="#cb46-219" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(x[[<span class="dv">1</span>]],<span class="fu">rep</span>(<span class="cn">NA</span>,n<span class="sc">-</span><span class="fu">length</span>(x[[<span class="dv">1</span>]]))))})</span>
+<span id="cb46-215"><a href="#cb46-215" aria-hidden="true" tabindex="-1"></a><span class="in">names(compo_list)=list_names</span></span>
+<span id="cb46-216"><a href="#cb46-216" aria-hidden="true" tabindex="-1"></a><span class="in">n=max(sapply(compo_list,FUN=function(x) {length(x[[1]])}))</span></span>
+<span id="cb46-217"><a href="#cb46-217" aria-hidden="true" tabindex="-1"></a><span class="in">n</span></span>
+<span id="cb46-218"><a href="#cb46-218" aria-hidden="true" tabindex="-1"></a><span class="in">size_compo_list=lapply(compo_list,FUN=function(x) {</span></span>
+<span id="cb46-219"><a href="#cb46-219" aria-hidden="true" tabindex="-1"></a><span class="in">  return(c(x[[1]],rep(NA,n-length(x[[1]]))))})</span></span>
 <span id="cb46-220"><a href="#cb46-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-221"><a href="#cb46-221" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">do.call</span>(bind_cols,size_compo_list)</span>
-<span id="cb46-222"><a href="#cb46-222" aria-hidden="true" tabindex="-1"></a>weak_componets_size<span class="ot">=</span><span class="fu">pivot_longer</span>(aux,aaf<span class="sc">:</span>zvi,<span class="at">names_to=</span><span class="st">"Organism"</span>,</span>
-<span id="cb46-223"><a href="#cb46-223" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">values_to=</span><span class="st">"csize"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb46-224"><a href="#cb46-224" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Organism,<span class="sc">-</span>csize)</span>
-<span id="cb46-225"><a href="#cb46-225" aria-hidden="true" tabindex="-1"></a>weak_componets_size<span class="sc">$</span>index<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n,<span class="at">times=</span><span class="fu">dim</span>(aux)[<span class="dv">2</span>])</span>
-<span id="cb46-226"><a href="#cb46-226" aria-hidden="true" tabindex="-1"></a>weak_componets_size<span class="ot">=</span>weak_componets_size <span class="sc">%&gt;%</span></span>
-<span id="cb46-227"><a href="#cb46-227" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(meta_taxo,<span class="at">by=</span><span class="st">"Organism"</span>)</span>
+<span id="cb46-221"><a href="#cb46-221" aria-hidden="true" tabindex="-1"></a><span class="in">aux=do.call(bind_cols,size_compo_list)</span></span>
+<span id="cb46-222"><a href="#cb46-222" aria-hidden="true" tabindex="-1"></a><span class="in">weak_componets_size=pivot_longer(aux,aaf:zvi,names_to="Organism",</span></span>
+<span id="cb46-223"><a href="#cb46-223" aria-hidden="true" tabindex="-1"></a><span class="in">                                 values_to="csize") %&gt;%</span></span>
+<span id="cb46-224"><a href="#cb46-224" aria-hidden="true" tabindex="-1"></a><span class="in">  arrange(Organism,-csize)</span></span>
+<span id="cb46-225"><a href="#cb46-225" aria-hidden="true" tabindex="-1"></a><span class="in">weak_componets_size$index=rep(1:n,times=dim(aux)[2])</span></span>
+<span id="cb46-226"><a href="#cb46-226" aria-hidden="true" tabindex="-1"></a><span class="in">weak_componets_size=weak_componets_size %&gt;%</span></span>
+<span id="cb46-227"><a href="#cb46-227" aria-hidden="true" tabindex="-1"></a><span class="in">  left_join(meta_taxo,by="Organism")</span></span>
 <span id="cb46-228"><a href="#cb46-228" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-229"><a href="#cb46-229" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-230"><a href="#cb46-230" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ,warning=FALSE}</span></span>
-<span id="cb46-231"><a href="#cb46-231" aria-hidden="true" tabindex="-1"></a>Organism<span class="ot">=</span><span class="fu">names</span>(compo_list)</span>
-<span id="cb46-232"><a href="#cb46-232" aria-hidden="true" tabindex="-1"></a>big_MBB<span class="ot">=</span><span class="cf">function</span>(org){</span>
-<span id="cb46-233"><a href="#cb46-233" aria-hidden="true" tabindex="-1"></a>  org<span class="ot">=</span><span class="st">"hsa"</span></span>
-<span id="cb46-234"><a href="#cb46-234" aria-hidden="true" tabindex="-1"></a>  x<span class="ot">=</span>Results <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Organism<span class="sc">==</span>org)</span>
-<span id="cb46-235"><a href="#cb46-235" aria-hidden="true" tabindex="-1"></a>  x<span class="ot">=</span><span class="fu">as.character</span>(x[<span class="dv">1</span>,<span class="dv">5</span><span class="sc">:</span><span class="fu">dim</span>(Results)[<span class="dv">2</span>]])</span>
-<span id="cb46-236"><a href="#cb46-236" aria-hidden="true" tabindex="-1"></a>  x<span class="ot">=</span>x[x<span class="sc">!=</span><span class="st">"NA"</span>]</span>
-<span id="cb46-237"><a href="#cb46-237" aria-hidden="true" tabindex="-1"></a>  tt<span class="ot">=</span><span class="fu">sort</span>(<span class="fu">table</span>(x),<span class="at">decreasing=</span><span class="cn">TRUE</span>)</span>
-<span id="cb46-238"><a href="#cb46-238" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(tt)</span>
-<span id="cb46-239"><a href="#cb46-239" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb46-240"><a href="#cb46-240" aria-hidden="true" tabindex="-1"></a>big_MBB_list<span class="ot">=</span> <span class="fu">lapply</span>(Organism,<span class="at">FUN=</span><span class="cf">function</span>(x) <span class="fu">big_MBB</span>(x))</span>
-<span id="cb46-241"><a href="#cb46-241" aria-hidden="true" tabindex="-1"></a>nMBB<span class="ot">=</span><span class="fu">max</span>(<span class="fu">sapply</span>(big_MBB_list,<span class="at">FUN=</span><span class="cf">function</span>(x) <span class="fu">length</span>(x)))</span>
-<span id="cb46-242"><a href="#cb46-242" aria-hidden="true" tabindex="-1"></a>nMBB</span>
-<span id="cb46-243"><a href="#cb46-243" aria-hidden="true" tabindex="-1"></a>big_MBB_list<span class="ot">=</span><span class="fu">lapply</span>(big_MBB_list,</span>
-<span id="cb46-244"><a href="#cb46-244" aria-hidden="true" tabindex="-1"></a>                    <span class="at">FUN=</span><span class="cf">function</span>(x){</span>
-<span id="cb46-245"><a href="#cb46-245" aria-hidden="true" tabindex="-1"></a>                      x<span class="ot">=</span><span class="fu">c</span>(x,<span class="fu">rep</span>(<span class="cn">NA</span>,nMBB<span class="sc">-</span><span class="fu">length</span>(x)))</span>
-<span id="cb46-246"><a href="#cb46-246" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">return</span>(x)}</span>
-<span id="cb46-247"><a href="#cb46-247" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb46-248"><a href="#cb46-248" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(big_MBB_list)<span class="ot">=</span>Organism</span>
-<span id="cb46-249"><a href="#cb46-249" aria-hidden="true" tabindex="-1"></a>big_MBB_list<span class="ot">=</span><span class="fu">do.call</span>(bind_cols,big_MBB_list)</span>
+<span id="cb46-231"><a href="#cb46-231" aria-hidden="true" tabindex="-1"></a><span class="in">Organism=names(compo_list)</span></span>
+<span id="cb46-232"><a href="#cb46-232" aria-hidden="true" tabindex="-1"></a><span class="in">big_MBB=function(org){</span></span>
+<span id="cb46-233"><a href="#cb46-233" aria-hidden="true" tabindex="-1"></a><span class="in">  org="hsa"</span></span>
+<span id="cb46-234"><a href="#cb46-234" aria-hidden="true" tabindex="-1"></a><span class="in">  x=Results %&gt;% filter(Organism==org)</span></span>
+<span id="cb46-235"><a href="#cb46-235" aria-hidden="true" tabindex="-1"></a><span class="in">  x=as.character(x[1,5:dim(Results)[2]])</span></span>
+<span id="cb46-236"><a href="#cb46-236" aria-hidden="true" tabindex="-1"></a><span class="in">  x=x[x!="NA"]</span></span>
+<span id="cb46-237"><a href="#cb46-237" aria-hidden="true" tabindex="-1"></a><span class="in">  tt=sort(table(x),decreasing=TRUE)</span></span>
+<span id="cb46-238"><a href="#cb46-238" aria-hidden="true" tabindex="-1"></a><span class="in">  return(tt)</span></span>
+<span id="cb46-239"><a href="#cb46-239" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb46-240"><a href="#cb46-240" aria-hidden="true" tabindex="-1"></a><span class="in">big_MBB_list= lapply(Organism,FUN=function(x) big_MBB(x))</span></span>
+<span id="cb46-241"><a href="#cb46-241" aria-hidden="true" tabindex="-1"></a><span class="in">nMBB=max(sapply(big_MBB_list,FUN=function(x) length(x)))</span></span>
+<span id="cb46-242"><a href="#cb46-242" aria-hidden="true" tabindex="-1"></a><span class="in">nMBB</span></span>
+<span id="cb46-243"><a href="#cb46-243" aria-hidden="true" tabindex="-1"></a><span class="in">big_MBB_list=lapply(big_MBB_list,</span></span>
+<span id="cb46-244"><a href="#cb46-244" aria-hidden="true" tabindex="-1"></a><span class="in">                    FUN=function(x){</span></span>
+<span id="cb46-245"><a href="#cb46-245" aria-hidden="true" tabindex="-1"></a><span class="in">                      x=c(x,rep(NA,nMBB-length(x)))</span></span>
+<span id="cb46-246"><a href="#cb46-246" aria-hidden="true" tabindex="-1"></a><span class="in">                      return(x)}</span></span>
+<span id="cb46-247"><a href="#cb46-247" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb46-248"><a href="#cb46-248" aria-hidden="true" tabindex="-1"></a><span class="in">names(big_MBB_list)=Organism</span></span>
+<span id="cb46-249"><a href="#cb46-249" aria-hidden="true" tabindex="-1"></a><span class="in">big_MBB_list=do.call(bind_cols,big_MBB_list)</span></span>
 <span id="cb46-250"><a href="#cb46-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-251"><a href="#cb46-251" aria-hidden="true" tabindex="-1"></a>kMBB<span class="ot">=</span><span class="fu">nrow</span>(big_MBB_list)</span>
-<span id="cb46-252"><a href="#cb46-252" aria-hidden="true" tabindex="-1"></a>index<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>kMBB,<span class="at">times=</span><span class="fu">length</span>(Organism))</span>
+<span id="cb46-251"><a href="#cb46-251" aria-hidden="true" tabindex="-1"></a><span class="in">kMBB=nrow(big_MBB_list)</span></span>
+<span id="cb46-252"><a href="#cb46-252" aria-hidden="true" tabindex="-1"></a><span class="in">index=rep(1:kMBB,times=length(Organism))</span></span>
 <span id="cb46-253"><a href="#cb46-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-254"><a href="#cb46-254" aria-hidden="true" tabindex="-1"></a>big_MBB_list2<span class="ot">=</span><span class="fu">pivot_longer</span>(big_MBB_list,</span>
-<span id="cb46-255"><a href="#cb46-255" aria-hidden="true" tabindex="-1"></a>                           <span class="at">cols=</span><span class="fu">names</span>(big_MBB_list),</span>
-<span id="cb46-256"><a href="#cb46-256" aria-hidden="true" tabindex="-1"></a>                           <span class="at">values_to =</span> <span class="st">"MBBsize"</span>,</span>
-<span id="cb46-257"><a href="#cb46-257" aria-hidden="true" tabindex="-1"></a>                           <span class="at">names_to =</span> <span class="st">"Organism"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-258"><a href="#cb46-258" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Organism,<span class="sc">-</span>MBBsize) <span class="sc">%&gt;%</span>  </span>
-<span id="cb46-259"><a href="#cb46-259" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">index=</span>index) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-260"><a href="#cb46-260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(meta_taxo,<span class="at">by=</span><span class="st">"Organism"</span>)</span>
+<span id="cb46-254"><a href="#cb46-254" aria-hidden="true" tabindex="-1"></a><span class="in">big_MBB_list2=pivot_longer(big_MBB_list,</span></span>
+<span id="cb46-255"><a href="#cb46-255" aria-hidden="true" tabindex="-1"></a><span class="in">                           cols=names(big_MBB_list),</span></span>
+<span id="cb46-256"><a href="#cb46-256" aria-hidden="true" tabindex="-1"></a><span class="in">                           values_to = "MBBsize",</span></span>
+<span id="cb46-257"><a href="#cb46-257" aria-hidden="true" tabindex="-1"></a><span class="in">                           names_to = "Organism") %&gt;% </span></span>
+<span id="cb46-258"><a href="#cb46-258" aria-hidden="true" tabindex="-1"></a><span class="in">  arrange(Organism,-MBBsize) %&gt;%  </span></span>
+<span id="cb46-259"><a href="#cb46-259" aria-hidden="true" tabindex="-1"></a><span class="in">  mutate(index=index) %&gt;% </span></span>
+<span id="cb46-260"><a href="#cb46-260" aria-hidden="true" tabindex="-1"></a><span class="in">  left_join(meta_taxo,by="Organism")</span></span>
 <span id="cb46-261"><a href="#cb46-261" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-262"><a href="#cb46-262" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-263"><a href="#cb46-263" aria-hidden="true" tabindex="-1"></a>We can visualize the sizes of the weak components for each m-DAG, using colors to represent the different Kingdoms, also we scale the results by a log-log plot:</span>
@@ -4754,11 +4964,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb46-326"><a href="#cb46-326" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb46-327"><a href="#cb46-327" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-328"><a href="#cb46-328" aria-hidden="true" tabindex="-1"></a><span class="in">```{r pasar_load, include=FALSE}</span></span>
-<span id="cb46-329"><a href="#cb46-329" aria-hidden="true" tabindex="-1"></a><span class="fu">save.image</span>(<span class="at">file=</span><span class="st">'metadag_work_space.RData'</span>)</span>
+<span id="cb46-329"><a href="#cb46-329" aria-hidden="true" tabindex="-1"></a><span class="in">save.image(file='metadag_work_space.RData')</span></span>
 <span id="cb46-330"><a href="#cb46-330" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
+
 
 
 
