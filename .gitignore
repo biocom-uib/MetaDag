@@ -3,5 +3,10 @@
 /data_appendix/
 /index_cache/
 /site_libs/
+/appendix-cache/
+/cache/
+/m-DAGs_similarity_cache/
 
 /.quarto/
+
+.Rhistory
