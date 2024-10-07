@@ -1,14 +1,16 @@
 ---
 title: "MetaDag"
 author: "Biocom"
-date: "2024-10-07"
+date: "`r Sys.Date()`"
 output: 
   html_document: 
     self_contained: false
     keep_md: true
 ---
 
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 ## MetaDag example supplementary material
 
