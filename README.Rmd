@@ -19,4 +19,12 @@ This repository contains the supplementary material for the MetaDag web applicat
 
 It should be noted that this repository contains only the source code that produces the reports with Rstudio and Quarto.
 
-In order to reproduce the research, it is necessary to download the data from the HASSSSH experiment address.
+To ensure the reproducibility of the research, the results must be downloaded from the following:
+
+**Hash:** 0a845f74-826e-3b46-aed9-e7ecf74db262
+
+**URL:** <https://bioinfo.uib.es/metadag/handleExperiment/result_0a845f74-826e-3b46-aed9-e7ecf74db262>
+
+These results should be saved in the folder:
+
+**Path:** `data/0a845f74-826e-3b46-aed9-e7ecf74db262/`
