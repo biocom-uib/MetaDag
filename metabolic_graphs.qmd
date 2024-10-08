@@ -332,6 +332,10 @@ g <- ggplot(weak_componets_size) +
 
 
 ```{r}
+
+weak_componets_size_max = weak_componets_size %>%
+  group_by(Organism) %>%
+  summarise(csize = max(csize),Kingdom=first(Kingdom))
 # Crear el gráfico de violín con puntos jitter
 g <- ggplot(weak_componets_size_max, aes(x = Kingdom, y = csize)) +
   geom_violin(aes(fill = Kingdom), trim = FALSE, alpha = 0.5) +  # Gráfico de violín con relleno por 'Kingdom' y sin recortar
@@ -340,7 +344,7 @@ g <- ggplot(weak_componets_size_max, aes(x = Kingdom, y = csize)) +
   ylab("Size of  largest weakly connected component") +  # Etiqueta del eje Y
   scale_y_continuous(breaks = seq(0, 640, by = 100)) +  # Escala del eje Y con saltos de 100
   theme_minimal() +  # Tema minimalista con fondo blanco
-  ggtitle("Size of the largest weakly connected component by Kingdom (Violin Plot with Jittered Points)")  # Título del gráfico
+  ggtitle("Size of the largest weakly connected component by Kingdom \n (Violin Plot with Jittered Points)")  # Título del gráfico
 
 # Mostrar el gráfico
 g
