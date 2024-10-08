@@ -19,11 +19,9 @@ library(igraph)
 library(GGally)
 ```
 
-
 ```{r}
 load(file='metadag_work_space.RData')
 ```
-
 
 # Clusters analysis
 
@@ -40,7 +38,7 @@ reactions$rev=stringr::str_detect(reactions$r_id,"v")
 ```
 
 The results of the clusters are compared to the classification of Kingdoms for both similarity measures:
-  
+
 ```{r}
 clust4_MSA2=tibble(mDAG_Id=names(clust4_MSA), clust4_MSA=clust4_MSA)
 clust4_Mun2=tibble(mDAG_Id=names(clust4_Mun), clust4_Mun=clust4_Mun)

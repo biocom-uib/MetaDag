@@ -22,6 +22,7 @@ format:
     code-tools: true
     code-overflow: wrap
     highlight-style: github
+    mode: selfcontained
   pdf:
     toc: true
     toccolor: blue

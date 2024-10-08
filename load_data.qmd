@@ -22,7 +22,7 @@ library(GGally)
 
 ```{r}
 experiment=
-  "result_0a845f74-826e-3b46-aed9-e7ecf74db262/"
+  "0a845f74-826e-3b46-aed9-e7ecf74db262/"
 path_exp=paste0("data/",experiment)
 knitr::kable(data.frame(
   Directory_files_and_folders=dir(path_exp),

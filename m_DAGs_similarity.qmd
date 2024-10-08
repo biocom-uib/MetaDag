@@ -31,7 +31,7 @@ Keep in mind the path of the experiment:
 
 ```{r}
 experiment=
-  "result_0a845f74-826e-3b46-aed9-e7ecf74db262/"
+  "0a845f74-826e-3b46-aed9-e7ecf74db262/"
 path_exp=paste0("data/",experiment)
 ```
 
