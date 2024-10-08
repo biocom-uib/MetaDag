@@ -6,7 +6,7 @@
 /appendix-cache/
 /cache/
 /m-DAGs_similarity_cache/
-
+/*_cache/
 /.quarto/
 
 .Rhistory

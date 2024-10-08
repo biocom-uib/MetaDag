@@ -33,7 +33,7 @@ URL: (https://bioinfo.uib.es/metadag/handleExperiment/result_0a845f74-826e-3b46-
 
 and saved in the folder:
 
-"data/result_0a845f74-826e-3b46-aed9-e7ecf74db262".
+"data/0a845f74-826e-3b46-aed9-e7ecf74db262".
 
 ```{r setup_load_data, include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,

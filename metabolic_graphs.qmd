@@ -2,7 +2,7 @@
 knitr::opts_chunk$set(echo = TRUE,
                       cache=FALSE,
                       warning = FALSE,
-                      message = FALSE, out.width = "100%")
+                      message = FALSE, out.width = "100%",cache.lazy=FALSE)
 pdf="TRUE"
 
 library(tidyverse)
@@ -20,7 +20,9 @@ library(GGally)
 ```
 
 ```{r}
+gc()
 load(file='metadag_work_space.RData')
+gc()
 ```
 
 # Metabolic Graphs
@@ -209,7 +211,7 @@ weak_componets_size=weak_componets_size %>%
   left_join(meta_taxo,by="Organism") %>% filter(!is.na(Kingdom),!is.na(csize))
 ```
 
-```{r ,warning=FALSE}
+```{r ,warning=FALSE,cache=FALSE}
 Organism=names(compo_list)
 big_MBB=function(org){
   org="hsa"
@@ -232,6 +234,7 @@ big_MBB_list=do.call(bind_cols,big_MBB_list)
 
 kMBB=nrow(big_MBB_list)
 index=rep(1:kMBB,times=length(Organism))
+
 
 big_MBB_list2=pivot_longer(big_MBB_list,
                            cols=names(big_MBB_list),

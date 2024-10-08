@@ -2,7 +2,7 @@
 knitr::opts_chunk$set(echo = TRUE,
                       cache=FALSE,
                       warning = FALSE,
-                      message = FALSE, out.width = "100%")
+                      message = FALSE, out.width = "100%",cache.lazy=FALSE)
 pdf="TRUE"
 
 library(tidyverse)
@@ -438,6 +438,6 @@ sim_pairs %>% group_by(Method) %>%
           Q3=quantile(Similarity,0.75))
 ```
 
-```{r pasar_load, include=FALSE}
+```{r pasar_load, include=FALSE,cache=FALSE}
 save.image(file='metadag_work_space.RData')
 ```

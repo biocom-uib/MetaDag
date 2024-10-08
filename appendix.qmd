@@ -6,7 +6,7 @@ Some tables and graphs for the supplementary material.
 knitr::opts_chunk$set(echo = TRUE,
                       cache=FALSE,
                       warning = FALSE,
-                      message = FALSE, out.width = "100%")
+                      message = FALSE, out.width = "100%",cache.lazy=FALSE)
 pdf="TRUE"
 
 library(tidyverse)

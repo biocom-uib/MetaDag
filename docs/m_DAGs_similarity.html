@@ -1424,7 +1424,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(echo = TRUE,</span></span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="in">                      cache=FALSE,</span></span>
 <span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="in">                      warning = FALSE,</span></span>
-<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="in">                      message = FALSE, out.width = "100%")</span></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="in">                      message = FALSE, out.width = "100%",cache.lazy=FALSE)</span></span>
 <span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="in">pdf="TRUE"</span></span>
 <span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
@@ -1860,7 +1860,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb64-480"><a href="#cb64-480" aria-hidden="true" tabindex="-1"></a>          <span class="at">Q3=</span><span class="fu">quantile</span>(Similarity,<span class="fl">0.75</span>))</span>
 <span id="cb64-481"><a href="#cb64-481" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb64-482"><a href="#cb64-482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-483"><a href="#cb64-483" aria-hidden="true" tabindex="-1"></a><span class="in">```{r pasar_load, include=FALSE}</span></span>
+<span id="cb64-483"><a href="#cb64-483" aria-hidden="true" tabindex="-1"></a><span class="in">```{r pasar_load, include=FALSE,cache=FALSE}</span></span>
 <span id="cb64-484"><a href="#cb64-484" aria-hidden="true" tabindex="-1"></a><span class="in">save.image(file='metadag_work_space.RData')</span></span>
 <span id="cb64-485"><a href="#cb64-485" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
