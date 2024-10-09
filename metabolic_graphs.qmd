@@ -49,8 +49,8 @@ type_file=c("m-DAG GraphML format",
             "m-DAG pdf graphic",
             "m-DAG svg graphic",
             "csv file with the adjacency matrix of the m-DAG",
-            "pdf graphic with the biggest conected componet of the m-DAG",
-            "svg graphic with the biggest conected componet of the m-DAG ",
+            "pdf graphic with the biggest conected component of the m-DAG",
+            "svg graphic with the biggest conected component of the m-DAG ",
             "csv file with the node (MBBs) labels  of the m-DAG", 
             "csv file with all connected components of the m-DAG",
             "csv file with the  adjacency matrix of the reaction graph",
@@ -156,7 +156,7 @@ igraph::ecount(Big_Component)
 
 And the plot of the bigger component of the m-DAG in Homo sapiens is:
 
-```{r fig.align='center',title="Bigger componet of hsa mDAG"}
+```{r fig.align='center',title="Bigger component of hsa mDAG"}
 knitr::include_graphics(paste0(path_exp,
                                "Individuals/hsa/hsa_mDAG_biggerDAG.pdf"))
 ```
@@ -182,7 +182,7 @@ The number of connected component in each generated m-DAG with their frequency i
 read_mDAG=function(x) {DAG=read.graph(file=x,
                                       format="graphml")
 return(DAG)}
-mDAG_componets=function(x) {
+mDAG_components=function(x) {
   sort(components(x,mode = "weak")$csize,
        decreasing=TRUE)
 }
@@ -191,7 +191,7 @@ compo_list=lapply(graphs_list,
                   FUN=function(x) {
                     gg=read_mDAG(x)
                     aux=list(
-                      mDAG_componets=mDAG_componets(gg),
+                      mDAG_components=mDAG_components(gg),
                       degree_count=igraph::degree(gg,mode="total"))
                     return(aux)}
 )
@@ -203,11 +203,11 @@ size_compo_list=lapply(compo_list,FUN=function(x) {
   return(c(x[[1]],rep(NA,n-length(x[[1]]))))})
 
 aux=do.call(bind_cols,size_compo_list)
-weak_componets_size=pivot_longer(aux,aaf:zvi,names_to="Organism",
+weak_components_size=pivot_longer(aux,aaf:zvi,names_to="Organism",
                                  values_to="csize") %>%
   arrange(Organism,-csize)
-weak_componets_size$index=rep(1:n,times=dim(aux)[2])
-weak_componets_size=weak_componets_size %>%
+weak_components_size$index=rep(1:n,times=dim(aux)[2])
+weak_components_size=weak_components_size %>%
   left_join(meta_taxo,by="Organism") %>% filter(!is.na(Kingdom),!is.na(csize))
 ```
 
@@ -249,10 +249,10 @@ We can visualize the sizes of the weak components for each m-DAG, using colors t
 
 ```{r}
 COLOR_KINGDOM=c("red","yellow","green","black")
-colors_kingdom=weak_componets_size%>% select(Organism,Kingdom) %>% distinct()
+colors_kingdom=weak_components_size%>% select(Organism,Kingdom) %>% distinct()
 names(COLOR_KINGDOM)=sort(unique(colors_kingdom$Kingdom))
 
-p1<- ggplot(data=weak_componets_size) + 
+p1<- ggplot(data=weak_components_size) + 
   geom_line(mapping=aes(x=index,
                         y=csize,group = Organism,
                         color=Kingdom),
@@ -264,7 +264,7 @@ p1<- ggplot(data=weak_componets_size) +
   ylab("Weak components size") + xlab("Order")+
   scale_color_manual(values =COLOR_KINGDOM[colors_kingdom$Kingdom])
 
-p2<- ggplot(data=weak_componets_size) + 
+p2<- ggplot(data=weak_components_size) + 
   geom_line(mapping=aes(x=index,
                         y=csize,group = Organism,
                         color=Kingdom),
@@ -281,14 +281,15 @@ p2
 A table with the frequencies of the weak connected components sizes, displayed by Kingdom, can be obtained as follows:
 
 ```{r}
-aux=table(weak_componets_size$csize,weak_componets_size$Kingdom)
+aux=table(weak_components_size$csize,weak_components_size$Kingdom)
 table_wcc_size=tibble(Order=1:dim(aux)[1],
                       Wcc_size=as.integer(unlist(dimnames(aux)[1])),
                       Animals=aux[,1],
                       Fungi=aux[,2],
                       Plants=aux[,3],
                       Protists=aux[,4])
-knitr::kable(table_wcc_size)
+knitr::kable(table_wcc_size)%>% kable_styling(bootstrap_options = "striped", full_width = FALSE) %>%
+  scroll_box(height = "300px", width = "100%")
 ```
 
 A table with the frequencies of the MBBs sizes displayed by Kingdom can be obtained as follows:
@@ -301,7 +302,8 @@ table_MBB_size=tibble(Order=1:dim(aux)[1],
                       Fungi=aux[,2],
                       Plants=aux[,3],
                       Protists=aux[,4])
-knitr::kable(table_MBB_size)
+knitr::kable(table_MBB_size)%>% kable_styling(bootstrap_options = "striped", full_width = FALSE) %>%
+  scroll_box(height = "300px", width = "100%")
 ```
 
 ```{r pasar_load, include=FALSE}
@@ -310,47 +312,42 @@ save.image(file='metadag_work_space.RData')
 
 ### More statistics
 
+h
+
 ```{r}
 
-weak_componets_size$Kingdom <- factor(weak_componets_size$Kingdom)
-#weak_componets_size
+weak_components_size$Kingdom <- factor(weak_components_size$Kingdom)
+#weak_components_size
 
 
-g <- ggplot(weak_componets_size) +
+g <- ggplot(weak_components_size) +
   xlab("") +  # Eliminar el título del eje X
-  ylab("Size of weak connected component") +  # Etiqueta del eje Y
+  ylab("Size of connected component") +  # Etiqueta del eje Y
   geom_jitter(aes(x = Kingdom, y = csize, color = Kingdom),
              size = 1) +  # Colorear puntos según 'Kingdom' y reducir el tamaño
   scale_y_continuous(breaks = seq(0, 640, by = 100)) +  # Escala del eje Y con saltos de 20
   theme_minimal() + # Tema minimalista con fondo blanco
-  ggtitle("Size of weaks componets by Kingdom (jittered points)")  # Título del gráfico
+  ggtitle("")  # Título del gráfico
   g
 
 ```
 
-
-
-
-
-
-
 ```{r}
 
-weak_componets_size_max = weak_componets_size %>%
+weak_components_size_max = weak_components_size %>%
   group_by(Organism) %>%
   summarise(csize = max(csize),Kingdom=first(Kingdom))
 # Crear el gráfico de violín con puntos jitter
-g <- ggplot(weak_componets_size_max, aes(x = Kingdom, y = csize)) +
+g <- ggplot(weak_components_size_max, aes(x = Kingdom, y = csize)) +
   geom_violin(aes(fill = Kingdom), trim = FALSE, alpha = 0.5) +  # Gráfico de violín con relleno por 'Kingdom' y sin recortar
   geom_jitter(aes(color = Kingdom), size = 1, width = 0.2) +  # Puntos con jitter para evitar solapamientos
   xlab("") +  # Eliminar el título del eje X
-  ylab("Size of  largest weakly connected component") +  # Etiqueta del eje Y
-  scale_y_continuous(breaks = seq(0, 640, by = 100)) +  # Escala del eje Y con saltos de 100
-  theme_minimal() +  # Tema minimalista con fondo blanco
-  ggtitle("Size of the largest weakly connected component by Kingdom \n (Violin Plot with Jittered Points)")  # Título del gráfico
-
+  ylab("Size of biggest connected component") +  
+  scale_y_continuous(breaks = seq(0, 640, by = 100)) +  
+  theme_minimal() +  # theme background white
+  ggtitle("")  #
+#Size of the largest weakly connected component by Kingdom \n (Violin Plot with Jittered Points)
 # Mostrar el gráfico
 g
 
 ```
-

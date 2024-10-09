@@ -102,6 +102,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
 
 </head>
@@ -222,15 +226,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used  (Mb) gc trigger  (Mb) max used  (Mb)
-Ncells 2766370 147.8    5140844 274.6  4917455 262.7
-Vcells 4559441  34.8   10146329  77.5  8388592  64.0</code></pre>
+Ncells 2766369 147.8    5141005 274.6  4916986 262.6
+Vcells 4559498  34.8   10146329  77.5  8388606  64.0</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file=</span><span class="st">'metadag_work_space.RData'</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           used  (Mb) gc trigger  (Mb) max used  (Mb)
-Ncells  2866058 153.1    5140844 274.6  4917455 262.7
-Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
+Ncells  2866060 153.1    5141005 274.6  4916986 262.6
+Vcells 38142052 291.1   49101430 374.7 38162760 291.2</code></pre>
 </div>
 </div>
 <p>We present here some analysis examples of the metabolic graphs generated in GraphML format.</p>
@@ -283,11 +287,11 @@ Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">hsa_mDAG_biggerDAG.pdf</td>
-<td style="text-align: left;">pdf graphic with the biggest conected componet of the m-DAG</td>
+<td style="text-align: left;">pdf graphic with the biggest conected component of the m-DAG</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">hsa_mDAG_biggerDAG.svg</td>
-<td style="text-align: left;">svg graphic with the biggest conected componet of the m-DAG</td>
+<td style="text-align: left;">svg graphic with the biggest conected component of the m-DAG</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">hsa_mDAG_nl.csv</td>
@@ -344,7 +348,7 @@ Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_core_RC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 3c37df2 D--- 0 0 -- 
+<pre><code>IGRAPH ed63fcc D--- 0 0 -- 
 + attr: color (v/c), label (v/c), id (v/c)</code></pre>
 </div>
 </div>
@@ -369,7 +373,7 @@ Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_core_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 3c440fe D--- 0 0 -- 
+<pre><code>IGRAPH ed6d769 D--- 0 0 -- 
 + attr: color (v/c), label (v/c), id (v/c)</code></pre>
 </div>
 </div>
@@ -394,7 +398,7 @@ Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">"graphml"</span>)</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_pan_RC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 3c5f336 D--- 4556 5798 -- 
+<pre><code>IGRAPH ed8546a D--- 4556 5798 -- 
 + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 </div>
@@ -411,7 +415,7 @@ Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">format=</span> <span class="st">"graphml"</span>)</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(graph_mDAG)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 3c658f3 D--- 1026 1086 -- 
+<pre><code>IGRAPH ed8a642 D--- 1026 1086 -- 
 + attr: color (v/c), label (v/c), id (v/c), id (e/c)</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(igraph<span class="sc">::</span><span class="fu">degree</span>(graph_mDAG,<span class="at">mode=</span><span class="st">"all"</span>)),</span>
@@ -492,7 +496,7 @@ Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
 </div>
 </div>
 <p>And the plot of the bigger component of the m-DAG in Homo sapiens is:</p>
-<div class="cell" data-layout-align="center" title="Bigger componet of hsa mDAG">
+<div class="cell" data-layout-align="center" title="Bigger component of hsa mDAG">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">paste0</span>(path_exp,</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Individuals/hsa/hsa_mDAG_biggerDAG.pdf"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -532,7 +536,7 @@ Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>read_mDAG<span class="ot">=</span><span class="cf">function</span>(x) {DAG<span class="ot">=</span><span class="fu">read.graph</span>(<span class="at">file=</span>x,</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">format=</span><span class="st">"graphml"</span>)</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(DAG)}</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>mDAG_componets<span class="ot">=</span><span class="cf">function</span>(x) {</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>mDAG_components<span class="ot">=</span><span class="cf">function</span>(x) {</span>
 <span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sort</span>(<span class="fu">components</span>(x,<span class="at">mode =</span> <span class="st">"weak"</span>)<span class="sc">$</span>csize,</span>
 <span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">decreasing=</span><span class="cn">TRUE</span>)</span>
 <span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>}</span>
@@ -541,7 +545,7 @@ Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
 <span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">FUN=</span><span class="cf">function</span>(x) {</span>
 <span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>                    gg<span class="ot">=</span><span class="fu">read_mDAG</span>(x)</span>
 <span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>                    aux<span class="ot">=</span><span class="fu">list</span>(</span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>                      <span class="at">mDAG_componets=</span><span class="fu">mDAG_componets</span>(gg),</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>                      <span class="at">mDAG_components=</span><span class="fu">mDAG_components</span>(gg),</span>
 <span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>                      <span class="at">degree_count=</span>igraph<span class="sc">::</span><span class="fu">degree</span>(gg,<span class="at">mode=</span><span class="st">"total"</span>))</span>
 <span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">return</span>(aux)}</span>
 <span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -556,11 +560,11 @@ Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(x[[<span class="dv">1</span>]],<span class="fu">rep</span>(<span class="cn">NA</span>,n<span class="sc">-</span><span class="fu">length</span>(x[[<span class="dv">1</span>]]))))})</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">do.call</span>(bind_cols,size_compo_list)</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>weak_componets_size<span class="ot">=</span><span class="fu">pivot_longer</span>(aux,aaf<span class="sc">:</span>zvi,<span class="at">names_to=</span><span class="st">"Organism"</span>,</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>weak_components_size<span class="ot">=</span><span class="fu">pivot_longer</span>(aux,aaf<span class="sc">:</span>zvi,<span class="at">names_to=</span><span class="st">"Organism"</span>,</span>
 <span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">values_to=</span><span class="st">"csize"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Organism,<span class="sc">-</span>csize)</span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>weak_componets_size<span class="sc">$</span>index<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n,<span class="at">times=</span><span class="fu">dim</span>(aux)[<span class="dv">2</span>])</span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>weak_componets_size<span class="ot">=</span>weak_componets_size <span class="sc">%&gt;%</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>weak_components_size<span class="sc">$</span>index<span class="ot">=</span><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n,<span class="at">times=</span><span class="fu">dim</span>(aux)[<span class="dv">2</span>])</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>weak_components_size<span class="ot">=</span>weak_components_size <span class="sc">%&gt;%</span></span>
 <span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(meta_taxo,<span class="at">by=</span><span class="st">"Organism"</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Kingdom),<span class="sc">!</span><span class="fu">is.na</span>(csize))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
@@ -602,10 +606,10 @@ Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
 <p>We can visualize the sizes of the weak components for each m-DAG, using colors to represent the different Kingdoms, also we scale the results by a log-log plot:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>COLOR_KINGDOM<span class="ot">=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"yellow"</span>,<span class="st">"green"</span>,<span class="st">"black"</span>)</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>colors_kingdom<span class="ot">=</span>weak_componets_size<span class="sc">%&gt;%</span> <span class="fu">select</span>(Organism,Kingdom) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>colors_kingdom<span class="ot">=</span>weak_components_size<span class="sc">%&gt;%</span> <span class="fu">select</span>(Organism,Kingdom) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(COLOR_KINGDOM)<span class="ot">=</span><span class="fu">sort</span>(<span class="fu">unique</span>(colors_kingdom<span class="sc">$</span>Kingdom))</span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>weak_componets_size) <span class="sc">+</span> </span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>weak_components_size) <span class="sc">+</span> </span>
 <span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,</span>
 <span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">y=</span>csize,<span class="at">group =</span> Organism,</span>
 <span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>                        <span class="at">color=</span>Kingdom),</span>
@@ -617,7 +621,7 @@ Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
 <span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Weak components size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Order"</span>)<span class="sc">+</span></span>
 <span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])</span>
 <span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>weak_componets_size) <span class="sc">+</span> </span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>weak_components_size) <span class="sc">+</span> </span>
 <span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,</span>
 <span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>                        <span class="at">y=</span>csize,<span class="at">group =</span> Organism,</span>
 <span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a>                        <span class="at">color=</span>Kingdom),</span>
@@ -646,24 +650,26 @@ Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
 </div>
 <p>A table with the frequencies of the weak connected components sizes, displayed by Kingdom, can be obtained as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">table</span>(weak_componets_size<span class="sc">$</span>csize,weak_componets_size<span class="sc">$</span>Kingdom)</span>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">table</span>(weak_components_size<span class="sc">$</span>csize,weak_components_size<span class="sc">$</span>Kingdom)</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>table_wcc_size<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">Order=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(aux)[<span class="dv">1</span>],</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Wcc_size=</span><span class="fu">as.integer</span>(<span class="fu">unlist</span>(<span class="fu">dimnames</span>(aux)[<span class="dv">1</span>])),</span>
 <span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Animals=</span>aux[,<span class="dv">1</span>],</span>
 <span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Fungi=</span>aux[,<span class="dv">2</span>],</span>
 <span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Plants=</span>aux[,<span class="dv">3</span>],</span>
 <span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Protists=</span>aux[,<span class="dv">4</span>])</span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_wcc_size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_wcc_size)<span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>, <span class="at">width =</span> <span class="st">"100%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th style="text-align: right;">Order</th>
-<th style="text-align: right;">Wcc_size</th>
-<th style="text-align: right;">Animals</th>
-<th style="text-align: right;">Fungi</th>
-<th style="text-align: right;">Plants</th>
-<th style="text-align: right;">Protists</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Order</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Wcc_size</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Animals</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Fungi</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Plants</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Protists</th>
 </tr>
 </thead>
 <tbody>
@@ -4046,6 +4052,8 @@ Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
 </tbody>
 </table>
 </div>
+
+</div>
 </div>
 <p>A table with the frequencies of the MBBs sizes displayed by Kingdom can be obtained as follows:</p>
 <div class="cell">
@@ -4056,17 +4064,19 @@ Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
 <span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Fungi=</span>aux[,<span class="dv">2</span>],</span>
 <span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Plants=</span>aux[,<span class="dv">3</span>],</span>
 <span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Protists=</span>aux[,<span class="dv">4</span>])</span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_MBB_size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_MBB_size)<span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>, <span class="at">width =</span> <span class="st">"100%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th style="text-align: right;">Order</th>
-<th style="text-align: right;">MBB_size</th>
-<th style="text-align: right;">Animals</th>
-<th style="text-align: right;">Fungi</th>
-<th style="text-align: right;">Plants</th>
-<th style="text-align: right;">Protists</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Order</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">MBB_size</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Animals</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Fungi</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Plants</th>
+<th data-quarto-table-cell-role="th" style="text-align: right; position: sticky; top: 0; background-color: #FFFFFF;">Protists</th>
 </tr>
 </thead>
 <tbody>
@@ -4185,22 +4195,25 @@ Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
 </tbody>
 </table>
 </div>
+
+</div>
 </div>
 <section id="more-statistics" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="more-statistics"><span class="header-section-number">3.4.1</span> More statistics</h3>
+<p>h</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>weak_componets_size<span class="sc">$</span>Kingdom <span class="ot">&lt;-</span> <span class="fu">factor</span>(weak_componets_size<span class="sc">$</span>Kingdom)</span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="co">#weak_componets_size</span></span>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>weak_components_size<span class="sc">$</span>Kingdom <span class="ot">&lt;-</span> <span class="fu">factor</span>(weak_components_size<span class="sc">$</span>Kingdom)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="co">#weak_components_size</span></span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(weak_componets_size) <span class="sc">+</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(weak_components_size) <span class="sc">+</span></span>
 <span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span>  <span class="co"># Eliminar el título del eje X</span></span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Size of weak connected component"</span>) <span class="sc">+</span>  <span class="co"># Etiqueta del eje Y</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Size of connected component"</span>) <span class="sc">+</span>  <span class="co"># Etiqueta del eje Y</span></span>
 <span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">x =</span> Kingdom, <span class="at">y =</span> csize, <span class="at">color =</span> Kingdom),</span>
 <span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>  <span class="co"># Colorear puntos según 'Kingdom' y reducir el tamaño</span></span>
 <span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">640</span>, <span class="at">by =</span> <span class="dv">100</span>)) <span class="sc">+</span>  <span class="co"># Escala del eje Y con saltos de 20</span></span>
 <span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="co"># Tema minimalista con fondo blanco</span></span>
-<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Size of weaks componets by Kingdom (jittered points)"</span>)  <span class="co"># Título del gráfico</span></span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">""</span>)  <span class="co"># Título del gráfico</span></span>
 <span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>  g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -4211,19 +4224,19 @@ Vcells 38141990 291.1   49101341 374.7 38162698 291.2</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>weak_componets_size_max <span class="ot">=</span> weak_componets_size <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>weak_components_size_max <span class="ot">=</span> weak_components_size <span class="sc">%&gt;%</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Organism) <span class="sc">%&gt;%</span></span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">csize =</span> <span class="fu">max</span>(csize),<span class="at">Kingdom=</span><span class="fu">first</span>(Kingdom))</span>
 <span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el gráfico de violín con puntos jitter</span></span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(weak_componets_size_max, <span class="fu">aes</span>(<span class="at">x =</span> Kingdom, <span class="at">y =</span> csize)) <span class="sc">+</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(weak_components_size_max, <span class="fu">aes</span>(<span class="at">x =</span> Kingdom, <span class="at">y =</span> csize)) <span class="sc">+</span></span>
 <span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Kingdom), <span class="at">trim =</span> <span class="cn">FALSE</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span>  <span class="co"># Gráfico de violín con relleno por 'Kingdom' y sin recortar</span></span>
 <span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">color =</span> Kingdom), <span class="at">size =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span>  <span class="co"># Puntos con jitter para evitar solapamientos</span></span>
 <span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span>  <span class="co"># Eliminar el título del eje X</span></span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Size of  largest weakly connected component"</span>) <span class="sc">+</span>  <span class="co"># Etiqueta del eje Y</span></span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">640</span>, <span class="at">by =</span> <span class="dv">100</span>)) <span class="sc">+</span>  <span class="co"># Escala del eje Y con saltos de 100</span></span>
-<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span>  <span class="co"># Tema minimalista con fondo blanco</span></span>
-<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Size of the largest weakly connected component by Kingdom </span><span class="sc">\n</span><span class="st"> (Violin Plot with Jittered Points)"</span>)  <span class="co"># Título del gráfico</span></span>
-<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Size of biggest connected component"</span>) <span class="sc">+</span>  </span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">640</span>, <span class="at">by =</span> <span class="dv">100</span>)) <span class="sc">+</span>  </span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span>  <span class="co"># theme background white</span></span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">""</span>)  <span class="co">#</span></span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Size of the largest weakly connected component by Kingdom \n (Violin Plot with Jittered Points)</span></span>
 <span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar el gráfico</span></span>
 <span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -4776,8 +4789,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb51-53"><a href="#cb51-53" aria-hidden="true" tabindex="-1"></a><span class="in">            "m-DAG pdf graphic",</span></span>
 <span id="cb51-54"><a href="#cb51-54" aria-hidden="true" tabindex="-1"></a><span class="in">            "m-DAG svg graphic",</span></span>
 <span id="cb51-55"><a href="#cb51-55" aria-hidden="true" tabindex="-1"></a><span class="in">            "csv file with the adjacency matrix of the m-DAG",</span></span>
-<span id="cb51-56"><a href="#cb51-56" aria-hidden="true" tabindex="-1"></a><span class="in">            "pdf graphic with the biggest conected componet of the m-DAG",</span></span>
-<span id="cb51-57"><a href="#cb51-57" aria-hidden="true" tabindex="-1"></a><span class="in">            "svg graphic with the biggest conected componet of the m-DAG ",</span></span>
+<span id="cb51-56"><a href="#cb51-56" aria-hidden="true" tabindex="-1"></a><span class="in">            "pdf graphic with the biggest conected component of the m-DAG",</span></span>
+<span id="cb51-57"><a href="#cb51-57" aria-hidden="true" tabindex="-1"></a><span class="in">            "svg graphic with the biggest conected component of the m-DAG ",</span></span>
 <span id="cb51-58"><a href="#cb51-58" aria-hidden="true" tabindex="-1"></a><span class="in">            "csv file with the node (MBBs) labels  of the m-DAG", </span></span>
 <span id="cb51-59"><a href="#cb51-59" aria-hidden="true" tabindex="-1"></a><span class="in">            "csv file with all connected components of the m-DAG",</span></span>
 <span id="cb51-60"><a href="#cb51-60" aria-hidden="true" tabindex="-1"></a><span class="in">            "csv file with the  adjacency matrix of the reaction graph",</span></span>
@@ -4883,7 +4896,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb51-170"><a href="#cb51-170" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb51-171"><a href="#cb51-171" aria-hidden="true" tabindex="-1"></a>And the plot of the bigger component of the m-DAG in Homo sapiens is:</span>
 <span id="cb51-172"><a href="#cb51-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-173"><a href="#cb51-173" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align='center',title="Bigger componet of hsa mDAG"}</span></span>
+<span id="cb51-173"><a href="#cb51-173" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fig.align='center',title="Bigger component of hsa mDAG"}</span></span>
 <span id="cb51-174"><a href="#cb51-174" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics(paste0(path_exp,</span></span>
 <span id="cb51-175"><a href="#cb51-175" aria-hidden="true" tabindex="-1"></a><span class="in">                               "Individuals/hsa/hsa_mDAG_biggerDAG.pdf"))</span></span>
 <span id="cb51-176"><a href="#cb51-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -4909,7 +4922,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb51-200"><a href="#cb51-200" aria-hidden="true" tabindex="-1"></a><span class="in">read_mDAG=function(x) {DAG=read.graph(file=x,</span></span>
 <span id="cb51-201"><a href="#cb51-201" aria-hidden="true" tabindex="-1"></a><span class="in">                                      format="graphml")</span></span>
 <span id="cb51-202"><a href="#cb51-202" aria-hidden="true" tabindex="-1"></a><span class="in">return(DAG)}</span></span>
-<span id="cb51-203"><a href="#cb51-203" aria-hidden="true" tabindex="-1"></a><span class="in">mDAG_componets=function(x) {</span></span>
+<span id="cb51-203"><a href="#cb51-203" aria-hidden="true" tabindex="-1"></a><span class="in">mDAG_components=function(x) {</span></span>
 <span id="cb51-204"><a href="#cb51-204" aria-hidden="true" tabindex="-1"></a><span class="in">  sort(components(x,mode = "weak")$csize,</span></span>
 <span id="cb51-205"><a href="#cb51-205" aria-hidden="true" tabindex="-1"></a><span class="in">       decreasing=TRUE)</span></span>
 <span id="cb51-206"><a href="#cb51-206" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
@@ -4918,7 +4931,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb51-209"><a href="#cb51-209" aria-hidden="true" tabindex="-1"></a><span class="in">                  FUN=function(x) {</span></span>
 <span id="cb51-210"><a href="#cb51-210" aria-hidden="true" tabindex="-1"></a><span class="in">                    gg=read_mDAG(x)</span></span>
 <span id="cb51-211"><a href="#cb51-211" aria-hidden="true" tabindex="-1"></a><span class="in">                    aux=list(</span></span>
-<span id="cb51-212"><a href="#cb51-212" aria-hidden="true" tabindex="-1"></a><span class="in">                      mDAG_componets=mDAG_componets(gg),</span></span>
+<span id="cb51-212"><a href="#cb51-212" aria-hidden="true" tabindex="-1"></a><span class="in">                      mDAG_components=mDAG_components(gg),</span></span>
 <span id="cb51-213"><a href="#cb51-213" aria-hidden="true" tabindex="-1"></a><span class="in">                      degree_count=igraph::degree(gg,mode="total"))</span></span>
 <span id="cb51-214"><a href="#cb51-214" aria-hidden="true" tabindex="-1"></a><span class="in">                    return(aux)}</span></span>
 <span id="cb51-215"><a href="#cb51-215" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
@@ -4930,11 +4943,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb51-221"><a href="#cb51-221" aria-hidden="true" tabindex="-1"></a><span class="in">  return(c(x[[1]],rep(NA,n-length(x[[1]]))))})</span></span>
 <span id="cb51-222"><a href="#cb51-222" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb51-223"><a href="#cb51-223" aria-hidden="true" tabindex="-1"></a><span class="in">aux=do.call(bind_cols,size_compo_list)</span></span>
-<span id="cb51-224"><a href="#cb51-224" aria-hidden="true" tabindex="-1"></a><span class="in">weak_componets_size=pivot_longer(aux,aaf:zvi,names_to="Organism",</span></span>
+<span id="cb51-224"><a href="#cb51-224" aria-hidden="true" tabindex="-1"></a><span class="in">weak_components_size=pivot_longer(aux,aaf:zvi,names_to="Organism",</span></span>
 <span id="cb51-225"><a href="#cb51-225" aria-hidden="true" tabindex="-1"></a><span class="in">                                 values_to="csize") %&gt;%</span></span>
 <span id="cb51-226"><a href="#cb51-226" aria-hidden="true" tabindex="-1"></a><span class="in">  arrange(Organism,-csize)</span></span>
-<span id="cb51-227"><a href="#cb51-227" aria-hidden="true" tabindex="-1"></a><span class="in">weak_componets_size$index=rep(1:n,times=dim(aux)[2])</span></span>
-<span id="cb51-228"><a href="#cb51-228" aria-hidden="true" tabindex="-1"></a><span class="in">weak_componets_size=weak_componets_size %&gt;%</span></span>
+<span id="cb51-227"><a href="#cb51-227" aria-hidden="true" tabindex="-1"></a><span class="in">weak_components_size$index=rep(1:n,times=dim(aux)[2])</span></span>
+<span id="cb51-228"><a href="#cb51-228" aria-hidden="true" tabindex="-1"></a><span class="in">weak_components_size=weak_components_size %&gt;%</span></span>
 <span id="cb51-229"><a href="#cb51-229" aria-hidden="true" tabindex="-1"></a><span class="in">  left_join(meta_taxo,by="Organism") %&gt;% filter(!is.na(Kingdom),!is.na(csize))</span></span>
 <span id="cb51-230"><a href="#cb51-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb51-231"><a href="#cb51-231" aria-hidden="true" tabindex="-1"></a></span>
@@ -4976,10 +4989,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb51-267"><a href="#cb51-267" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb51-270"><a href="#cb51-270" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb51-271"><a href="#cb51-271" aria-hidden="true" tabindex="-1"></a>COLOR_KINGDOM<span class="ot">=</span><span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"yellow"</span>,<span class="st">"green"</span>,<span class="st">"black"</span>)</span>
-<span id="cb51-272"><a href="#cb51-272" aria-hidden="true" tabindex="-1"></a>colors_kingdom<span class="ot">=</span>weak_componets_size<span class="sc">%&gt;%</span> <span class="fu">select</span>(Organism,Kingdom) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
+<span id="cb51-272"><a href="#cb51-272" aria-hidden="true" tabindex="-1"></a>colors_kingdom<span class="ot">=</span>weak_components_size<span class="sc">%&gt;%</span> <span class="fu">select</span>(Organism,Kingdom) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
 <span id="cb51-273"><a href="#cb51-273" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(COLOR_KINGDOM)<span class="ot">=</span><span class="fu">sort</span>(<span class="fu">unique</span>(colors_kingdom<span class="sc">$</span>Kingdom))</span>
 <span id="cb51-274"><a href="#cb51-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-275"><a href="#cb51-275" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>weak_componets_size) <span class="sc">+</span> </span>
+<span id="cb51-275"><a href="#cb51-275" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>weak_components_size) <span class="sc">+</span> </span>
 <span id="cb51-276"><a href="#cb51-276" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,</span>
 <span id="cb51-277"><a href="#cb51-277" aria-hidden="true" tabindex="-1"></a>                        <span class="at">y=</span>csize,<span class="at">group =</span> Organism,</span>
 <span id="cb51-278"><a href="#cb51-278" aria-hidden="true" tabindex="-1"></a>                        <span class="at">color=</span>Kingdom),</span>
@@ -4991,7 +5004,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb51-284"><a href="#cb51-284" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Weak components size"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Order"</span>)<span class="sc">+</span></span>
 <span id="cb51-285"><a href="#cb51-285" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span>COLOR_KINGDOM[colors_kingdom<span class="sc">$</span>Kingdom])</span>
 <span id="cb51-286"><a href="#cb51-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-287"><a href="#cb51-287" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>weak_componets_size) <span class="sc">+</span> </span>
+<span id="cb51-287"><a href="#cb51-287" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>weak_components_size) <span class="sc">+</span> </span>
 <span id="cb51-288"><a href="#cb51-288" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>index,</span>
 <span id="cb51-289"><a href="#cb51-289" aria-hidden="true" tabindex="-1"></a>                        <span class="at">y=</span>csize,<span class="at">group =</span> Organism,</span>
 <span id="cb51-290"><a href="#cb51-290" aria-hidden="true" tabindex="-1"></a>                        <span class="at">color=</span>Kingdom),</span>
@@ -5008,76 +5021,74 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb51-301"><a href="#cb51-301" aria-hidden="true" tabindex="-1"></a>A table with the frequencies of the weak connected components sizes, displayed by Kingdom, can be obtained as follows:</span>
 <span id="cb51-302"><a href="#cb51-302" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb51-305"><a href="#cb51-305" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-306"><a href="#cb51-306" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">table</span>(weak_componets_size<span class="sc">$</span>csize,weak_componets_size<span class="sc">$</span>Kingdom)</span>
+<span id="cb51-306"><a href="#cb51-306" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">table</span>(weak_components_size<span class="sc">$</span>csize,weak_components_size<span class="sc">$</span>Kingdom)</span>
 <span id="cb51-307"><a href="#cb51-307" aria-hidden="true" tabindex="-1"></a>table_wcc_size<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">Order=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(aux)[<span class="dv">1</span>],</span>
 <span id="cb51-308"><a href="#cb51-308" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Wcc_size=</span><span class="fu">as.integer</span>(<span class="fu">unlist</span>(<span class="fu">dimnames</span>(aux)[<span class="dv">1</span>])),</span>
 <span id="cb51-309"><a href="#cb51-309" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Animals=</span>aux[,<span class="dv">1</span>],</span>
 <span id="cb51-310"><a href="#cb51-310" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Fungi=</span>aux[,<span class="dv">2</span>],</span>
 <span id="cb51-311"><a href="#cb51-311" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Plants=</span>aux[,<span class="dv">3</span>],</span>
 <span id="cb51-312"><a href="#cb51-312" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Protists=</span>aux[,<span class="dv">4</span>])</span>
-<span id="cb51-313"><a href="#cb51-313" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_wcc_size)</span>
-<span id="cb51-314"><a href="#cb51-314" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-315"><a href="#cb51-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-316"><a href="#cb51-316" aria-hidden="true" tabindex="-1"></a>A table with the frequencies of the MBBs sizes displayed by Kingdom can be obtained as follows:</span>
-<span id="cb51-317"><a href="#cb51-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-320"><a href="#cb51-320" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-321"><a href="#cb51-321" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">table</span>(big_MBB_list2<span class="sc">$</span>MBBsize,big_MBB_list2<span class="sc">$</span>Kingdom)</span>
-<span id="cb51-322"><a href="#cb51-322" aria-hidden="true" tabindex="-1"></a>table_MBB_size<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">Order=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(aux)[<span class="dv">1</span>],</span>
-<span id="cb51-323"><a href="#cb51-323" aria-hidden="true" tabindex="-1"></a>                      <span class="at">MBB_size=</span><span class="fu">as.integer</span>(<span class="fu">unlist</span>(<span class="fu">dimnames</span>(aux)[<span class="dv">1</span>])),</span>
-<span id="cb51-324"><a href="#cb51-324" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Animals=</span>aux[,<span class="dv">1</span>],</span>
-<span id="cb51-325"><a href="#cb51-325" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Fungi=</span>aux[,<span class="dv">2</span>],</span>
-<span id="cb51-326"><a href="#cb51-326" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Plants=</span>aux[,<span class="dv">3</span>],</span>
-<span id="cb51-327"><a href="#cb51-327" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Protists=</span>aux[,<span class="dv">4</span>])</span>
-<span id="cb51-328"><a href="#cb51-328" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_MBB_size)</span>
-<span id="cb51-329"><a href="#cb51-329" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-330"><a href="#cb51-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-331"><a href="#cb51-331" aria-hidden="true" tabindex="-1"></a><span class="in">```{r pasar_load, include=FALSE}</span></span>
-<span id="cb51-332"><a href="#cb51-332" aria-hidden="true" tabindex="-1"></a><span class="in">save.image(file='metadag_work_space.RData')</span></span>
-<span id="cb51-333"><a href="#cb51-333" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-334"><a href="#cb51-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-335"><a href="#cb51-335" aria-hidden="true" tabindex="-1"></a><span class="fu">### More statistics</span></span>
+<span id="cb51-313"><a href="#cb51-313" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_wcc_size)<span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb51-314"><a href="#cb51-314" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>, <span class="at">width =</span> <span class="st">"100%"</span>)</span>
+<span id="cb51-315"><a href="#cb51-315" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-316"><a href="#cb51-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-317"><a href="#cb51-317" aria-hidden="true" tabindex="-1"></a>A table with the frequencies of the MBBs sizes displayed by Kingdom can be obtained as follows:</span>
+<span id="cb51-318"><a href="#cb51-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-321"><a href="#cb51-321" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-322"><a href="#cb51-322" aria-hidden="true" tabindex="-1"></a>aux<span class="ot">=</span><span class="fu">table</span>(big_MBB_list2<span class="sc">$</span>MBBsize,big_MBB_list2<span class="sc">$</span>Kingdom)</span>
+<span id="cb51-323"><a href="#cb51-323" aria-hidden="true" tabindex="-1"></a>table_MBB_size<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">Order=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(aux)[<span class="dv">1</span>],</span>
+<span id="cb51-324"><a href="#cb51-324" aria-hidden="true" tabindex="-1"></a>                      <span class="at">MBB_size=</span><span class="fu">as.integer</span>(<span class="fu">unlist</span>(<span class="fu">dimnames</span>(aux)[<span class="dv">1</span>])),</span>
+<span id="cb51-325"><a href="#cb51-325" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Animals=</span>aux[,<span class="dv">1</span>],</span>
+<span id="cb51-326"><a href="#cb51-326" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Fungi=</span>aux[,<span class="dv">2</span>],</span>
+<span id="cb51-327"><a href="#cb51-327" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Plants=</span>aux[,<span class="dv">3</span>],</span>
+<span id="cb51-328"><a href="#cb51-328" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Protists=</span>aux[,<span class="dv">4</span>])</span>
+<span id="cb51-329"><a href="#cb51-329" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(table_MBB_size)<span class="sc">%&gt;%</span> <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb51-330"><a href="#cb51-330" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">height =</span> <span class="st">"300px"</span>, <span class="at">width =</span> <span class="st">"100%"</span>)</span>
+<span id="cb51-331"><a href="#cb51-331" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-332"><a href="#cb51-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-333"><a href="#cb51-333" aria-hidden="true" tabindex="-1"></a><span class="in">```{r pasar_load, include=FALSE}</span></span>
+<span id="cb51-334"><a href="#cb51-334" aria-hidden="true" tabindex="-1"></a><span class="in">save.image(file='metadag_work_space.RData')</span></span>
+<span id="cb51-335"><a href="#cb51-335" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb51-336"><a href="#cb51-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-339"><a href="#cb51-339" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-340"><a href="#cb51-340" aria-hidden="true" tabindex="-1"></a>weak_componets_size<span class="sc">$</span>Kingdom <span class="ot">&lt;-</span> <span class="fu">factor</span>(weak_componets_size<span class="sc">$</span>Kingdom)</span>
-<span id="cb51-341"><a href="#cb51-341" aria-hidden="true" tabindex="-1"></a><span class="co">#weak_componets_size</span></span>
-<span id="cb51-342"><a href="#cb51-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-343"><a href="#cb51-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-344"><a href="#cb51-344" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(weak_componets_size) <span class="sc">+</span></span>
-<span id="cb51-345"><a href="#cb51-345" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span>  <span class="co"># Eliminar el título del eje X</span></span>
-<span id="cb51-346"><a href="#cb51-346" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Size of weak connected component"</span>) <span class="sc">+</span>  <span class="co"># Etiqueta del eje Y</span></span>
-<span id="cb51-347"><a href="#cb51-347" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">x =</span> Kingdom, <span class="at">y =</span> csize, <span class="at">color =</span> Kingdom),</span>
-<span id="cb51-348"><a href="#cb51-348" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>  <span class="co"># Colorear puntos según 'Kingdom' y reducir el tamaño</span></span>
-<span id="cb51-349"><a href="#cb51-349" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">640</span>, <span class="at">by =</span> <span class="dv">100</span>)) <span class="sc">+</span>  <span class="co"># Escala del eje Y con saltos de 20</span></span>
-<span id="cb51-350"><a href="#cb51-350" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="co"># Tema minimalista con fondo blanco</span></span>
-<span id="cb51-351"><a href="#cb51-351" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Size of weaks componets by Kingdom (jittered points)"</span>)  <span class="co"># Título del gráfico</span></span>
-<span id="cb51-352"><a href="#cb51-352" aria-hidden="true" tabindex="-1"></a>  g</span>
-<span id="cb51-353"><a href="#cb51-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-354"><a href="#cb51-354" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb51-355"><a href="#cb51-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-356"><a href="#cb51-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-337"><a href="#cb51-337" aria-hidden="true" tabindex="-1"></a><span class="fu">### More statistics</span></span>
+<span id="cb51-338"><a href="#cb51-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-339"><a href="#cb51-339" aria-hidden="true" tabindex="-1"></a>h</span>
+<span id="cb51-340"><a href="#cb51-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-343"><a href="#cb51-343" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-344"><a href="#cb51-344" aria-hidden="true" tabindex="-1"></a>weak_components_size<span class="sc">$</span>Kingdom <span class="ot">&lt;-</span> <span class="fu">factor</span>(weak_components_size<span class="sc">$</span>Kingdom)</span>
+<span id="cb51-345"><a href="#cb51-345" aria-hidden="true" tabindex="-1"></a><span class="co">#weak_components_size</span></span>
+<span id="cb51-346"><a href="#cb51-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-347"><a href="#cb51-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-348"><a href="#cb51-348" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(weak_components_size) <span class="sc">+</span></span>
+<span id="cb51-349"><a href="#cb51-349" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span>  <span class="co"># Eliminar el título del eje X</span></span>
+<span id="cb51-350"><a href="#cb51-350" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Size of connected component"</span>) <span class="sc">+</span>  <span class="co"># Etiqueta del eje Y</span></span>
+<span id="cb51-351"><a href="#cb51-351" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">x =</span> Kingdom, <span class="at">y =</span> csize, <span class="at">color =</span> Kingdom),</span>
+<span id="cb51-352"><a href="#cb51-352" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>  <span class="co"># Colorear puntos según 'Kingdom' y reducir el tamaño</span></span>
+<span id="cb51-353"><a href="#cb51-353" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">640</span>, <span class="at">by =</span> <span class="dv">100</span>)) <span class="sc">+</span>  <span class="co"># Escala del eje Y con saltos de 20</span></span>
+<span id="cb51-354"><a href="#cb51-354" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="co"># Tema minimalista con fondo blanco</span></span>
+<span id="cb51-355"><a href="#cb51-355" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">""</span>)  <span class="co"># Título del gráfico</span></span>
+<span id="cb51-356"><a href="#cb51-356" aria-hidden="true" tabindex="-1"></a>  g</span>
 <span id="cb51-357"><a href="#cb51-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-358"><a href="#cb51-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-358"><a href="#cb51-358" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb51-359"><a href="#cb51-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-360"><a href="#cb51-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-361"><a href="#cb51-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-364"><a href="#cb51-364" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb51-365"><a href="#cb51-365" aria-hidden="true" tabindex="-1"></a>weak_componets_size_max <span class="ot">=</span> weak_componets_size <span class="sc">%&gt;%</span></span>
-<span id="cb51-366"><a href="#cb51-366" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Organism) <span class="sc">%&gt;%</span></span>
-<span id="cb51-367"><a href="#cb51-367" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">csize =</span> <span class="fu">max</span>(csize),<span class="at">Kingdom=</span><span class="fu">first</span>(Kingdom))</span>
-<span id="cb51-368"><a href="#cb51-368" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el gráfico de violín con puntos jitter</span></span>
-<span id="cb51-369"><a href="#cb51-369" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(weak_componets_size_max, <span class="fu">aes</span>(<span class="at">x =</span> Kingdom, <span class="at">y =</span> csize)) <span class="sc">+</span></span>
-<span id="cb51-370"><a href="#cb51-370" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Kingdom), <span class="at">trim =</span> <span class="cn">FALSE</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span>  <span class="co"># Gráfico de violín con relleno por 'Kingdom' y sin recortar</span></span>
-<span id="cb51-371"><a href="#cb51-371" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">color =</span> Kingdom), <span class="at">size =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span>  <span class="co"># Puntos con jitter para evitar solapamientos</span></span>
-<span id="cb51-372"><a href="#cb51-372" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span>  <span class="co"># Eliminar el título del eje X</span></span>
-<span id="cb51-373"><a href="#cb51-373" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Size of  largest weakly connected component"</span>) <span class="sc">+</span>  <span class="co"># Etiqueta del eje Y</span></span>
-<span id="cb51-374"><a href="#cb51-374" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">640</span>, <span class="at">by =</span> <span class="dv">100</span>)) <span class="sc">+</span>  <span class="co"># Escala del eje Y con saltos de 100</span></span>
-<span id="cb51-375"><a href="#cb51-375" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span>  <span class="co"># Tema minimalista con fondo blanco</span></span>
-<span id="cb51-376"><a href="#cb51-376" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Size of the largest weakly connected component by Kingdom </span><span class="sc">\n</span><span class="st"> (Violin Plot with Jittered Points)"</span>)  <span class="co"># Título del gráfico</span></span>
-<span id="cb51-377"><a href="#cb51-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-378"><a href="#cb51-378" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar el gráfico</span></span>
-<span id="cb51-379"><a href="#cb51-379" aria-hidden="true" tabindex="-1"></a>g</span>
-<span id="cb51-380"><a href="#cb51-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-381"><a href="#cb51-381" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb51-362"><a href="#cb51-362" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb51-363"><a href="#cb51-363" aria-hidden="true" tabindex="-1"></a>weak_components_size_max <span class="ot">=</span> weak_components_size <span class="sc">%&gt;%</span></span>
+<span id="cb51-364"><a href="#cb51-364" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Organism) <span class="sc">%&gt;%</span></span>
+<span id="cb51-365"><a href="#cb51-365" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">csize =</span> <span class="fu">max</span>(csize),<span class="at">Kingdom=</span><span class="fu">first</span>(Kingdom))</span>
+<span id="cb51-366"><a href="#cb51-366" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el gráfico de violín con puntos jitter</span></span>
+<span id="cb51-367"><a href="#cb51-367" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(weak_components_size_max, <span class="fu">aes</span>(<span class="at">x =</span> Kingdom, <span class="at">y =</span> csize)) <span class="sc">+</span></span>
+<span id="cb51-368"><a href="#cb51-368" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Kingdom), <span class="at">trim =</span> <span class="cn">FALSE</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span>  <span class="co"># Gráfico de violín con relleno por 'Kingdom' y sin recortar</span></span>
+<span id="cb51-369"><a href="#cb51-369" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">color =</span> Kingdom), <span class="at">size =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span>  <span class="co"># Puntos con jitter para evitar solapamientos</span></span>
+<span id="cb51-370"><a href="#cb51-370" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span>  <span class="co"># Eliminar el título del eje X</span></span>
+<span id="cb51-371"><a href="#cb51-371" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Size of biggest connected component"</span>) <span class="sc">+</span>  </span>
+<span id="cb51-372"><a href="#cb51-372" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">640</span>, <span class="at">by =</span> <span class="dv">100</span>)) <span class="sc">+</span>  </span>
+<span id="cb51-373"><a href="#cb51-373" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span>  <span class="co"># theme background white</span></span>
+<span id="cb51-374"><a href="#cb51-374" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">""</span>)  <span class="co">#</span></span>
+<span id="cb51-375"><a href="#cb51-375" aria-hidden="true" tabindex="-1"></a><span class="co">#Size of the largest weakly connected component by Kingdom \n (Violin Plot with Jittered Points)</span></span>
+<span id="cb51-376"><a href="#cb51-376" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar el gráfico</span></span>
+<span id="cb51-377"><a href="#cb51-377" aria-hidden="true" tabindex="-1"></a>g</span>
+<span id="cb51-378"><a href="#cb51-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-379"><a href="#cb51-379" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
