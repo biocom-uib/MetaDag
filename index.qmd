@@ -29,7 +29,7 @@ First of all, results must be downloaded from:
 
 Hash: [0a845f74-826e-3b46-aed9-e7ecf74db262](https://bioinfo.uib.es/metadag/handleExperiment/0a845f74-826e-3b46-aed9-e7ecf74db262){.uri}
 
-URL: (https://bioinfo.uib.es/metadag/handleExperiment/result_0a845f74-826e-3b46-aed9-e7ecf74db262)
+URL: (https://bioinfo.uib.es/metadag/handleExperiment/0a845f74-826e-3b46-aed9-e7ecf74db262)
 
 and saved in the folder:
 

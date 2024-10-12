@@ -1,0 +1,166 @@
+---
+title: "Untitled"
+author: "MAT3"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Quarto
+
+\begin{tabular}{|c|c|c|}
+ \multicolumn{1}{c}{Clusters} & \multicolumn{1}{c}{Shared reactions} & \multicolumn{1}{c}{Shared MBBs}\\
+    \hline \hline
+Cluster 1  &   525 &  377 \\
+Cluster 2  &   243 &  203 \\
+Cluster 3  &  1019 &  631 \\
+Cluster 4  &     2 &    2 \\\hline 
+  \end{tabular}
+  \footnotetext{MSA-similarity}
+\begin{tabular}{|c|c|c|}
+   \multicolumn{1}{c}{Clusters} & \multicolumn{1}{c}{Shared reactions} & \multicolumn{1}{c}{Shared MBBs}\\
+    \hline \hline
+Cluster 1  &  525  &  377 \\
+Cluster 2  &  241  &  201\\
+Cluster 3  &  1019 &  631 \\
+Cluster 4  &    2  &   2  \\ \hline 
+  \end{tabuhhlar}
+
+```{r}
+library(tidyverse)
+dd=read_delim("../data/0a845f74-826e-3b46-aed9-e7ecf74db262/results.csv",
+              delim=",")
+clusters=unique(dd$Groups)[c(1,2,4,5)]
+clusters
+dd0= dd %>% filter(!is.na(Categories)) %>% 
+  select(!contains("_rev"),Categories)
+dim(dd0)
+CatList=strsplit(dd0$Groups,split="\\|")
+
+CatList
+
+dame=function(CCC,CatList=CatList){
+  CCC="Cluster 1"
+  sapply(CatList,FUN=function(x) CCC %in% x)
+
+}
+#dame("Cluster 1")
+
+
+c1= dd0[sapply(CatList,FUN=function(x) "Cluster 1" %in% x),]
+dim(c1)
+c4= dd0[sapply(CatList,FUN=function(x) "Cluster 4" %in% x),]
+dim(c4)
+
+cMSA2= dd0[sapply(CatList,FUN=function(x) "MSA Cluster 2" %in% x),]
+cMSA3= dd0[sapply(CatList,FUN=function(x) "MSA Cluster 3" %in% x),]
+dim(cMSA2)
+dim(cMSA3)
+
+
+cMUN2= dd0[sapply(CatList,FUN=function(x) "MUN Cluster 2" %in% x),]
+cMUN3= dd0[sapply(CatList,FUN=function(x) "MUN Cluster 3" %in% x),]
+
+dim(cMUN2)
+dim(cMUN3)
+
+c(dim(c1)[1],dim(cMSA2)[1],dim(cMSA3)[1],dim(c4)[1])
+
+c(dim(c1)[1],dim(cMUN2)[1],dim(cMUN3)[1],dim(c4)[1])
+```
+
+
+```{r}
+## CLUSTER 1
+c1a=!is.na(c1[,-c(1:5)])
+#Reactions
+table(colSums(c1a)>=1)
+# MBB
+c1a=unique(na.omit(unlist(c1[,-c(1:5)])))
+length(c1a)
+
+## CLUSTER 2
+cMUN2a=!is.na(cMUN2[,-c(1:5)])
+#Reactions
+table(colSums(cMUN2a)>=1)
+# MBB
+cMUN2a=unique(na.omit(unlist(cMUN2[,-c(1:5)])))
+length(cMUN2a)
+
+## CLUSTER 3
+
+cMUN3a=!is.na(cMUN3[,-c(1:5)])
+#Reactions
+table(colSums(cMUN3a)>=1)
+# MBB
+cMUN3a=unique(na.omit(unlist(cMUN3[,-c(1:5)])))
+length(cMUN3a)
+
+
+## CLUSTER 4
+
+c4a=!is.na(c4[,-c(1:5)])
+#Reactions
+table(colSums(c4a)>=1)
+# MBB
+c4a=unique(na.omit(unlist(c4[,-c(1:5)])))
+length(c4a)
+
+```
+
+
+
+```{r}
+sum(table(dd0$Categories))
+knitr::kable(table(dd0$Categories))
+
+```
+
+
+
+```{r}
+path_exp="../data/0a845f74-826e-3b46-aed9-e7ecf74db262/"
+n=884# no synthetic mDGAs
+Sim_MSA_mDAG=read_csv(paste0(path_exp,
+                             "Similarities_mDAG_MSAMethod.csv"))
+Sim_MSA_mDAG[,-1]->Sim_MSA_mDAG
+
+D=as.dist(sqrt(1-Sim_MSA_mDAG^2))
+hc_MSA=hclust(D,method ="ward.D2")
+cutree(hc_MSA,k=4)->hcMSA_4
+
+table(hcMSA_4)
+
+
+```
+
+
+
+```{r}
+Sim_Mun_mDAG=read_csv(paste0(path_exp,"Similarities_mDAG_MunkresMethod.csv"))
+Sim_Mun_mDAG=Sim_Mun_mDAG[,-1]
+D=as.dist(sqrt(1-Sim_Mun_mDAG^2))
+hc_Mun=hclust(D,method ="ward.D2")
+cutree(hc_Mun,k=4)->hcMUN_4
+
+table(hcMUN_4)
+```
+
+
+```{r}
+#hcMSA=hclust(sqrt(1-Sim_MSA_mDAG),method="ward.D")
+
+```
+
+
+
+
+
+
+
+
