@@ -179,7 +179,7 @@ knitr::include_graphics(
 The number of connected component in each generated m-DAG with their frequency in the entire set of m-DAGs, can be obtained as follows:
 
 ```{r ,warning=FALSE}
-read_mDAG=function(x) {DAG=read.graph(file=x,
+readh_mDAG=function(x) {DAG=read.graph(file=x,
                                       format="graphml")
 return(DAG)}
 mDAG_components=function(x) {
@@ -209,26 +209,33 @@ weak_components_size=pivot_longer(aux,aaf:zvi,names_to="Organism",
 weak_components_size$index=rep(1:n,times=dim(aux)[2])
 weak_components_size=weak_components_size %>%
   left_join(meta_taxo,by="Organism") %>% filter(!is.na(Kingdom),!is.na(csize))
+weak_components_size_raw=weak_components_size
 ```
 
 ```{r ,warning=FALSE,cache=FALSE}
 Organism=names(compo_list)
+
 big_MBB=function(org){
-  org="hsa"
-  x=Results %>% filter(Organism==org)
-  x=as.character(x[1,5:dim(Results)[2]])
+  #org="hsa"
+  x=Results %>% filter(Organism==org) %>% select(!contains("_rev"))
+  x=as.character(x[1,6:dim(x)[2]])
+  x=x[(!is.na(x))]
   x=x[x!="NA"]
-  tt=sort(table(x),decreasing=TRUE)
+  tt=data.frame(sort(table(x),decreasing=TRUE))
   return(tt)
 }
-big_MBB_list= lapply(Organism,FUN=function(x) big_MBB(x))
-nMBB=max(sapply(big_MBB_list,FUN=function(x) length(x)))
+
+
+big_MBB_list_raw= lapply(Organism,FUN=function(x) big_MBB(x))
+names(big_MBB_list_raw)=Organism
+nMBB=max(sapply(big_MBB_list_raw,FUN=function(x) length(x)))
 nMBB
-big_MBB_list=lapply(big_MBB_list,
+
+big_MBB_list=lapply(big_MBB_list_raw,
                     FUN=function(x){
                       x=c(x,rep(NA,nMBB-length(x)))
-                      return(x)}
-)
+                      return(x)})
+
 names(big_MBB_list)=Organism
 big_MBB_list=do.call(bind_cols,big_MBB_list)
 
@@ -239,7 +246,8 @@ index=rep(1:kMBB,times=length(Organism))
 big_MBB_list2=pivot_longer(big_MBB_list,
                            cols=names(big_MBB_list),
                            values_to = "MBBsize",
-                           names_to = "Organism") %>% 
+                           names_to = "Organism",
+                           MBB_id=) %>% 
   arrange(Organism,-MBBsize) %>%  
   mutate(index=index) %>% 
   left_join(meta_taxo,by="Organism")
@@ -333,7 +341,6 @@ g <- ggplot(weak_components_size) +
 ```
 
 ```{r}
-
 weak_components_size_max = weak_components_size %>%
   group_by(Organism) %>%
   summarise(csize = max(csize),Kingdom=first(Kingdom))
@@ -348,6 +355,5 @@ g <- ggplot(weak_components_size_max, aes(x = Kingdom, y = csize)) +
   ggtitle("")  #
 #Size of the largest weakly connected component by Kingdom \n (Violin Plot with Jittered Points)
 # Mostrar el gráfico
-g
-
+gh
 ```
