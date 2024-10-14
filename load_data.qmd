@@ -28,7 +28,7 @@ knitr::kable(data.frame(
   Directory_files_and_folders=dir(path_exp),
   Type=c(rep("Data file",2),
          rep("Directory",3),
-         rep("Data file",6),
+         rep("Data file",8),
          "Directory")))
 ```
 
