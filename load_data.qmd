@@ -2,10 +2,12 @@
 
 ```{r setup_load_data, include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
-                      cache=FALSE,
+                      cache=TRUE,
                       warning = FALSE,
-                      message = FALSE, out.width = "100%")
-pdf="TRUE"
+                      message = FALSE, 
+                      out.width = "100%",
+                      lazy.cache = FALSE)
+#pdf="TRUE"
 library(tidyverse)
 library(igraph)
 library(ComplexHeatmap)

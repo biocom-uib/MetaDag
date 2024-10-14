@@ -1,4 +1,5 @@
 /data/
+*.RData
 .Rproj.user
 /data_appendix/
 /index_cache/

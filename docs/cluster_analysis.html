@@ -1080,72 +1080,73 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(echo = TRUE,</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="in">                      cache=TRUE,</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="in">                      warning = FALSE,</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="in">                      message = FALSE, out.width = "100%")</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="in">pdf="TRUE"</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="in">library(igraph)</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="in">library(ComplexHeatmap)</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="in">library(viridis)</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="in">library(circlize)</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="in">library(plotly)</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="in">library(randomcoloR)</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="in">library(factoextra)</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="in">library(RColorBrewer)</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="in">library(kableExtra)</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="in">library(igraph)</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="in">library(GGally)</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file=</span><span class="st">'metadag_work_space.RData'</span>)</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="fu"># Clusters analysis</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>In the Eukaryotes test, we aimed to analyze which factors caused some algae and plants to be distinguished from their respective kingdoms. To address this question, we revisited the core metabolism obtained with MetaDAG, focusing on each cluster.</span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span><span class="fu">names</span>(Results)</span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span>reactions[<span class="fu">grep</span>(<span class="st">"(^R</span><span class="sc">\\</span><span class="st">d{5})"</span>,reactions)]</span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span><span class="fu">tibble</span>(reactions)</span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span>reactions <span class="sc">%&gt;%</span> <span class="fu">separate</span>(reactions, <span class="at">into=</span><span class="fu">c</span>(<span class="st">"r_id"</span>,<span class="st">"enzyme"</span>),<span class="at">sep=</span><span class="st">"</span><span class="sc">\\</span><span class="st">("</span>,<span class="at">remove=</span><span class="cn">FALSE</span>)</span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span>reactions <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">enzyme=</span><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">(|</span><span class="sc">\\</span><span class="st">)"</span>,<span class="st">""</span>,enzyme))</span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="co">#reactions=reactions[,-3]</span></span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>reactions<span class="sc">$</span>rev<span class="ot">=</span>stringr<span class="sc">::</span><span class="fu">str_detect</span>(reactions<span class="sc">$</span>r_id,<span class="st">"v"</span>)</span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>The results of the clusters are compared to the classification of Kingdoms for both similarity measures:</span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>clust4_MSA2<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">mDAG_Id=</span><span class="fu">names</span>(clust4_MSA), <span class="at">clust4_MSA=</span>clust4_MSA)</span>
-<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>clust4_Mun2<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">mDAG_Id=</span><span class="fu">names</span>(clust4_Mun), <span class="at">clust4_Mun=</span>clust4_Mun)</span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>meta_taxo2<span class="ot">=</span>meta_taxo</span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>meta_taxo2<span class="ot">=</span>meta_taxo2 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(clust4_MSA2,<span class="at">by=</span> <span class="st">"mDAG_Id"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(clust4_Mun2,<span class="at">by=</span> <span class="st">"mDAG_Id"</span>)</span>
-<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>meta_taxo2<span class="sc">$</span>combined_cluster_MSA_Kingdom<span class="ot">=</span><span class="fu">paste0</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>clust4_MSA)</span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>meta_taxo2<span class="sc">$</span>combined_cluster_Mun_Kingdom<span class="ot">=</span><span class="fu">paste0</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>clust4_MSA)</span>
-<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(meta_taxo2,<span class="at">file=</span><span class="st">"meta_taxo_4_clusters.csv"</span>)</span>
-<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">table</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>clust4_MSA))</span>
-<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">table</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>clust4_Mun))</span>
-<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">table</span>(meta_taxo2<span class="sc">$</span>clust4_Mun,meta_taxo2<span class="sc">$</span>clust4_MSA))</span>
-<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>The table below correlates the clusters with the Phylum information.</span>
-<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
-<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a>MSA_table<span class="ot">=</span><span class="fu">melt</span>(<span class="fu">table</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>Phylum,meta_taxo2<span class="sc">$</span>clust4_MSA))</span>
-<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(MSA_table)<span class="ot">=</span><span class="fu">c</span>(<span class="st">"Kingdom"</span>,<span class="st">"Phylum"</span>,<span class="st">"cluster_MSA"</span>,<span class="st">"N"</span>)</span>
-<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a>MSA_table<span class="ot">=</span>MSA_table <span class="sc">%&gt;%</span> <span class="fu">filter</span>(N<span class="sc">!=</span><span class="dv">0</span>)</span>
-<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(MSA_table)</span>
-<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="in">                      message = FALSE, out.width = "100%",</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="in">                      cache.lazy = FALSE)</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="in">pdf="TRUE"</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="in">library(igraph)</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="in">library(ComplexHeatmap)</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="in">library(viridis)</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="in">library(circlize)</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="in">library(plotly)</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="in">library(randomcoloR)</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="in">library(factoextra)</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="in">library(RColorBrewer)</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="in">library(kableExtra)</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="in">library(igraph)</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="in">library(GGally)</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file=</span><span class="st">'metadag_work_space.RData'</span>)</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="fu"># Clusters analysis</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>In the Eukaryotes test, we aimed to analyze which factors caused some algae and plants to be distinguished from their respective kingdoms. To address this question, we revisited the core metabolism obtained with MetaDAG, focusing on each cluster.</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span><span class="fu">names</span>(Results)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span>reactions[<span class="fu">grep</span>(<span class="st">"(^R</span><span class="sc">\\</span><span class="st">d{5})"</span>,reactions)]</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span><span class="fu">tibble</span>(reactions)</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span>reactions <span class="sc">%&gt;%</span> <span class="fu">separate</span>(reactions, <span class="at">into=</span><span class="fu">c</span>(<span class="st">"r_id"</span>,<span class="st">"enzyme"</span>),<span class="at">sep=</span><span class="st">"</span><span class="sc">\\</span><span class="st">("</span>,<span class="at">remove=</span><span class="cn">FALSE</span>)</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>reactions<span class="ot">=</span>reactions <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">enzyme=</span><span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">(|</span><span class="sc">\\</span><span class="st">)"</span>,<span class="st">""</span>,enzyme))</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="co">#reactions=reactions[,-3]</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>reactions<span class="sc">$</span>rev<span class="ot">=</span>stringr<span class="sc">::</span><span class="fu">str_detect</span>(reactions<span class="sc">$</span>r_id,<span class="st">"v"</span>)</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>The results of the clusters are compared to the classification of Kingdoms for both similarity measures:</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>clust4_MSA2<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">mDAG_Id=</span><span class="fu">names</span>(clust4_MSA), <span class="at">clust4_MSA=</span>clust4_MSA)</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>clust4_Mun2<span class="ot">=</span><span class="fu">tibble</span>(<span class="at">mDAG_Id=</span><span class="fu">names</span>(clust4_Mun), <span class="at">clust4_Mun=</span>clust4_Mun)</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>meta_taxo2<span class="ot">=</span>meta_taxo</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>meta_taxo2<span class="ot">=</span>meta_taxo2 <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(clust4_MSA2,<span class="at">by=</span> <span class="st">"mDAG_Id"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(clust4_Mun2,<span class="at">by=</span> <span class="st">"mDAG_Id"</span>)</span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>meta_taxo2<span class="sc">$</span>combined_cluster_MSA_Kingdom<span class="ot">=</span><span class="fu">paste0</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>clust4_MSA)</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>meta_taxo2<span class="sc">$</span>combined_cluster_Mun_Kingdom<span class="ot">=</span><span class="fu">paste0</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>clust4_MSA)</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(meta_taxo2,<span class="at">file=</span><span class="st">"meta_taxo_4_clusters.csv"</span>)</span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">table</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>clust4_MSA))</span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">table</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>clust4_Mun))</span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">table</span>(meta_taxo2<span class="sc">$</span>clust4_Mun,meta_taxo2<span class="sc">$</span>clust4_MSA))</span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>The table below correlates the clusters with the Phylum information.</span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a>MSA_table<span class="ot">=</span><span class="fu">melt</span>(<span class="fu">table</span>(meta_taxo2<span class="sc">$</span>Kingdom,meta_taxo2<span class="sc">$</span>Phylum,meta_taxo2<span class="sc">$</span>clust4_MSA))</span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(MSA_table)<span class="ot">=</span><span class="fu">c</span>(<span class="st">"Kingdom"</span>,<span class="st">"Phylum"</span>,<span class="st">"cluster_MSA"</span>,<span class="st">"N"</span>)</span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>MSA_table<span class="ot">=</span>MSA_table <span class="sc">%&gt;%</span> <span class="fu">filter</span>(N<span class="sc">!=</span><span class="dv">0</span>)</span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(MSA_table)</span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

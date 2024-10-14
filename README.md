@@ -1,15 +1,6 @@
 ---
-title: "MetaDag"
-author: "Biocom"
-date: "2024-10-08"
-output: 
-  html_document: 
-    self_contained: false
-    mode: selfcontained
-    keep_md: true
+
 ---
-
-
 
 ## MetaDag example supplementary material
 

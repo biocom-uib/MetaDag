@@ -1,6 +1,6 @@
 ```{r  include=FALSE,message=FALSE}
 knitr::opts_chunk$set(echo = TRUE,
-                      cache=FALSE,
+                      cache=TRUE,
                       warning = FALSE,
                       message = FALSE, out.width = "100%",cache.lazy=FALSE)
 pdf="TRUE"
@@ -231,8 +231,6 @@ size_list_raw= lapply(Organism,FUN=function(x) size_MBB(x))
 names(size_list_raw)=Organism
 ```
 
-Kingdom=weak_components_size\$Kingdom
-
 ```{r ,warning=FALSE,cache=FALSE}
 size_MBB_df=do.call(rbind,size_list_raw)
 max(size_MBB_df$size)
@@ -283,7 +281,8 @@ table_wcc_size=tibble(Order=1:dim(aux)[1],
                       Fungi=aux[,2],
                       Plants=aux[,3],
                       Protists=aux[,4])
-knitr::kable(table_wcc_size)%>% kable_styling(bootstrap_options = "striped", full_width = FALSE) %>%
+knitr::kable(table_wcc_size, 
+             caption = "Weak Connected Componet Size")%>% kable_styling(bootstrap_options = "striped", full_width = FALSE) %>%
   scroll_box(height = "300px", width = "100%")
 ```
 
@@ -293,7 +292,7 @@ A table with the frequencies of the MBBs sizes displayed by Kingdom can be obtai
 size_MBB_df_table= size_MBB_df %>% group_by(Kingdom,size) %>% summarise(n=n())
 
 table_MBB_size = size_MBB_df_table %>% pivot_wider(names_from = Kingdom, values_from = n, values_fill = list(n = 0)) %>% arrange(size)
-knitr::kable(table_MBB_size)%>% kable_styling(bootstrap_options = "striped", full_width = FALSE) %>% scroll_box(height = "300px", width = "100%")
+knitr::kable(table_MBB_size, caption = "MBB Size: Frequency by Kingdom")%>% kable_styling(bootstrap_options = "striped", full_width = FALSE) %>% scroll_box(height = "300px", width = "100%")
 ```
 
 ```{r include=FALSE}
